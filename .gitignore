@@ -53,3 +53,5 @@ HELP.md
 /.nb-gradle/
 ### VS Code ###
 .vscode/
+# 测试代码不提交
+test/
