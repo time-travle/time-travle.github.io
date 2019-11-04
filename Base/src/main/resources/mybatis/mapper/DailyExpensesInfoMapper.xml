@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.joven.base.mapper.DailyExpensesInfoMapper">
+    <!--开启二级缓存，空标签即可表示开启缓存-->
+    <cache/>
+    <sql id="inf_daily_expenses_column_list">
+            t.id,
+            t.name,
+            t.value,
+            t.currency,
+            t.paymentMethod,
+            t.reason,
+            t.eff_time,
+            t.inputTime,
+            t.haveCertificate,
+            t.isreturn,
+            t.sub_id,
+            t.informationSources,
+            t.remark1,
+            t.remark2
+    </sql>
+    <!--    <select id="queryAll" resultMap="com.joven.base.entity.DailyExpensesInfoEntity" parameterType="String">
+            select t.id,t.name,t.value,t.currency,t.paymentMethod,t.reason from inf_daily_expenses t where id=${id};
+        </select>-->
+
+    <select id="getInfoById" parameterType="String" resultType="com.joven.base.entity.DailyExpensesInfoEntity">
+        select
+        <include refid="inf_daily_expenses_column_list"></include>
+        from inf_daily_expenses t
+         where id=${id}
+    </select>
+    <select id="getInfoByIds" parameterType="String" resultType="com.joven.base.entity.DailyExpensesInfoEntity">
+        select t.id,t.name,t.value,t.currency,t.paymentMethod,t.reason from inf_daily_expenses t 
+        where 
+        <foreach collection="">
+
+        </foreach>
+    </select>
+
+</mapper>

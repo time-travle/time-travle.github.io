@@ -6,9 +6,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/hello")
 public class HelloWord {
-    @Override
+
     @RequestMapping(value = "/sayhello")
-    public String toString() {
+    public String sayhello() {
         return "Hello Word!";
+    }
+    @RequestMapping(value = "/sayhelloinhtml")
+    public String sayHelloByHtml(){
+        return "index";
     }
 }
