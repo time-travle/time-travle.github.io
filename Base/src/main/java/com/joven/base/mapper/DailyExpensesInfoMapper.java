@@ -7,12 +7,13 @@ import java.util.List;
 
 public interface DailyExpensesInfoMapper {
 
-    List<DailyExpensesInfoEntity> getAllInfos();
+    List<DailyExpensesInfoEntity> getAllInfos(int beginNum, int pageSizeNum);
 
     DailyExpensesInfoEntity getInfoById(String id);
 
     List<DailyExpensesInfoEntity> getInfoByIds(List<String> ids);
 
-    Boolean modifyInfoById(String id);
+    Boolean modifyInfoById(DailyExpensesInfoEntity dailyExpensesInfo);
 
+    void deleteInfoByIds(List<String> ids);
 }

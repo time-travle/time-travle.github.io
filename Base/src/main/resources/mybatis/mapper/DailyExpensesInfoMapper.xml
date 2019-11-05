@@ -20,9 +20,13 @@
             t.remark1,
             t.remark2
     </sql>
-    <!--    <select id="queryAll" resultMap="com.joven.base.entity.DailyExpensesInfoEntity" parameterType="String">
-            select t.id,t.name,t.value,t.currency,t.paymentMethod,t.reason from inf_daily_expenses t where id=${id};
-        </select>-->
+    <select id="getAllInfos" resultType="com.joven.base.entity.DailyExpensesInfoEntity" parameterType="int">
+        select
+        <include refid="inf_daily_expenses_column_list"></include>
+        from inf_daily_expenses t
+        order by eff_time desc
+        limit ${beginNum} , ${pageSizeNum}
+    </select>
 
     <select id="getInfoById" parameterType="String" resultType="com.joven.base.entity.DailyExpensesInfoEntity">
         select
@@ -30,6 +34,7 @@
         from inf_daily_expenses t
          where id=${id}
     </select>
+
     <select id="getInfoByIds" parameterType="String" resultType="com.joven.base.entity.DailyExpensesInfoEntity">
         select t.id,t.name,t.value,t.currency,t.paymentMethod,t.reason from inf_daily_expenses t 
         where 

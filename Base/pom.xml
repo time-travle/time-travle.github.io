@@ -51,7 +51,7 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>-->
-		<!--日志输出-->
+		<!--日志输出 同时让代码更简洁-->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
