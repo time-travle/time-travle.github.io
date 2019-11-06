@@ -38,14 +38,13 @@ public class DailyExpensesInfoServiceImpl implements DailyExpensesInfoService {
 
     @Override
     public List<DailyExpensesInfoEntity> getInfoByIds(List<String> ids) {
-        dailyExpensesInfoMapper.getInfoByIds(ids);
-        return null;
+        return  dailyExpensesInfoMapper.getInfoByIds(ids);
+
     }
 
     @Override
     public Boolean modifyInfoById(DailyExpensesInfoEntity targetInfo) {
-        dailyExpensesInfoMapper.modifyInfoById(targetInfo);
-        return null;
+        return dailyExpensesInfoMapper.modifyInfoById(targetInfo);
     }
 
     @Transactional(rollbackFor = Exception.class)

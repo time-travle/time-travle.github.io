@@ -33,7 +33,7 @@ public class DailyExpensesInfo {
 
     @RequestMapping(value = "/delete")
     public void deleteInfoByIds(List<String> ids) {
-        //TODO
+
         dailyExpensesInfoService.deleteInfoByIds(ids);
     }
 
@@ -46,13 +46,12 @@ public class DailyExpensesInfo {
 
     @RequestMapping(value = "/modify")
     public String modifyInfo(DailyExpensesInfoEntity targetInfo) {
-        //TODO
+
         return dailyExpensesInfoService.modifyInfoById(targetInfo).toString();
     }
 
     @RequestMapping(value = "/getInfos")
     public List<DailyExpensesInfoEntity> getInfoByIds(List<String> ids) {
-        //TODO
         return dailyExpensesInfoService.getInfoByIds(ids);
     }
 }
