@@ -1,19 +1,22 @@
 /**
  * Project Name: ershuaizhang.github.io
- * File Name: BaseInterfaceConstants
+ * File Name: ConstUtils
  * Package Name: com.joven.base.common
- * Date: 2019/11/5 22:13
+ * Date: 2019/11/8 22:45
  * Copyright (c) 2019,All Rights Reserved.
  */
 package com.joven.base.common;
 
 /**
- * CreateBy Notebook
- * Date: 2019/11/5 22:13
+ * CreateBy Administrator
+ * Date: 2019/11/8 22:45
  * Version: 
- * Remark: 接口常量类
+ * Remark: 
  */
-public interface BaseInterfaceConstants {
+public class ConstUtils {
+    private ConstUtils() {
+        throw new UnsupportedOperationException("u can't instantiate me...");
+    }
 
     /******************** 存储相关常量 ********************/
     /**
@@ -36,6 +39,7 @@ public interface BaseInterfaceConstants {
     public enum MemoryUnit {
         BYTE, KB, MB, GB
     }
+
     /******************** 时间相关常量 ********************/
     /**
      * 毫秒与毫秒的倍数
@@ -61,6 +65,7 @@ public interface BaseInterfaceConstants {
     public enum TimeUnit {
         MSEC, SEC, MIN, HOUR, DAY
     }
+
     /******************** 正则相关常量 ********************/
     /**
      * 正则：手机号（简单）

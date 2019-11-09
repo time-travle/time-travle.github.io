@@ -2,8 +2,9 @@ server:
   port: 8080
   tomcat:
     uri-encoding: UTF-8
-
-
+    max-threads: 100
+  servlet:
+    context-path: /Base
 spring:
   thymeleaf:
     prefix: classpath:/templates/
@@ -15,9 +16,9 @@ spring:
     encoding: UTF-8
     cache: true
   datasource:
-    url: jdbc:mysql://192.168.1.5:3306/subs_user?autoReconnect=true&useUnicode=true&createDatabaseIfNotExist=true&characterEncoding=utf8&useSSL=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/subs_user?autoReconnect=true&useUnicode=true&createDatabaseIfNotExist=true&characterEncoding=utf8&useSSL=true&serverTimezone=UTC
     username: subs_user
-    password: joven_subs123$
+    password: subs_user
     driver-class-name: com.mysql.cj.jdbc.Driver
     name: subs_user
   mvc:

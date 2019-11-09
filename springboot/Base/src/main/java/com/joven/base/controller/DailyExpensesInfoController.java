@@ -13,7 +13,7 @@ import java.util.List;
 
 @RequestMapping(value = "/dailyExpensesInfo")
 @RestController
-public class DailyExpensesInfo {
+public class DailyExpensesInfoController {
     @Autowired
     DailyExpensesInfoService dailyExpensesInfoService;
 
