@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--顺序不能变-->
+   <!-- <properties></properties>-->
+    <settings>
+        <!--开启二级缓存，true表示开启，默认是关闭的-->
+        <setting name="cacheEnabled" value="true" />
+    </settings>
+    <typeAliases>
+        <package name="com.joven.base.entity"/>
+    </typeAliases>
+    <!--<typeHandlers></typeHandlers>
+    <objectFactory type=""></objectFactory>
+    <plugins>
+        <plugin interceptor=""></plugin>
+    </plugins>
+    <environments default="">
+        <environment id="">
+            <transactionManager type=""></transactionManager>
+            <dataSource type=""></dataSource>
+        </environment>
+    </environments>
+    <databaseIdProvider type=""></databaseIdProvider>
+    <mappers>
+        <package name="com.joven.base.mapper"/>
+    </mappers>-->
+</configuration>

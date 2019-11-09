@@ -1,0 +1,42 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 100
+  servlet:
+    context-path: /Base
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    check-template: true
+    check-template-location: true
+    enabled: true
+    encoding: UTF-8
+    cache: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/subs_user?autoReconnect=true&useUnicode=true&createDatabaseIfNotExist=true&characterEncoding=utf8&useSSL=true&serverTimezone=UTC
+    username: subs_user
+    password: subs_user
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    name: subs_user
+  mvc:
+    static-path-pattern: classpath:/static/
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+mybatis:
+  mapper-locations: classpath:/mybatis/mapper/*Mapper.xml
+  config-location: classpath:/mybatis/config/mybatis-config.xml
+  type-aliases-package: com.joven.base.entity
+
+
+#https://blog.csdn.net/qq_27317475/article/details/81168241
+pagehelper:
+  helper-dialect: mysql
+  params: count=countSql
+  reasonable: true
+  support-methods-arguments: true
