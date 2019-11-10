@@ -1,8 +1,10 @@
 package com.joven.base.service.impl;
 
-import com.github.pagehelper.PageInfo;
+import com.alibaba.fastjson.JSONObject;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.joven.base.entity.DailyExpensesInfoEntity;
-import com.joven.base.entity.DailyExpensesInfoReq;
+import com.joven.base.entity.DailyExpensesInfoResp;
+import com.joven.base.entity.ResponseBody;
 import com.joven.base.mapper.DailyExpensesInfoMapper;
 import com.joven.base.service.DailyExpensesInfoService;
 import com.joven.base.utils.BaseValidateUtil;
@@ -22,10 +24,27 @@ public class DailyExpensesInfoServiceImpl implements DailyExpensesInfoService {
     DailyExpensesInfoMapper dailyExpensesInfoMapper;
 
     @Override
-    public List<DailyExpensesInfoEntity> getAllInfos(Integer begin, Integer pageSize) {
-	    Assert.isTrue(BaseValidateUtil.isNumericByAscill(begin.toString()),"begin is not Numeric");
+    public DailyExpensesInfoResp getAllInfos(Integer begin, Integer pageSize) {
+	    log.debug("getAllInfos --->req:begin:",begin,"  pageSize:",pageSize);
+        // 用来分页查询的入参不能为空
+        Assert.isTrue(BaseValidateUtil.isNumericByAscill(begin.toString()),"begin is not Numeric");
 	    Assert.isTrue(BaseValidateUtil.isNumericByAscill(pageSize.toString()),"pageSize is not Numeric");
-	    return dailyExpensesInfoMapper.getAllInfos(begin,pageSize);
+
+	    DailyExpensesInfoResp resp = new DailyExpensesInfoResp();
+        ResponseBody responseBody = new ResponseBody("0","success","");
+
+        try{
+            List<DailyExpensesInfoEntity> infos = dailyExpensesInfoMapper.getAllInfos(begin, pageSize);
+            resp.setInfos(infos);
+        }catch (Exception e){
+            responseBody.setReturnCode("-1");
+            responseBody.setSuccessMessage("");
+            responseBody.setErrorMessage("查询失败");
+        }
+
+        resp.setResponseBody(responseBody);
+
+	    return resp;
     }
 
     @Override
@@ -37,20 +56,38 @@ public class DailyExpensesInfoServiceImpl implements DailyExpensesInfoService {
     }
 
     @Override
-    public List<DailyExpensesInfoEntity> getInfoByIds(List<String> ids) {
-        return  dailyExpensesInfoMapper.getInfoByIds(ids);
+    public DailyExpensesInfoResp getInfoByIds(List<String> ids) {
+        log.debug("getInfoByIds req -->", JSONObject.toJSON(ids));
+
+        dailyExpensesInfoMapper.getInfoByIds(ids);
+
+        return new DailyExpensesInfoResp();
 
     }
 
     @Override
-    public Boolean modifyInfoById(DailyExpensesInfoEntity targetInfo) {
-        return dailyExpensesInfoMapper.modifyInfoById(targetInfo);
+    public ResponseBody modifyInfoById(DailyExpensesInfoEntity targetInfo) {
+        dailyExpensesInfoMapper.modifyInfoById(targetInfo);
+        return new ResponseBody("0","success","");
     }
 
     @Transactional(rollbackFor = Exception.class)
     @Override
-    public void deleteInfoByIds(List<String> ids) {
+    public ResponseBody deleteInfoByIds(List<String> ids) {
         dailyExpensesInfoMapper.deleteInfoByIds(ids);
+        return  new ResponseBody("0","success","");
+    }
+
+    @Override
+    public ResponseBody bathModifyInfoById(List<DailyExpensesInfoEntity> lists) {
+        dailyExpensesInfoMapper.bathModifyInfoById(lists);
+        return new ResponseBody("0","success","");
+    }
+
+    @Override
+    public ResponseBody bathInsertInfos(List<DailyExpensesInfoEntity> lists) {
+        dailyExpensesInfoMapper.bathInsertInfos(lists);
+        return new ResponseBody("0","success","");
     }
 
 

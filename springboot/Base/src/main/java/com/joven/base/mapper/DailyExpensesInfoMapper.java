@@ -13,9 +13,9 @@ public interface DailyExpensesInfoMapper {
 
     List<DailyExpensesInfoEntity> getInfoByIds(List<String> ids);
 
-    Boolean modifyInfoById(DailyExpensesInfoEntity dailyExpensesInfo);
+    void modifyInfoById(DailyExpensesInfoEntity dailyExpensesInfo);
 
-    Boolean bathModifyInfoById(List<DailyExpensesInfoEntity> lists);
+    void bathModifyInfoById(List<DailyExpensesInfoEntity> lists);
 
     void bathInsertInfos(List<DailyExpensesInfoEntity> lists);
 

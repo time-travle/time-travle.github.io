@@ -1,20 +1,25 @@
 package com.joven.base.service;
 
-import com.github.pagehelper.PageInfo;
 import com.joven.base.entity.DailyExpensesInfoEntity;
+import com.joven.base.entity.DailyExpensesInfoResp;
+import com.joven.base.entity.ResponseBody;
 
 import java.util.List;
 
 
 public interface DailyExpensesInfoService {
 
-    List<DailyExpensesInfoEntity> getAllInfos(Integer begin, Integer pageSize);
+    DailyExpensesInfoResp getAllInfos(Integer begin, Integer pageSize);
 
     DailyExpensesInfoEntity getInfoById(String id);
 
-    List<DailyExpensesInfoEntity> getInfoByIds(List<String> ids);
+    DailyExpensesInfoResp getInfoByIds(List<String> ids);
 
-    Boolean modifyInfoById(DailyExpensesInfoEntity targetInfo);
+    ResponseBody modifyInfoById(DailyExpensesInfoEntity targetInfo);
 
-    void deleteInfoByIds(List<String> ids);
+    ResponseBody deleteInfoByIds(List<String> ids);
+
+    ResponseBody bathModifyInfoById (List<DailyExpensesInfoEntity> lists);
+
+    ResponseBody bathInsertInfos(List<DailyExpensesInfoEntity> lists);
 }
