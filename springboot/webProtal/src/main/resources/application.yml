@@ -1,0 +1,26 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 100
+  servlet:
+    context-path: /WebProtal
+  port: 9080
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    check-template: true
+    check-template-location: true
+    enabled: true
+    encoding: UTF-8
+    cache: true
+  mvc:
+    static-path-pattern: classpath:/static/
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+  profiles:
+    active: url

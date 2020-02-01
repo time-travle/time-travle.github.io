@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/com_user?autoReconnect=true&useUnicode=true&createDatabaseIfNotExist=true&characterEncoding=utf8&useSSL=true&serverTimezone=UTC
+    username: (4sys)K5fR1hW6LDUY/p/s1XUv3PEfNEpRlcCqRhIzt3WYu9c=
+    password: (4sys)y4orJdaOvnJUmNH2w6wMZjpVoxhuWn3j22XE7EmdR/Q=
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    name: (4sys)9icl3fBYxItvS8WYCBsAV2+gtaMdi8QulrOGbbqhdi8=

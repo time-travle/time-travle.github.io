@@ -1,0 +1,11 @@
+logging:
+  file:
+    name: ./logs/common.log
+    clean-history-on-start: true
+    max-history: 5
+  level:
+    org.joven.common: debug
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss.SSS
+
+
