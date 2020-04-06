@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="author" content="zhangshuai">
-	<title>blog of joven</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="zhang_shuai">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <title>blog of joven</title>
 </head>
-<body>
-<div id="app">
-	<p>{{ message }}</p>
+<body style="text-align: center;">
+
+<div>
+    <a href="./springboot/webProtal/src/main/resources/static/main/main-index.html"> 点我 有惊喜</a>
 </div>
-<a href="./springboot/webProtal/src/main/resources/static/lover/love.html"> 点我 有惊喜</a>
+<div id="clock"></div>
+
+
+
 </body>
-<script>
-    new Vue({
-        el: '#app',
-        data: {
-            message: 'Hello Vue.js!'
-        }
-    })
-</script>
+
 </html>
+<script>
+    window.onload = function() {
+        $("#clock").load('./springboot/webProtal/src/main/resources/static/public/html/clock.html');
+    }
+</script>
