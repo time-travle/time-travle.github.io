@@ -7,6 +7,9 @@
  */
 package org.joven.base.utils;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.time.DateFormatUtils;
+
 import java.security.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -169,11 +172,11 @@ public class DateUtils {
      *
      * @param timestamp
      *            Timestamp类型时间
-     * @param timeFromat
+     * @param timeFormat
      * @return 格式化后的字符串
      */
-    public static String parseTimestampToStr(Timestamp timestamp, String timeFromat) {
-        SimpleDateFormat df = new SimpleDateFormat(timeFromat);
+    public static String parseTimestampToStr(Timestamp timestamp, String timeFormat) {
+        SimpleDateFormat df = new SimpleDateFormat(timeFormat);
         return df.format(timestamp);
     }
 
@@ -218,6 +221,174 @@ public class DateUtils {
         } catch (Exception e) {
             return defaultValue;
         }
+    }
+
+    /**
+     * Date时间类型转换String
+     *  date传null获取当前时间
+     *  时间格式yyyy-MM-dd HH:mm
+     * @param date
+     * @param pattern
+     * @return String
+     */
+    public static String formatDate(Date date, String pattern) {
+        if (date == null) {
+            date = new Date(System.currentTimeMillis());
+        }
+        if (pattern == null) {
+            pattern = DATE_TIME_FORMAT_YYYY_MM_DD_HH_MI;
+        }
+        return DateFormatUtils.format(date, pattern);
+    }
+    /**
+     * 获取当前时间Date类型
+     *  Created on 2014-6-6
+     * @return Date
+     */
+    public static Date parseDateFormat() {
+        SimpleDateFormat fo = new SimpleDateFormat();
+        Date date = new java.util.Date(System.currentTimeMillis());
+        fo.applyPattern("yyyy-MM-dd");
+        try {
+            date = fo.parse(DateFormatUtils.format(date, "yyyy-MM-dd"));
+        } catch (Exception e) {
+
+        }
+        return date;
+    }
+    /**
+     * 获得当前的日期毫秒
+     *
+     * @return
+     */
+    public static long nowTimeMillis() {
+        return System.currentTimeMillis();
+    }
+
+    /**
+     * 计算 second 秒后的时间
+     *
+     * @param date
+     * @param second
+     * @return
+     */
+    public static Date addSecond(Date date, int second) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        ;
+        calendar.add(Calendar.SECOND, second);
+        return calendar.getTime();
+    }
+    /**
+     * 计算 minute 分钟后的时间
+     *
+     * @param date
+     * @param minute
+     * @return
+     */
+    public static Date addMinute(Date date, int minute) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.MINUTE, minute);
+        return calendar.getTime();
+    }
+    /**
+     * 计算 hour 小时后的时间
+     *
+     * @param date
+     * @param minute
+     * @return
+     */
+    public static Date addHour(Date date, int hour) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.HOUR, hour);
+        return calendar.getTime();
+    }
+
+    /**
+     * 得到day的起始时间点。
+     *
+     * @param date
+     * @return
+     */
+    public static Date getDayStart(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        return calendar.getTime();
+    }
+
+    /**
+     * 计算 day 天后的时间
+     *
+     * @param date
+     * @param day
+     * @return
+     */
+    public static Date addDay(Date date, int day) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.DAY_OF_MONTH, day);
+        return calendar.getTime();
+    }
+
+    /**
+     * 得到month的终止时间点.
+     *
+     * @param date
+     * @return
+     */
+    public static Date getMonthEnd(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        calendar.add(Calendar.MONTH, 1);
+        calendar.add(Calendar.MILLISECOND, -1);
+        return calendar.getTime();
+    }
+
+    public static Date addYear(Date date, int year) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.DAY_OF_YEAR, 365 * year);
+        return calendar.getTime();
+    }
+    /**
+     * islegal:判断日期字符串是否合法 <br/>
+     * 合法返回true，不合法返回false.<br/>
+     *
+     * @param dateStr
+     *            a String
+     * @return boolean value <br/>
+     */
+    public static boolean isLegal(String dateStr) {
+        if (StringUtils.isAllEmpty(dateStr)) {
+            return false;
+        }
+        int sourceLength = dateStr.length();
+        try {
+            switch (sourceLength){
+                case 8 :
+                    org.apache.commons.lang3.time.DateUtils.parseDateStrictly(dateStr, new String[] { DATE_FORMAT_YYYYMMDD });
+                    break;
+                case 14 :
+                    org.apache.commons.lang3.time.DateUtils.parseDateStrictly(dateStr, new String[] { DATE_FORMAT_YYYYMMDDHHmm });
+                    break;
+                default:
+                    return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 
     /**
