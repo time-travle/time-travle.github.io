@@ -1,3 +1,29 @@
+#mainPage{
+    margin: 5px;
+
+}
+#headerContent{
+
+}
+#leftContent{
+
+}
+#mainContent{
+
+}
+#rightContent{
+
+}
+#footer{
+    height: 34%;
+    background-color: aquamarine;
+    margin: 5%;
+    margin-bottom: 14px;
+}
 .center{
+    text-align: center
+}
+.innertube{
+    margin: 5px;
 
 }
