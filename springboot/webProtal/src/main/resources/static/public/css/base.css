@@ -1,29 +1,41 @@
-#mainPage{
-    margin: 5px;
-
+#wrap{
+    width:100%;
+    margin:0 auto;
+    text-align: center;
 }
-#headerContent{
-
+#header{
+    margin:20px;
+    height:80px;
+    border:solid 1px #0000FF;
 }
-#leftContent{
-
+#container{
+    position:relative;
+    margin:20px;
+    height:400px;
 }
-#mainContent{
-
+#left_side{
+    position:absolute;
+    top:0px;
+    left:0px;
+    border:solid 1px #0000FF;
+    width:170px;
+    height:100%;
 }
-#rightContent{
-
+#content{
+    margin:0px 190px 0px 190px;
+    border:solid 1px #0000FF;
+    height:100%;
+}
+#right_side{
+    position:absolute;
+    top:0px;
+    right:0px;
+    border:solid 1px #0000FF;
+    width:170px;
+    height:100%;
 }
 #footer{
-    height: 34%;
-    background-color: aquamarine;
-    margin: 5%;
-    margin-bottom: 14px;
-}
-.center{
-    text-align: center
-}
-.innertube{
-    margin: 5px;
-
+    margin:20px;
+    height:80px;
+    border:solid 1px #0000FF;
 }
