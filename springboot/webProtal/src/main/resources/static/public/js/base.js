@@ -17,6 +17,8 @@ window.onload = function() {
     $("#foot").load(location.web.staticpath +"/public/html/footer.html");
 }
 function backToHomePage() {
+    $("#header").load(location.web.staticpath +'/blog/menupage/upmenu.html');
+    $("#container").load(location.web.staticpath +'/blog/contentpage/container.html');
     $("#content").load(location.web.staticpath +"/public/html/blank.html");
 }
 function backToFirstPage(){
