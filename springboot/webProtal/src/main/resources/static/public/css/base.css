@@ -36,7 +36,7 @@ html,body{
     height:100%;
     width: 80%;
     overflow-y: auto;
-    /*background-image: url("../imge/bgp_1.jpg");*/
+    background-image: url("../imge/bgp_1.jpg");
     background-size: cover;
     z-index: -1;
 }
