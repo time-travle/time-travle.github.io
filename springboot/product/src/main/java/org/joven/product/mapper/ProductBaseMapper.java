@@ -1,5 +1,5 @@
 /**
- * Project Name: ershuaizhang.github.io
+ * Project Name: blog project
  * File Name: ProductBaseMapper
  * Package Name: org.joven.product.mapper
  * Date: 2020/1/31 20:30

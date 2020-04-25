@@ -1,5 +1,5 @@
 /**
- * Project Name: ershuaizhang.github.io
+ * Project Name: blog project
  * File Name: SubcriberUtils
  * Package Name: org.joven.subscriber.utils
  * Date: 2019/12/31 22:45

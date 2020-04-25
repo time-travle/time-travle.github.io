@@ -1,5 +1,5 @@
 /**
- * Project Name: ershuaizhang.github.io
+ * Project Name: blog project
  * File Name: SystemConstants
  * Package Name: org.joven.system.common
  * Date: 2020/1/31 21:04

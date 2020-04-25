@@ -1,5 +1,5 @@
 /**
- * Project Name: ershuaizhang.github.io
+ * Project Name: blog project
  * File Name: BaseInterfaceConstants
  * Package Name: org.joven.base.common
  * Date: 2019/11/5 22:13

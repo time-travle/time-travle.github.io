@@ -1,5 +1,5 @@
 /**
- * Project Name: ershuaizhang.github.io
+ * Project Name: blog project
  * File Name: ProductConstants
  * Package Name: org.joven.product.common
  * Date: 2020/1/31 20:29

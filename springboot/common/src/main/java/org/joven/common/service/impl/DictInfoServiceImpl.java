@@ -1,5 +1,5 @@
 /**
- * Project Name: ershuaizhang.github.io
+ * Project Name: blog project
  * File Name: DictInfoServiceImpl
  * Package Name: org.joven.common.service.impl
  * Date: 2020/1/5 20:23

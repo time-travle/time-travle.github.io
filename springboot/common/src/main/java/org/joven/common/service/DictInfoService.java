@@ -1,5 +1,5 @@
 /**
- * Project Name: ershuaizhang.github.io
+ * Project Name: blog project
  * File Name: DictService
  * Package Name: org.joven.common.service
  * Date: 2020/1/5 20:22

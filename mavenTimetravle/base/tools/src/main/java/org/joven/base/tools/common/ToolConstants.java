@@ -1,5 +1,5 @@
 /**
- * Project Name: ershuaizhang.github.io
+ * Project Name: blog project
  * File Name: ToolConstants
  * Package Name: org.joven.base.tools.common
  * Date: 2020/3/13 23:27

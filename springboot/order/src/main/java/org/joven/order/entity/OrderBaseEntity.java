@@ -1,5 +1,5 @@
 /**
- * Project Name: ershuaizhang.github.io
+ * Project Name: blog project
  * File Name: OrderBaseEntity
  * Package Name: org.joven.order.entity
  * Date: 2020/1/31 19:55

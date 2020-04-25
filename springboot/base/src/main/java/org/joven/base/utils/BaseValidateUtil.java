@@ -1,5 +1,5 @@
 /**
- * Project Name: ershuaizhang.github.io
+ * Project Name: blog project
  * File Name: BaseValidateUtil
  * Package Name: org.joven.base.utils
  * Date: 2019/11/6 0:26

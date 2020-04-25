@@ -1,5 +1,5 @@
 /**
- * Project Name: ershuaizhang.github.io
+ * Project Name: blog project
  * File Name: MultimediaInfoMapper
  * Package Name: org.joven.base.mapper
  * Date: 2019/11/11 21:37

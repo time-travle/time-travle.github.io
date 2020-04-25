@@ -1,5 +1,5 @@
 /**
- * Project Name: ershuaizhang.github.io
+ * Project Name: blog project
  * File Name: SequenceMapper
  * Package Name: org.joven.common.mapper
  * Date: 2020/1/5 17:31

@@ -1,5 +1,5 @@
 /**
- * Project Name: ershuaizhang.github.io
+ * Project Name: blog project
  * File Name: DictionaryInfoEntity
  * Package Name: org.joven.common.entity
  * Date: 2020/1/5 15:40

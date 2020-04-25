@@ -1,5 +1,5 @@
 /**
- * Project Name: ershuaizhang.github.io
+ * Project Name: blog project
  * File Name: SubscriberConstants
  * Package Name: org.joven.subscriber.common
  * Date: 2019/12/31 22:37

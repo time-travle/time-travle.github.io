@@ -1,5 +1,5 @@
 /**
- * Project Name: ershuaizhang.github.io
+ * Project Name: blog project
  * File Name: SequenceUtil
  * Package Name: org.joven.base.common
  * Date: 2019/11/8 21:28

@@ -1,5 +1,5 @@
 /**
- * Project Name: ershuaizhang.github.io
+ * Project Name: blog project
  * File Name: DailyExpensesInfoReq
  * Package Name: org.joven.base.entity
  * Date: 2019/11/5 23:14

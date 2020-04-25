@@ -1,5 +1,5 @@
 /**
- * Project Name: ershuaizhang.github.io
+ * Project Name: blog project
  * File Name: CertificateBaseEntity
  * Package Name: org.joven.certificate.entity
  * Date: 2020/1/31 19:36

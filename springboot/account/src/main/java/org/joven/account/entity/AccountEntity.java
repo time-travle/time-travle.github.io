@@ -1,5 +1,5 @@
 /**
- * Project Name: ershuaizhang.github.io
+ * Project Name: blog project
  * File Name: AccountEntity
  * Package Name: org.joven.account.entity
  * Date: 2020/1/31 19:08

@@ -3,7 +3,7 @@ window.onload = function() {
     var path_list = location.pathname.split('resources');
     var path_static = location.pathname.split('static');
     location.web={};
-    location.web.projectname = '/ershuaizhang.github.io/';
+
     if (2==path_list.length){
         location.web.projectpath = path_list[0]+'resources';
     }

@@ -1,5 +1,5 @@
 /**
- * Project Name: ershuaizhang.github.io
+ * Project Name: blog project
  * File Name: ScheduleBaseMapper
  * Package Name: org.joven.schedule.mapper
  * Date: 2020/1/31 20:59

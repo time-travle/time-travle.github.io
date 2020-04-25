@@ -1,5 +1,5 @@
 /**
- * Project Name: ershuaizhang.github.io
+ * Project Name: blog project
  * File Name: SystemUtil
  * Package Name: org.joven.system.utils
  * Date: 2020/1/31 21:05

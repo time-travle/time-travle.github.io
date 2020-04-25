@@ -1,5 +1,5 @@
 /**
- * Project Name: ershuaizhang.github.io
+ * Project Name: blog project
  * File Name: WebInfoEntity
  * Package Name: org.joven.webprotal.entity
  * Date: 2020/1/31 21:08
