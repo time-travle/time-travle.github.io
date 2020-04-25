@@ -1,5 +1,4 @@
 function refreshContent(choose) {
-debugger;
     if (!choose) {
         return;
     }

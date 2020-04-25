@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--参考 ：https://www.ucloud.cn/yun/53473.html-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>xml格式化</title>
+    <style>
+        #xmlContent, #showXml {
+            text-align: initial;
+            margin: 5px;
+        }
+
+        #xmlContent {
+            resize: none;
+            width: 100%;
+            padding: 0px;
+            height: 100px;
+        }
+
+        #showXml {
+            height: 450px;
+            border: solid 1px darkgrey;
+            border-radius: 5px;
+            overflow: auto;
+            width: 99.6%;
+            resize: none;
+        }
+
+        .test_area {
+            width: 99%;
+        }
+    </style>
+    <script type="text/javascript">
+        formatXml = function (content) {
+            let xml_doc = null;
+            const formatContent = content.replace(/[\n\r]/g, "");
+            try {
+                xml_doc = (new DOMParser()).parseFromString(formatContent, 'text/xml');
+            } catch (e) {
+                return false;
+            }
+
+            function build_xml(list, element, level) {
+                let t = [];
+
+                /*level 节点层级。方便前面添加多少个空格缩进*/
+                for (let i = 0; i < level; i++) {
+                    t.push('  ');
+                }
+
+                t = t.join("");
+
+                list.push(t + '<<span class="code-key">' + element.nodeName + '</span>>\n');
+                for (let i = 0; i < element.childNodes.length; i++) {
+                    const childLevel = level + 1;
+                    let childItem = element.childNodes[i];
+                    let nodeName = childItem.nodeName;
+                    if (nodeName === '#text') {
+                        continue;
+                    }
+
+                    if (childItem.childNodes.length <= 1) {
+                        let value = '';
+                        if (childItem.childNodes.length === 1) {
+                            value = childItem.childNodes[0].nodeValue;
+                        }
+
+                        // 将html标签转化成实体
+                        value = value ? value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
+
+                        let value_color = !isNaN(Number(value)) ? 'code-number' : 'code-string';
+
+                        let value_txt = '<span class="' + value_color + '">' + value + '</span>';
+                        let item = t + '  <<span class="code-key">' + nodeName +
+                            '</span>>' + value_txt + '&lt;/<span class="code-key">' + nodeName + '</span>>\n';
+                        list.push(item);
+                    } else {
+                        build_xml(list, element.childNodes[i], childLevel);
+                    }
+                }
+                list.push(t + '&lt;/<span class="code-key">' + element.nodeName + '</span>>\n');
+            }
+
+            let list = [];
+            build_xml(list, xml_doc.documentElement, 0);
+            return list.join("");
+        };
+        $("#xmlContent").on("keyup blur", function () {
+            document.getElementById("showXml").innerHTML = '<pre>' + "格式不对，请检查格式" + '<pre/>';
+            var resultJson = formatXML($("#xmlContent").val());
+            //将格式化好后的json写入页面中
+            document.getElementById("showXml").innerHTML = '<pre>' + resultJson + '<pre/>';
+        })
+    </script>
+</head>
+<body>
+<h3>XML 格式化</h3>
+<div class="test_area">
+    <textarea id="xmlContent" class="" placeholder="输入 xmlString"></textarea>
+    <!--格式化后的json写入的位置-->
+    <textarea id="showXml"></textarea>
+</div>
+</body>
+</html>

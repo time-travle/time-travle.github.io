@@ -2,7 +2,6 @@ function showPersonPage(choose) {
     if (!choose) {
         return;
     }
-    debugger;
     if ("skillstack" == choose){
         $("#left_side").load(location.web.staticpath +'/blog/menupage/leftmenu.html');
     }else{
@@ -28,5 +27,14 @@ function showMediaPage(mediaType) {
     var target = '/blog/mediatype/' + mediaType + 'home.html';
     $("#content").load(location.web.staticpath + target);
     $("#left_side").load(location.web.staticpath +"/blog/mediatype/mediamenu/"+mediaType+"menu.html");
+    $("#header").load(location.web.staticpath +'/blog/menupage/upmenu.html');
+}
+function showMeToolsPage(toolName) {
+    if (!toolName) {
+        return;
+    }
+    var target = '/blog/tools/' + toolName + '.html';
+    $("#content").load(location.web.staticpath + target);
+    $("#left_side").load(location.web.staticpath +"/public/html/blank.html");
     $("#header").load(location.web.staticpath +'/blog/menupage/upmenu.html');
 }

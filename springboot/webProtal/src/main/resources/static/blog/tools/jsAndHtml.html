@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script type="text/javascript" src="../blog/tools/js/ajax.js"></script>
+  <script type="text/javascript" src="../blog/tools/js/mail.js"></script>
+  <title>
+    JS/HTML格式化
+  </title>
+  <style type="text/css">
+    #contentjsandhtml{
+      border:solid 1px darkgrey;
+      margin: 0px;
+      resize: none;
+      width: 95%;
+      height: 520px;
+    }
+  </style>
+</head>
+
+<body>
+<div>
+  <div class="title clearfix" style="margin:6px 0">
+    <div id="copyurl" class="fr">
+    </div>
+  </div>
+
+  <!-- 去了不能压缩-->
+  <script type="text/javascript" src="../blog/tools/js/base2-p.js">
+  </script>
+  <!-- 去了不能压缩-->
+  <script type="text/javascript" src="../blog/tools/js/packer-p.js">
+  </script>
+  <!-- 去了不能格式化-->
+  <script type="text/javascript" src="../blog/tools/js/beautify.js">
+  </script>
+  <script type="text/javascript" src="../blog/tools/js/beautify-tests.js">
+  </script>
+  <!-- 去了不能格式化-->
+  <script type="text/javascript" src="../blog/tools/js/HTML-Beautify.js">
+  </script>
+  <script type="text/javascript">
+    function do_js_beautify() {
+      document.getElementById('beautify').disabled = true;
+      js_source = document.getElementById('contentjsandhtml').value.replace(/^\s+/, '');
+      tabsize = document.getElementById('tabsize').value;
+      tabchar = ' ';
+      if (tabsize == 1) {
+        tabchar = '\t';
+      }
+      if (js_source && js_source.charAt(0) === '<') {
+        document.getElementById('contentjsandhtml').value = style_html(js_source, tabsize, tabchar, 80);
+      } else {
+        document.getElementById('contentjsandhtml').value = js_beautify(js_source, tabsize, tabchar);
+      }
+      document.getElementById('beautify').disabled = false;
+      return false;
+    }
+    function pack_js(base64) {
+      var input = document.getElementById('contentjsandhtml').value;
+      var packer = new Packer;
+      if (base64) {
+        var output = packer.pack(input, 1, 0);
+      } else {
+        var output = packer.pack(input, 0, 0);
+      }
+      document.getElementById('contentjsandhtml').value = output;
+    }
+  </script>
+  <div id="result">
+    <h5 class="title">
+          <span class="text">
+            <em class="icon1">
+            </em>
+            JS/HTML格式化工具离线版
+          </span>
+    </h5>
+    <div class="box">
+      <div class="con">
+        <form method="post" action="?">
+
+            <select name="tabsize" id="tabsize">
+              <option value="1">
+                制表符缩进
+              </option>
+              <option value="2" selected="selected">
+                2个空格缩进
+              </option>
+              <option value="4">
+                4个空格缩进
+              </option>
+              <option value="8">
+                8个空格缩进
+              </option>
+            </select>
+            <button onclick="return do_js_beautify()" id="beautify">
+              格式化
+            </button>
+            <input type="button" value="普通压缩" onclick="pack_js(0)">
+            <input type="button" value="加密压缩" onclick="pack_js(1)">
+
+                <textarea rows="20" cols="20"  name="contentjsandhtml" id="contentjsandhtml">
+                </textarea>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

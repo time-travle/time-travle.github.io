@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <script type="text/javascript" src="../public/js/bootstrap.min.js"></script>
+    <title>markDown</title>
+    <style>
+        #md, #html {
+            height: 275px;
+            text-align: initial;
+            margin: 5px;
+        }
+
+        #md {
+            resize: none;
+            width: 100%;
+            padding: 0px;
+        }
+
+        #html {
+            border: solid 1px darkgrey;
+            border-radius: 5px;
+            overflow: auto;
+            width: 100%;
+        }
+
+        .test_area {
+            width: 99%;
+        }
+    </style>
+</head>
+<body class="md_content">
+<h4>Mark　Down在线展示</h4>
+<div class="">
+    <div class="test_area">
+        <textarea id="md" class="" placeholder="请输入Markdown代码"></textarea>
+        <div id="html" class=""></div>
+    </div>
+</div>
+<script>
+    $("#md").on("keyup blur", function () {
+        $('#html').html(marked($("#md").val()))
+    })
+</script>
+</body>
+</html>
