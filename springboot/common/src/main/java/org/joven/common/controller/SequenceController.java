@@ -10,6 +10,7 @@ package org.joven.common.controller;
 import org.joven.common.service.SequenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -23,29 +24,28 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/common/seq")
 public class SequenceController {
-	/*
-	使用构造器注入（常量注入不提倡）必须依赖（主要）
-	 */
-	private SequenceService sequenceService;
+    /*
+    使用构造器注入（常量注入不提倡）必须依赖（主要）
+     */
+    private SequenceService sequenceService;
 
-	@Autowired
-	public SequenceController(SequenceService sequenceService) {
-		this.sequenceService = sequenceService;
-	}
+    @Autowired
+    public SequenceController(SequenceService sequenceService) {
+        this.sequenceService = sequenceService;
+    }
 
+    @RequestMapping(value = "/getCurrentSeqVal", method = RequestMethod.POST)
+    public String getCurrentSeqVal(String seqName) {
+        return sequenceService.getCurrentSeqVal(seqName);
+    }
 
-	@RequestMapping(value = "/getCurrentSeqVal")
-	public String getCurrentSeqVal(String seqName) {
-		return sequenceService.getCurrentSeqVal(seqName);
-	}
+    @RequestMapping(value = "/getSeqNextVal", method = RequestMethod.POST)
+    public String getSeqNextVal(String seqName) {
+        return sequenceService.getSeqNextVal(seqName);
+    }
 
-	@RequestMapping(value = "/getSeqNextVal")
-	public String getSeqNextVal(String seqName) {
-		return sequenceService.getSeqNextVal(seqName);
-	}
-
-	@RequestMapping(value = "/getBatchSeqVal")
-	public List<String> getBatchSeqVal(String seqName, int num) {
-		return sequenceService.getBatchSeqVal(seqName, num);
-	}
+    @RequestMapping(value = "/getBatchSeqVal", method = RequestMethod.POST)
+    public List<String> getBatchSeqVal(String seqName, int num) {
+        return sequenceService.getBatchSeqVal(seqName, num);
+    }
 }

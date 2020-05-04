@@ -13,6 +13,7 @@ import org.joven.common.entity.SystemParamViewEntity;
 import org.joven.common.service.SystemParamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -26,47 +27,48 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/common/system")
 public class SystemParamController {
-	/*
-	使用构造器注入（常量注入不提倡）必须依赖（主要）
-	 */
-	private SystemParamService systemParamService;
+    /*
+    使用构造器注入（常量注入不提倡）必须依赖（主要）
+     */
+    private SystemParamService systemParamService;
 
-	@Autowired
-	public SystemParamController(SystemParamService systemParamService) {
-		this.systemParamService = systemParamService;
-	}
+    @Autowired
+    public SystemParamController(SystemParamService systemParamService) {
+        this.systemParamService = systemParamService;
+    }
 
-	
-	@RequestMapping(value = "/getSystemParamValueWithDefault")
-	public String getSystemParamValue(String systemParamId, String defaultValue) {
-		return systemParamService.getSystemParamValue(systemParamId, defaultValue);
-	}
-	@RequestMapping(value = "/getSystemParamValue")
-	public String getSystemParamValue(String systemParamId) {
-		return systemParamService.getSystemParamValue(systemParamId);
-	}
-	@RequestMapping(value = "/getSystemParamInfo")
-	public SystemParamViewEntity getSystemParamInfo(String systemParamId) {
-		return systemParamService.getSystemParamInfo(systemParamId);
-	}
+    @RequestMapping(value = "/getSystemParamValueWithDefault", method = RequestMethod.POST)
+    public String getSystemParamValue(String systemParamId, String defaultValue) {
+        return systemParamService.getSystemParamValue(systemParamId, defaultValue);
+    }
 
-	@RequestMapping(value = "/getSystemParamInfos")
-	public List<SystemParamEntity> getSystemParamInfos(List<String> systemParamIds) {
-		return systemParamService.getSystemParamInfos(systemParamIds);
-	}
+    @RequestMapping(value = "/getSystemParamValue", method = RequestMethod.POST)
+    public String getSystemParamValue(String systemParamId) {
+        return systemParamService.getSystemParamValue(systemParamId);
+    }
 
-	@RequestMapping(value = "/updateSystemParamInfo")
-	public ResponseBody updateSystemParamInfo(SystemParamEntity systemParamEntity) {
-		return systemParamService.updateSystemParamInfo(systemParamEntity);
-	}
+    @RequestMapping(value = "/getSystemParamInfo", method = RequestMethod.POST)
+    public SystemParamViewEntity getSystemParamInfo(String systemParamId) {
+        return systemParamService.getSystemParamInfo(systemParamId);
+    }
 
-	@RequestMapping(value = "/deleteSystemParamInfo")
-	public ResponseBody deleteSystemParamInfo(String systemParamId) {
-		return systemParamService.deleteSystemParamInfo(systemParamId);
-	}
+    @RequestMapping(value = "/getSystemParamInfos", method = RequestMethod.POST)
+    public List<SystemParamEntity> getSystemParamInfos(List<String> systemParamIds) {
+        return systemParamService.getSystemParamInfos(systemParamIds);
+    }
 
-	@RequestMapping(value = "/addSystemParam2DB")
-	public ResponseBody addSystemParam2DB(SystemParamEntity systemParamEntity) {
-		return systemParamService.addSystemParam2DB(systemParamEntity);
-	}
+    @RequestMapping(value = "/updateSystemParamInfo", method = RequestMethod.POST)
+    public ResponseBody updateSystemParamInfo(SystemParamEntity systemParamEntity) {
+        return systemParamService.updateSystemParamInfo(systemParamEntity);
+    }
+
+    @RequestMapping(value = "/deleteSystemParamInfo", method = RequestMethod.POST)
+    public ResponseBody deleteSystemParamInfo(String systemParamId) {
+        return systemParamService.deleteSystemParamInfo(systemParamId);
+    }
+
+    @RequestMapping(value = "/addSystemParam2DB", method = RequestMethod.POST)
+    public ResponseBody addSystemParam2DB(SystemParamEntity systemParamEntity) {
+        return systemParamService.addSystemParam2DB(systemParamEntity);
+    }
 }
