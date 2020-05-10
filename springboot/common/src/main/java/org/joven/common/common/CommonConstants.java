@@ -14,140 +14,144 @@ package org.joven.common.common;
  * Remark: 工程下的工具常量类
  */
 public final class CommonConstants {
-	public interface ExtField {
-		public static final String Ext1 = "ext1";
-		public static final String Ext2 = "ext2";
-		public static final String Ext3 = "ext3";
-		public static final String Ext4 = "ext4";
-		public static final String Ext5 = "ext5";
-		public static final String Ext6 = "ext6";
-		public static final String Ext7 = "ext7";
-		public static final String Ext8 = "ext8";
-		public static final String Ext9 = "ext9";
-	}
+    public interface ExtField {
+        public static final String Ext1 = "ext1";
+        public static final String Ext2 = "ext2";
+        public static final String Ext3 = "ext3";
+        public static final String Ext4 = "ext4";
+        public static final String Ext5 = "ext5";
+        public static final String Ext6 = "ext6";
+        public static final String Ext7 = "ext7";
+        public static final String Ext8 = "ext8";
+        public static final String Ext9 = "ext9";
+    }
 
-	/*
-	用法：CommonConstants..Number.ONE.name() 区取得 ONE
-	用法：CommonConstants..Number.ONE.toString() 区取得 ONE
-	 */
-	public enum Number {
-		ONE, TWO;
-	}
+    public interface CharsetType {
+        public static final String GB_18030 = "GB18030";
+        public static final String ISO8859_1 = "ISO8859-1";
+    }
 
-	/*
-	用法： CommonConstants.Status.FAIL.getText() 获取对应的text
-	用法： CommonConstants.Status.FAIL.getIndex() 获取对应的index
-	 */
-	public enum Status {
-		SUCCEED(1, "success"), FAIL(2, "fail");
+    /*
+    用法：CommonConstants..Number.ONE.name() 区取得 ONE
+    用法：CommonConstants..Number.ONE.toString() 区取得 ONE
+     */
+    public enum Number {
+        ONE, TWO;
+    }
 
-		public int getIndex() {
-			return index;
-		}
+    /*
+    用法： CommonConstants.Status.FAIL.getText() 获取对应的text
+    用法： CommonConstants.Status.FAIL.getIndex() 获取对应的index
+     */
+    public enum Status {
+        SUCCEED(1, "success"), FAIL(2, "fail");
 
-		public void setIndex(int index) {
-			this.index = index;
-		}
+        public int getIndex() {
+            return index;
+        }
 
-		private int index;
+        public void setIndex(int index) {
+            this.index = index;
+        }
 
-		public String getText() {
-			return text;
-		}
+        private int index;
 
-		public void setText(String text) {
-			this.text = text;
-		}
+        public String getText() {
+            return text;
+        }
 
-		private String text;
+        public void setText(String text) {
+            this.text = text;
+        }
 
-		private Status(int index, String text) {
-			this.index = index;
-			this.text = text;
-		}
-	}
+        private String text;
 
-	/*
-	季节
-	 */
-	public enum Season {
-		Spring("Spr", "Spring"),
-		Summer("Sum", "Summer"),
-		Autumn("Aut", "Autumn"),
-		Winter("Win", "Winter");
+        private Status(int index, String text) {
+            this.index = index;
+            this.text = text;
+        }
+    }
 
-		public void setShortCode(String shortCode) {
-			this.shortCode = shortCode;
-		}
+    /*
+    季节
+     */
+    public enum Season {
+        Spring("Spr", "Spring"),
+        Summer("Sum", "Summer"),
+        Autumn("Aut", "Autumn"),
+        Winter("Win", "Winter");
 
-		public void setValue(String value) {
-			this.value = value;
-		}
+        public void setShortCode(String shortCode) {
+            this.shortCode = shortCode;
+        }
 
-		public String getShortCode() {
-			return this.shortCode;
-		}
+        public void setValue(String value) {
+            this.value = value;
+        }
 
-		public String getValue() {
-			return this.value;
-		}
+        public String getShortCode() {
+            return this.shortCode;
+        }
 
-		private String shortCode;
-		private String value;
+        public String getValue() {
+            return this.value;
+        }
 
-		private Season(String shortCode, String value) {
-			this.value = value;
-			this.shortCode = shortCode;
-		}
-	}
+        private String shortCode;
+        private String value;
 
-	public enum Month {
-		January("January", "Jan", 1),
-		February("February", "Feb", 2),
-		March("March", "Mar", 3),
-		April("April", "Apr", 4),
-		May("May", "May", 5),
-		June("June", "Jun", 6),
-		July("July", "Jul", 7),
-		August("August", "Aug", 8),
-		September("September", "Sep", 9),
-		October("October", "Oct", 10),
-		November("November", "Nov", 11),
-		December("December", "Dec", 12);
+        private Season(String shortCode, String value) {
+            this.value = value;
+            this.shortCode = shortCode;
+        }
+    }
 
-		public void setShortCode(String shortCode) {
-			this.shortCode = shortCode;
-		}
+    public enum Month {
+        January("January", "Jan", 1),
+        February("February", "Feb", 2),
+        March("March", "Mar", 3),
+        April("April", "Apr", 4),
+        May("May", "May", 5),
+        June("June", "Jun", 6),
+        July("July", "Jul", 7),
+        August("August", "Aug", 8),
+        September("September", "Sep", 9),
+        October("October", "Oct", 10),
+        November("November", "Nov", 11),
+        December("December", "Dec", 12);
 
-		public void setValue(String value) {
-			this.value = value;
-		}
+        public void setShortCode(String shortCode) {
+            this.shortCode = shortCode;
+        }
 
-		public void setSoft(int soft) {
-			this.soft = soft;
-		}
+        public void setValue(String value) {
+            this.value = value;
+        }
 
-		public String getShortCode() {
-			return this.shortCode;
-		}
+        public void setSoft(int soft) {
+            this.soft = soft;
+        }
 
-		public String getValue() {
-			return this.value;
-		}
+        public String getShortCode() {
+            return this.shortCode;
+        }
 
-		public int getSoft() {
-			return this.soft;
-		}
+        public String getValue() {
+            return this.value;
+        }
 
+        public int getSoft() {
+            return this.soft;
+        }
 
-		private String shortCode;
-		private String value;
-		private int soft;
+        private String shortCode;
+        private String value;
+        private int soft;
 
-		private Month(String value, String shortCode, int soft) {
-			setSoft(soft);
-			setShortCode(shortCode);
-			setValue(value);
-		}
-	}
+        private Month(String value, String shortCode, int soft) {
+            setSoft(soft);
+            setShortCode(shortCode);
+            setValue(value);
+        }
+    }
 }
