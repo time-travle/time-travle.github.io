@@ -18,4 +18,16 @@
     <div id="foot"></div>
 </div>
 </body>
+<script type="text/javascript">
+    /*关闭右键*/
+    $(document).bind("contextmenu", function () {
+        return false;
+    });
+    $(document).keydown(function (e) {
+        /*关闭 ctrl + A/S*/
+        if (e.ctrlKey && (e.keyCode == 65 || e.keyCode == 83)) {
+            return false;
+        }
+    });
+</script>
 </html>

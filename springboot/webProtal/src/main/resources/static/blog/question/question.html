@@ -5,6 +5,11 @@
     <title>question</title>
 </head>
 <body>
-question
+<div id="question_area" class="md_content"></div>
+<script>
+    $.get('../blog/question/question.md', function (response, status, xhr) {
+        $("#question_area").html(marked(response));
+    });
+</script>
 </body>
 </html>

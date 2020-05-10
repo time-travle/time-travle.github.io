@@ -5,6 +5,11 @@
     <title>educational</title>
 </head>
 <body>
-educational
+<div id="educational_area" class="md_content"></div>
+<script>
+    $.get('../personinfos/educational/educational.md', function (response, status, xhr) {
+        $("#educational_area").html(marked(response));
+    });
+</script>
 </body>
 </html>
