@@ -20,13 +20,13 @@ html,body{
 }
 #header{
     margin:15px 20px;
-    height:5%;
+    height:6%;
     border:solid 0px #0000FF;
     z-index: 99;
 }
 #container{
     position:relative;
-    margin:20px;
+    margin:0px 20px;
     height:84%;
     z-index: 1;
 }
