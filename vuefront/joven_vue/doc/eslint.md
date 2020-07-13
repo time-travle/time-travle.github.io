@@ -1,4 +1,6 @@
 # eslint 用法说明
+https://cloud.tencent.com/developer/doc/1078
+
 EsLint提供以下几种校验：
 
     1、语法错误校验；
@@ -346,7 +348,16 @@ demo and remark:
             // off:禁用空格缩进规则
             "indent": [2,4, {"SwitchCase":1}],
             // 强制在对象字面量的属性中键和值之间使用一致的间距
-            "key-spacing": [2, {"beforeColon":false,"afterColon":true}],
+            "key-spacing": [2, {"beforeColon":false,"//冒号之前不能有空格
+                            afterColon":true //冒号之后有空格
+                            "mode": "strict" （默认）在对象文字中冒号前或后执行一个空格。
+                            "mode": "minimum" 在对象文字中的冒号之前或之后强制执行一个或多个空格。
+                            "align": "value" 强制对象文字中值的水平对齐。
+                            "align": "colon" 强制执行对象文字中冒号和值的水平对齐。
+                            "align" 当值在对象文字中对齐时，使用对象值可以实现细粒度的间距。
+                            "singleLine" 指定单线对象文字的间距样式。
+                            "multiLine" 指定多线对象文字的间距样式。
+                            }],
             // 强制使用一致的换行风格
             "linebreak-style": [1,"unix"],
             // 要求在注释周围有空行 ( 要求在块级注释之前有一空行)
