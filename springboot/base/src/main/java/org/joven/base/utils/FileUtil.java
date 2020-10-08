@@ -28,5 +28,12 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class FileUtil {
+    private FileUtil() {
+    }
+
+    public static void readFromTxt(String filePath) {
+        File file = new File(filePath);
+
+    }
 
 }

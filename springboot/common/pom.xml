@@ -26,7 +26,20 @@
             <artifactId>jasperreports</artifactId>
             <version>6.13.0</version>
         </dependency>
+        <!--使用mysql数据库-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+            <version>8.0.18</version>
+            <!--加了下面的就不会形成传递，仅仅在当前工程有效-->
+            <!--<optional>true</optional>-->
+        </dependency>
 
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

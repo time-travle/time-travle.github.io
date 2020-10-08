@@ -20,7 +20,7 @@
 		<maven.compiler.target>11</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
+		<spring-cloud.version>Greenwich.SR6</spring-cloud.version>
 	</properties>
 	<modules>
 		<module>base</module>
@@ -35,10 +35,26 @@
 		<module>schedule</module>
 		<module>subscriber</module>
 		<module>webProtal</module>
+		<module>serviceEurekaMasterCenter</module>
+        <module>serviceProvide</module>
+        <module>serviceConsume</module>
+		<module>serviceEurekaSecondCenter</module>
+        <module>serviceProvide2</module>
+		<module>serviceConsume2</module>
 	</modules>
 
-	<dependencies>
-	</dependencies>
+	<!-- Spring  Cloud  -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<!--父级工程不提供特殊build功能插件，每个子工程按需配置-->
 	<build>
 		<plugins>

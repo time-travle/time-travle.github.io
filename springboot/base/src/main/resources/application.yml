@@ -5,34 +5,3 @@ server:
   servlet:
     context-path: /Base
   port: 9081
-spring:
-  thymeleaf:
-    prefix: classpath:/templates/
-    suffix: .html
-    mode: HTML
-    check-template: true
-    check-template-location: true
-    enabled: true
-    encoding: UTF-8
-    cache: true
-  mvc:
-    static-path-pattern: classpath:/static/
-  http:
-    encoding:
-      force: true
-      charset: UTF-8
-      enabled: true
-  profiles:
-    active: datasource,local,url
-
-mybatis:
-  mapper-locations: classpath:/mybatis/mapper/*Mapper.xml
-  config-location: classpath:/mybatis/config/mybatis-config.xml
-  type-aliases-package: org.joven.base.entity
-
-#https://blog.csdn.net/qq_27317475/article/details/81168241
-pagehelper:
-  helper-dialect: mysql
-  params: count=countSql
-  reasonable: true
-  support-methods-arguments: true
