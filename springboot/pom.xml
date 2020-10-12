@@ -41,7 +41,8 @@
 		<module>serviceEurekaSecondCenter</module>
         <module>serviceProvide2</module>
 		<module>serviceConsume2</module>
-	</modules>
+        <module>serviceZuul</module>
+    </modules>
 
 	<!-- Spring  Cloud  -->
 	<dependencyManagement>

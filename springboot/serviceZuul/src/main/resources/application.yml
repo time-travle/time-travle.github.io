@@ -1,8 +1,8 @@
 server:
-  port: 8161
+  port: 8961
 spring:
   application:
-    name: serviceConsume1
+    name: serviceZuul
   freemarker:
     prefer-file-system-access: false
 eureka:
@@ -22,20 +22,16 @@ eureka:
     #eureka client刷新本地缓存时间
     #默认30s
     registry-fetch-interval-seconds: 5
-###设置feign客户端超时时间
+#Zuul de 配置
+zuul:
+  routes:
+    cxytiandi:
+      #两个星号表示可以转发任意层级的 URL ，比如“/api/house/l ” 。 如果只配置一个星号，那么就只能转发一级， 比如“/api/house ”
+      path: /cxytiandi/**   #通过 zuul.routes 来配置路由的地址时，就会跳转到 http://cxytiandi.com 上
+      url: http://cxytiandi.com/
+# 开启重试
+  retryable: true
 ribbon:
-  ###指的是建立连接后从服务器读取到可用资源所用的时间。
-  ReadTimeout: 5000
-  ###指的是建立连接所用的时间，适用于网络状况正常的情况下，两端连接所用的时间。
-  ConnectTimeout: 5000
-#feign的配置，连接超时及读取超时配置
-feign:
-  client:
-    config:
-      default:
-        connectTimeout: 5000
-        readTimeout: 5000
-        loggerLevel: basic
-#开启 Feign 对 Hystrix 的支持
-  hystrix:
+  eureka:
+    # 开启 Eureka
     enabled: true

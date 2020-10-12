@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
@@ -12,7 +13,11 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  *      EnableEurekaClient 只适用于Eureka作为注册中心，@EnableDiscoveryClient 可以是其他注册中心
  * EnableFeignClients 表示当前服务开启了 使用Feign调用服务接口
  *      扫描有FeignClient 注解的接口类
+ * EnableHystrix 当前服务开启容错功能
+ *      EnableHystrix 中包含了 EnableCircuitBreaker 。
+ *
  */
+@EnableHystrix
 @EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})

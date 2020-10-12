@@ -1,9 +1,5 @@
 ##Q1：如何配置搭建使用Feign 
 
-
-
-
-
 参考wiki：
 
 https://www.cnblogs.com/feifuzeng/p/13613732.html
@@ -38,7 +34,23 @@ https://www.cnblogs.com/tongxuping/p/12297964.html
 
 https://www.cnblogs.com/linkworld/p/9191161.html
 
+##如何优雅的开启 Feign 对 Hystrix 的支持
+OpenFeign 是 自带 Hystrix ，但是默认没有打开
+先添加了Hystrix 的pom依赖， 然后在属性文件中开启 Feign 对 Hystrix 的支持：
+    feign.hystrix.enabled=true
 
+##如何优雅的关闭 Feign 对 Hystrix 的支持
+禁用 Hystrix 还是 比较简单的，目前有两种方式可以禁用 ， 其中一种是在属性文件中进行全部禁用 。
+feign.hystrix.enabled=false 
 
+另一种是通过代码 的方式禁用某个客户端 ， 在 Feign 的配置类中 增加代码
+    @Configuration 
+    public  class  FeignConfiguration { 
+        @Bean 
+        @Scope ("prototype") 
+        public Feign.Builder feignBuilder() { 
+            return  Feign.builder(); 
+        }
+    }
 
 
