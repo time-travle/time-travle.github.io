@@ -23,7 +23,13 @@ table {
     font-size: 25px;
     font-family: STKaiti;
 }
+.fleft{
+    text-align: left;
+}
 
+.fright{
+    text-align: right;
+}
 .d-7 {
     width: 115px
 }
