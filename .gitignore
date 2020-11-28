@@ -18,6 +18,7 @@ bin/
 gen/
 # IntelliJ IDEA Files
 *.iml
+~$*
 *.ipr 
 *.iws 
 *.idea
