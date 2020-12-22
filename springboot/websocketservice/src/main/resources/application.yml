@@ -1,0 +1,7 @@
+server:
+  port: 9082
+spring:
+  application:
+    name: websocketserver
+  freemarker:
+    prefer-file-system-access: false

@@ -42,7 +42,9 @@
         <module>serviceProvide2</module>
 		<module>serviceConsume2</module>
         <module>serviceZuul</module>
-    </modules>
+        <module>websocketservice</module>
+		<module>websocketclient</module>
+	</modules>
 
 	<!-- Spring  Cloud  -->
 	<dependencyManagement>

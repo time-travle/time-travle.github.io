@@ -9,6 +9,33 @@
 
 @Autowired 依赖注入
 
+@ConfigurationProperties与@EnableConfigurationPropertie的作用就是：
+
+    @ConfigurationProperties注解的作用是把yml或者properties配置文件转化为bean。
+    
+    @EnableConfigurationProperties注解的作用是使@ConfigurationProperties注解生效
+
+@Configuration的作用上面我们已经知道了，被注解的类将成为一个bean配置类。 注解的类可以看作是能生产让Spring IoC容器管理的Bean实例的工厂。
+
+@ComponentScan的作用就是自动扫描并加载符合条件的组件，比如@Component和@Repository等，最终将这些bean定义加载到spring容器中。
+
+@EnableAutoConfiguration 这个注解的功能很重要，借助@Import的支持，收集和注册依赖包中相关的bean定义。
+
+@Configuration&与@Bean->基于java代码的bean配置
+
+@Conditional->设置自动配置条件依赖
+
+@EnableConfigurationProperties与@ConfigurationProperties->读取配置文件转换为bean。
+
+@EnableAutoConfiguration、@AutoConfigurationPackage 与@Import->实现bean发现与加载。
+
+@Bean注解告诉Spring，一个带有@Bean的注解方法将返回一个对象，该对象应该被注册到spring容器中。
+
+##如果要让一个普通类交给Spring容器管理，通常有以下方法：
+    1、使用 @Configuration与@Bean 注解
+    2、使用@Controller @Service @Repository @Component 注解标注该类，然后启用@ComponentScan自动扫描
+    3、使用@Import 方法
+
 ##依赖注入三种方式
 	依赖注入分为三种方式：
 		变量（filed）注入

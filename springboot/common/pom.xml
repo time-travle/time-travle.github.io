@@ -25,7 +25,24 @@
             <groupId>net.sf.jasperreports</groupId>
             <artifactId>jasperreports</artifactId>
             <version>6.13.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.lowagie</groupId>
+                    <artifactId>itext</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+        <!--itext版本根据自身实际情况指定，目前itext已停止维护，并从4.2.2之后的版本开始从com.lowagie.itext迁移到com.itextpdf.itextpdf-->
+        <dependency>
+            <groupId>com.lowagie</groupId>
+            <artifactId>itext</artifactId>
+            <version>2.1.7</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itextpdf</artifactId>
+            <version>5.5.13</version> &lt;!&ndash;(or higher)&ndash;&gt;
+        </dependency>-->
         <!--使用mysql数据库-->
         <dependency>
             <groupId>mysql</groupId>
