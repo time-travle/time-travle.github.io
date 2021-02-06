@@ -5,24 +5,11 @@
     <title>web-link</title>
 </head>
 <body>
-<div id="webLinkPage" style="text-align: left;margin: 15px">
-    BME框架简单说明参考博文
-    <a href="https://blog.csdn.net/zhangzhaokun/article/details/5045120">
-        https://blog.csdn.net/zhangzhaokun/article/details/5045120</a>
-    <br>
-    UEE框架参考博文
-    <a href="https://blog.csdn.net/mccxj/article/details/81270092">
-    https://blog.csdn.net/mccxj/article/details/81270092</a>
-    <br>
-    <br>
-    https://archive.codeplex.com/?p=happy
-    <br>
-    <br>
-    https://www.cnblogs.com/happyframework/
-    <br>
-    <br>
-    华为云<a href="https://developer.huaweicloud.com/" target="_blank">
-    https://developer.huaweicloud.com/</a>
-</div>
+<div id="web-link_area" class="md_content"></div>
+<script>
+    $.get('../blog/web-link/web-link.md', function (response, status, xhr) {
+        $("#web-link_area").html(marked(response));
+    });
+</script>
 </body>
 </html>

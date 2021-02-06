@@ -5,6 +5,11 @@
     <title>http-client</title>
 </head>
 <body>
-http-client
+<div id="http_client_area" class="md_content"></div>
+<script>
+    $.get('../blog/git-order/http-client.md', function (response, status, xhr) {
+        $("#http_client_area").html(marked(response));
+    });
+</script>
 </body>
 </html>

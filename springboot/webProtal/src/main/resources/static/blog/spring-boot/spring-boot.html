@@ -5,6 +5,11 @@
     <title>springboot</title>
 </head>
 <body>
-springboot
+<div id="springboot_area" class="md_content"></div>
+<script>
+    $.get('../blog/spring-boot/springboot.md', function (response, status, xhr) {
+        $("#springboot_area").html(marked(response));
+    });
+</script>
 </body>
 </html>

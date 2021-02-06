@@ -5,6 +5,11 @@
     <title>ssh</title>
 </head>
 <body>
-ssh
+<div id="ssh" class="md_content"></div>
+<script>
+    $.get('../blog/ssh/ssh.md', function (response, status, xhr) {
+        $("#ssh").html(marked(response));
+    });
+</script>
 </body>
 </html>

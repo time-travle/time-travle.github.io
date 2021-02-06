@@ -5,6 +5,11 @@
     <title>interview</title>
 </head>
 <body>
-interview
+<div id="interview_area" class="md_content"></div>
+<script>
+    $.get('../blog/interview/interview.md', function (response, status, xhr) {
+        $("#interview_area").html(marked(response));
+    });
+</script>
 </body>
 </html>

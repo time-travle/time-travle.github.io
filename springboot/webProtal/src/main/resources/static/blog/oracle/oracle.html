@@ -5,6 +5,11 @@
     <title>oracle</title>
 </head>
 <body>
-oracle
+<div id="oracle" class="md_content"></div>
+<script>
+    $.get('../blog/oracle/oracle.md', function (response, status, xhr) {
+        $("#oracle").html(marked(response));
+    });
+</script>
 </body>
 </html>

@@ -5,6 +5,11 @@
     <title>maven</title>
 </head>
 <body>
-maven
+<div id="maven_area" class="md_content"></div>
+<script>
+    $.get('../blog/maven/maven.md', function (response, status, xhr) {
+        $("#maven_area").html(marked(response));
+    });
+</script>
 </body>
 </html>

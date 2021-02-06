@@ -5,6 +5,11 @@
     <title>mybatis</title>
 </head>
 <body>
-mybatis
+<div id="mybatis" class="md_content"></div>
+<script>
+    $.get('../blog/mybatis/mybatis.md', function (response, status, xhr) {
+        $("#mybatis").html(marked(response));
+    });
+</script>
 </body>
 </html>
