@@ -5,3 +5,6 @@ server:
   servlet:
     context-path: /Base
   port: 9081
+spring:
+  profiles:
+    active: datasource

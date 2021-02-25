@@ -9,8 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>EurekaSlaveoneCenter</artifactId>
-    <name>EurekaSlaveoneCenter</name>
+    <artifactId>serviceEurekaSecondCenter</artifactId>
+    <name>serviceEurekaSecondCenter</name>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>

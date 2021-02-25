@@ -9,8 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>discoverClient2</artifactId>
-    <name>discoverClient2</name>
+    <artifactId>serviceProvide2</artifactId>
+    <name>serviceProvide2</name>
     <packaging>jar</packaging>
 
     <dependencies>

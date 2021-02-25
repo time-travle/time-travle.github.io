@@ -8,8 +8,10 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>websocketservice</name>
+    <artifactId>websocketservice</artifactId>
 
-    <artifactId>websocketserver</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.joven</groupId>
