@@ -63,7 +63,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
             <!--加了下面的就不会形成传递，仅仅在当前工程有效-->
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
@@ -75,6 +75,11 @@
             <artifactId>kotlin-test</artifactId>
             <version>${kotlin.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-reflect</artifactId>
+            <version>${kotlin.version}</version>
         </dependency>
     </dependencies>
 
@@ -104,9 +109,11 @@
                 <!--需要打出来供其他工程使用的jar包 加上下面的配置会打出俩包一个用来编译一个用来依赖 这个是用来编译的-->
                 <configuration>
                     <classifier>exec</classifier>
+                    <skip>true</skip>
                 </configuration>
             </plugin>
-            <plugin>
+            <!-- 指定多个源代码目录、多个资源文件目录 -->
+            <!--<plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
                 <version>3.0.0</version>
@@ -119,13 +126,13 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>src/main/java</source>
-                                <source>src/main/kotlin</source>
+                                <source>${project.basedir}/src/main/java</source>
+                                <source>${project.basedir}/src/main/kotlin</source>
                             </sources>
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
@@ -139,24 +146,24 @@
                         </goals>
                         <configuration>
                             <sourceDirs>
-                                <source>src/main/java</source>
-                                <source>src/main/kotlin</source>
+                                <source>${project.basedir}/src/main/kotlin</source>
                             </sourceDirs>
                         </configuration>
                     </execution>
-                    <execution>
+                    <!--<execution>
                         <id>test-compile</id>
                         <phase>test-compile</phase>
                         <goals>
                             <goal>test-compile</goal>
                         </goals>
-                    </execution>
+                    </execution>-->
                 </executions>
                 <configuration>
-                    <jvmTarget>1.8</jvmTarget>
+                    <jvmTarget>${maven.compiler.target}</jvmTarget>
+                    <skip>true</skip>
                 </configuration>
             </plugin>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <executions>
@@ -175,7 +182,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 

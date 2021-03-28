@@ -24,26 +24,33 @@
 	</properties>
 	<modules>
 		<module>base</module>
+
+		<module>serviceEurekaMasterCenter</module>
+		<module>serviceEurekaSecondCenter</module>
+
 		<module>common</module>
 		<module>system</module>
-		<module>account</module>
-		<module>address</module>
-		<module>certificate</module>
 		<module>customer</module>
+		<module>subscriber</module>
+		<module>account</module>
+
+        <module>address</module>
+		<module>certificate</module>
 		<module>order</module>
 		<module>product</module>
+
 		<module>schedule</module>
-		<module>subscriber</module>
-		<module>webProtal</module>
-		<module>serviceEurekaMasterCenter</module>
-        <module>serviceProvide</module>
-        <module>serviceConsume</module>
-		<module>serviceEurekaSecondCenter</module>
-        <module>serviceProvide2</module>
+
+		<module>serviceProvide</module>
+		<module>serviceProvide2</module>
+		<module>serviceConsume</module>
 		<module>serviceConsume2</module>
         <module>serviceZuul</module>
+
         <module>websocketservice</module>
 		<module>websocketclient</module>
+
+        <module>webProtal</module>
 	</modules>
 
 	<!-- Spring  Cloud  -->
