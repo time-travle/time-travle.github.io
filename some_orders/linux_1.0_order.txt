@@ -1,0 +1,82 @@
+﻿VMware :
+https://blog.csdn.net/qq_39483580/article/details/88804098
+https://blog.csdn.net/lvxinchun/article/details/106998564
+https://www.cnblogs.com/guang2508/p/13476824.html
+https://zhuanlan.zhihu.com/p/145102034
+https://www.runoob.com/w3cnote/vmware-install-centos7.html
+
+
+Linux系统的文件结构
+    /bin        二进制文件，系统常规命令
+    /boot       系统启动分区，系统启动时读取的文件
+    /dev        设备文件
+    /etc        大多数配置文件  /etc/profile 系统环境变量配置文件
+    /home       普通用户的家目录
+    /lib        32位函数库
+    /lib64      64位库
+    /media      手动临时挂载点
+    /mnt        手动临时挂载点
+    /opt        第三方软件安装位置
+    /proc       进程信息及硬件信息
+    /root       临时设备的默认挂载点
+    /sbin       系统管理命令
+    /srv        数据
+    /var        数据
+    /sys        内核相关信息
+    /tmp        临时文件
+    /usr        用户相关设定
+    
+============================================linux_order======================================================================
+(1)立刻关机
+  shutdown -h now 或者 poweroff
+(2)两分钟后关机
+  shutdown -h 2
+  
+(1)立刻重启
+  shutdown -r now 或者 reboot
+(2)两分钟后重启
+  shutdown -r 2   
+  
+
+刷新资源文件
+    source file
+ 
+=============================================================================================================================
+
+    
+=============================================================================================================================        
+        
+
+
+=============================================================================================================================
+Tomcat服务器配置
+    (一) Tomcat部署
+    将tomcat6服务器上传至指定路径。
+
+    (二) 配置Tomcat环境变量
+    1、 配置Tomcat6所在用户主目录的.bash_profile环境变量文件
+    执行vi .bash_profile对环境变量文件进行编辑，加入Tomcat6的环境变量：
+    （1）JAVA_HOME
+    （2）TOMCAT_HOME
+    （3）LD_LIBRARY_PATH
+    2、 热生效.bash_profile环境变量文件
+    执行source .bash_profile将新增的环境变量生效。
+    3、 让root用户对tomcat6文件夹及其子文件有最高权限
+    执行chmod -R 764 tomcat6
+
+    (三) 配置Tomcat相关参数
+    1、 配置server.xml文件
+    执行vi server.xml，在Connector 8080端口添加URIEncoding=”UTF-8”属性，避免网页页面字符集乱码。
+    2、 配置catalina.sh文件
+    在if [ $have_tty -eq 1 ]; then这行下，添加内存分配和内存溢出时输出HeapDump文件，语句如下：
+    JAVA_OPTS=”-server -Xms256m -Xmx512m -XX:PermSize=128m -XX:MaxPermSize=256m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/usr/local/heapdump/heapdump.hprof”
+    需要注意的地方：
+    （1）-Xms : JVM初始分配的堆内存；-Xmx : JVM最大允许分配的堆内存，按需分配。
+    （2）-XX:PermSize : JVM初始分配的非堆内存；-XX:MaxPermSize : JVM最大允许分配的非堆内存，按需分配。一般非堆内存分配是堆内存分配的1/2。
+    （3）-XX:+HeapDumpOnOutOfMemoryError : 打开内存溢出时输出错误信息日志；-XX:HeapDumpPath : 内存溢出错误信息日志输出的路径和名称，路径要配置绝对路径并且必须是已存在和至少权限是755的路径，文件名建议用.hprof后缀结尾，后期通过内存分析工具可以直接打开。
+
+    (四) 启动Tomcat
+    1、 执行sh startup.sh将tomcat服务器启动。
+    2、 通过ps –ef|grep tomcat命令可以看到tomcat服务器进程的详细信息。
+    3、 若内存溢出后，可去配置好的-XX:HeapDumpPath路径下载heapdump.hprof文件，再通过ha456.jar（HeapAnalyzer）工具进行内存分析。
+
