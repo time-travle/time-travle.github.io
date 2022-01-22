@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>place</title>
+    </head>
+    <body>
+        <div id="place_area" class="md_content"></div>
+        <script>
+            $.get('../memory/place/place.md', function (response, status, xhr) {
+                $("#place_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

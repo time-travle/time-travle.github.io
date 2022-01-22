@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>springboot_better</title>
+    </head>
+    <body>
+        <div id="springboot_better_area" class="md_content"></div>
+        <script>
+            $.get('../blog/springboot/better/better.md', function (response, status, xhr) {
+                $("#springboot_better_area").html(marked(response));
+            });
+
+        </script>
+    </body>
+</html>

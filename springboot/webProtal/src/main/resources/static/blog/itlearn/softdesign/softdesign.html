@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>softdesign</title>
+    </head>
+    <body>
+        <div id="softdesign_area" class="md_content"></div>
+        <script>
+            $.get('../blog/itlearn/softdesign/softdesign.md', function (response, status, xhr) {
+                $("#softdesign_area").html(marked(response));
+            });
+
+            function refreshDesignContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = '/blog/itlearn/softdesign/' + choose + '/' + choose + '.html';
+                $("#content").load(location.web.staticpath + target);
+            }
+        </script>
+    </body>
+    </body>
+</html>

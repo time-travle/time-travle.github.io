@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>mybatis_dynamic</title>
+    </head>
+    <body>
+        <div id="mybatis_dynamic" class="md_content"></div>
+        <script>
+            $.get('../blog/dbconnect/mybatis/dynamic/dynamic.md', function (response, status, xhr) {
+                $("#mybatis_dynamic").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

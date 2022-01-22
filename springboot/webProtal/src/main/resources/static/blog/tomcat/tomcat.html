@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tomcat</title>
+</head>
+<body>
+<div id="tomcat" class="md_content"></div>
+<script>
+    $.get('../blog/tomcat/tomcat.md', function (response, status, xhr) {
+        $("#tomcat").html(marked(response));
+    });
+</script>
+</body>
+</html>

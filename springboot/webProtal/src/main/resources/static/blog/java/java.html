@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>java</title>
+    </head>
+    <body>
+        <div id="java_area" class="md_content"></div>
+        <script>
+            $.get('../blog/java/java.md', function (response, status, xhr) {
+                $("#java_area").html(marked(response));
+            });
+
+            function refreshJavaContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = '/blog/java/' + choose + '/' + choose + '.html';
+                $("#content").load(location.web.staticpath + target);
+            }
+        </script>
+    </body>
+</html>

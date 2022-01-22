@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>activemq</title>
+    </head>
+    <body>
+        <div id="activemq" class="md_content"></div>
+        <script>
+            $.get('../blog/messagemq/activemq/activemq.md', function (response, status, xhr) {
+                $("#activemq").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

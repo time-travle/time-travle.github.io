@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>angularorder</title>
+    </head>
+    <body>
+        <div id="angularorder_area" class="md_content"></div>
+        <script>
+            $.get('../blog/angular/angularorder/angularorder.md', function (response, status, xhr) {
+                $("#angularorder_area").html(marked(response));
+            });
+
+        </script>
+    </body>
+</html>

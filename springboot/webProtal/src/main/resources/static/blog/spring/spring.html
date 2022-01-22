@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>spring</title>
+    </head>
+    <body>
+        <div id="spring_area" class="md_content"></div>
+        <script>
+            $.get('../blog/spring/spring.md', function (response, status, xhr) {
+                $("#spring_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

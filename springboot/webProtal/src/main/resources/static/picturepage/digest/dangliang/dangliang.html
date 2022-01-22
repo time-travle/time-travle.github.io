@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>digest_dangliang</title>
+    </head>
+    <body>
+        <div id="digest_dangliang_area" class="md_content"></div>
+        <script>
+            $.get('../picturepage/digest/dangliang/dangliang.md', function (response, status, xhr) {
+                $("#digest_dangliang_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>httpclient</title>
+    </head>
+    <body>
+        <div id="http_client_area" class="md_content"></div>
+        <script>
+            $.get('../blog/crossorigin/httpclient/httpclient.md', function (response, status, xhr) {
+                $("#http_client_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

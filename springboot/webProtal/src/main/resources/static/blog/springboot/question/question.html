@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>springboot_question</title>
+    </head>
+    <body>
+        <div id="springboot_question_area" class="md_content"></div>
+        <script>
+            $.get('../blog/springboot/question/question.md', function (response, status, xhr) {
+                $("#springboot_question_area").html(marked(response));
+            });
+
+        </script>
+    </body>
+</html>

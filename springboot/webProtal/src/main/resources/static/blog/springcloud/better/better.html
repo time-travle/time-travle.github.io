@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>better</title>
+    </head>
+    <body>
+        <div id="better_area" class="md_content"></div>
+        <script>
+            $.get('../blog/springcloud/better/better.md', function (response, status, xhr) {
+                $("#better_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

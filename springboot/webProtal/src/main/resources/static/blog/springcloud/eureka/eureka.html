@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>eureka</title>
+    </head>
+    <body>
+        <div id="eureka_area" class="md_content"></div>
+        <script>
+            $.get('../blog/springcloud/eureka/eureka.md', function (response, status, xhr) {
+                $("#eureka_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

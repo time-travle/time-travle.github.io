@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>designmediator</title>
+    </head>
+    <body>
+        <div id="designmediator_area" class="md_content"></div>
+        <script>
+            $.get('../blog/itlearn/softdesign/designmediator/designmediator.md', function (response, status, xhr) {
+                $("#designmediator_area").html(marked(response));
+            });
+        </script>
+    </body>
+    </body>
+</html>

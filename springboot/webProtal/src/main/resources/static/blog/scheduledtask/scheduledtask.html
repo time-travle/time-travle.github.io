@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>scheduledtask</title>
+    </head>
+    <body>
+        <div id="scheduledtask" class="md_content"></div>
+        <script>
+            $.get('../blog/scheduledtask/scheduledtask.md', function (response, status, xhr) {
+                $("#scheduledtask").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

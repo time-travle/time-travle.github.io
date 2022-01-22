@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>sso</title>
+    </head>
+    <body>
+        <div id="sso" class="md_content"></div>
+        <script>
+            $.get('../blog/sso/sso.md', function (response, status, xhr) {
+                $("#sso").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

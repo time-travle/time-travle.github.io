@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>redis</title>
+    </head>
+    <body>
+        <div id="redis_area" class="md_content"></div>
+        <script>
+            $.get('../blog/redis/redis.md', function (response, status, xhr) {
+                $("#redis_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>deployment</title>
+    </head>
+    <body>
+        <div id="deployment" class="md_content"></div>
+        <script>
+            $.get('../blog/service/deployment/deployment.md', function (response, status, xhr) {
+                $("#deployment").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

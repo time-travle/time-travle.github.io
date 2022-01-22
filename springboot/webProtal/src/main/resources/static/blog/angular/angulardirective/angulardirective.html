@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>angulardirective</title>
+    </head>
+    <body>
+        <div id="angulardirective_area" class="md_content"></div>
+        <script>
+            $.get('../blog/angular/angulardirective/angulardirective.md', function (response, status, xhr) {
+                $("#angulardirective_area").html(marked(response));
+            });
+
+        </script>
+    </body>
+</html>

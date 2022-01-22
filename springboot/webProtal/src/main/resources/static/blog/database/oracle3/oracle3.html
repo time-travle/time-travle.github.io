@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>oracle3</title>
+    </head>
+    <body>
+        <div id="oracle3" class="md_content"></div>
+        <script>
+            $.get('../blog/database/oracle3/oracle3.md', function (response, status, xhr) {
+                $("#oracle3").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

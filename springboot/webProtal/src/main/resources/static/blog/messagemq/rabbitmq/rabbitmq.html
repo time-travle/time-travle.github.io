@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>rabbitmq</title>
+    </head>
+    <body>
+        <div id="rabbitmq" class="md_content"></div>
+        <script>
+            $.get('../blog/messagemq/rabbitmq/rabbitmq.md', function (response, status, xhr) {
+                $("#rabbitmq").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>mysql2</title>
+    </head>
+    <body>
+        <div id="mysql3" class="md_content"></div>
+        <script>
+            $.get('../blog/database/mysql3/mysql3.md', function (response, status, xhr) {
+                $("#mysql3").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

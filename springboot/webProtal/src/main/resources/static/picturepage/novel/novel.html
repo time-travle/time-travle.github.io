@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>novel</title>
+    </head>
+    <body>
+        <div id="novel_area" class="md_content"></div>
+        <script>
+            $.get('../picturepage/novel/novel.md', function (response, status, xhr) {
+                $("#novel_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

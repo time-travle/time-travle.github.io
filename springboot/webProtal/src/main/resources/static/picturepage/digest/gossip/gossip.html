@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>digest_gossip</title>
+    </head>
+    <body>
+        <div id="digest_gossip_area" class="md_content"></div>
+        <script>
+            $.get('../picturepage/digest/gossip/gossip.md', function (response, status, xhr) {
+                $("#digest_gossip_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

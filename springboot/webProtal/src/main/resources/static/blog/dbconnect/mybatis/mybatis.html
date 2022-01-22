@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>mybatis</title>
+    </head>
+    <body>
+        <div id="mybatis" class="md_content"></div>
+        <script>
+            $.get('../blog/dbconnect/mybatis/mybatis.md', function (response, status, xhr) {
+                $("#mybatis").html(marked(response));
+            });
+
+            function refreshybatisContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = '/blog/dbconnect/mybatis/' + choose + '/' + choose + '.html';
+                $("#content").load(location.web.staticpath + target);
+            }
+        </script>
+    </body>
+</html>
