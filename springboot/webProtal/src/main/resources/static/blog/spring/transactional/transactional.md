@@ -2,7 +2,7 @@
     <a href="#" onclick="refreshContent('spring')">返回目录</a>
 </p>
 
-#Spring transactional 知识积累
+#Spring 事物 知识积累
 
 事务必须遵循4个原则
 

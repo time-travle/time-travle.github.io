@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>aop-authentication</title>
+    </head>
+    <body>
+        <div id="aopauthentication_area" class="md_content"></div>
+        <script>
+            $.get('../blog/spring/aop/authentication/authentication.md', function (response, status, xhr) {
+                $("#aopauthentication_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

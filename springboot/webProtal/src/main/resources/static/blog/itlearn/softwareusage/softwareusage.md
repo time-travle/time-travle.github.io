@@ -1,7 +1,8 @@
 #软件使用
-java开发软件： idea 下载地址：https://www.jb51.net/article/178193.htm
+java开发软件： idea 下载地址：<a href="https://www.jb51.net/article/178193.htm" target="_blank">https://www.jb51.net/article/178193.htm</a>   
+<a href="https://blog.csdn.net/OracleOracolo/article/details/113886757" target="_blank">ide 安装eval reset插件 专业版自动激活</a>
 
-Java反编译工具：jd-gui  下载地址：https://github.com/java-decompiler/jd-gui/releases
+Java反编译工具：jd-gui  下载地址：<a href="https://github.com/java-decompiler/jd-gui/releases" target="_blank">https://github.com/java-decompiler/jd-gui/releases</a>
 
 前端开发软件： VScode 下载地址：https://code.visualstudio.com/Download
 
@@ -32,3 +33,5 @@ android 手机模拟器： MuMu
 PDF 文件拼接 ：PDF-ToolsPortable 下载地址： https://www.jb51.net/softs/152926.html  或者 https://ihacksoft.com/pdf-tools-4.html
 
 PDF 压缩： PDF压缩器 在线地址 ;https://tools.pdf24.org/zh/compress-pdf 下载地址：https://www.zdfans.com/html/37759.html
+
+多DOS界面管理： ConEmu  <a href="https://www.aliyundrive.com/s/h18HLH4813d" target="_blank">https://www.aliyundrive.com/s/h18HLH4813d</a>

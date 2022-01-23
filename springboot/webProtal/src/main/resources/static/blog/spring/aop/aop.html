@@ -10,6 +10,13 @@
             $.get('../blog/spring/aop/aop.md', function (response, status, xhr) {
                 $("#aop_area").html(marked(response));
             });
+            function refreshAopUseScenarios(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = '/blog/spring/aop/' + choose + '/' + choose + '.html';
+                $("#content").load(location.web.staticpath + target);
+            }
         </script>
     </body>
 </html>

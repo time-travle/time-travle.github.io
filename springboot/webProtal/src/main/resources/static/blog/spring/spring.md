@@ -1,7 +1,7 @@
 #Spring 知识积累
 <a href="#" onclick="refreshSpringContent('aop')">Spring（aop）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshSpringContent('ioc')">Spring（ioc）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshSpringContent('transactional')">Spring（transactional）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshSpringContent('transactional')">Spring（事物）</a>&emsp;&emsp;&emsp;
 
 ----
 怎样开启注解装配？
@@ -33,8 +33,8 @@ spring 的优点？
 
 
 Spring如何解决循环依赖问题： 
-   - https://www.cnblogs.com/xiaoxing/p/10762686.html
-   - https://www.zhihu.com/question/438247718
+   - <a href="https://www.cnblogs.com/xiaoxing/p/10762686.html" target="_blank">https://www.cnblogs.com/xiaoxing/p/10762686.html</a>
+   - <a href="https://www.zhihu.com/question/438247718" target="_blank">https://www.zhihu.com/question/438247718</a>
 
     生成代理对象产生的循环依赖
         这类循环依赖问题解决方法很多，主要有：
@@ -51,7 +51,7 @@ Spring如何解决循环依赖问题：
     构造器循环依赖
         这类循环依赖问题可以通过使用@Lazy注解解决。
         
-        实现原理：http://zengbingo.com/p/1985.html
+        实现原理：<a href="http://zengbingo.com/p/1985.html" target="_blank">http://zengbingo.com/p/1985.html</a>
             1.先加载A，依次判断(一级缓存)、(二级缓存)、(三级缓存)中是否有A，没有就将A加入(三级缓存)
             2.A依赖B，先加载B
             2.1 依次判断(一级缓存)、(二级缓存)、(三级缓存)中是否有B,没有就将B加入(三级缓存)
@@ -93,10 +93,10 @@ Spring框架支持以下五种bean的作用域：
         缺省的Spring bean 的作用域是Singleton.
 
 Spring常见面试题
-
-    https://www.w3cschool.cn/fisug/
+    <a href="https://www.w3cschool.cn/fisug/" target="_blank">https://www.w3cschool.cn/fisug/</a>
+    
 
 69道Spring面试题和答案
+    <a href="http://ifeve.com/spring-interview-questions-and-answers/" target="_blank">http://ifeve.com/spring-interview-questions-and-answers/</a>
     
-    http://ifeve.com/spring-interview-questions-and-answers/
                        

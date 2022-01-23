@@ -5,6 +5,12 @@
     <title>movie-adventure</title>
 </head>
 <body>
-movie-adventure
+<div id="movieadventure_area" class="md_content"></div>
+<script>
+    $.get('../blog/mediatype/movie_adventure.md', function (response, status, xhr) {
+        $("#movieadventure_area").html(marked(response));
+    });
+</script>
+</body>
 </body>
 </html>
