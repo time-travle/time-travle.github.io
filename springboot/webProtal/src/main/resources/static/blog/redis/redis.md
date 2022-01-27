@@ -1,10 +1,12 @@
 #redis 
+
 ---
 <a href="#" onclick="refreshRedisContent('config')">Redis（config）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshRedisContent('note')">Redis（note）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshRedisContent('order')">Redis（order）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshRedisContent('question')">Redis（question）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshRedisContent('usage')">Redis（Usage）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshRedisContent('cluster')">Redis（集群部署）</a>&emsp;&emsp;&emsp;
 
 ---
 
@@ -48,6 +50,15 @@ https://blog.csdn.net/qq_42815754/article/details/82912130
 
 https://www.cnblogs.com/silent2012/p/10697896.html
 
+### redis cluster 介绍
+    自动将数据进行分片，每个 master 上放一部分数据
+    提供内置的高可用支持，部分 master 不可用时，还是可以继续工作的
+    在 redis cluster 架构下，每个 redis 要放开两个端口号，比如一个是 6379，另外一个就是 加1w 的端口号，比如 16379。
+    
+    16379 端口号是用来进行节点间通信的，也就是 cluster bus 的东西，cluster bus 的通信，用来进行故障检测、配置更新、故障转移授权。
+    cluster bus 用了另外一种二进制的协议，gossip 协议，用于节点间进行高效的数据交换，占用更少的网络带宽和处理时间
+
+    redis cluster 节点间采用 gossip 协议进行通信。
 ##参考链接
 - https://blog.csdn.net/summerZBH123/article/-details/81406856
 - https://blog.csdn.net/u011320646/article/details/85491103

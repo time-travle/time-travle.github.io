@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>cluster</title>
+    </head>
+    <body>
+        <div id="cluster_area" class="md_content"></div>
+        <script>
+            $.get('../blog/redis/cluster/cluster.md', function (response, status, xhr) {
+                $("#cluster_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>
