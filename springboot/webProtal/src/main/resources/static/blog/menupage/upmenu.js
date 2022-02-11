@@ -2,7 +2,7 @@ function showPersonPage(choose) {
     if (!choose) {
         return;
     }
-    if ("skillstack" == choose) {
+    if ("skillstack" === choose) {
         $("#left_side").load(location.web.staticpath + '/blog/menupage/leftmenu.html');
         $("#right_side").load(location.web.staticpath + '/blog/menupage/rightmenu.html');
     } else {
@@ -13,16 +13,18 @@ function showPersonPage(choose) {
     $("#content").load(location.web.staticpath + target);
     $("#header").load(location.web.staticpath + '/blog/menupage/upmenu.html');
 }
-
+function load(target){
+    $("#content").load(location.web.staticpath + target);
+    $("#left_side").load(location.web.staticpath + "/public/html/blank.html");
+    $("#right_side").load(location.web.staticpath + "/public/html/blank.html");
+    $("#header").load(location.web.staticpath + '/blog/menupage/upmenu.html');
+}
 function showPicturePage(choose) {
     if (!choose) {
         return;
     }
     var target = '/picturepage/' + choose + '/' + choose + '.html';
-    $("#content").load(location.web.staticpath + target);
-    $("#left_side").load(location.web.staticpath + "/public/html/blank.html");
-    $("#right_side").load(location.web.staticpath + "/public/html/blank.html");
-    $("#header").load(location.web.staticpath + '/blog/menupage/upmenu.html');
+    load(target);
 }
 
 function showMediaPage(mediaType) {
@@ -41,10 +43,7 @@ function showMeToolsPage(toolName) {
         return;
     }
     var target = '/blog/tools/' + toolName + '.html';
-    $("#content").load(location.web.staticpath + target);
-    $("#left_side").load(location.web.staticpath + "/public/html/blank.html");
-    $("#right_side").load(location.web.staticpath + "/public/html/blank.html");
-    $("#header").load(location.web.staticpath + '/blog/menupage/upmenu.html');
+    load(target);
 }
 
 function showITLearnPage(learnName) {
@@ -53,10 +52,7 @@ function showITLearnPage(learnName) {
     }
     var target = '/blog/itlearn/' + learnName + '/' + learnName + '.html';
 
-    $("#content").load(location.web.staticpath + target);
-    $("#left_side").load(location.web.staticpath + "/public/html/blank.html");
-    $("#right_side").load(location.web.staticpath + "/public/html/blank.html");
-    $("#header").load(location.web.staticpath + '/blog/menupage/upmenu.html');
+    load(target);
 }
 
 function showMemoryPage(memory) {
@@ -64,8 +60,5 @@ function showMemoryPage(memory) {
         return;
     }
     var target = '/memory/' + memory + '/' + memory + '.html';
-    $("#content").load(location.web.staticpath + target);
-    $("#left_side").load(location.web.staticpath + "/public/html/blank.html");
-    $("#right_side").load(location.web.staticpath + "/public/html/blank.html");
-    $("#header").load(location.web.staticpath + '/blog/menupage/upmenu.html');
+    load(target);
 }

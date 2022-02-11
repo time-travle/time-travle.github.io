@@ -10,6 +10,14 @@
             $.get('../blog/messagemq/messagemq.md', function (response, status, xhr) {
                 $("#messagemq").html(marked(response));
             });
+
+            function refreshMQContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = '/blog/messagemq/' + choose + '/' + choose + '.html';
+                $("#content").load(location.web.staticpath + target);
+            }
         </script>
     </body>
 </html>

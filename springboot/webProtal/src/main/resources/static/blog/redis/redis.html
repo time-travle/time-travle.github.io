@@ -10,6 +10,15 @@
             $.get('../blog/redis/redis.md', function (response, status, xhr) {
                 $("#redis_area").html(marked(response));
             });
+
+            function refreshRedisContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = '/blog/redis/' + choose + '/' + choose + '.html';
+                $("#content").load(location.web.staticpath + target);
+            }
+
         </script>
     </body>
 </html>

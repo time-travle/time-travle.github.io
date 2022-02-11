@@ -10,6 +10,14 @@
             $.get('../blog/spring/spring.md', function (response, status, xhr) {
                 $("#spring_area").html(marked(response));
             });
+
+            function refreshSpringContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = '/blog/spring/' + choose + '/' + choose + '.html';
+                $("#content").load(location.web.staticpath + target);
+            }
         </script>
     </body>
 </html>
