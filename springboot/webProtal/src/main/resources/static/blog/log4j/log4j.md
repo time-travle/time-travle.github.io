@@ -1,5 +1,7 @@
 #Log4j 的使用
 
+---
+
 用来打印日志再服务器运行程序期间不用再进行多次的重启，才可以定位到问题，
 工具的使用是方便的，主要的配置文件格式，需要进行配置，
 
@@ -112,7 +114,7 @@
 ---
 ##log4j.properties  
 
-https://www.cnblogs.com/pigtail/archive/2013/02/16/2913195.html
+<a href="https://www.cnblogs.com/pigtail/archive/2013/02/16/2913195.html#" target="_blank">https://www.cnblogs.com/pigtail/archive/2013/02/16/2913195.html </a>
 
 ### set log levels ###   log4j.rootLogger=[level],appenderName,appenderName,......
     log4j.rootLogger = INFO , console , debug , error ,stdout
@@ -157,7 +159,7 @@ https://www.cnblogs.com/pigtail/archive/2013/02/16/2913195.html
 demo:  ---xml
 
 log4j2.xml  
-https://www.cnblogs.com/pjfmeng/p/11277124.html
+<a href="https://www.cnblogs.com/pjfmeng/p/11277124.html#" target="_blank">https://www.cnblogs.com/pjfmeng/p/11277124.html </a>
 
     <?xml version="1.0" encoding="UTF-8"?>
     <!--日志级别以及优先级排序: OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE > ALL -->
@@ -354,8 +356,8 @@ https://www.cnblogs.com/pjfmeng/p/11277124.html
 
 
 log4j xml  
- 
- https://www.cnblogs.com/cyq9527/p/11671648.html
+
+<a href="https://www.cnblogs.com/cyq9527/p/11671648.html#" target="_blank">https://www.cnblogs.com/cyq9527/p/11671648.html </a>
 
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE log4j:configuration SYSTEM  "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">

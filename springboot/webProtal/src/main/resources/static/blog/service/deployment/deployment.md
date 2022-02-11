@@ -2,6 +2,8 @@
     <a href="#" onclick="refreshContent('service')">返回目录</a>
 </p>
 
+---
+
 # 服务部署 相关
 集群 分布式 分布锁 分布事物
 ---
@@ -67,9 +69,9 @@
 
     CAP 是 Consistency、Availability、Partition tolerance 三个单词的缩写，分别表示一致性、可用性、分区容忍性
 
-https://www.cnblogs.com/dyzcs/p/13780668.html
+<a href="https://www.cnblogs.com/dyzcs/p/13780668.html#" target="_blank">https://www.cnblogs.com/dyzcs/p/13780668.html </a>
 
-https://www.cnblogs.com/mayundalao/p/11798502.html  4种结局方案
+<a href="https://www.cnblogs.com/mayundalao/p/11798502.html#" target="_blank">https://www.cnblogs.com/mayundalao/p/11798502.html </a>  4种结局方案
 
 ===================================分布式锁=======================================
 

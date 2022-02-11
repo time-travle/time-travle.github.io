@@ -3,6 +3,7 @@
     <a href="#" style="float: right;" onclick="refreshDatabaseContent('oracle2')">进阶 Oracle 2.0</a>
 </p>
 
+---
 # Oracle 1.0
 
 ##创建表空间
@@ -374,8 +375,8 @@
 	　　select dbms_metadata.get_ddl('TABLE','SZT_PQSO2','SHQSYS') from dual;　　 
 	　　select dbms_metadata.get_ddl('INDEX','INDXX_PQZJYW','SHQSYS') from dual;　 
 	　　spool off;
-- oracle索引，索引的建立、修改、删除 https://www.cnblogs.com/djcsch2001/articles/1823459.html
-- Oracle 建立索引及SQL优化 https://blog.csdn.net/qq_40285302/article/details/81874641	
+- oracle索引，索引的建立、修改、删除 <a href="https://www.cnblogs.com/djcsch2001/articles/1823459.html#" target="_blank">https://www.cnblogs.com/djcsch2001/articles/1823459.html </a>
+- Oracle 建立索引及SQL优化 <a href="https://blog.csdn.net/qq_40285302/article/details/81874641#" target="_blank">https://blog.csdn.net/qq_40285302/article/details/81874641	</a>
 	
 ##约束
     1、添加主键约束（将stuNo作为主键）

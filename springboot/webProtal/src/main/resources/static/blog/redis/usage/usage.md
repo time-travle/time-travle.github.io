@@ -2,8 +2,8 @@
     <a href="#" onclick="refreshContent('redis')">返回目录</a>
 </p>
 
-使用
 ---
+##使用
 
 启动与停止
 
@@ -51,6 +51,6 @@
 
 ##客户端数据操作参考
 
-<a href="https://blog.csdn.net/Dance_sheng/article/details/118904661" target="_blank">Redis - 五种数据类型以及基本操作</a>
+- <a href="https://blog.csdn.net/Dance_sheng/article/details/118904661" target="_blank">Redis - 五种数据类型以及基本操作</a>
 
-<a href="https://blog.csdn.net/qq_41264674/article/details/81260135" target="_blank">redis操作五种数据类型</a>
+- <a href="https://blog.csdn.net/qq_41264674/article/details/81260135" target="_blank">redis操作五种数据类型</a>

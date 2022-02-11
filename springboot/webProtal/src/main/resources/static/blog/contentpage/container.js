@@ -6,13 +6,6 @@ function refreshContent(choose) {
     $("#content").load(location.web.staticpath + target);
 }
 
-function refreshSpringCloudContent(choose) {
-    if (!choose) {
-        return;
-    }
-    var target = '/blog/springcloud/' + choose + '/' + choose + '.html';
-    $("#content").load(location.web.staticpath + target);
-}
 
 function refreshSpringContent(choose) {
     if (!choose) {

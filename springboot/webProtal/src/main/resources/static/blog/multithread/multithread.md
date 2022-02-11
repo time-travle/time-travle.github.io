@@ -4,15 +4,15 @@
 
 50个多线程面试题
 
-   https://blog.csdn.net/cmyperson/article/details/79610870
+<a href="https://blog.csdn.net/cmyperson/article/details/79610870#" target="_blank">https://blog.csdn.net/cmyperson/article/details/79610870 </a>
 
 多线程面试题    
 
-   https://blog.csdn.net/tanmomo/article/details/99671622
+<a href="https://blog.csdn.net/tanmomo/article/details/99671622#" target="_blank">https://blog.csdn.net/tanmomo/article/details/99671622 </a>
 
 多线程模拟售票，多个窗口售票
 
-   https://www.cnblogs.com/majingang/p/9055669.html
+<a href="https://www.cnblogs.com/majingang/p/9055669.html#" target="_blank">https://www.cnblogs.com/majingang/p/9055669.html </a>
 
 
 ##并发编程三要素？
@@ -432,10 +432,10 @@
     
 
 ##java多线程 —— 面试题集合（最全集合）
-   https://blog.csdn.net/chongbin007/article/details/91359728
+<a href="https://blog.csdn.net/chongbin007/article/details/91359728#" target="_blank">https://blog.csdn.net/chongbin007/article/details/91359728 </a>
     
 ##java面试题：分布式   
-   https://www.cnblogs.com/expiator/p/10201004.html
+<a href="https://www.cnblogs.com/expiator/p/10201004.html#" target="_blank">https://www.cnblogs.com/expiator/p/10201004.html </a>
 
 
 

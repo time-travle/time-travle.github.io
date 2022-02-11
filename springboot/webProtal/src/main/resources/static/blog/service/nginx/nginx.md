@@ -2,6 +2,7 @@
     <a href="#" onclick="refreshContent('service')">返回目录</a>
 </p>
 
+---
 #nginx的使用
     
     高性能的HTTP和反向代理服务器，同时也是一个IMAP/POP3/SMTP 代理服务器。
@@ -43,7 +44,7 @@
 - 在反向代理中，Proxy和Server同属于一个LAN（图中方框内），隐藏了服务端信息；
 
 
-[https://blog.csdn.net/weixin_43695104/article/details/88034435](https://blog.csdn.net/weixin_43695104/article/details/88034435)
+<a href="https://blog.csdn.net/weixin_43695104/article/details/88034435#" target="_blank">https://blog.csdn.net/weixin_43695104/article/details/88034435 </a>
 
 
 

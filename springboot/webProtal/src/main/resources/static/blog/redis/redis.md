@@ -1,12 +1,14 @@
 #redis 
 
 ---
+<p>
 <a href="#" onclick="refreshRedisContent('config')">Redis（config）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshRedisContent('note')">Redis（note）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshRedisContent('order')">Redis（order）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshRedisContent('question')">Redis（question）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshRedisContent('usage')">Redis（Usage）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshRedisContent('cluster')">Redis（集群部署）</a>&emsp;&emsp;&emsp;
+</p>
 
 ---
 
@@ -34,7 +36,7 @@ Redis与其他key-value存储有什么不同？
 
 
 ##安装
-runoob： [https://www.runoob.com/redis/redis-install.html](https://www.runoob.com/redis/redis-install.html)
+runoob： <a href="https://www.runoob.com/redis/redis-install.html#" target="_blank">https://www.runoob.com/redis/redis-install.html </a>
 
 ##启动
 在安装目录执行：
@@ -46,9 +48,8 @@ redis-server.exe redis.windows.conf
 
 redis集群搭建 
 
-https://blog.csdn.net/qq_42815754/article/details/82912130
-
-https://www.cnblogs.com/silent2012/p/10697896.html
+- <a href="https://blog.csdn.net/qq_42815754/article/details/82912130#" target="_blank">https://blog.csdn.net/qq_42815754/article/details/82912130</a>
+- <a href="https://www.cnblogs.com/silent2012/p/10697896.html#" target="_blank">https://www.cnblogs.com/silent2012/p/10697896.html</a>
 
 ### redis cluster 介绍
     自动将数据进行分片，每个 master 上放一部分数据
@@ -60,12 +61,12 @@ https://www.cnblogs.com/silent2012/p/10697896.html
 
     redis cluster 节点间采用 gossip 协议进行通信。
 ##参考链接
-- https://blog.csdn.net/summerZBH123/article/-details/81406856
-- https://blog.csdn.net/u011320646/article/details/85491103
-- https://www.cnblogs.com/lezon1995/p/11175380.html#%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98
-- https://www.cnblogs.com/1013wang/p/12192610.html
-- https://www.cnblogs.com/jasontec/p/9699242.html
-- https://blog.csdn.net/Butterfly_resting/article/details/89668661
+- <a href="https://blog.csdn.net/summerZBH123/article/-details/81406856#" target="_blank">https://blog.csdn.net/summerZBH123/article/-details/81406856 </a>
+- <a href="https://blog.csdn.net/u011320646/article/details/85491103#" target="_blank">https://blog.csdn.net/u011320646/article/details/85491103 </a>
+- <a href="https://www.cnblogs.com/lezon1995/p/11175380.html#%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98#" target="_blank">https://www.cnblogs.com/lezon1995/p/11175380.html#%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98 </a>
+- <a href="https://www.cnblogs.com/1013wang/p/12192610.html#" target="_blank">https://www.cnblogs.com/1013wang/p/12192610.html </a>
+- <a href="https://www.cnblogs.com/jasontec/p/9699242.html#" target="_blank">https://www.cnblogs.com/jasontec/p/9699242.html </a>
+- <a href="https://blog.csdn.net/Butterfly_resting/article/details/89668661#" target="_blank">https://blog.csdn.net/Butterfly_resting/article/details/89668661 </a>
 
-- springboot整合redis    https://zhuanlan.zhihu.com/p/64176772
+- springboot整合redis    <a href="https://zhuanlan.zhihu.com/p/64176772#" target="_blank">https://zhuanlan.zhihu.com/p/64176772 </a>
 

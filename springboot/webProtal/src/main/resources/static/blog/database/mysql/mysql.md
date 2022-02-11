@@ -3,6 +3,7 @@
     <a href="#" style="float: right;" onclick="refreshDatabaseContent('mysql2')">进阶 mysql 2.0</a>
 </p>
 
+---
 # MySQL 1.0
 
 1、创建数据库

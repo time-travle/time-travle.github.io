@@ -3,7 +3,7 @@
 </p>
 
 #适配器模式 
-https://www.runoob.com/design-pattern/adapter-pattern.html
+<a href="https://www.runoob.com/design-pattern/adapter-pattern.html#" target="_blank">https://www.runoob.com/design-pattern/adapter-pattern.html </a>
 
     适配器模式（Adapter Pattern）是作为两个不兼容的接口之间的桥梁。这种类型的设计模式属于结构型模式，它结合了两个独立接口的功能。
     

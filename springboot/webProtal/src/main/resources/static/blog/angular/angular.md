@@ -1,8 +1,10 @@
 #Angular 知识点
+<p>
 <a href="#" onclick="refreshAngularContent('angularorder')">Angular 使用到的命令</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshAngularContent('angularquestion')">Angular 常见的问题</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshAngularContent('angularuse')">Angular 的使用</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshAngularContent('angulardirective')">Angular 指令的使用</a>&emsp;&emsp;&emsp;
+</p>
 
 ---
 

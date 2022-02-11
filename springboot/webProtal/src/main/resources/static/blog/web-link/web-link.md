@@ -1,6 +1,6 @@
 #学习链接
 我爱分享 软件下载 教程
-	http://www.zhanshaoyi.com/rjxz.html
+	<a href="#" target="_blank">http://www.zhanshaoyi.com/rjxz.html </a>
 	
 力扣刷题
 	https://leetcode-cn.com/

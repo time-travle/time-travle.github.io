@@ -11,7 +11,8 @@
 		getData(String path, Watcher watcher, Stat stat)
 
 
-2、ZooKeeper 如何进行序列化？ https://kaiwu.lagou.com/course/courseInfo.htm?courseId=158#/detail/pc?id=3134
+2、ZooKeeper 如何进行序列化？ 
+<a href="https://kaiwu.lagou.com/course/courseInfo.htm?courseId=158#/detail/pc?id=3134" target="_blank">https://kaiwu.lagou.com/course/courseInfo.htm?courseId=158#/detail/pc?id=3134 </a>
 
 	序列化是指将我们定义好的 Java 类型转化成数据流的形式，
 	之所以这么做是因为在网络传输过程中，TCP 协议采用“流通信”的方式，提供了可以读写的字节流。

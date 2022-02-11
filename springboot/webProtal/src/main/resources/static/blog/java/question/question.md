@@ -1,5 +1,5 @@
 <p>
-    <a href="#" onclick="refreshContent('java')">返回目录</a>
+    <a href="#" onclick="refreshContent('java')">返回目录 </a>
 </p>
 
 #java  question 日常积累 
@@ -8,11 +8,11 @@
 
 ## Q：这21个刁钻的HashMap面试题，我把阿里面试官吊打了
 
-    https://cloud.tencent.com/developer/article/1629452
+- <a href="https://cloud.tencent.com/developer/article/1629452#" target="_blank">https://cloud.tencent.com/developer/article/1629452 </a>
 ## Q：java面试题:HashMap面试题
-- https://songzixian.com/javabook/265.html
-- https://blog.csdn.net/ChrisLu777/article/details/106617512
-- https://www.cnblogs.com/zengcongcong/p/11295349.html
+- <a href="https://songzixian.com/javabook/265.html" target="_blank">https://songzixian.com/javabook/265.html </a>
+- <a href="https://blog.csdn.net/ChrisLu777/article/details/106617512#" target="_blank">https://blog.csdn.net/ChrisLu777/article/details/106617512 </a>
+- <a href="https://www.cnblogs.com/zengcongcong/p/11295349.html#" target="_blank">https://www.cnblogs.com/zengcongcong/p/11295349.html </a>
 
 ## Q：HashMap为什么用到它
   
@@ -86,7 +86,7 @@
         ④、HashMap 默认初始化数组的大小为16，HashTable 为 11，前者扩容时，扩大两倍，后者扩大两倍+1；
         ⑤、HashMap 需要重新计算 hash 值，而 HashTable 直接使用对象的 hashCode
 
-- https://www.jianshu.com/p/75adf47958a7
+- <a href="https://www.jianshu.com/p/75adf47958a7#" target="_blank">https://www.jianshu.com/p/75adf47958a7 </a>
 
 
 ## Q：如果两个键的hashcode相同，你如何获取值对象？
@@ -171,7 +171,7 @@
         4.3：链表结构，循环遍历直到链表中某个节点为空，尾插法进行插入，插入之后判断链表个数是否到达变成红黑树的阙值8；
             也可以遍历到有节点与插入元素的哈希值和内容相同，进行覆盖。
     5.如果桶满了大于阀值，则resize进行扩容
-- https://www.cnblogs.com/zengcongcong/p/11295349.html
+- <a href="https://www.cnblogs.com/zengcongcong/p/11295349.html#" target="_blank">https://www.cnblogs.com/zengcongcong/p/11295349.html </a>
 
   
 ## Q：分布式有哪些理论？
@@ -191,7 +191,7 @@
     
 ## Q：java面试题：分布式    
 
-    https://www.cnblogs.com/expiator/p/10201004.html   
+<a href="https://www.cnblogs.com/expiator/p/10201004.html#" target="_blank">https://www.cnblogs.com/expiator/p/10201004.html  </a>
     
     
 ## Q：JAVA中集合类型都有哪些？各有什么特点？
@@ -251,7 +251,7 @@
             
 
 
-- https://www.jb51.net/article/92231.htm
+- <a href="https://www.jb51.net/article/92231.htm#" target="_blank">https://www.jb51.net/article/92231.htm </a>
 
 
 在JAVA中，闭包是通过“接口+内部类”实现，JAVA的内部类也可以有匿名内部类。
@@ -424,8 +424,9 @@
     
 ## Q：什么是 CopyOnWriteArraySet 怎么使用
 
-    - https://www.cnblogs.com/xiaolovewei/p/9142046.html
+- <a href="https://www.cnblogs.com/xiaolovewei/p/9142046.html#" target="_blank">https://www.cnblogs.com/xiaolovewei/p/9142046.html </a>
  
+
     它是线程安全的无序的集合，可以将它理解成线程安全的HashSet
     CopyOnWriteArraySet和HashSet虽然都继承于共同的父类AbstractSet；
     但是，HashSet是通过“散列表(HashMap)”实现的，

@@ -10,8 +10,8 @@
         setter注入，
         基于注解的注入。
 ##Spring IOC的四种注入方式
-- https://segmentfault.com/a/1190000023309818
-- https://www.pianshen.com/article/9944276092/        
+- <a href="https://segmentfault.com/a/1190000023309818#" target="_blank">https://segmentfault.com/a/1190000023309818 </a>
+- <a href="https://www.pianshen.com/article/9944276092/#" target="_blank">https://www.pianshen.com/article/9944276092/ </a>       
 
 
 ###基于注解的注入

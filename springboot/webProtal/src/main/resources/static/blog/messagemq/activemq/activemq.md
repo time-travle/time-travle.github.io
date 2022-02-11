@@ -2,6 +2,7 @@
     <a href="#" onclick="refreshContent('messagemq')">返回目录</a>
 </p>
 
+---
 # MessageMQ -activemq
  
 ##什么是ActiveMQ

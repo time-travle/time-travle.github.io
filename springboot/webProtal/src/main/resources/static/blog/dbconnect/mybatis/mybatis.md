@@ -4,12 +4,13 @@
 <p>
     <a href="#" onclick="refreshContent('dbconnect')">返回目录</a>
 </p>
-
+<p>
 <a href="#" onclick="refreshybatisContent('configs')">properties 和settings</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshybatisContent('mapconfig')">Mapper 配置</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshybatisContent('questions')">questions</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshybatisContent('dynamic')">动态 sql 拼写</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshybatisContent('linkedquery')">连表查询 sql 拼写</a>&emsp;&emsp;&emsp;
+</p>
 
 ---
 

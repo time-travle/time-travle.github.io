@@ -2,8 +2,10 @@
     <a href="#" onclick="refreshDatabaseContent('mysql2')">返回 mysql 2.0</a>
 </p>
 
-# MySQL 3.0
 ---
+
+# MySQL 3.0
+
  
 链接mysql时的url中的参数解析
 

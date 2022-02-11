@@ -2,8 +2,10 @@
     <a href="#" onclick="refreshContent('redis')">返回目录</a>
 </p>
 
-#redis order命令：
 ---
+
+#redis order命令：
+
 ###命令：
 	CLIENT LIST		返回连接到 redis 服务的客户端列表
 	CLIENT SETNAME	设置当前连接的名称

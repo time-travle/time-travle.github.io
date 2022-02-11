@@ -1,4 +1,6 @@
+<p>
 <a href="#" onclick="refreshContent('vue')">返回</a>
+</p>
 
 ## Vue 的使用
 
@@ -350,7 +352,7 @@
 
 	通过 v-model 实现数据的双向绑定
 	
-10、组件   https://cn.vuejs.org/v2/guide/components-dynamic-async.html
+10、组件   <a href="https://cn.vuejs.org/v2/guide/components-dynamic-async.html#" target="_blank">https://cn.vuejs.org/v2/guide/components-dynamic-async.html </a>
 
 	组件命名 两种格式  kebab-case    PascalCase
 	
@@ -525,7 +527,7 @@
 
 15、混入
 
-16、Ajax(axios)   https://www.runoob.com/vue2/vuejs-ajax-axios.html
+16、Ajax(axios)   <a href="https://www.runoob.com/vue2/vuejs-ajax-axios.html#" target="_blank">https://www.runoob.com/vue2/vuejs-ajax-axios.html </a>
 
 	Axios 是一个基于 Promise 的 HTTP 库
 	 
@@ -582,7 +584,7 @@
 			// 两个请求现在都执行完成
 		  }));	  
 
-17、Ajax(vue-resource)  https://www.runoob.com/vue2/vuejs-ajax.html
+17、Ajax(vue-resource)  <a href="https://www.runoob.com/vue2/vuejs-ajax.html#" target="_blank">https://www.runoob.com/vue2/vuejs-ajax.html </a>
 
 	//发送get请求
 		this.$http.get('/try/ajax/ajax_info.txt').then(function(res){
@@ -623,7 +625,7 @@
 
 19、过滤器
 
-20、插槽 slot   https://cn.vuejs.org/v2/guide/components-slots.html
+20、插槽 slot   <a href="https://cn.vuejs.org/v2/guide/components-slots.html#" target="_blank">https://cn.vuejs.org/v2/guide/components-slots.html </a>
 
 	demo:
 	Vue.component('alert-box', {

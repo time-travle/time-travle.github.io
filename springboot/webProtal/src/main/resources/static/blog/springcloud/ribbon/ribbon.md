@@ -2,6 +2,7 @@
     <a href="#" onclick="refreshContent('springcloud')">返回目录</a>
 </p>
 
+---
 #Spring Cloud -ribbon知识积累
 
 ##如何搭建使用Ribbon

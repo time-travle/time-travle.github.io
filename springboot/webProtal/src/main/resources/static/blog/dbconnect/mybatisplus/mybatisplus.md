@@ -9,7 +9,7 @@
 ---
 SpringBoot使用Mybatis&Mybatis-plus文件映射配置
 
-https://www.cnblogs.com/taojietaoge/p/14555692.html
+<a href="https://www.cnblogs.com/taojietaoge/p/14555692.html#" target="_blank">https://www.cnblogs.com/taojietaoge/p/14555692.html </a>
 
 
 1、使用Mybatis

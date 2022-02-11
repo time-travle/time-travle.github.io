@@ -13,7 +13,7 @@
         document.οncοntextmenu=new Function("event.returnValue=false");
         document.onselectstart=new Function("event.returnValue=false");
         </script>
-  参考：https://blog.csdn.net/for023/article/details/77452718
+  参考：<a href="https://blog.csdn.net/for023/article/details/77452718#" target="_blank">https://blog.csdn.net/for023/article/details/77452718 </a>
 ###禁止页面另存为
 ####jsp
         <body>标签加入以下代码：
@@ -36,7 +36,7 @@
             document.onpaste = function(){ return false; };
         </script>
     弊端：执行了一次就会每次都会执行了
-   参考： https://www.cnblogs.com/momo798/p/6797670.html
+   参考： <a href="https://www.cnblogs.com/momo798/p/6797670.html#" target="_blank">https://www.cnblogs.com/momo798/p/6797670.html </a>
 ####脚本2   
         <script type="text/javascript">
             // 禁用右键菜单、复制、选择
@@ -51,4 +51,4 @@
             });
         </script>
     弊端：执行了一次就会每次都会执行了
-  参考：https://www.jianshu.com/p/5550da3fad49
+  参考：<a href="https://www.jianshu.com/p/5550da3fad49#" target="_blank">https://www.jianshu.com/p/5550da3fad49 </a>

@@ -3,7 +3,7 @@
 </p>
 
 #代理模式 
-https://www.runoob.com/design-pattern/proxy-pattern.html
+<a href="https://www.runoob.com/design-pattern/proxy-pattern.html#" target="_blank">https://www.runoob.com/design-pattern/proxy-pattern.html </a>
 
 	在代理模式（Proxy Pattern）中，一个类代表另一个类的功能。这种类型的设计模式属于结构型模式。
 

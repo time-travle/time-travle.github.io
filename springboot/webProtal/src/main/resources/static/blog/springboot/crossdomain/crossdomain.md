@@ -1,7 +1,12 @@
+<p>
 <a href="#" onclick="refreshContent('springboot')">返回</a>
+</p>
 
+---
 ##跨域请求解决方案
-一般如下几种方案：https://zhuanlan.zhihu.com/p/50416743
+一般如下几种方案：
+- <a href="https://zhuanlan.zhihu.com/p/50416743#" target="_blank">https://zhuanlan.zhihu.com/p/50416743</a>
+
 
     野路子出身却好用的方式：JSONP；
     官方推荐的跨域资源共享方案：CORS；

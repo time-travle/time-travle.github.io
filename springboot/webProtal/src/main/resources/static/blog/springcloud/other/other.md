@@ -2,6 +2,7 @@
     <a href="#" onclick="refreshContent('springcloud')">返回目录</a>
 </p>
 
+---
 #Spring Cloud 与Spring Boot的 爱恨情仇
 Spring boot 是 Spring 的一套快速配置脚手架，可以基于spring boot 快速开发单个微服务，
 Spring Boot，看名字就知道是Spring的引导，就是用于启动Spring的，使得Spring的学习和使用变得快速无痛。

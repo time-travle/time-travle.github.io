@@ -10,6 +10,14 @@
             $.get('../blog/springcloud/springcloud.md', function (response, status, xhr) {
                 $("#springcloud_area").html(marked(response));
             });
+
+            function refreshSpringCloudContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = '/blog/springcloud/' + choose + '/' + choose + '.html';
+                $("#content").load(location.web.staticpath + target);
+            }
         </script>
     </body>
 </html>

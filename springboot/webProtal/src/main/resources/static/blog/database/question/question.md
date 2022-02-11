@@ -3,6 +3,7 @@
     
 </p>
 
+---
 # Question 1.0
 
 ####1、什么情况下数据库索引会失效
@@ -78,7 +79,7 @@
 
 ####6(Mysql)、执行创建函数的sql语句时，提示:This function has none of DETERMINISTIC, NO SQL, or READS SQL DATA in its declaration and binary logging is enabled
 
-https://www.cnblogs.com/kiko2014551511/p/11527423.html
+<a href="https://www.cnblogs.com/kiko2014551511/p/11527423.html#" target="_blank">https://www.cnblogs.com/kiko2014551511/p/11527423.html </a>
 
 ####7、order by 排序
 

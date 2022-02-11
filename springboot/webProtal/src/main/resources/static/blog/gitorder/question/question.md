@@ -2,11 +2,13 @@
 <p>
     <a href="#" onclick="refreshContent('gitorder')">返回目录</a>
 </p>
+<p>
 <a href="#" onclick="refreshOrderContent('config')">Git（config）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshOrderContent('order1')">Git（日常命令）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshOrderContent('order2')">Git（初阶）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshOrderContent('order3')">Git（中阶）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshOrderContent('order4')">Git（高阶）</a>&emsp;&emsp;&emsp;
+</p>
 
 ---
 ##Git使用中会出现的问题

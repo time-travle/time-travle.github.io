@@ -1,5 +1,8 @@
+<p>
 <a href="#" onclick="refreshContent('springboot')">返回</a>
+</p>
 
+---
 ##SpringBoot 日志系统
 
 Spring Boot默认日志系统
@@ -17,13 +20,13 @@ Spring Boot默认日志系统
     
     Spring Cloud日志配置可以使用Log4j或者logback，但是官方推荐使用logback。logback是log4j作者出的，用来替代log4j的
 
-- https://cloud.tencent.com/developer/article/1445599
-- https://cloud.tencent.com/developer/article/1403110
-- https://blog.csdn.net/inke88/article/details/75007649
-- https://www.jianshu.com/p/1fa12b92d5c4
+- <a href="https://cloud.tencent.com/developer/article/1445599#" target="_blank">https://cloud.tencent.com/developer/article/1445599</a>
+- <a href="https://cloud.tencent.com/developer/article/1403110#" target="_blank">https://cloud.tencent.com/developer/article/1403110</a>
+- <a href="https://blog.csdn.net/inke88/article/details/75007649#" target="_blank">https://blog.csdn.net/inke88/article/details/75007649</a>
+- <a href="https://www.jianshu.com/p/1fa12b92d5c4#" target="_blank">https://www.jianshu.com/p/1fa12b92d5c4</a>
 
-- https://blog.csdn.net/qq_42216517/article/details/108397406
-- https://www.jianshu.com/p/f67c721eea1b
-- https://www.cnblogs.com/itgaofei/p/9345569.html
-- https://blog.csdn.net/qq_42216517/article/details/108397406
+- <a href="https://blog.csdn.net/qq_42216517/article/details/108397406#" target="_blank">https://blog.csdn.net/qq_42216517/article/details/108397406</a>
+- <a href="https://www.jianshu.com/p/f67c721eea1b#" target="_blank">https://www.jianshu.com/p/f67c721eea1b</a>
+- <a href="https://www.cnblogs.com/itgaofei/p/9345569.html#" target="_blank">https://www.cnblogs.com/itgaofei/p/9345569.html</a>
+- <a href="https://blog.csdn.net/qq_42216517/article/details/108397406#" target="_blank">https://blog.csdn.net/qq_42216517/article/details/108397406</a>
     

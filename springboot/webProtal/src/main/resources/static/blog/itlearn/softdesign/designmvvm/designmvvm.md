@@ -22,7 +22,7 @@ MVVM?
 		ViewModel也能监听到视图的变化，然后通知数据做改动，这实际上就实现了数据的双向绑定。并且MVVM中的View 和 ViewModel可以互相通信。
 
  
- MVVM  示意图  https://blog.csdn.net/cuiji4724/article/details/81737396
+ MVVM  示意图  <a href="https://blog.csdn.net/cuiji4724/article/details/81737396#" target="_blank">https://blog.csdn.net/cuiji4724/article/details/81737396 </a>
  
 	|—————————————交互————————|
 	|						  |

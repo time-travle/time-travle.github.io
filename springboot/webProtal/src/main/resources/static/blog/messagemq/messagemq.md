@@ -1,9 +1,11 @@
 # MessageMQ
+<p>
 <a href="#" onclick="refreshMQContent('activemq')">MessageMQ（activemq）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshMQContent('rabbitmq')">MessageMQ（rabbitmq）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshMQContent('websocket')">MessageMQ（websocket）</a>&emsp;&emsp;&emsp;
+</p>
 
-----
+---
 
 核心组件基本上所有的消息中间件都是相同的，或许只是命名不同；
 

@@ -1,5 +1,6 @@
 #JVM 的理解
 
+---
 JVM 模型
 
     方法区
@@ -29,7 +30,7 @@ JVM垃圾收集器
 
 
 
-类的加载过程   参看 https://www.cnblogs.com/zhengbin/p/5631363.html
+类的加载过程   参看 <a href="https://www.cnblogs.com/zhengbin/p/5631363.html#" target="_blank">https://www.cnblogs.com/zhengbin/p/5631363.html </a>
 
     一、加载
         　　“加载” 是“类加载”过程的一个阶段。在加载阶段，虚拟机需要完成以下3件事情：
@@ -95,4 +96,4 @@ JVM垃圾收集器
 
 面试必学JVM面试题
 
-http://www.bjpowernode.com/hot/428.html
+<a href="http://www.bjpowernode.com/hot/428.html#" target="_blank">http://www.bjpowernode.com/hot/428.html </a>

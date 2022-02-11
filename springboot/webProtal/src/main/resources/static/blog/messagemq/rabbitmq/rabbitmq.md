@@ -2,12 +2,12 @@
     <a href="#" onclick="refreshContent('messagemq')">返回目录</a>
 </p>
 
-
+---
 # MessageMQ -rabbitmq
 
-https://blog.csdn.net/qq_41936805/article/details/88896623
+- <a href="https://blog.csdn.net/qq_41936805/article/details/88896623#" target="_blank">https://blog.csdn.net/qq_41936805/article/details/88896623 </a>
 
-https://blog.csdn.net/wangbing25307/article/details/80845641
+- <a href="https://blog.csdn.net/wangbing25307/article/details/80845641#" target="_blank">https://blog.csdn.net/wangbing25307/article/details/80845641 </a>
 
 ##核心概念
     Message ：消息，消息是不具名的，它由消息头和消息体组成。消息体是不透明的，而消息头则由一系列的可选属性组成，这些属性包括routing-key（路由键）、 

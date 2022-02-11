@@ -3,8 +3,9 @@
     <a href="#" onclick="refreshContent('redis')">返回目录</a>
 </p>
 
-#redis 问题收集：
 ---
+
+#redis 问题收集
 
 1、Redis 与其他 key - value 缓存产品有以下三个特点：
 
@@ -451,7 +452,7 @@
                     
                     所以减少key的个数可以减少内存消耗，可以参考的方案是转Hash结构存储，即原先是直接使用Redis String 的结构存储，现在将多个key存储在一个Hash结构中，
 参考：
-<a href="https://cloud.tencent.com/developer/article/1454332" target="_blank">大key多key拆分方案</a>
+- <a href="https://cloud.tencent.com/developer/article/1454332" target="_blank">大key多key拆分方案</a>
 
 
 50、Redis最大的单个value的最大限制是
@@ -470,7 +471,8 @@
 53、MySQL里有2000w数据，redis中只存20w的数据，如何保证redis中的数据都是热点数据？ 
 
             redis内存数据集大小上升到一定大小的时候，就会施行数据淘汰策略。    
-其他的面试题：https://zhuanlan.zhihu.com/p/93515595
+其他的面试题：
+- <a href="https://zhuanlan.zhihu.com/p/93515595" target="_blank">https://zhuanlan.zhihu.com/p/93515595 </a>
 
 
 

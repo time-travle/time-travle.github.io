@@ -50,7 +50,7 @@ SSO系统登录后，跳回原业务系统时，带了个参数ST，业务系统
     cookie
 
 
-https://blog.csdn.net/xiaoguan_liu/article/details/91492110
+<a href="https://blog.csdn.net/xiaoguan_liu/article/details/91492110#" target="_blank">https://blog.csdn.net/xiaoguan_liu/article/details/91492110 </a>
 ##SSO的实现
     只是简要介绍下基于java的实现过程，不提供完整源码，明白了原理，我相信你们可以自己实现。
     sso采用客户端/服务端架构，我们先看sso-client与sso-server要实现的功能（下面：sso认证中心=sso-server）

@@ -1,8 +1,8 @@
 #软件设计模式
 
-设计模式：  https://www.runoob.com/design-pattern/design-pattern-tutorial.html
+设计模式：  <a href="https://www.runoob.com/design-pattern/design-pattern-tutorial.html#" target="_blank">https://www.runoob.com/design-pattern/design-pattern-tutorial.html </a>
 
-23种设计模式全面解析： http://c.biancheng.net/design_pattern/
+23种设计模式全面解析： <a href="http://c.biancheng.net/design_pattern/#" target="_blank">http://c.biancheng.net/design_pattern/ </a>
 
 ##设计模式的六大原则
 ###1、开闭原则（Open Close Principle）

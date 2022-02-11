@@ -1,8 +1,9 @@
 #javascript 日常积累 积累
-
+<p>
 <a href="#" onclick="refreshJavascriptContent('question')">Javascript（question）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshJavascriptContent('newversion')">ES6（新特性）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshJavascriptContent('ajax')">Ajax 学习</a>&emsp;&emsp;&emsp;
+</p>
 
 ---
 

@@ -1,4 +1,6 @@
+<p>
 <a href="#" onclick="refreshContent('vue')">返回</a>
+</p>
 
 ## Vue 常见的问题
 
@@ -8,7 +10,7 @@
 	npm节点包管理器，用与nodejs中节点插件管理，其中包括插件的安装和卸载以及管理依赖的功能呢
 	但是有npm这个命令会比较慢 这个默认服务器不是在我们国内，而使用 cnpm这个就会快些 这个是在国内的一个镜像
 
-2、computed VS methods  https://www.cnblogs.com/goloving/p/8964602.html
+2、computed VS methods  <a href="https://www.cnblogs.com/goloving/p/8964602.html#" target="_blank">https://www.cnblogs.com/goloving/p/8964602.html</a>
 
 	我们可以通过在表达式中调用方法来达到同样的效果，我们可以将同一函数定义为一个方法而不是一个计算属性。
 	两种方式的最终结果确实是完全相同的。然而，不同的是计算属性是基于它们的依赖进行缓存的。

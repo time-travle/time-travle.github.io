@@ -2,7 +2,7 @@
     <a href="#" onclick="refreshContent('java')">返回目录</a>
 </p>
 
-
+---
 #java newversion 新特性
 
 ##java 8
@@ -17,7 +17,7 @@ Java 8允许我们给接口添加一个非抽象的方法实现，只需要使�
     }
 
 Java 8新增的特性主要包含以下几个新的语法：
-https://blog.csdn.net/qq_36795474/article/details/85090055
+- <a href="https://blog.csdn.net/qq_36795474/article/details/85090055#" target="_blank">https://blog.csdn.net/qq_36795474/article/details/85090055 </a>
 
     Lambda表达式。
     函数式接口

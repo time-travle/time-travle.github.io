@@ -1,7 +1,9 @@
 #Spring 知识积累
+<p>
 <a href="#" onclick="refreshSpringContent('aop')">Spring（aop）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshSpringContent('ioc')">Spring（ioc）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshSpringContent('transactional')">Spring（事物）</a>&emsp;&emsp;&emsp;
+</p>
 
 ----
 怎样开启注解装配？
@@ -33,8 +35,8 @@ spring 的优点？
 
 
 Spring如何解决循环依赖问题： 
-   - <a href="https://www.cnblogs.com/xiaoxing/p/10762686.html" target="_blank">https://www.cnblogs.com/xiaoxing/p/10762686.html</a>
-   - <a href="https://www.zhihu.com/question/438247718" target="_blank">https://www.zhihu.com/question/438247718</a>
+   - <a href="https://www.cnblogs.com/xiaoxing/p/10762686.html" target="_blank">https://www.cnblogs.com/xiaoxing/p/10762686.html </a>
+   - <a href="https://www.zhihu.com/question/438247718" target="_blank">https://www.zhihu.com/question/438247718 </a>
 
     生成代理对象产生的循环依赖
         这类循环依赖问题解决方法很多，主要有：
@@ -93,10 +95,10 @@ Spring框架支持以下五种bean的作用域：
         缺省的Spring bean 的作用域是Singleton.
 
 Spring常见面试题
-    <a href="https://www.w3cschool.cn/fisug/" target="_blank">https://www.w3cschool.cn/fisug/</a>
+- <a href="https://www.w3cschool.cn/fisug/" target="_blank">https://www.w3cschool.cn/fisug/ </a>
     
 
 69道Spring面试题和答案
-    <a href="http://ifeve.com/spring-interview-questions-and-answers/" target="_blank">http://ifeve.com/spring-interview-questions-and-answers/</a>
+- <a href="http://ifeve.com/spring-interview-questions-and-answers/" target="_blank">http://ifeve.com/spring-interview-questions-and-answers/ </a>
     
                        

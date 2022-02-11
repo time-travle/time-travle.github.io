@@ -1,4 +1,8 @@
-<ul><a href="#" onclick="refreshDBConnectContent('mybatis')">返回</a></ul>
+<p>
+    <a href="#" onclick="refreshDBConnectContent('mybatis')">返回</a>
+</p>
+
+---
 
 MyBatis中#{}和${}的区别    			
 

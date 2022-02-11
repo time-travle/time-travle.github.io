@@ -34,7 +34,7 @@
 
 
 分布式架构概述及设计
-- https://blog.csdn.net/l6108003/article/details/94835586
+- <a href="https://blog.csdn.net/l6108003/article/details/94835586#" target="_blank">https://blog.csdn.net/l6108003/article/details/94835586 </a>
 
 ===================================分布事物===========================
 
@@ -58,8 +58,8 @@
 
              CAP 是 Consistency、Availability、Partition tolerance 三个单词的缩写，分别表示一致性、可用性、分区容忍性
 
-- https://www.cnblogs.com/dyzcs/p/13780668.html
-- https://www.cnblogs.com/mayundalao/p/11798502.html  4种结局方案
+- <a href="https://www.cnblogs.com/dyzcs/p/13780668.html#" target="_blank">https://www.cnblogs.com/dyzcs/p/13780668.html </a>
+- <a href="https://www.cnblogs.com/mayundalao/p/11798502.html#" target="_blank">https://www.cnblogs.com/mayundalao/p/11798502.html </a>  4种结局方案
 
 ===================================分布式锁=====================
 

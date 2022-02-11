@@ -3,7 +3,7 @@
 </p>
 
 #单例模式  
-https://www.runoob.com/design-pattern/singleton-pattern.html
+<a href="https://www.runoob.com/design-pattern/singleton-pattern.html#" target="_blank">https://www.runoob.com/design-pattern/singleton-pattern.html </a>
     
     什么是单例：
         单例模式（Singleton Pattern）是 Java 中最简单的设计模式之一。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。

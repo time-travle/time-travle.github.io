@@ -1,14 +1,16 @@
 #VUE 知识点
+<p>
 <a href="#" onclick="refreshVueContent('order')">Vue 使用到的命令</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshVueContent('question')">Vue 常见的问题</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshVueContent('vueuse')">Vue 的使用</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshVueContent('eslint')">Vue 中 eslint 的使用</a>&emsp;&emsp;&emsp;
+</p>
 
 ---
 
 #如何搭建Vue开发环境 ##下载node.js 
-- 中文： http://nodejs.cn/download/
-- 英文： https://nodejs.org/en/
+- 中文： <a href="http://nodejs.cn/download/#" target="_blank">http://nodejs.cn/download/ </a>&emsp;&emsp;&emsp;
+- 英文： <a href="https://nodejs.org/en/#" target="_blank">https://nodejs.org/en/ </a>&emsp;&emsp;&emsp;
 
 下载之后进行安装，安装和正常的软件安装时一样的操作，之后检查是不是完成了安装，
 
@@ -73,14 +75,14 @@
     npm run dev
 
 #参考链接
-- https://www.cnblogs.com/nx520zj/p/9605184.html
-- https://www.cnblogs.com/winter92/p/7117057.html
-- http://baijiahao.baidu.com/s?id=1627353528960430110&wfr=spider&for=pc
-- https://www.jianshu.com/p/ecb6cb98c7af
-- https://blog.csdn.net/wjnf012/article/details/80422313
-- https://www.cnblogs.com/zhaomeizi/p/8483597.html
+- <a href="https://www.cnblogs.com/nx520zj/p/9605184.html" target="_blank">https://www.cnblogs.com/nx520zj/p/9605184.html </a>&emsp;&emsp;&emsp;
+- <a href="https://www.cnblogs.com/winter92/p/7117057.html#" target="_blank">https://www.cnblogs.com/winter92/p/7117057.html </a>&emsp;&emsp;&emsp;
+- <a href="http://baijiahao.baidu.com/s?id=1627353528960430110&wfr=spider&for=pc#" target="_blank">http://baijiahao.baidu.com/s?id=1627353528960430110&wfr=spider&for=pc </a>&emsp;&emsp;&emsp;
+- <a href="https://www.jianshu.com/p/ecb6cb98c7af#" target="_blank">https://www.jianshu.com/p/ecb6cb98c7af </a>&emsp;&emsp;&emsp;
+- <a href="https://blog.csdn.net/wjnf012/article/details/80422313#" target="_blank">https://blog.csdn.net/wjnf012/article/details/80422313 </a>&emsp;&emsp;&emsp;
+- <a href="https://www.cnblogs.com/zhaomeizi/p/8483597.html" target="_blank">https://www.cnblogs.com/zhaomeizi/p/8483597.html </a>&emsp;&emsp;&emsp;
 
 
 参考学习wiki：
 
-vue中axios的安装使用： https://www.cnblogs.com/liluning/p/12164787.html
+vue中axios的安装使用： <a href="https://www.cnblogs.com/liluning/p/12164787.html" target="_blank">https://www.cnblogs.com/liluning/p/12164787.html </a>&emsp;&emsp;&emsp;

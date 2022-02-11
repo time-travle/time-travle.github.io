@@ -1,10 +1,12 @@
+<p>
 <a href="#" onclick="refreshContent('vue')">返回</a>
+</p>
 
 # Vue 使用到的命令
 VUE orders
 
 下载vue.js
-https://vuejs.org/js/vue.min.js
+<a href="https://vuejs.org/js/vue.min.js" target="_blank">https://vuejs.org/js/vue.min.js</a>
 
 ### 安装 npm
 	

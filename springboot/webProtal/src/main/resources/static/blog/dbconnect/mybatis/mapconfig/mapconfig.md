@@ -1,5 +1,8 @@
-<ul><a href="#" onclick="refreshDBConnectContent('mybatis')">返回</a></ul>
+<p>
+	<a href="#" onclick="refreshDBConnectContent('mybatis')">返回</a>
+</p>
 
+---
 ### Mapper 配置文件的说明
 
 MyBatis中#{}和${}的区别    

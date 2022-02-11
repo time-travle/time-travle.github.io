@@ -118,7 +118,9 @@
             }
         
         
-##框架 Quartz       https://www.cnblogs.com/zhangbin1989/p/9294114.html
+##框架 Quartz       
+- <a href="https://www.cnblogs.com/zhangbin1989/p/9294114.html#" target="_blank">https://www.cnblogs.com/zhangbin1989/p/9294114.html </a>
+
         
     加依赖
         <!-- quartz -->

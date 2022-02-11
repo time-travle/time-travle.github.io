@@ -2,8 +2,9 @@
     <a href="#" onclick="refreshContent('redis')">返回目录</a>
 </p>
 
-#redis 笔记：
 ---
+#redis 笔记：
+
 ####Redis是一个键值存储仓库，经常被称为 NoSQL 数据库。
 	是一个高性能的key-value数据库
 	键值存储仓库的本质是有能力按照一个键映射一个值的方式存储一些数据，然后你可以只通过这个键寻找到你之前通过这个键存储的值
@@ -41,7 +42,8 @@
 	SMEMBERS 返回集合中所有的元素
 	SUNION 合并两个或者更多个集合，并且将所有的元素返回。
 
-####Redis 设计与实现 https://www.w3cschool.cn/hdclil/cnv2lozt.html 
+####Redis 设计与实现 
+- <a href="https://www.w3cschool.cn/hdclil/cnv2lozt.html#" target="_blank">https://www.w3cschool.cn/hdclil/cnv2lozt.html </a>
 
 
 ####Redis常用管理命令

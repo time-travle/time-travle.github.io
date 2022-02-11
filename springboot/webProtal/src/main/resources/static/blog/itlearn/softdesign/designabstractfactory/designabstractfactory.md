@@ -3,7 +3,7 @@
 </p>
 
 #抽象工厂模式 
-https://www.runoob.com/design-pattern/abstract-factory-pattern.html
+<a href="https://www.runoob.com/design-pattern/abstract-factory-pattern.html#" target="_blank">https://www.runoob.com/design-pattern/abstract-factory-pattern.html </a>
 
 	抽象工厂模式（Abstract Factory Pattern）是围绕一个超级工厂创建其他工厂。该超级工厂又称为其他工厂的工厂
 	在抽象工厂模式中，接口是负责创建一个相关对象的工厂，不需要显式指定它们的类。每个生成的工厂都能按照工厂模式提供对象

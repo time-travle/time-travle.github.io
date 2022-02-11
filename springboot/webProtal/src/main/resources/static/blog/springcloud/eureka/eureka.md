@@ -134,30 +134,38 @@ springCloud 支持最好的是Eureka 其次是 Consul 最后是Zookpeeper
         在 Eureka 开启认证后，客户端注册的配置也要加上认证的用户名和密码信息：
         eureka.client.serviceUrl.defaultZone= http://yinjihuan:123456@localhost:8761/eureka/ 
 
-##Q1:![avatar](Whitelabel_Error_Page.png)
-https://blog.csdn.net/li_ainy/article/details/87277695
+##Q1:
+![avatar](../blog/springcloud/imag/Whitelabel_Error_Page.png)![avatar](../imag/Whitelabel_Error_Page.png)
+
+<a href="https://blog.csdn.net/li_ainy/article/details/87277695#" target="_blank">https://blog.csdn.net/li_ainy/article/details/87277695</a>
 
 ##Q2:如何快速找到指定端口被哪个程序占用并释放该端口
-https://blog.csdn.net/HumorChen99/article/details/81030330
+<a href="https://blog.csdn.net/HumorChen99/article/details/81030330#" target="_blank">https://blog.csdn.net/HumorChen99/article/details/81030330</a>
 
 ##Q3：如何配置多注册中心
 单击模拟时需要修改对用的hosts 才可在一台电脑模拟集群 
 
-https://zhuanlan.zhihu.com/p/76582106 
+<a href="https://zhuanlan.zhihu.com/p/76582106#" target="_blank">https://zhuanlan.zhihu.com/p/76582106 </a>
 
-https://blog.csdn.net/xcbeyond/article/details/81503484 
+<a href="https://blog.csdn.net/xcbeyond/article/details/81503484#" target="_blank">https://blog.csdn.net/xcbeyond/article/details/81503484 </a>
 
-https://www.jianshu.com/p/5613212e91bb
+<a href="https://www.jianshu.com/p/5613212e91bb#" target="_blank">https://www.jianshu.com/p/5613212e91bb</a>
 
 ##Q4: 开启认证以后服务提供者频繁注册不到注册中心
-https://www.cnblogs.com/JamieLove/p/11087564.html
+<a href="https://www.cnblogs.com/JamieLove/p/11087564.html#" target="_blank">https://www.cnblogs.com/JamieLove/p/11087564.html</a>
 
-https://www.cnblogs.com/idoljames/p/11622343.html
+<a href="https://www.cnblogs.com/idoljames/p/11622343.html#" target="_blank">https://www.cnblogs.com/idoljames/p/11622343.html</a>
 
-http://c.biancheng.net/view/5325.html
+<a href="http://c.biancheng.net/view/5325.html#" target="_blank">http://c.biancheng.net/view/5325.html</a>
 
 ##Q5:单机如何搭建高可用 multi-eureka 
-需要修改对用的hosts 才可在一台电脑模拟集群 https://zhuanlan.zhihu.com/p/76582106 https://blog.csdn.net/xcbeyond/article/details/81503484 https://www.jianshu.com/p/5613212e91bb
+需要修改对用的hosts 才可在一台电脑模拟集群 
+
+<a href="https://zhuanlan.zhihu.com/p/76582106#" target="_blank">https://zhuanlan.zhihu.com/p/76582106 </a>
+
+<a href="https://blog.csdn.net/xcbeyond/article/details/81503484#" target="_blank">https://blog.csdn.net/xcbeyond/article/details/81503484 </a>
+
+<a href="https://www.jianshu.com/p/5613212e91bb#" target="_blank">https://www.jianshu.com/p/5613212e91bb</a>
 
 修改hosts文件添加如下
 

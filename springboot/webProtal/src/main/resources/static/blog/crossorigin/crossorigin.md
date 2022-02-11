@@ -1,5 +1,7 @@
 #跨域请求
+<p>
 <a href="#" onclick="refreshCrossOriginContent('httpclient')">Http Client 相关</a>&emsp;&emsp;&emsp;
+</p>
 
 ---
 
@@ -19,7 +21,7 @@
 
 
  
-1、如何完成服务跨域访问    https://zhuanlan.zhihu.com/p/50416743
+1、如何完成服务跨域访问    <a href="https://zhuanlan.zhihu.com/p/50416743#" target="_blank">https://zhuanlan.zhihu.com/p/50416743 </a>
 
 	1、前端对接nginx或者其他的中间服务器，通过转发完成跨域
 		对跨域访问的支持在服务端实现起来更加容易，最常用的方法就是通过代理的方式，如：
@@ -86,7 +88,7 @@ Spring MVC自带的跨域问题解决方案
     带有cookie时，配置Access-Control-Allow-Origin项不能为*，必须是具体的值！
 
 
-四种跨域请求资源的方案  https://zhuanlan.zhihu.com/p/50416743
+四种跨域请求资源的方案  <a href="https://zhuanlan.zhihu.com/p/50416743#" target="_blank">https://zhuanlan.zhihu.com/p/50416743 </a>
 
     野路子出身却好用的方式：JSONP；
     官方推荐的跨域资源共享方案：CORS；
@@ -96,9 +98,9 @@ Spring MVC自带的跨域问题解决方案
 ---
 SpringBoot 处理跨域请求 ：
 
-https://blog.csdn.net/weixin_42036952/article/details/88564647	
+<a href="https://blog.csdn.net/weixin_42036952/article/details/88564647#" target="_blank">https://blog.csdn.net/weixin_42036952/article/details/88564647	</a>
 
-https://www.jianshu.com/p/85db845d3929
+<a href="https://www.jianshu.com/p/85db845d3929#" target="_blank">https://www.jianshu.com/p/85db845d3929 </a>
 
     
     

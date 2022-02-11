@@ -1,7 +1,7 @@
 #GIT 使用
 
 ---
-
+<p>
 <a href="#" onclick="refreshOrderContent('config')">Git（config）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshOrderContent('question')">Git（question）</a>&emsp;&emsp;&emsp;
 
@@ -9,7 +9,7 @@
 <a href="#" onclick="refreshOrderContent('order2')">Git（初阶）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshOrderContent('order3')">Git（中阶）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshOrderContent('order4')">Git（高阶）</a>&emsp;&emsp;&emsp;
-
+</p>
 
 
 ---

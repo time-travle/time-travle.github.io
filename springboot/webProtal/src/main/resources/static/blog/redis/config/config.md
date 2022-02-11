@@ -2,8 +2,9 @@
     <a href="#" onclick="refreshContent('redis')">返回目录</a>
 </p>
 
-#redis 配置：
 ---
+#redis 配置：
+
 redis.conf 配置项说明如下：
 
 	1.Redis默认不是以守护进程的方式运行，可以通过该配置项修改，使用yes启用守护进程
@@ -500,5 +501,5 @@ redis.conf 配置项说明如下：
     # include /path/to/local.conf
     # include /path/to/other.conf
 
-参考：[https://www.cnblogs.com/struggle-1216/p/12117211.html](https://www.cnblogs.com/struggle-1216/p/12117211.html)
-
+参考：
+- <a href="https://www.cnblogs.com/struggle-1216/p/12117211.html#" target="_blank">https://www.cnblogs.com/struggle-1216/p/12117211.html </a>

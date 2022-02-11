@@ -322,18 +322,18 @@ Redis集群可以看成多个主从架构组合起来的，每一个主从架构
 
 ##参考
 
-<a href="https://cloud.tencent.com/developer/article/1666804" target="_blank">Redis6.0主从、哨兵、集群搭建和原理</a>
+- <a href="https://cloud.tencent.com/developer/article/1666804" target="_blank">Redis6.0主从、哨兵、集群搭建和原理</a>
 
-<a href="https://www.51cto.com/article/647203.html" target="_blank">Redis 三种集群模式</a>
+- <a href="https://www.51cto.com/article/647203.html" target="_blank">Redis 三种集群模式</a>
 
-<a href="https://www.cnblogs.com/hzb462606/p/11121281.html" target="_blank">Redis集群配置和常见异常解决</a>
+- <a href="https://www.cnblogs.com/hzb462606/p/11121281.html" target="_blank">Redis集群配置和常见异常解决</a>
 
-<a href="https://zhuanlan.zhihu.com/p/391762630" target="_blank">Redis集群的原理和搭建</a>
+- <a href="https://zhuanlan.zhihu.com/p/391762630" target="_blank">Redis集群的原理和搭建</a>
 
-<a href="https://zhuanlan.zhihu.com/p/129640817" target="_blank">Redis有哪几种集群方案？原理和优缺点是什么</a>
+- <a href="https://zhuanlan.zhihu.com/p/129640817" target="_blank">Redis有哪几种集群方案？原理和优缺点是什么</a>
 
-<a href="https://www.cnblogs.com/detectiveHLH/p/14154665.html" target="_blank">深度图解Redis Cluster原理</a>
+- <a href="https://www.cnblogs.com/detectiveHLH/p/14154665.html" target="_blank">深度图解Redis Cluster原理</a>
 
-<a href="https://cloud.tencent.com/developer/article/1444057" target="_blank">Redis 集群模式的工作原理</a>
+- <a href="https://cloud.tencent.com/developer/article/1444057" target="_blank">Redis 集群模式的工作原理</a>
 
-<a href="https://blog.csdn.net/a745233700/article/details/112691126" target="_blank">Redis集群原理详解</a>
+- <a href="https://blog.csdn.net/a745233700/article/details/112691126" target="_blank">Redis集群原理详解</a>

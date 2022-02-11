@@ -2,6 +2,7 @@
 <a href="#" onclick="refreshSpringContent('aop')">返回</a>&emsp;&emsp;&emsp;
 </p>
 
+---
 #日志记录 demo    
 首先我们需要自定义一个全局日志记录的切面类GlobalLogAspect
 然后在该类添加@Aspect注解，然后在定义一个公共的切入点（Pointcut），指向需要处理的包，然后在定义一个前置通知(添加@Before注解)，后置通知(添加@AfterReturning)和环绕通知（添加@Around）方法实现即可

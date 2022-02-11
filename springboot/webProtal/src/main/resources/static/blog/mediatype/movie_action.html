@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>movie-action</title>
-</head>
-<body>
-<div id="movieaction_area" class="md_content"></div>
-<script>
-    $.get('../blog/mediatype/movie_action.md', function (response, status, xhr) {
-        $("#movieaction_area").html(marked(response));
-    });
-</script>
-</body>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>movie-action</title>
+    </head>
+    <body>
+        <div id="movieaction_area" class="md_content"></div>
+        <script>
+            $.get('../blog/mediatype/movie_action.md', function (response, status, xhr) {
+                $("#movieaction_area").html(marked(response));
+            });
+        </script>
+    </body>
+    </body>
 </html>

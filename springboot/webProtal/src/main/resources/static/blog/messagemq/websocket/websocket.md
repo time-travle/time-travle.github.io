@@ -2,6 +2,7 @@
     <a href="#" onclick="refreshContent('messagemq')">返回目录</a>
 </p>
 
+---
 # MessageMQ -websocket
 
 
@@ -11,8 +12,8 @@
     后台创建websocket类
     前端页面连接
 
-https://www.cnblogs.com/interdrp/p/7903736.html
-https://www.zifangsky.cn/1355.html
+- <a href="https://www.cnblogs.com/interdrp/p/7903736.html#" target="_blank">https://www.cnblogs.com/interdrp/p/7903736.html </a>
+- <a href="https://www.zifangsky.cn/1355.html#" target="_blank">https://www.zifangsky.cn/1355.html </a>
 
 
 ##后台WebSocket配置类如下

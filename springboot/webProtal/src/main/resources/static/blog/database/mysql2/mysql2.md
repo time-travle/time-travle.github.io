@@ -3,6 +3,7 @@
     <a href="#" style="float: right;" onclick="refreshDatabaseContent('mysql3')">进入问题 mysql 3.0</a>
 </p>
 
+---
 # MySQL 2.0
 
 

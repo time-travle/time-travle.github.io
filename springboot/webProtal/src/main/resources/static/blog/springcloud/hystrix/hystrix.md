@@ -2,6 +2,7 @@
     <a href="#" onclick="refreshContent('springcloud')">返回目录</a>
 </p>
 
+---
 #Spring Cloud -hystrix知识积累
 
 ##  Hystrix 后的远程调用流程
@@ -39,7 +40,7 @@
     在微服务架构中， Hystrix 除了实现容错外，还提供了 实 时监控功能。 
     在服务调用时，Hystrix 会实时累积关于 HystrixCommand 的执行信息，比如每秒的请求数、 成功数等
 
-看官方文档地址：https://github.com/Netflix/Hystrix/wiki/Metrics-and-Monitoring
+看官方文档地址：<a href="https://github.com/Netflix/Hystrix/wiki/Metrics-and-Monitoring#" target="_blank">https://github.com/Netflix/Hystrix/wiki/Metrics-and-Monitoring</a>
 
 
 ###pom必备条件：
@@ -55,7 +56,7 @@
      </dependency>
  
  ##demo：
- 这样调用一下cal!Hello 接口 http://localhost:8082/substitution/cal!Hello ,
+ 这样调用一下callHello 接口 http://localhost:8082/substitution/callHello ,
  访问之后就可以看到 http://localhost:8082/hystrix.stream 这个页面中输出的数据了
  
  ## 不满足使用 hystrix.stream 俩查看监控数据时  喜欢使用图形话就可以使用监控面板了  （单节点监控）

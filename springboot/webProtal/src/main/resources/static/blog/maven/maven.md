@@ -1,5 +1,6 @@
 # Maven 使用
 
+---
 
 1、maven项目eclipse提示pom.ml有错，提示信息就是org.apache.maven.plugin.war.WarMojo
 
@@ -57,8 +58,9 @@
 
 4、Maven 的主要生命周期，被用于构建应用，包括下面的 23 个阶段：
 
-http://c.biancheng.net/view/4899.html
-https://www.cnblogs.com/EasonJim/p/6816340.html
+- <a href="http://c.biancheng.net/view/4899.html#" target="_blank">http://c.biancheng.net/view/4899.html </a>
+- <a href="https://www.cnblogs.com/EasonJim/p/6816340.html#" target="_blank">https://www.cnblogs.com/EasonJim/p/6816340.html </a>
+
 
         生命周期阶段	                            描述
         validate（校验）	                        校验项目是否正确并且所有必要的信息可以完成项目的构建过程。
@@ -89,15 +91,15 @@ https://www.cnblogs.com/EasonJim/p/6816340.html
 
 5、指定多个源代码目录、多个资源文件目录
 
-https://blog.csdn.net/majian_1987/article/details/50971301
+<a href="https://blog.csdn.net/majian_1987/article/details/50971301#" target="_blank">https://blog.csdn.net/majian_1987/article/details/50971301 </a>
 
-https://www.cnblogs.com/fluffy/p/5215065.html
+<a href="https://www.cnblogs.com/fluffy/p/5215065.html#" target="_blank">https://www.cnblogs.com/fluffy/p/5215065.html </a>
 
-https://blog.csdn.net/z69183787/article/details/48933467
+<a href="https://blog.csdn.net/z69183787/article/details/48933467#" target="_blank">https://blog.csdn.net/z69183787/article/details/48933467 </a>
 
-https://my.oschina.net/u/930279/blog/614238
+<a href="https://my.oschina.net/u/930279/blog/614238#" target="_blank">https://my.oschina.net/u/930279/blog/614238 </a>
 
-https://blog.csdn.net/u012849872/article/details/51035938
+<a href="https://blog.csdn.net/u012849872/article/details/51035938#" target="_blank">https://blog.csdn.net/u012849872/article/details/51035938 </a>
 
         <plugins>  
                  <!-- 指定多个源代码目录、多个资源文件目录 -->
