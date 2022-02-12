@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>softwareusage-linux</title>
+    </head>
+    <body>
+        <div id="softwareusage_linux_area" class="md_content"></div>
+        <script>
+            $.get('../blog/itlearn/softwareusage/linux/linux.md', function (response, status, xhr) {
+                $("#softwareusage_linux_area").html(marked(response));
+            });
+            function refreshLinuxContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = '/blog/itlearn/softwareusage/linux/' + choose + '/' + choose + '.html';
+                $("#content").load(location.web.staticpath + target);
+            }
+        </script>
+    </body>
+</html>

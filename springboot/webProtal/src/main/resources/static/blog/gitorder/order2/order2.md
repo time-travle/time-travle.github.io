@@ -274,5 +274,5 @@
 	# 使用并丢掉
 	$ git stash pop
 		
-    https://www.cnblogs.com/cspku/articles/Git_cmds.html
+<a href="https://www.cnblogs.com/cspku/articles/Git_cmds.html" target="_blank">https://www.cnblogs.com/cspku/articles/Git_cmds.html </a>
     	

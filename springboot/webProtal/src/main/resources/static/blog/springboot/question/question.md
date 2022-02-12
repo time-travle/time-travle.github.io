@@ -76,9 +76,7 @@ SpringBoot Controller接收参数的几种常用方式
         
             定义配置 application.properties 的方法如下：
             corn.cxytiandi.name=yinjihuan 
-        
-        
-        
+
                 @ConfigurationProperties(prefix ＝” com.cxytiandi”）
                 @Component 
                 public  class  MyConfig  { 

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>springboot_configdb</title>
+    </head>
+    <body>
+        <div id="springboot_configdb_area" class="md_content"></div>
+        <script>
+            $.get('../blog/springboot/configdb/configdb.md', function (response, status, xhr) {
+                $("#springboot_configdb_area").html(marked(response));
+            });
+
+        </script>
+    </body>
+</html>

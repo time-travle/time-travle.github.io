@@ -1,4 +1,5 @@
-#Spring Cloud 知识积累
+# Spring Cloud 知识积累
+
 <p>
 <a href="#" onclick="refreshSpringCloudContent('bus')">SpringCloud（bus）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshSpringCloudContent('config')">SpringCloud（config）</a>&emsp;&emsp;&emsp;
@@ -13,7 +14,7 @@
 
 ---
 
-###Spring Cloud 模块相关介绍如下：
+### Spring Cloud 模块相关介绍如下：
 
     •  Eureka ：服务注册中心，用于服务管理。  
             除了用 Eureka 作为注册中心外，我们还可以使用 Consul 、 Etcd 、 Zookeeper 等来作为服务的注册中心
@@ -26,10 +27,11 @@
     •  Stream ：构建消息驱动的微服务应用程序的框架 。
     •  Bus ：消息代理的集群消息总线。
 
-====================================================================================================
-注册中 心带来的好处就是你不需要知道有多少提供方，你只需要关注注册中心即可，
+==================================================================================================== 注册中
+心带来的好处就是你不需要知道有多少提供方，你只需要关注注册中心即可，
 
-###为什么 Eureka 比 Zookeeper 更适合作为注册中心呢？
+### 为什么 Eureka 比 Zookeeper 更适合作为注册中心呢？
+
     主要是因为 Eureka 是基于 AP 原则构建的，而 ZooKeeper 是基于 CP 原则构建的 。 
     在分布式系统领域有个著名的 CAP 定理，
         即 C 为数据一致性； A 为服务可用性； P 为服务对网络分区故障的容错性。 
@@ -41,9 +43,8 @@
     总而言之，想要保证 AP 就要用 Eureka ， 想要保证 CP 就要用 Zookeeper 。 Dubbo 中大
     部分都是基于 Zookeeper 作为注册中心的 。 Spring Cloud 中 当然首选 Eureka 。
 
+### 微服务的优缺点
 
-
-###微服务的优缺点
     1、易于开发和维护
     2、启动较快
     3、局部修改容易部署
@@ -51,15 +52,15 @@
     5、按需伸缩
     6、DevOps
 
-###服务治理框架
+### 服务治理框架
+
     （1）Dubbo（http://dubbo.io/）、Dubbox（当当网对Dubbo的扩展）
     （2）Netflix的Eureka、Apache的Consul等。
 
 Spring Cloud Eureka是对Netflix的Eureka的进一步封装。
 
-
-===============================================注解===============================================
-@EnableEurekaServer 开启eureka服务  在主函数上
+===============================================注解=============================================== @EnableEurekaServer
+开启eureka服务 在主函数上
 
 @EnableEurekaClient 表示发布一个服务 在主函数上
 
@@ -67,17 +68,15 @@ Spring Cloud Eureka是对Netflix的Eureka的进一步封装。
 
     它俩的区别是@EnableEurekaClient 只适用于Eureka作为注册中心，@EnableDiscoveryClient 可以是其他注册中心
 
-@LoadBalanced 开启ribbon负载均衡器  在主函数上
+@LoadBalanced 开启ribbon负载均衡器 在主函数上
 
-@EnableFeignClients //开启feign权限  @FeignClient(name = "app-buba-member")
+@EnableFeignClients //开启feign权限 @FeignClient(name = "app-buba-member")
 
-@EnableHystrix 开启Hystrix@HystrixCommand(fallbackMethod = "orderToUserInfoFallback")  熔断机制  在主函数上或方法上
+@EnableHystrix 开启Hystrix@HystrixCommand(fallbackMethod = "orderToUserInfoFallback")  熔断机制 在主函数上或方法上
 
-@EnableConfigServer 开启config-server   @RefreshScope刷新注解  在主函数上
+@EnableConfigServer 开启config-server @RefreshScope刷新注解 在主函数上
 
 @EnableZuulProxy 开启注册网关 在主函数上
-
-
 
 @Controller 控制层，里面有多个连接
 
@@ -100,14 +99,13 @@ Spring Cloud Eureka是对Netflix的Eureka的进一步封装。
         @Autowired是spring的注解，是spring2.5版本引入的，Autowired只根据type进行注入，不会去匹配name。
             如果涉及到type无法辨别注入对象时，那需要依赖@Qualifier或@Primary注解一起来修饰。
 
-
 @Component 定义其它组件（比如访问外部服务的组件）
 
 @RequestMapping （value=’’,method={RequestMethod。GET或者POSt}）绑定url
 
 @RequestParam (value=’’ required=false)绑定参数,将客户端请求中的参数值映射到相应方法的参数上;
 
-@ModelAttribute  一般用于controller层，呗注解的方法会在所以mapping执行之前执行，并且可以绑定参数到Model model里面。
+@ModelAttribute 一般用于controller层，呗注解的方法会在所以mapping执行之前执行，并且可以绑定参数到Model model里面。
 
 @Transactional （readOnly=true）注解式事务
 
@@ -155,14 +153,15 @@ Spring Cloud Eureka是对Netflix的Eureka的进一步封装。
 
 @CrossOrigin 可以处理跨域请求，让你能访问不是一个域的文件;
 
-@ApiOperation 首先@ApiOperation注解不是Spring自带的，它是是swagger里的注解@ApiOperation是用来构建Api文档的@ApiOperation(value = “接口说明”, httpMethod = “接口请求方式”, response = “接口返回参数类型”, notes = “接口发布说明”；
+@ApiOperation 首先@ApiOperation注解不是Spring自带的，它是是swagger里的注解@ApiOperation是用来构建Api文档的@ApiOperation(value = “接口说明”,
+httpMethod = “接口请求方式”, response = “接口返回参数类型”, notes = “接口发布说明”；
 
-@SpringBootApplication　　申明让spring boot自动给程序进行必要的配置，等价于以默认属性使用@Configuration，@EnableAutoConfiguration和@ComponentScan;
+@SpringBootApplication 申明让spring boot自动给程序进行必要的配置，等价于以默认属性使用@Configuration，@EnableAutoConfiguration和@ComponentScan;
 
-@RefreshScope　如果代码中需要动态刷新配置，在需要的类上加上该注解就行。但某些复杂的注入场景下，这个注解使用不当，配置可能仍然不动态刷新;
+@RefreshScope 如果代码中需要动态刷新配置，在需要的类上加上该注解就行。但某些复杂的注入场景下，这个注解使用不当，配置可能仍然不动态刷新;
 
-@FeignClient　springboot调用外部接口:声明接口之后，在代码中通过@Resource注入之后即可使用。
-    
+@FeignClient springboot调用外部接口:声明接口之后，在代码中通过@Resource注入之后即可使用。
+
     FeignClient标签的常用属性如下：
     
     name：指定FeignClient的名称，如果项目使用了Ribbon，name属性会作为微服务的名称，用于服务发现
@@ -182,10 +181,9 @@ Spring Cloud Eureka是对Netflix的Eureka的进一步封装。
 
 @RibbonClient，这个注解用来为负载均衡客户端做一些自定义的配置，可以进一步配置或自定义从哪里获取服务端列表、负载均衡策略、Ping也就是服务鉴活策略等等
 
-
 ===============================================maven===============================================
 
-##maven 部分
+## maven 部分
 
     <dependencyManagement>
         <dependencies>
@@ -198,13 +196,9 @@ Spring Cloud Eureka是对Netflix的Eureka的进一步封装。
             </dependency>
         </dependencies>
     </dependencyManagement>
-===============================================参考  wiki=============================================
 
-https://blog.csdn.net/varyall/article/details/82085313
-https://how2j.cn/k/springcloud/springcloud-intro/2035.html
+===============================================参考 wiki=============================================
 
-
-
-
+- <a href="https://blog.csdn.net/varyall/article/details/82085313" target="_blank">https://blog.csdn.net/varyall/article/details/82085313 </a>
+- <a href="https://how2j.cn/k/springcloud/springcloud-intro/2035.html" target="_blank">https://how2j.cn/k/springcloud/springcloud-intro/2035.html </a>
   
-    

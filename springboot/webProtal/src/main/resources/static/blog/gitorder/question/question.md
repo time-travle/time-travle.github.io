@@ -96,6 +96,14 @@
     140.82.112.18 http://training.github.com
     # GitHub End
 
+	修改完hosts还不会立即生效，需要刷新DNS缓存。
+	输入指令：sudo /etc/init.d/networking restart 即可。
+	然后，关闭浏览器再访问github
+	刷新DNS的方法：
+	打开CMD
+	输入ipconfig /flushdns
+	https://www.ipaddress.com/    http://tool.chinaz.com/dns
+
 4、解决Git中fatal: refusing to merge unrelated histories
 
     https://blog.csdn.net/u012145252/article/details/80628451

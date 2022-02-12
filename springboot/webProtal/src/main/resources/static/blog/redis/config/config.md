@@ -9,6 +9,24 @@ redis.conf 配置项说明如下：
 
 	1.Redis默认不是以守护进程的方式运行，可以通过该配置项修改，使用yes启用守护进程
 		daemonize no
+        
+        redis采用的是单进程多线程的模式。当redis.conf中选项daemonize设置成yes时，代表开启
+        守护进程模式。在该模式下，redis会在后台运行，并将进程pid号写入至redis.conf选项
+        pidfile设置的文件中，此时redis将一直运行，除非手动kill该进程。
+        当daemonize选项设置成no时，当前界面将进入redis的命令行界面，
+        exit强制退出或者关闭连接工具(putty,xshell等)都会导致redis进程退出。
+        
+        但是会有个问题，当远程连接redis服务器时，在守护进程模式下，当需要指定配置文件的开启服务时如： ./redis-server …/redis.conf，这时就会提示端口被占用
+        
+                2556:C 21 Jun 2019 00:51:06.780 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+                2556:C 21 Jun 2019 00:51:06.780 # Redis version=5.0.4,bits=64,commit=00000000,
+                modified=0,pid=2556, just started 2556:C 21 Jun 2019 00:51:06.780 # Configuration loaded
+        
+            解决办法是现将redis.conf中daemonize设置为no再进行如下操作。
+        
+            #找到该进程号，强制杀死
+            ps -ef | grep -i redis
+            kill -9 2557
 
 	2.当Redis以守护进程方式运行时，Redis默认会把pid写入/var/run/redis.pid文件，可以通过pidfile指定
 		pidfile /var/run/redis.pid
@@ -118,7 +136,11 @@ redis.conf 配置项说明如下：
 
 	30.指定包含其它的配置文件，可以在同一主机上多个Redis实例之间使用同一份配置文件，而同时各个实例又拥有自己的特定配置文件
 		include /path/to/local.conf
-		
+    
+    31、protected-mode
+        #protected-mode yes
+        #是否开启保护模式，默认开启。要是配置里没有指定bind和密码。开启该参数后，redis只会
+        本地进行访问，拒绝外部访问。要是开启了密码 和bind，可以开启。否 则最好关闭，设置为no。	
 
 #配置文件解释
 

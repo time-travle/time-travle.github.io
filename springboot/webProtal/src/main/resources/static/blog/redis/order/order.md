@@ -21,8 +21,9 @@
 
 
 ####Redis 命令
-    https://www.w3cschool.cn/redis/redis-commands.html
-    https://www.runoob.com/redis/redis-commands.html
+- <a href="https://www.w3cschool.cn/redis/redis-commands.html" target="_blank">https://www.w3cschool.cn/redis/redis-commands.html </a>
+- <a href="https://www.runoob.com/redis/redis-commands.html" target="_blank">https://www.runoob.com/redis/redis-commands.html </a>
+
 
 
 ####Redis 键(key)

@@ -157,7 +157,7 @@ git commit -m '添加多个源代码目录、多个资源文件目录配置'
         </plugin>
 
 
-单独添加本地jar到maven库中
+7、单独添加本地jar到maven库中
         
         demo： ojdbc6-11.2.0.3.jar
         打开终端（windows用户打开cmd），输入：
@@ -170,6 +170,38 @@ git commit -m '添加多个源代码目录、多个资源文件目录配置'
             <version>11.2.0.3</version>
         </dependency>
 
+8、 maven 配置指南
+   
+    打开 maven 的配置文件（ windows 机器一般在 maven 安装目录的 conf/settings.xml ），在<mirrors></mirrors>标签中添加 mirror 子节点:
+
+    <mirror>
+      <id>aliyunmaven</id>
+      <mirrorOf>*</mirrorOf>
+      <name>阿里云公共仓库</name>
+      <url>https://maven.aliyun.com/repository/public</url>
+    </mirror>
+    如果想使用其它代理仓库，可在<repositories></repositories>节点中加入对应的仓库使用地址。以使用 spring 代理仓为例：
+
+    <repository>
+      <id>spring</id>
+      <url>https://maven.aliyun.com/repository/spring</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    在你的 pom.xml 文件<denpendencies></denpendencies>节点中加入你要引用的文件信息：
+
+    <dependency>
+      <groupId>[GROUP_ID]</groupId>
+      <artifactId>[ARTIFACT_ID]</artifactId>
+      <version>[VERSION]</version>
+    </dependency>
+    执行拉取命令：
+
+    mvn install
 
 阿里云云效 是企业级一站式 DevOps 平台，覆盖产品从需求到运营的研发全生命周期，其中云效也提供了免费、可靠的Maven私有仓库 Packages
 

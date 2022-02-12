@@ -94,8 +94,14 @@ Spring事务的注解配置
 
     一个事务按照一个where条件读取所有符合的数据行，第二个事务插入了一行数据且恰好也满足这个where条件，
     第一个事务再以这个where条件重新读取，将会获取额外多出来的这一行。
-    
-    
+
+事物Transactional
+开启事物 支持 @EnableTransactionManagement // 启注解事务管理，等同于xml配置方式的 <tx:annotation-driven />
+
+    @Transactional(rollbackFor=Exception.class)  
+    为方法开启事务同时 指定事务回滚方法
+    @Transactional(noRollbackFor=Exception.class)
+    不回滚    
 
 
 

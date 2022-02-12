@@ -68,6 +68,11 @@
     1.命令窗口：desc 表名
     2.sql窗口：select * from user_tab_columns where table_name=‘大写表名’；
 
+###别名使用
+    在oracle中，数据表别名不能加as，如：
+    select a.appname from appinfo a;-- 正确
+    select a.appname from appinfo as a;-- 错误
+
 ###并行查
     https://www.cnblogs.com/xingmeng/p/3303761.html
     

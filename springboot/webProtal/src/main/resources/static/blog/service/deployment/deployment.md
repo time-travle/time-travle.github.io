@@ -43,8 +43,8 @@
 
 
 分布式架构概述及设计  
+- <a href="https://blog.csdn.net/l6108003/article/details/94835586#" target="_blank">https://blog.csdn.net/l6108003/article/details/94835586 </a>
 
-    https://blog.csdn.net/l6108003/article/details/94835586
 ===================================分布事物==================================================
 
 什么是事务
@@ -173,16 +173,4 @@
 
     从可靠性角度（从高到低）
     Zookeeper > 缓存 > 数据库
-
-
-
-
-
-
-
-
-
-
-
-
 

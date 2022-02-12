@@ -3,6 +3,7 @@
 <a href="#" onclick="refreshMQContent('activemq')">MessageMQ（activemq）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshMQContent('rabbitmq')">MessageMQ（rabbitmq）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshMQContent('websocket')">MessageMQ（websocket）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshMQContent('rocketmq')">MessageMQ（RocketMQ）</a>&emsp;&emsp;&emsp;
 </p>
 
 ---

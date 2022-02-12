@@ -200,6 +200,18 @@
 	点击事件 click
 	变更时事件
 	鼠标滑动事件
+	鼠标点击事件
+		click事件
+		change事件
+		select事件
+		focus事件
+		load事件
+		鼠标移动事件 onMouseover /onMeuseout 
+		onblur事件
+	键盘事件
+	UI事件
+	表单事件
+	加载和错误事件
 
 8、过滤器filters 
 

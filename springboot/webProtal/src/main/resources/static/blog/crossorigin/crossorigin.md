@@ -87,6 +87,14 @@ Spring MVC自带的跨域问题解决方案
 
     带有cookie时，配置Access-Control-Allow-Origin项不能为*，必须是具体的值！
 
+核心思想
+
+    核心思想是前端html页面通过ajax调用后端的restuful api接口并使用json数据进行交互。
+
+    Web服务器：一般指像nginx，apache这类的服务器，他们一般只能解析静态资源。
+    应用服务器：一般指像tomcat，jetty，resin这类的服务器可以解析动态资源也可以解析静态资源，但解析静态资源的能力没有web服务器好。
+
+    一般都是只有web服务器才能被外网访问，应用服务器只能内网访问。
 
 四种跨域请求资源的方案  <a href="https://zhuanlan.zhihu.com/p/50416743#" target="_blank">https://zhuanlan.zhihu.com/p/50416743 </a>
 

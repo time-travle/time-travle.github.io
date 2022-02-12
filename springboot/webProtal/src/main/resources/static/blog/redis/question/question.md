@@ -9,23 +9,23 @@
 
 1、Redis 与其他 key - value 缓存产品有以下三个特点：
 
-            Redis支持数据的持久化，可以将内存中的数据保持在磁盘中，重启的时候可以再次加载进行使用。
-            Redis不仅仅支持简单的key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。
-            Redis支持数据的备份，即master-slave模式的数据备份。
+    Redis支持数据的持久化，可以将内存中的数据保持在磁盘中，重启的时候可以再次加载进行使用。
+    Redis不仅仅支持简单的key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。
+    Redis支持数据的备份，即master-slave模式的数据备份。
 
 2、Redis 分区
 
-            分区是分割数据到多个Redis实例的处理过程，因此每个实例只保存key的一个子集。
-        分区的优势
-            1、通过利用多台计算机内存的和值，允许我们构造更大的数据库。
-            2、通过多核和多台计算机，允许我们扩展计算能力；通过多台计算机和网络适配器，允许我们扩展网络带宽。
-        分区的不足
-            1、redis的一些特性在分区方面表现的不是很好：
-            2、涉及多个key的操作通常是不被支持的。举例来说，当两个set映射到不同的redis实例上时，你就不能对这两个set执行交集操作。
-            3、涉及多个key的redis事务不能使用。
-            4、当使用分区时，数据处理较为复杂，比如你需要处理多个rdb/aof文件，并且从多个实例和主机备份持久化文件。
-            5、增加或删除容量也比较复杂。redis集群大多数支持在运行时增加、删除节点的透明数据平衡的能力，但是类似于客户端分区、
-                代理等其他系统则不支持这项特性。然而，一种叫做presharding的技术对此是有帮助的。
+        分区是分割数据到多个Redis实例的处理过程，因此每个实例只保存key的一个子集。
+    分区的优势
+        1、通过利用多台计算机内存的和值，允许我们构造更大的数据库。
+        2、通过多核和多台计算机，允许我们扩展计算能力；通过多台计算机和网络适配器，允许我们扩展网络带宽。
+    分区的不足
+        1、redis的一些特性在分区方面表现的不是很好：
+        2、涉及多个key的操作通常是不被支持的。举例来说，当两个set映射到不同的redis实例上时，你就不能对这两个set执行交集操作。
+        3、涉及多个key的redis事务不能使用。
+        4、当使用分区时，数据处理较为复杂，比如你需要处理多个rdb/aof文件，并且从多个实例和主机备份持久化文件。
+        5、增加或删除容量也比较复杂。redis集群大多数支持在运行时增加、删除节点的透明数据平衡的能力，但是类似于客户端分区、
+            代理等其他系统则不支持这项特性。然而，一种叫做presharding的技术对此是有帮助的。
 
 3、redis？ 全称（Remote Dictionary Server）
 
@@ -627,14 +627,23 @@
             
             查询的命令不正确，也可能是数据存储的的格式不对，
 
+71、客户端连接时 报错 redis客户端连接(error) NOAUTH Authentication required
+
+    原因：未使用鉴权     
+    处理方法：
+        1、./redis-cli -h 127.0.0.1 -p 6379 -a Passw0rd
+
+        2、先输入 ./redis-cli -h 127.0.0.1 -p 6379 
+           再使用 auth password 鉴权
+
+72、linux下安装redis与启动,及后台启动redis
+- <a href="https://blog.csdn.net/q1035331653/article/details/79077260" target="_blank">https://blog.csdn.net/q1035331653/article/details/79077260 </a>
+
+73、启动redis 时若出现权限问题 就将整个文件的执行权限付给当前用户    
+  
+    [root@localhost redis]# ./bin/redis-server& ./redis.conf
+    [1] 25312
+    -bash: ./redis.conf: Permission denied
 
 redis 支持的数据类型 的用法
 - <a href="https://www.redis.com.cn/redis-data-types.html">https://www.redis.com.cn/redis-data-types.html</a>
-
-
-
-
-
-
-
-	

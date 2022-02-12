@@ -1,4 +1,16 @@
 #软件使用
+
+ 
+<p>
+    <a href="#" onclick="refreshSoftWareUse('idea')">IDEA 使用</a> &emsp;&emsp;&emsp;
+    <a href="#" onclick="refreshSoftWareUse('eclipse')">Eclipse 使用</a>&emsp;&emsp;&emsp;
+    <a href="#" onclick="refreshSoftWareUse('compare')">Beyond Compare 4 使用</a>&emsp;&emsp;&emsp;
+    <a href="#" onclick="refreshSoftWareUse('androidstudio')">Android Studio 4 使用</a>&emsp;&emsp;&emsp;
+    <a href="#" onclick="refreshSoftWareUse('linux')">Linux系统的使用 </a>&emsp;&emsp;&emsp;
+
+</p>
+
+---
 java开发软件： idea 下载地址：
 - <a href="https://www.jb51.net/article/178193.htm" target="_blank">https://www.jb51.net/article/178193.htm </a>   
 - <a href="https://blog.csdn.net/OracleOracolo/article/details/113886757" target="_blank">ide 安装eval reset插件 专业版自动激活 </a>

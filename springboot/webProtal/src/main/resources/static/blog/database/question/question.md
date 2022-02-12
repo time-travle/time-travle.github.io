@@ -231,6 +231,24 @@
 		功能: 所有字母大写.
 		（不是字母的字符不变.如果string是CHAR数据类型的,那么结果也是CHAR类型的.如果string是VARCHAR2类型的,那么结果也是VARCHAR2类型的）.
 
+####11,用户（Oracle）：
+
+	sys：超级管理员用户，拥有数据库去啊不的最高权限
+		所有的oracle的数据字典的基表和视图都放在sys用户中,这些基表和视图对于oracle运行是至关重要的,这些都由数据库自己维护,
+		任何用户都不能手动更改。
+		sys用户拥有dba、sysoper、sysdba角色或权限是Oracle中权限最高的用户，sys用户不能以narmal身份登录
+	system: 用于存放次一级的内部数据,如oracle的一些特性或工具的管理信息.
+	
+	安装 ORACLE 时，若没有为下列用户重设密码，则其默认密码如下：
+
+		用户名 / 密码 		 		登录身份				说明
+		sys/change_on_install		SYSDBA 或 SYSOPER		不能以 NORMAL 登录，可作为默认的系统管理员
+		system/manager				SYSDBA 或 NORMAL		不能以 SYSOPER 登录，可作为默认的系统管理员
+		sysman/oem_temp										sysman 为 oms 的用户名
+		scott/tiger					NORMAL					普通用户
+		aqadm /aqadm				SYSDBA 或 NORMAL		高级队列管理员
+		Dbsnmp/dbsnmp				SYSDBA 或 NORMAL		复制管理员
+
 
 
 

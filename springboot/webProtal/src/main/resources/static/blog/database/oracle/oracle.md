@@ -72,7 +72,23 @@
     Oracle查询所有用户：
         select * from all_users；
         select * from dba_users；
+
+###创建表空间和临时表空间
+    create tablespace TIMETRAVEL_USER datafile 'D:\APP\ADMINISTRATOR\ORADATA\ORCL\TIMETRAVEL_USER.DBF'
+    size 200m
+    autoextend on
+    next 32m maxsize 2048m;
     
+    create temporary tablespace TIMETRAVEL_TEMP tempfile 'D:\APP\ADMINISTRATOR\ORADATA\ORCL\TIMETRAVEL_TEMP.DBF' size 50M autoextend ON next 10M maxsize 100M;
+
+###oracle怎么查看用户属于哪个表空间 用如下语句查看：
+
+    select username,default_tablespace from dba_users  where username='用户名';
+
+###查询概要文件信息： select * from SYS.DBA_PROFILES;
+
+    select * from SYS.DBA_PROFILES where profile='DEFAULT';
+
 ###角色：
     -- 查询所有角色, connect/resource/dba比较常见
     select * from dba_roles
@@ -379,6 +395,11 @@
 - Oracle 建立索引及SQL优化 <a href="https://blog.csdn.net/qq_40285302/article/details/81874641#" target="_blank">https://blog.csdn.net/qq_40285302/article/details/81874641	</a>
 	
 ##约束
+    唯一主键
+    联合主键
+    外键
+    插入校验
+
     1、添加主键约束（将stuNo作为主键）
     alter table stuInfo add constraint PK_stuNo primary key (stuNo)
 
@@ -735,7 +756,11 @@
 			dbms_output.put_line("在Studinfo表上执行了DML语句操作");
 		end;
 
-
+##其他
+    select * from v$database;			--->查看数据库名
+    select * from user_source			--->查询所有函数和储存过程
+    select * from v$instance; 			--->查看sid
+    desc tableName						--->查询表结构
 
 <p>
     <a href="#" onclick="refreshContent('database')">返回</a>

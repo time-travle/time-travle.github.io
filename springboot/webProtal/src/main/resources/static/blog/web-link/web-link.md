@@ -289,8 +289,8 @@ Maven：
 
 - <a href="https://blog.csdn.net/liqi_q/article/details/79109920#" target="_blank">web项目pom.xml文件配置打包war文件 </a>
 - <a href="https://blog.csdn.net/Rongbo_J/article/details/50100973#" target="_blank">Maven项目pom.xml配置详解 </a>
-- <a href="https://blog.csdn.net/qq_33753147/article/details/78933284#" target="_blank">maven war包依赖另一个war包 </a>
-- <a href="https://www.cnblogs.com/silentjesse/p/5071965.html#" target="_blank">maven war包依赖另一个war包 </a>
+- <a href="https://blog.csdn.net/qq_33753147/article/details/78933284#" target="_blank">maven war包依赖另一个war包1 </a>
+- <a href="https://www.cnblogs.com/silentjesse/p/5071965.html#" target="_blank">maven war包依赖另一个war包2 </a>
 - <a href="https://www.cnblogs.com/gossip/p/5574034.html#" target="_blank">maven_项目的依赖、聚合、继承 </a>
 
 
@@ -323,20 +323,21 @@ Java读取Excel文件
 网站：
 - <a href="https://www.fkw.com/#" target="_blank">凡科  </a>
 - <a href="https://i.fkw.com/#" target="_blank">https://i.fkw.com/ </a>
-- <a href="https://timetravler.icoc.me/#" target="_blank">timetravler </a>
+- <a href="https://timetravler.icoc.me/#" target="_blank">我的凡科 timetravler </a>
+  
 - <a href="https://account.microsoft.com/#" target="_blank">微软 </a>
 - <a href="http://www.tianya.cn/137470548#" target="_blank">天涯社区 </a>
 - <a href="https://coding.net/#" target="_blank">coding </a>
 - <a href="https://www.doc88.com/#" target="_blank">道客巴巴 </a>
 - <a href="http://i.baidu.com/#" target="_blank">个人百度 </a>
 - <a href="https://home.cnblogs.com/#" target="_blank">博客园 </a>
-- <a href="https://www.cnblogs.com/can44/#" target="_blank">https://www.cnblogs.com/can44/ </a>
+- <a href="https://www.cnblogs.com/can44/#" target="_blank">我的博客园 </a>
 - <a href="https://www.mi.com/index.html#" target="_blank">小米 </a>
-- <a href="https://weibo.com/#" target="_blank">新浪 </a>
+- <a href="https://weibo.com/#" target="_blank">新浪微博 </a>
     
 
 音乐下载内外
-- <a href="http://music.fooor.cn/#" target="_blank">http://music.fooor.cn/</a>
+- <a href="http://music.fooor.cn/#" target="_blank">http://music.fooor.cn/ </a>
 - <a href="http://www.gequdaquan.net/gqss/#" target="_blank">http://www.gequdaquan.net/gqss/ </a>
 - <a href="http://music.ifkdy.com/" target="_blank">http://music.ifkdy.com/ </a>
 - <a href="http://music.zhuolin.wang/#" target="_blank">http://music.zhuolin.wang/ </a>
@@ -364,6 +365,7 @@ VPN
 - <a href="https://github.com/shadowsocks/shadowsocks-windows/" target="_blank">https://github.com/shadowsocks/shadowsocks-windows/ </a>
 - <a href="https://github.com/shadowsocks/shadowsocks-windows/releases#" target="_blank">https://github.com/shadowsocks/shadowsocks-windows/releases </a>
 - <a href="https://free-ss.site/#" target="_blank">https://free-ss.site/ </a>
+chromium  JJQQKK上网助手
 
 
 签证办理：

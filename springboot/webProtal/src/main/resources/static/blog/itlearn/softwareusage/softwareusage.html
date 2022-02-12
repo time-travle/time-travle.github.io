@@ -10,6 +10,13 @@
             $.get('../blog/itlearn/softwareusage/softwareusage.md', function (response, status, xhr) {
                 $("#softwareusage_area").html(marked(response));
             });
+            function refreshSoftWareUse(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = '/blog/itlearn/softwareusage/' + choose + '/' + choose + '.html';
+                $("#content").load(location.web.staticpath + target);
+            }
         </script>
     </body>
     </body>

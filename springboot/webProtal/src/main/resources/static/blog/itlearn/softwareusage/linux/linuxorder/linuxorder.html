@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>linuxorder</title>
+    </head>
+    <body>
+        <div id="linuxorder_area" class="md_content"></div>
+        <script>
+            $.get('../blog/itlearn/softwareusage/linux/linuxorder/linuxorder.md', function (response, status, xhr) {
+                $("#linuxorder_area").html(marked(response));
+            });
+
+        </script>
+    </body>
+    </body>
+</html>
