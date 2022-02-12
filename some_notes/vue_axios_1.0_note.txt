@@ -1,3 +1,0 @@
-﻿
-参考学习wiki：
-vue中axios的安装使用： https://www.cnblogs.com/liluning/p/12164787.html
