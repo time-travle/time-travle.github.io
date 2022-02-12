@@ -214,6 +214,11 @@
 
 到这里，就完成了一个简单的WebSocket就搭建完成了，可以进行前后端互相通话
 
+###参考：
+- <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/WebSocket" target="_blank">WebSocket </a>
+
+- <a href="https://www.cnblogs.com/chyingp/p/websocket-deep-in.html" target="_blank">WebSocket协议：5分钟从入门到精通 </a>
+
 ---
 ##Q1:Websocket是什么样的协议，具体有什么优点
     Websocket是一个持久化的协议，相对于HTTP这种非持久的协议来说 支持双向通信，更灵活，更高效，可扩展性更好
@@ -232,7 +237,3 @@
     WebSocket可以在浏览器里使用
     支持双向通信
     使用很简单
-    
-    https://developer.mozilla.org/zh-CN/docs/Web/API/WebSocket
-    
-    https://www.cnblogs.com/chyingp/p/websocket-deep-in.html
