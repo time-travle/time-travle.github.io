@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>uml</title>
+    </head>
+    <body>
+        <div id="uml_area" class="md_content"></div>
+        <script>
+            $.get('../blog/uml/uml.md', function (response, status, xhr) {
+                $("#uml_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>
