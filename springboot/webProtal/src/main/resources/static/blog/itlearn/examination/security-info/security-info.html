@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>security-info</title>
+    </head>
+    <body>
+        <div id="security-info_area" class="md_content"></div>
+        <script>
+            $.get('../blog/itlearn/examination/security-info/security-info.md', function (response, status, xhr) {
+                $("#security-info_area").html(marked(response));
+            });
+        </script>
+    </body>
+    </body>
+</html>
