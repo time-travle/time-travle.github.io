@@ -4,6 +4,7 @@
 
 ---
 #原型模式 
+- <a href="https://www.runoob.com/design-pattern/adapter-pattern.html" target="_blank"> 菜鸟教程 原型模式 </a>
 
 原型模式定义:
 
