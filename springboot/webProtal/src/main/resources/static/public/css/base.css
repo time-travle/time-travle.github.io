@@ -31,10 +31,15 @@ html, body {
 #container {
     position: relative;
     margin: 0px 20px;
-    height: 84%;
+    height: 86%;
     z-index: 1;
 }
-
+#foot {
+    position: absolute;
+    width: 99%;
+    clear: both;
+    height: 5rem;
+}
 #left_side {
     position: absolute;
     overflow-y: auto;
