@@ -3,10 +3,10 @@
 </p>
 
 ---
+
 # MessageMQ -websocket
 
-
-##搭建webSocket非常简单，只需要以下两步
+## 搭建webSocket非常简单，只需要以下两步
 
     后台创建websocket配置类
     后台创建websocket类
@@ -15,8 +15,8 @@
 - <a href="https://www.cnblogs.com/interdrp/p/7903736.html#" target="_blank">https://www.cnblogs.com/interdrp/p/7903736.html </a>
 - <a href="https://www.zifangsky.cn/1355.html#" target="_blank">https://www.zifangsky.cn/1355.html </a>
 
+## 后台WebSocket配置类如下
 
-##后台WebSocket配置类如下
     配置类，照搬即可
 
     import org.springframework.context.annotation.Bean;
@@ -38,8 +38,8 @@
         }
     }
 
+## WebSocket类
 
-##WebSocket类
     这个类可以根据实际需求来进行封装，简化调用
 
     import org.springframework.stereotype.Component;
@@ -110,9 +110,8 @@
         }
     }
 
+## 创建一个ServerController类
 
-
-##创建一个ServerController类
     这个类是模拟服务器给客户端发送信息用的，通过WebSocket，服务器就可以直接给客户端发送信息。注意，为了便于测试，user变量写死了。代码如下：
 
     package com.websocket.demo.controller;
@@ -148,9 +147,8 @@
         }
     }
 
+## 前端页面
 
-
-##前端页面
     前端，方法可以自由定义什么时候创建链接，我是直接页面初始化就创建链接
 
     <template>
@@ -214,13 +212,16 @@
 
 到这里，就完成了一个简单的WebSocket就搭建完成了，可以进行前后端互相通话
 
-###参考：
+### 参考：
+
 - <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/WebSocket" target="_blank">WebSocket </a>
 
 - <a href="https://www.cnblogs.com/chyingp/p/websocket-deep-in.html" target="_blank">WebSocket协议：5分钟从入门到精通 </a>
 
 ---
-##Q1:Websocket是什么样的协议，具体有什么优点
+
+## Q1:Websocket是什么样的协议，具体有什么优点
+
     Websocket是一个持久化的协议，相对于HTTP这种非持久的协议来说 支持双向通信，更灵活，更高效，可扩展性更好
     Websocket是基于HTTP协议的，或者说借用了HTTP的协议来完成一部分握手
     WebSocket是一种双向通信协议。在建立连接后，WebSocket服务器端和客户端都能主动向对方发送或接收数据，就像Socket一样

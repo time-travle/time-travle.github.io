@@ -4,7 +4,8 @@
 
 # MVC模式
 
-##什么是MVC的开发模式：
+## 什么是MVC的开发模式：
+
 	MVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写
 		Model（模型）表示应用程序核心（比如数据库记录列表）。
 			应用程序中用于处理应用程序数据逻辑的部分。通常模型对象负责在数据库中存取数据。
@@ -12,29 +13,33 @@
 			应用程序中处理数据显示的部分。通常视图是依据模型数据创建的。
 		Controller（控制器）处理输入（写入数据库记录）。
 			应用程序中处理用户交互的部分。通常控制器负责从视图读取数据，控制用户输入，并向模型发送数据
-		
-##MVC优点：
+
+## MVC优点：
+
 	1.降低代码耦合性。在MVC模式中，三个层各施其职，所以如果一旦哪一层的需求发生了变化，
 		就只需要更改相应的层中的代码而不会影响到其他层中的代码。  
 	2.有利于分工合作。在MVC模式中，由于按层把系统分开，那么就能更好的实现开发中的分工。
 		网页设计人员可进行开发视图层中的JSP，而对业务熟悉的人员可开发业务层，而其他开发人员可开发控制层。
 	3.有利于组件的重用。如控制层可独立成一个能用的组件，表示层也可做成通用的操作界面。可以为一个模型在运行时同时建立和使用多个视图。
 
-##MVC缺点：
+## MVC缺点：
+
 	1.增加了系统结构和实现的复杂性。对于简单的界面，严格遵循MVC，使模型、视图与控制器分离，会增加结构的复杂性，
 		并可能产生过多的更新操作，降低运行效率。  
 	2.视图层展示依赖与模型层，视图层需要很少的字段，但是模型层全部提供，性能上有一定影响		
-			
-##MVC工作流程
+
+## MVC工作流程
+
 	第一步：浏览者 -> 调用控制器，对它发出指令
 	第二步：控制器 -> 按指令选取一个合适的模型
 	第三步：模型 -> 按控制器指令取相应数据
 	第四步：控制器 -> 按指令选取相应的视图
 	第五步：视图 -> 把第三步取到的数据按用户想要的样子显示出来	
 
-##SpringMVC工作原理
+## SpringMVC工作原理
+
 <a href="https://blog.csdn.net/qq_43378945/article/details/90907427#" target="_blank">https://blog.csdn.net/qq_43378945/article/details/90907427 </a>
-	
+
 	1.用户发送请求至前端控制器DispatcherServlet(也叫中央处理器).
 	2.DispatcherServlet收到请求调用HandlerMappering处理器映射器
 	3.处理器映射器找到具体的处理器（可以根据xml配置、注解进行查找），生成处理器对象及处理器拦截器（如果有则生成）一并返回给DispatcherServlet.
@@ -46,9 +51,9 @@
 	9.ViewReslover解析后返回具体View.
 	10.DispatcherServlet根据View进行渲染视图（即将模型数据填充至视图中）。
 	11.DispatcherServlet响应用户。
-	
-	
-##组件说明：
+
+## 组件说明：
+
 	以下组件通常使用框架提供实现：
 
 	DispatcherServlet：作为前端控制器，整个流程控制的中心，控制其它组件执行，统一调度，降低组件之间的耦合性，提高每个组件的扩展性。
@@ -59,7 +64,8 @@
 
 	ViewResolver：通过扩展视图解析器，支持更多类型的视图解析，例如：jsp、freemarker、pdf、excel等。
 
-##组件：
+## 组件：
+
 	1、前端控制器DispatcherServlet（不需要工程师开发）,由框架提供
 	作用：接收请求，响应结果，相当于转发器，中央处理器。有了dispatcherServlet减少了其它组件之间的耦合度。
 	用户请求到达前端控制器，它就相当于mvc模式中的c，dispatcherServlet是整个流程控制的中心，由它调用其它组件处理用户的请求，dispatcherServlet的存在降低了组件之间的耦合性。
@@ -85,7 +91,8 @@
 	6、视图View(需要工程师开发jsp…)
 	View是一个接口，实现类支持不同的View类型（jsp、freemarker、pdf…）
 
-##核心架构的具体流程步骤如下：
+## 核心架构的具体流程步骤如下：
+
 	1、首先用户发送请求——>DispatcherServlet，前端控制器收到请求后自己不进行处理，而是委托给其他的解析器进行处理，作为统一访问点，进行全局的流程控制；
 	2、DispatcherServlet——>HandlerMapping， HandlerMapping 将会把请求映射为HandlerExecutionChain 对象（包含一个Handler 处理器（页面控制器）对象、多个HandlerInterceptor 拦截器）对象，通过这种策略模式，很容易添加新的映射策略；
 	3、DispatcherServlet——>HandlerAdapter，HandlerAdapter 将会把处理器包装为适配器，从而支持多种类型的处理器，即适配器设计模式的应用，从而很容易支持很多类型的处理器；
@@ -94,13 +101,12 @@
 	6、View——>渲染，View会根据传进来的Model模型数据进行渲染，此处的Model实际是一个Map数据结构，因此很容易支持其他视图技术；
 	7、返回控制权给DispatcherServlet，由DispatcherServlet返回响应给用户，到此一个流程结束。
 
-##下边两个组件通常情况下需要开发：
+## 下边两个组件通常情况下需要开发：
+
     Handler：处理器，即后端控制器用controller表示。
     View：视图，即展示给用户的界面，视图中通常需要标签语言展示模型数据
 
-
-
-##DispatcherServlet 的工作流程
+## DispatcherServlet 的工作流程
 
     向服务器发送 HTTP 请求，请求被前端控制器 DispatcherServlet 捕获。
 
@@ -123,8 +129,7 @@
 
     视图负责将渲染结果返回给客户端。
 
-
-##Spring框架支持以下五种bean的作用域：
+## Spring框架支持以下五种bean的作用域：
 
     singleton : bean在每个Spring ioc 容器中只有一个实例。
     prototype：一个bean的定义可以有多个实例。

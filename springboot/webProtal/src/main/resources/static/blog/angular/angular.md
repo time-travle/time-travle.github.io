@@ -1,4 +1,5 @@
-#Angular 知识点
+# Angular 知识点
+
 <p>
 <a href="#" onclick="refreshAngularContent('angularorder')">Angular 使用到的命令</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshAngularContent('angularquestion')">Angular 常见的问题</a>&emsp;&emsp;&emsp;
@@ -11,8 +12,7 @@
 
 我们要是使用 AngularJS 的框架
 
-在对应的要使用这个框架的页面时我们需要将这个 angularJS 对应的js 库，
-不管是通过连接引入还是将这个版本库对应js 引进来，只要是能保证应用到就OK，
+在对应的要使用这个框架的页面时我们需要将这个 angularJS 对应的js 库， 不管是通过连接引入还是将这个版本库对应js 引进来，只要是能保证应用到就OK，
 
         <!DOCTYPE html>
         <html ng-app>

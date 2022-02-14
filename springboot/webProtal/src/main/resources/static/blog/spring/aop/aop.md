@@ -2,7 +2,7 @@
     <a href="#" onclick="refreshContent('spring')">返回目录</a>
 </p>
 
-#Spring aop知识积累
+# Spring aop知识积累
 
 SpringAOP的在实际应用中场景有哪些？
 
@@ -33,7 +33,7 @@ SpringAOP的在实际应用中场景有哪些？
     <a href="#" onclick="refreshAopUseScenarios('monitoring')">监控</a>&emsp;&emsp;&emsp;
 </p>
 
-什么是AOP？  
+什么是AOP？
 
     面向切面编程（AOP）完善spring的依赖注入（DI），面向切面编程在spring中主要表现为两个方面 
         1.面向切面编程提供声明式事务管理 
@@ -46,8 +46,7 @@ SpringAOP的在实际应用中场景有哪些？
 
 Spring AOP用的是代理设计模式
 
-
-aop框架具有的两个特征： 
+aop框架具有的两个特征：
 
         1.各个步骤之间的良好隔离性 
         2.源代码无关性 
@@ -55,6 +54,7 @@ aop框架具有的两个特征：
     
     Spring的事务管理机制实现的原理，就是通过这样一个动态代理对所有需要事务管理的Bean进行加载，并根据配置在invoke方法中对当前调用的 方法名进行判定，
     并在method.invoke方法前后为其加上合适的事务管理代码，这样就实现了Spring式的事务管理。Spring中的AOP实 现更为复杂和灵活，不过基本原理是一致的
+
 AOP包含的几个概念
 
     Jointpoint（连接点）：具体的切面点点抽象概念，可以是在字段、方法上，Spring中具体表现形式是PointCut（切入点），仅作用在方法上。
@@ -65,6 +65,7 @@ AOP包含的几个概念
 
     @Pointcut("@annotation(XXXXAnnotation)")   // 匹配的是 方法添加XXXXAnnotation注解
     @Pointcut("execution(public void com.XXXXX.controller.*.*(..))")// 匹配的是 public类型 返回void并且是com.XXXXX.controller文件夹下面的所有类方法
+
 ![avatar](../blog/spring/aop/imag/aop2.png)
 
 [comment]: <> (![avatar]&#40;imag/aop2.png&#41;)
@@ -74,7 +75,7 @@ AOP包含的几个概念
         降低模块的耦合度
         使系统容易扩展
         提高代码复用性
-        
+
 AOP的基本概念
 
         连接点（JoinPoint）：需要在程序中插入横切关注点的点，连接点可能是在类初始化、方法调用、字段调用或处理异常等等。Spring中只支持方法执行连接点。
@@ -92,24 +93,19 @@ AOP的基本概念
 
 <a href="https://www.cnblogs.com/hts-technology/p/7244180.html" target="_blank">https://www.cnblogs.com/hts-technology/p/7244180.html</a>
 
-
 那么什么是切面呢，这个我的理解就是在一个完整的请求过程中，我们想插入操作的一些位置就叫做切面。
 
-为什么要这么做呢，就是要跟我们的主逻辑解耦，在修改或者替换的时候造成的影响最小，比如 Tp3.2 里面就会有一些 before 、 after 的方法定义。
-在 laravel 这类的主流框架中实现了 AOP 的东西就是中间件了。我们可以在任何想要进行前置处理或者后置处理的位置插入一个中间件。
-比如请求的验证就是前置操作，比如成功后的通知、这个操作的会影响的操作都可以作为后置操作。
+为什么要这么做呢，就是要跟我们的主逻辑解耦，在修改或者替换的时候造成的影响最小，比如 Tp3.2 里面就会有一些 before 、 after 的方法定义。 在 laravel 这类的主流框架中实现了 AOP
+的东西就是中间件了。我们可以在任何想要进行前置处理或者后置处理的位置插入一个中间件。 比如请求的验证就是前置操作，比如成功后的通知、这个操作的会影响的操作都可以作为后置操作。
 
 为什么要这么拆分，首先我们要保证主体流程稳定，不要因为插入了某些操作就出了问题，所以，把一些方法抽出到前置或者后置操作上就不会更改主业务部分的代码。
 纠错方便了，替换也方便了，比如把邮件通知换成站内信通知，只要把后置操作的中间件替换一下就ok了，主业务完全不动，laravel 这类的就在路由那边就修改了。
 
-
 AOP的好处就是你只需要干你的正事，其它事情别人帮你干。也许有一天，你想裸奔，不想穿衣服，那么你把仆人A解雇就是了！也许有一天，出门之前你还想带点钱，
 那么你再雇一个仆人D专门帮你干取钱的活！这就是AOP。每个人各司其职，灵活组合，达到一种可配置的、可插拔的程序结构
 
-
 从Spring的角度看，AOP最大的用途就在于提供了事务管理的能力。事务管理就是一个关注点，你的正事就是去访问数据库，而你不想管事务（太烦），
 所以，Spring在你访问数据库之前，自动帮你开启事务，当你访问数据库结束之后，自动帮你提交/回滚事务！
-
 
 AOP中的5种通知（advice）类型，分别是：
 
@@ -124,8 +120,9 @@ AOP中的5种通知（advice）类型，分别是：
 [comment]: <> (![avatar]&#40;imag/aop1.png&#41;)
 
 Spring面向切面编程（AOP）的简单实例
+
 - <a href="https://blog.csdn.net/pan_junbiao/article/details/101535889" target="_blank">https://blog.csdn.net/pan_junbiao/article/details/101535889 </a>
-    
+
 创建UserService.java用户信息业务逻辑接口。
 
     /**
@@ -145,8 +142,7 @@ Spring面向切面编程（AOP）的简单实例
         public void comment(String userName,String comments);
     }
 
-
-创建UserServiceImpl.java用户信息业务逻辑实现类。 
+创建UserServiceImpl.java用户信息业务逻辑实现类。
 
     /**
      * 用户信息业务逻辑实现类
@@ -180,7 +176,6 @@ Spring面向切面编程（AOP）的简单实例
             System.out.println("业务方法comment执行完成");
         }
     }
-
 
 这个分类是根据通知织入到业务代码时执行的时间划分的。
 
@@ -244,7 +239,6 @@ Spring面向切面编程（AOP）的简单实例
             <property name="target" ref="userServiceTarget"/>
         </bean>
     </beans>
-
 
 创建AopTest.java类，编写测试代码
 

@@ -1,18 +1,19 @@
 <ul><a href="#" onclick="refreshDBConnectContent('mybatis')">返回</a></ul>
 
+## 动态sql
 
-##动态sql
-    
     在mapper文件中我们也是可以通过条件判断来确定是不是拼装一些条件的，其中的 if 、choose、 trim、foreach
-    
-###if语法：
+
+### if语法：
+
     <if test='判断条件'>
         判断条件为true时 就会将这里面的东西包括起来
     </if>
     
     备注：这个就是金蛋的可以类比java 的if判断语法
 
-###choose语法：
+### choose语法：
+
     这个关键字是一个组合出现的，而不是一个单独的出现
     <choose>
         <when test='判断条件'></when>
@@ -23,7 +24,8 @@
     
     备注：这个可以类比java中的 if - else if - else 语法
 
-###foreach元素
+### foreach元素
+
     主要有 item，index，collection，open，separator，close。
 	https://www.cnblogs.com/fangyu19900812/p/6046209.html
     item表示集合中每一个元素进行迭代时的别名，
@@ -39,8 +41,8 @@
             #{集合中的一项} 
         </foreach>
 
-###trim 语法：
-    
+### trim 语法：
+
     查询：
     我们在进行查询条件拼接时是有可能 where后面的条件都是不满足的，这时如果不对where这个对应的判断条件进行处理，那么我们在进行sql执行时
     是有可能会报错的。这是我们就需要对where的判断条件进行特殊的处理逻辑了，就是说如果我们的判断条件都是不满足的条件下我们就不再进行对

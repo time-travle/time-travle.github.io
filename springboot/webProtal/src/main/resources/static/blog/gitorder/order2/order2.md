@@ -1,4 +1,5 @@
-#Git 初阶 Order 日常积累 
+# Git 初阶 Order 日常积累
+
 <p>
     <a href="#" onclick="refreshContent('gitorder')">返回目录</a>
 </p>
@@ -16,7 +17,7 @@
 
 	$ git blame fileName
 
-标签	
+标签
 
 	# 列出所有tag
 	$ git tag
@@ -53,8 +54,7 @@
 	
 	# 新建一个分支，指向某个tag
 	$ git checkout -b [branch] [tag]
-	
-	
+
 查看信息
 
 	# 显示有变更的文件
@@ -130,7 +130,7 @@
 	
 	# Git bash中运行git log之后怎样终止这个命令
 	查看git log中，一直出现冒号： ，   如果想要退出，那么就需要使用命令字符 q
-	
+
 对比
 
 	# 显示暂存区和工作区的代码差异
@@ -150,10 +150,8 @@
 	# 查看工作区和版本库里面最新版本的区别
 	git diff HEAD -- readme.txt
 
-
-
 远程同步
-	
+
 	# git pull 和$ git fetch 的区别
 		git pull = git fetch + git merge
 
@@ -220,8 +218,8 @@
 
 	# 推送所有分支到远程仓库
 	$ git push [remote] --all	
-    
-撤销	
+
+撤销
 
 	# 恢复暂存区的指定文件到工作区
 	$ git checkout [file]
@@ -273,6 +271,6 @@
 	
 	# 使用并丢掉
 	$ git stash pop
-		
+
 <a href="https://www.cnblogs.com/cspku/articles/Git_cmds.html" target="_blank">https://www.cnblogs.com/cspku/articles/Git_cmds.html </a>
     	

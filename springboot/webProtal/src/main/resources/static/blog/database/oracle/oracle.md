@@ -4,9 +4,11 @@
 </p>
 
 ---
+
 # Oracle 1.0
 
-##创建表空间
+## 创建表空间
+
     create tablespace MYUSER_SPACE 
         datafile 'E:\APP\ADMINISTRATOR\ORADATA\ORCL\MYUSER_SPACE_S01.DBF' 
         size 1024m 
@@ -29,8 +31,9 @@
     create user username identified by userpassword default tablespace userspace;
     --查看当前用户所在表空间
     select username,default_tablespace from user_users;
-    
-##建用户
+
+## 建用户
+
  	-- Create the user  新建用户
  	create user READ_USER
  	  identified by "read_user"
@@ -73,7 +76,8 @@
         select * from all_users；
         select * from dba_users；
 
-###创建表空间和临时表空间
+### 创建表空间和临时表空间
+
     create tablespace TIMETRAVEL_USER datafile 'D:\APP\ADMINISTRATOR\ORADATA\ORCL\TIMETRAVEL_USER.DBF'
     size 200m
     autoextend on
@@ -81,15 +85,16 @@
     
     create temporary tablespace TIMETRAVEL_TEMP tempfile 'D:\APP\ADMINISTRATOR\ORADATA\ORCL\TIMETRAVEL_TEMP.DBF' size 50M autoextend ON next 10M maxsize 100M;
 
-###oracle怎么查看用户属于哪个表空间 用如下语句查看：
+### oracle怎么查看用户属于哪个表空间 用如下语句查看：
 
     select username,default_tablespace from dba_users  where username='用户名';
 
-###查询概要文件信息： select * from SYS.DBA_PROFILES;
+### 查询概要文件信息： select * from SYS.DBA_PROFILES;
 
     select * from SYS.DBA_PROFILES where profile='DEFAULT';
 
-###角色：
+### 角色：
+
     -- 查询所有角色, connect/resource/dba比较常见
     select * from dba_roles
     ---查询所有角色 权限
@@ -119,8 +124,9 @@
     
     DBA角色
         是授予系统管理员的，拥有该角色的用户就能成为系统管理员了，它拥有所有的系统权限。
- 
-##赋予权限
+
+## 赋予权限
+
  	查看权限：
  	select * from dba_sys_privs;		--->查询某个用户所拥有的系统权限
  	select * from dba_tab_privs;        --->查看所有用户的对象权限
@@ -143,8 +149,9 @@
     
     --把所有表的查询权限赋给另一个用户
     grant select any table to 'QUERY';
-            
-###oracle的系统和对象权限列表 
+
+### oracle的系统和对象权限列表
+
     alter any cluster 修改任意簇的权限
     alter any index 修改任意索引的权限
     alter any role 修改任意角色的权限
@@ -245,8 +252,9 @@
     update snapshot 修改快照中行的权限
     update table 修改用户表中的行的权限
     update view 修改视图中行的权限
-        
-##建表
+
+## 建表
+
     --例：
     创建表名为table1，列名为column1，column2，…，数据类型为特定数据类型的表
     Create table table1（
@@ -287,8 +295,9 @@
         方法二：也可以用all_tab_columns表进行查询，查询有结果表示字段存在：
         sql：select * from all_tab_columns where owner='SYS_CCC' and table_name='T_AAA' and column_name='COL_BBB';
         备注：所有的查询字段必须是大写，否则查询会有误差
-       
-###安全建表 demo
+
+### 安全建表 demo
+
     declare
           num   number;
     begin
@@ -317,8 +326,8 @@
             )';
     end;
 
-       
-##索引
+## 索引
+
     创建索引
         // 组合索引
         create index 索引名 on 表名(列名a, 列名b); 
@@ -391,10 +400,12 @@
 	　　select dbms_metadata.get_ddl('TABLE','SZT_PQSO2','SHQSYS') from dual;　　 
 	　　select dbms_metadata.get_ddl('INDEX','INDXX_PQZJYW','SHQSYS') from dual;　 
 	　　spool off;
-- oracle索引，索引的建立、修改、删除 <a href="https://www.cnblogs.com/djcsch2001/articles/1823459.html#" target="_blank">https://www.cnblogs.com/djcsch2001/articles/1823459.html </a>
-- Oracle 建立索引及SQL优化 <a href="https://blog.csdn.net/qq_40285302/article/details/81874641#" target="_blank">https://blog.csdn.net/qq_40285302/article/details/81874641	</a>
-	
-##约束
+
+- <a href="https://www.cnblogs.com/djcsch2001/articles/1823459.html#" target="_blank">oracle索引，索引的建立、修改、删除 </a>
+- <a href="https://blog.csdn.net/qq_40285302/article/details/81874641#" target="_blank">Oracle 建立索引及SQL优化  </a>
+
+## 约束
+
     唯一主键
     联合主键
     外键
@@ -428,8 +439,9 @@
         检查约束(是否男女): ssex char(5) check(ssex,('男','女'))
         年龄区间约束: age number check(age>=0 and age<=100);
         添加外键约束: foreign key(ssid) references java0611(ssid);
-    
-##视图
+
+## 视图
+
 	视图是一个对应的虚拟的表，并不是真实的存在与数据库中
 	CREATE [OR REPLACE]  VIEW view_name
 	AS
@@ -443,7 +455,9 @@
 		WITH READ ONLY 说明视图是只读视图，不能通过该视图进行增删改操作。但是在现实开发中，基本上不通过视图对表中的数据进行增删改操作
 	
 	使用的时候可以直接当作表来进行处理
-##序列
+
+## 序列
+
 	CREATE SEQUENCE sequence_name
         [MAXVALUE num|NOMAXVALUE]
         [MINVALUE num|NOMINVALUE]
@@ -484,7 +498,9 @@
 	使用
 		select seqName.nextval from dual--下一个值
 		select seqName.currval from dual--当前的值
-##定时任务
+
+## 定时任务
+
     写定时任务 dbms_job.submit(...)
     执行定时任务 dbms_job.run(job num)
 
@@ -549,7 +565,9 @@
 		Submit()过程。 
 		User_Export()过程。 
 		What()过程。
-##存储过程
+
+## 存储过程
+
 	写ORACLE存储过程 create or replace procedure ...
 	基本结构
 		CREATE OR REPLACE PROCEDURE 存储过程名字 
@@ -607,7 +625,8 @@
          END LOOP; 
          CLOSE C_USER;
 
-###已有的和定时任务有关的过程 job相关的存储过程
+### 已有的和定时任务有关的过程 job相关的存储过程
+
     1、Broken()过程更新一个已提交的工作的状态，典型地是用来把一个已破工作标记为未破工作。 
         这个过程有三个参数：job 、broken与next_date。 
          
@@ -703,7 +722,9 @@
                         What IN OUT varchar2) 
          
         job参数标识一个存在的工作。what参数指示将被执行的新的PL/SQL代码。
-##触发器
+
+## 触发器
+
 	触发器是特定事件出现的时候，自动执行的代码块。类似于存储过程，
 	触发器与存储过程的区别在于: 存储过程是由用户或应用程序显式调用的,而触发器是不能被直接调用的。
 	
@@ -756,7 +777,8 @@
 			dbms_output.put_line("在Studinfo表上执行了DML语句操作");
 		end;
 
-##其他
+## 其他
+
     select * from v$database;			--->查看数据库名
     select * from user_source			--->查询所有函数和储存过程
     select * from v$instance; 			--->查看sid

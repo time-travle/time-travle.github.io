@@ -1,4 +1,5 @@
-#跨域请求
+# 跨域请求
+
 <p>
 <a href="#" onclick="refreshCrossOriginContent('httpclient')">Http Client 相关</a>&emsp;&emsp;&emsp;
 </p>
@@ -19,8 +20,6 @@
 		但是，既然不安全，为什么我们又要跨域请求呢？
 		原因是有时为了服务器便于管理和减轻服务器压力，公司会把不同的资源放在不同的服务器上，这样就存在很多子域
 
-
- 
 1、如何完成服务跨域访问    <a href="https://zhuanlan.zhihu.com/p/50416743#" target="_blank">https://zhuanlan.zhihu.com/p/50416743 </a>
 
 	1、前端对接nginx或者其他的中间服务器，通过转发完成跨域
@@ -73,7 +72,6 @@
           <artifactId>spring-boot-starter-websocket</artifactId>
         </dependency>
 
-
 Spring MVC自带的跨域问题解决方案
 
     Spring MVC 已经有很好的解决方案了 直接添加一个注解( @CrossOrigin) 即可解决跨域问题
@@ -102,11 +100,12 @@ Spring MVC自带的跨域问题解决方案
     官方推荐的跨域资源共享方案：CORS；
     使用HTML5 API：postMessage；
     抛弃HTTP，使用：Web Sockets；
+
     
 ---
 SpringBoot 处理跨域请求 ：
 
-<a href="https://blog.csdn.net/weixin_42036952/article/details/88564647#" target="_blank">https://blog.csdn.net/weixin_42036952/article/details/88564647	</a>
+<a href="https://blog.csdn.net/weixin_42036952/article/details/88564647#" target="_blank">https://blog.csdn.net/weixin_42036952/article/details/88564647    </a>
 
 <a href="https://www.jianshu.com/p/85db845d3929#" target="_blank">https://www.jianshu.com/p/85db845d3929 </a>
 

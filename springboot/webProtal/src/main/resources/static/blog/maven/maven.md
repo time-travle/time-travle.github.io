@@ -15,14 +15,13 @@
         对应的版本符合自己的要求就好
         
         插件可以手动也可以通过eclipse添加
-        
 
 2、maven工程中的POM文件中的packaging 值，对应的是打包的方式
 
         1.pom工程：用在父级工程或聚合工程中。用来做jar包的版本控制。
         2.war工程：将会打包成war，发布在服务器上的工程。如网站或服务。
         3.jar工程：将会打包成jar用作jar包使用。
-        
+
 3、构建项目部分
 
         <build>
@@ -55,12 +54,10 @@
         group id+artifact id+version：插件在仓库中的坐标
         configuration：设置插件的参数值
 
-
 4、Maven 的主要生命周期，被用于构建应用，包括下面的 23 个阶段：
 
 - <a href="http://c.biancheng.net/view/4899.html#" target="_blank">http://c.biancheng.net/view/4899.html </a>
 - <a href="https://www.cnblogs.com/EasonJim/p/6816340.html#" target="_blank">https://www.cnblogs.com/EasonJim/p/6816340.html </a>
-
 
         生命周期阶段	                            描述
         validate（校验）	                        校验项目是否正确并且所有必要的信息可以完成项目的构建过程。
@@ -86,8 +83,6 @@
         verify （验证）	                            运行任意的检查来验证项目包有效且达到质量标准。
         install（安装）	                            安装项目包到本地仓库，这样项目包可以用作其他本地项目的依赖。
         deploy（部署）	                            将最终的项目包复制到远程仓库中与其他开发者和项目共享。
-    
-
 
 5、指定多个源代码目录、多个资源文件目录
 
@@ -126,11 +121,7 @@
              </plugins>  
         </build>
 
-
 git commit -m '添加多个源代码目录、多个资源文件目录配置'
-
-
-
 
 6、maven跳过单元测试-maven.test.skip和skipTests的区别
 
@@ -156,9 +147,8 @@ git commit -m '添加多个源代码目录、多个资源文件目录配置'
             </configuration>  
         </plugin>
 
-
 7、单独添加本地jar到maven库中
-        
+
         demo： ojdbc6-11.2.0.3.jar
         打开终端（windows用户打开cmd），输入：
         mvn install:install-file -Dfile=D:\Program Files\myjar\ojdbc6-11.2.0.3.jar -DgroupId=oracle -DartifactId=ojdbc6 -Dversion=11.2.0.3 -Dpackaging=jar -DgeneratePom=true
@@ -171,7 +161,7 @@ git commit -m '添加多个源代码目录、多个资源文件目录配置'
         </dependency>
 
 8、 maven 配置指南
-   
+
     打开 maven 的配置文件（ windows 机器一般在 maven 安装目录的 conf/settings.xml ），在<mirrors></mirrors>标签中添加 mirror 子节点:
 
     <mirror>

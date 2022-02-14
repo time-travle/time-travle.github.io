@@ -3,11 +3,13 @@
 
 ---
 
-#配置文件的说明
+# 配置文件的说明
+
 在mybatis框架自己对应的配置文件中比较重要的 配模块是 properties 和settings 两部分
+
 - <a href="http://www.mybatis.cn/archives/32.html" target="_blank">MyBatis中文官网 MyBatis的配置文件详解之一 简介 </a>
 
-##配置文件的demo：
+## 配置文件的demo：
 
 	<?xml version="1.0" encoding="UTF-8" ?>
 	<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
@@ -51,8 +53,9 @@
 		databaseIdProvider 数据库厂商标识  http://www.mybatis.cn/archives/872.html
 		mappers 映射器
 
-###1、configuration 配置
-###2、properties 属性
+### 1、configuration 配置
+
+### 2、properties 属性
 
 	这些属性都是可外部配置且可动态替换的，既可以在典型的 Java 属性文件中配置，亦可通过 properties 元素的子元素来传递
     demo：
@@ -98,10 +101,9 @@
 	 不要在properties元素体内添加任何属性值，只将属性值定义在外部properties文件中。
 	 在properties文件中定义属性名要有一定的特殊性，如：XXXXX.XXXXX.XXXX的形式，就像jdbc.driver。这样可以防止和parameterType传递的属性名冲突，从而被覆盖掉。
 
+### 3、settings 设置
 
-###3、settings 设置
 - <a href="https://www.cnblogs.com/lone5wolf/p/10955780.html" target="_blank">Mybatis的配置文件和映射文件详解 </a>
-
 
 	这是 MyBatis 中极为重要的调整设置，它们会改变 MyBatis 的运行时行为
         
@@ -161,9 +163,9 @@
 |logImpl|指定 MyBatis 所用日志的具体实现，未指定时将自动查找。|SLF4J,LOG4J,LOG4J2,JDK_LOGGING,COMMONS_LOGGING,STDOUT_LOGGING,NO_LOGGING|Not set|
 |proxyFactory|指定 Mybatis 创建具有延迟加载能力的对象所用到的代理工具。|CGLIB JAVASSIST|CGLIB|
 
-###4、typeAliases 类型命名
-- <a href="http://www.mybatis.cn/archives/33.html" target="_blank">MyBatis中文官网 MyBatis的配置文件详解之二 typeAliases类型命名 </a>
+### 4、typeAliases 类型命名
 
+- <a href="http://www.mybatis.cn/archives/33.html" target="_blank">MyBatis中文官网 MyBatis的配置文件详解之二 typeAliases类型命名 </a>
 
 	typeAliases可以用来自定义别名。在mapper.xml中，定义很多的statement，而statement需要parameterType指定输入参数的类型、需要resultType指定输出结果的映射类型。如果在指定类型时输入类型全路径，不方便进行开发，可以针对parameterType或resultType指定的类型定义一些别名，在mapper.xml中通过别名定义，方便开发。
 	例如：
@@ -182,21 +184,22 @@
 	</select>
 	参考：http://www.mybatis.cn/archives/33.html
 
-###5、typeHandlers 类型处理器
-- <a href="http://www.mybatis.cn/archives/34.html" target="_blank">MyBatis中文官网 MyBatis的配置文件详解之二 类型处理器（typeHandlers）</a>
+### 5、typeHandlers 类型处理器
 
+- <a href="http://www.mybatis.cn/archives/34.html" target="_blank">MyBatis中文官网 MyBatis的配置文件详解之二 类型处理器（typeHandlers）</a>
 
 	mybatis中通过typeHandlers完成jdbc类型和java类型的转换。通常情况下，mybatis提供的类型处理器满足日常需要，不需要自定义。
 	具体可参考Mybatis的官方文档http://www.mybatis.cn/archives/34.html。
 
-###6、objectFactory 对象工厂
+### 6、objectFactory 对象工厂
+
 - <a href="http://www.mybatis.cn/archives/35.html" target="_blank">MyBatis中文官网 MyBatis的配置文件详解之二 对象工厂（objectFactory）</a>
 
-###7、plugins 插件
+### 7、plugins 插件
 
 - <a href="http://www.mybatis.cn/archives/685.html" target="_blank">MyBatis中文官网 MyBatis的配置文件详解之二 插件（plugins）</a>
 
-###8、environments 环境
+### 8、environments 环境
 
 	MyBatis 可以配置多种环境。这会帮助你将 SQL 映射应用于多种数据库之中。但是要记得一个很重要的问题：你可以配置多种环境，但每个数据库对应一个 SqlSessionFactory。所以，如果你想连接两个数据库，你需要创建两个 SqlSessionFactory 实例，每个数据库对应一个。而如果是三个数据库，你就需要三个实例，以此类推。
 	为了明确创建哪种环境，你可以将它作为可选的参数传递给 SqlSessionFactoryBuilder。
@@ -228,11 +231,16 @@
 	---每个 environment 元素定义的环境 ID（比如： id=”development”）。
 	---事务管理器的配置（比如： type=”JDBC”）。
 	默认的环境和环境 ID 是自我解释的。你可以使用你喜欢的名称来命名，只要确定默认的要匹配其中之一。
-###9、environment 环境变量
-###10、transactionManager 事务管理器
-###11、dataSource 数据源
-###12、databaseIdProvider 数据库厂商标识
-###13、mappers 映射器
+
+### 9、environment 环境变量
+
+### 10、transactionManager 事务管理器
+
+### 11、dataSource 数据源
+
+### 12、databaseIdProvider 数据库厂商标识
+
+### 13、mappers 映射器
 
 	Mapper配置的几种方法：
 	第一种（常用）

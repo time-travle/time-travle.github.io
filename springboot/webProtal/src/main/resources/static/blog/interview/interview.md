@@ -1,7 +1,7 @@
-#面试相关
+# 面试相关
 
-##self interview
-    
+## self interview
+
     Good morning!
     Thank you for giving me this opportunity for this interview,I hope i can make a good performance today.
     
@@ -27,6 +27,7 @@
     I think I'm a good team player in project teams,Also I am able to work under great pressure.I am confident that I am qualified for the post of engineer in your company.
 
 ---------------------------------------------------------
+
     what is your major？
         Chemistry
     Which university are you attending？
@@ -56,6 +57,7 @@
     　　Yes in most cases.
 
 -----
+
     Laboratory Technician  实验员
     Pharmaceutical company 医药公司
     medicine 医药

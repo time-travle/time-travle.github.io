@@ -1,4 +1,5 @@
-#注解 Annotaion
+# 注解 Annotaion
+
 <p>
 <a href="#" onclick="refreshContent('springboot')">返回</a>
 </p>
@@ -86,14 +87,17 @@
         @SneakyThrows：抛出异常
         @ConfigurationProperties　　　　把同类的配置信息自动封装成实体类:可以使属性文件中的值和类中的属性对应起来;使用方式有两种 :　　1、在类上使用该注解 　　2、在工厂方法上使用该注解 （@bean）
         注意：在springBoot中除了使用这个注解读取属性文件值外，还可以用@Value注解。
+
 ===============================================注解===============================================
 
- ##如果要让一个普通类交给Spring容器管理，通常有以下方法：
+## 如果要让一个普通类交给Spring容器管理，通常有以下方法：
+
      1、使用 @Configuration与@Bean 注解
      2、使用@Controller @Service @Repository @Component 注解标注该类，然后启用@ComponentScan自动扫描
      3、使用@Import 方法
- 
- ##依赖注入三种方式
+
+## 依赖注入三种方式
+
  	依赖注入分为三种方式：
  		变量（filed）注入
  			    @Autowired

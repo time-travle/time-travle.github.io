@@ -6,7 +6,6 @@
 
 # MySQL 3.0
 
- 
 链接mysql时的url中的参数解析
 
         dbc.driverClassName=com.mysql.jdbc.Driver
@@ -24,9 +23,8 @@
     
         jdbc.jdbcUrl=jdbc:mysql://127.0.0.1:3306/database?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
 
+mysql JDBC URL格式如下：
 
-mysql JDBC URL格式如下： 
-        
         jdbc:mysql://[host:port],[host:port].../[database][?参数名1][=参数值1][&参数名2][=参数值2]... 
         
         常用的几个较为重要的参数： 
@@ -48,9 +46,9 @@ mysql JDBC URL格式如下：
         
         代码如下:
         jdbc:mysql://localhost:3306/test?user=root&password=&useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false 
-        
-在使用数据库连接池的情况下，最好设置如下两个参数： 
-    
+
+在使用数据库连接池的情况下，最好设置如下两个参数：
+
         autoReconnect=true&failOverReadOnly=false 
         需要注意的是，在xml配置文件中，url中的&符号需要转义成  &amp;  。
         比如在tomcat的server.xml中配置数据库连接池时，mysql jdbc url样例如下： 
@@ -68,8 +66,6 @@ mysql JDBC URL格式如下：
         
         
         在spring boot  2.1.6.RELEASE 中，如果没有配置&serverTimezone=UTC 时区值 ， 就会一直报错：
-    
-
 
 my.ini 配置
 
@@ -91,9 +87,8 @@ my.ini 配置
             # 创建新表时将使用的默认存储引擎
             default-storage-engine=INNODB
 
-
 CMD 命令：
-    
+
             1、停止服务
                 net stop mysqlName
             2、启动服务
@@ -122,7 +117,7 @@ CMD 命令：
                 ALTER table tableName ADD INDEX indexName(columnName)
             11、显示索引
                 SHOW INDEX FROM table_name;
-    
+
 使用JDBC连接数据库
 
             下载必须的jar包
@@ -140,6 +135,7 @@ CMD 命令：
                 executeQuery：查询，并返回单个结果集 放置在ResultSet中
                 executeUpdate：执行插入 更新和删除 操作，返回一个整数
                 execute：可以执行查询也可以执行更新操作    
+
 <p>
     <a href="#" onclick="refreshDatabaseContent('mysql2')">返回 mysql 2.0</a>
 </p>

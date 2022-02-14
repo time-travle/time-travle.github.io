@@ -3,19 +3,24 @@
 </p>
 
 ---
-#redis 笔记：
 
-####Redis是一个键值存储仓库，经常被称为 NoSQL 数据库。
+# redis 笔记：
+
+#### Redis是一个键值存储仓库，经常被称为 NoSQL 数据库。
+
 	是一个高性能的key-value数据库
 	键值存储仓库的本质是有能力按照一个键映射一个值的方式存储一些数据，然后你可以只通过这个键寻找到你之前通过这个键存储的值
-	
-####可以使用命令SET将值『fido』存储在键『server:name』中：
+
+#### 可以使用命令SET将值『fido』存储在键『server:name』中：
+
 	SET server:name "fido"
 
-####查询key对应的值	
+#### 查询key对应的值
+
 	GET server:name # => "fido"
-	
-####数据过期设置
+
+#### 数据过期设置
+
 	SET resource:lock "Redis Demo"  ---存入
 	EXPIRE resource:lock 120 ---存入120s
 
@@ -26,7 +31,8 @@
 	这里的 -2 是指 resource:lock 已经不存在了，如果返回值是 -1 说明这个键永远不会过 期。
 	注意：当你使用 SET 重新设置一个键， 它对应的 TTL 就会被重置
 
-####redis列表 相关
+#### redis列表 相关
+
 	RPUSH 将值添加到列表的末尾
 	LPUSH 将值添加到列表的开始
 	LRANGE是从列表中去一个指定范围的子集。它通过你想取的范围的第一个元素的下标和 最后一个元素的下标作为参数。
@@ -34,19 +40,21 @@
 	LLEN 返回指定列表的长度
 	LPOP 从列表中删除第一个元素，并将它作为返回值
 	RPOP 从列表中删除最后一个元素，并将它作为返回值
-	
-####redis集合 相关	
+
+#### redis集合 相关
+
 	SADD 将给定的值添加到集合中
 	SREM 从集合中移除指定的值
 	SISMEMBER 检查一个值是否在集合中，返回0不在，返回1在。
 	SMEMBERS 返回集合中所有的元素
 	SUNION 合并两个或者更多个集合，并且将所有的元素返回。
 
-####Redis 设计与实现 
+#### Redis 设计与实现
+
 - <a href="https://www.w3cschool.cn/hdclil/cnv2lozt.html#" target="_blank">https://www.w3cschool.cn/hdclil/cnv2lozt.html </a>
 
+#### Redis常用管理命令
 
-####Redis常用管理命令
     # dbsize 返回当前数据库 key 的数量。
     # info 返回当前 redis 服务器状态和一些统计信息。
     # monitor 实时监听并返回redis服务器接收到的所有请求信息。
@@ -60,7 +68,8 @@
     # flushdb 删除当前数据库中所有 key,此方法不会失败。小心慎用
     # flushall 删除全部数据库中所有 key，此方法不会失败。小心慎用
 
-####Reids工具命令
+#### Reids工具命令
+
     #redis-server：Redis 服务器的 daemon 启动程序
     #redis-cli：Redis 命令行操作工具。当然，你也可以用 telnet 根据其纯文本协议来操作
     #redis-benchmark：Redis 性能测试工具，测试 Redis 在你的系统及你的配置下的读写性能
@@ -69,9 +78,8 @@
     #redis-check-aof：更新日志检查
     #redis-check-dump：本地数据库检查
 
+#### Java中使用 demo:
 
-
-####Java中使用 demo:
     1、连接到 redis 服务
         实例
         import redis.clients.jedis.Jedis;

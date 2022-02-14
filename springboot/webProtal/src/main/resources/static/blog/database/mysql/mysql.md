@@ -4,14 +4,17 @@
 </p>
 
 ---
+
 # MySQL 1.0
 
 1、创建数据库
 
 	CREATE DATABASE 数据库名;
+
 2、删除数据库
 
 	drop database <数据库名>;
+
 3、安全建表
 
     DROP TABLE IF EXISTS sys_area;
@@ -32,10 +35,7 @@
         del_flag char(1) DEFAULT '0' NOT NULL COMMENT '删除标记',
         PRIMARY KEY (id)
     ) COMMENT = '区域表';
-    
 
-
-    
 <p>
     <a href="#" onclick="refreshContent('database')">返回</a>
     <a href="#" style="float: right;" onclick="refreshDatabaseContent('mysql2')">进阶 mysql 2.0</a>

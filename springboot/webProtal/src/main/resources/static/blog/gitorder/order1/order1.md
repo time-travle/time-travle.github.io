@@ -1,5 +1,5 @@
+# Git 日常 Order 积累
 
-#Git 日常 Order 积累 
 <p>
     <a href="#" onclick="refreshContent('gitorder')">返回目录</a>
 </p>
@@ -13,7 +13,8 @@
 
 ---
 
-####增加/删除文件
+#### 增加/删除文件
+
     # 添加指定文件到暂存区
     $ git add [file1] [file2] ...
     
@@ -47,7 +48,8 @@
     # 改名文件，并且将这个改名放入暂存区
     $ git mv [file-original] [file-renamed]
 
-####代码提交
+#### 代码提交
+
     # 提交暂存区到仓库区
     $ git commit -m [message]
     
@@ -67,14 +69,16 @@
     # 重做上一次commit，并包括指定文件的新变化
     $ git commit --amend [file1] [file2] ...
 
-####代码推送
+#### 代码推送
+
     #第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，
     #还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
     $ git push -u origin master
     # 不是第一次的
     $ git push origin master
-    
-####分支
+
+#### 分支
+
     # 列出所有本地分支 当前分支前面会标一个*号。
     $ git branch
     

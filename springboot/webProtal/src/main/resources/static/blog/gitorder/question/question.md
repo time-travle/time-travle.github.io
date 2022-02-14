@@ -1,4 +1,5 @@
-#Git question  日常积累 
+# Git question 日常积累
+
 <p>
     <a href="#" onclick="refreshContent('gitorder')">返回目录</a>
 </p>
@@ -11,7 +12,8 @@
 </p>
 
 ---
-##Git使用中会出现的问题
+
+## Git使用中会出现的问题
 
 1、ssh Permission denied：
 
@@ -36,7 +38,7 @@
 		[branch "master"]
 		remote = origin
 		merge = refs/heads/master
-		
+
 2、使用命名或者工具和github网站交互时一直超时22 的解决方法
 
 	测试 Github 连接是否畅通，可以使用如下的命令：
@@ -60,8 +62,7 @@
 		Port 443
 	
 	https://www.cnblogs.com/sweetheartly/p/9439798.html
-	
-	
+
 3、登录github网站时报超时解决方法
 
 	选择相应快的DNS服务器添加到 C:\Windows\System32\drivers\etc\hosts 即可
@@ -126,7 +127,7 @@
         出现这个问题的最主要原因还是在于本地仓库和远程仓库实际上是独立的两个仓库。
         假如我之前是直接clone的方式在本地建立起远程github仓库的克隆本地仓库就不会有这问题了。
         发现可以在pull命令后紧接着使用--allow-unrelated-history选项来解决问题（该选项可以合并两个独立启动仓库的历史）。
-        
+
 5、比较不长用的命令，部分仅仅在本地有效
 
     # git status显示unicode/乱码
@@ -137,7 +138,7 @@
 6、上传文件太大时（默认10m）：
 
  	进入远程git。找到project settings 打开Git hooks ，修改Maximum file size
- 	
+
 7、Another git process seems to be running in this repository, e.g.
 		an editor opened by 'git commit'. Please make sure all processes
 		are terminated then try again. If it still fails, a git process
@@ -146,7 +147,7 @@
 		
 	解决方案：进入项目文件夹下的 .git文件中（显示隐藏文件夹或rm .git/index.lock）删除index.lock文件即可。
 			使用手动也是可以的，使用命令行也是可以的 rm -f .git/index.lock
-	
+
 8、gitignore文件无法忽略某些文件
 
     在管理一个版本库时，有时候不想要管理某些文件，这个时候我就把这个问件写到.gitignore文件中，
@@ -159,9 +160,8 @@
 
     本文来自 行者向阳 的CSDN 博客 ，全文地址请点击：https://blog.csdn.net/y491887095/article/details/73250583?utm_source=copy 
 
-9、git commit 时：  
-	fatal: could not open '.git/COMMIT_EDITMSG': Permission denied 1
-	
+9、git commit 时： fatal: could not open '.git/COMMIT_EDITMSG': Permission denied 1
+
 	解决方案
 	直接删除’.git/COMMIT_EDITMSG 文件解决
 	---------------------

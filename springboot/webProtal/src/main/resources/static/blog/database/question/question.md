@@ -1,12 +1,13 @@
 <p>
     <a href="#" onclick="refreshContent('database')">返回</a>
-    
+
 </p>
 
 ---
+
 # Question 1.0
 
-####1、什么情况下数据库索引会失效
+#### 1、什么情况下数据库索引会失效
 
     a、如果条件中有or，即使其中有条件带索引也不会使用(这也是为什么尽量少用or的原因)
         要想使用or，又想让索引生效，只能将or条件中的每个列都加上索引
@@ -20,11 +21,10 @@
     g、避免在where子句中使用or来连接条件,因为如果俩个字段中有一个没有索引的话,引擎会放弃索引而产生全表扫描
     
     h、在使用联合索引是要注意最左原则
-    
-####2、分析sql 的关键字 explain + 语句
 
+#### 2、分析sql 的关键字 explain + 语句
 
-####3、连表查询
+#### 3、连表查询
 
     外连接可分为：左连接、右连接、完全外连接。
 
@@ -57,18 +57,21 @@
         
         如果我们在此时给这条SQL加上WHERE子句的时候比如SQL:select * from student cross join course where student.ID=course.ID
         此时将返回符合条件的结果集，结果和inner join所示执行结果一样
-        
-####4(Mysql)、执行SET CLOBAL log_bin_trust_function_creators = 1 报错
+
+#### 4(Mysql)、执行SET CLOBAL log_bin_trust_function_creators = 1 报错
 
 	现象：
 	当有mysql本地或远程建立function或procedure时报上面的错误
 	经试验是log_bin_trust_function_creators值为off导致
 	设置：set global log_bin_trust_function_creators=1;
 	但重启后失效
-           永久windows下my.ini[mysqld]區段加上log_bin_trust_function_creators=1
-           linux下/etc/my.cnf下my.ini[mysqld]區段加上log_bin_trust_function_creators=1
 
-####5(Mysql)问题、
+永久windows下my.ini[mysqld]段加上log_bin_trust_function_creators=1
+
+linux下/etc/my.cnf下my.ini[mysqld]段加上log_bin_trust_function_creators=1
+
+#### 5(Mysql)问题、
+
 	Error Code: 1175. You are using safe update mode and you tried to update a table without a WHERE that 
 	uses a KEY column To disable safe mode, toggle the option in Preferences -> SQL Editor -> Query Editor and reconnect.
 
@@ -77,11 +80,11 @@
 	SQL_SAFE_UPDATES = 0时，update和delete操作将会顺利执行。那么很显然，此变量的默认值是1。
 	所以，出现1175错误的时候，可以先设置SQL_SAFE_UPDATES的值为0，然后再执行更新
 
-####6(Mysql)、执行创建函数的sql语句时，提示:This function has none of DETERMINISTIC, NO SQL, or READS SQL DATA in its declaration and binary logging is enabled
+#### 6(Mysql)、执行创建函数的sql语句时，提示:This function has none of DETERMINISTIC, NO SQL, or READS SQL DATA in its declaration and binary logging is enabled
 
 <a href="https://www.cnblogs.com/kiko2014551511/p/11527423.html#" target="_blank">https://www.cnblogs.com/kiko2014551511/p/11527423.html </a>
 
-####7、order by 排序
+#### 7、order by 排序
 
 	按多个列排序行示例
 		ORDER BY first_name, last_name DESC; --- 按first_name进行按升序排序，并按降序对last_name列进行排序
@@ -91,7 +94,8 @@
 		相当于
 		SELECT name, credit_limit,address FROM customers ORDER BY credit_limit DESC, name;    
 
-####8(oracle)、密码过期处理:
+#### 8(oracle)、密码过期处理:
+
 	通过管理员访问数据库 sys或者system
 	
 	--查看用户账户的状态
@@ -109,8 +113,7 @@
 		2、
 			alter user SCOTT identified by scott account unlock;
 
-
-####9、事务
+#### 9、事务
 
 	事务提交 commit
 		COMMIT [ WORK ] [ COMMENT clause ] [ WRITE clause ] [ FORCE clause ];
@@ -158,7 +161,7 @@
 				SHARE ROW EXCLUSIVE	用户可以查看表中的记录，但是无法更新表或锁定SHARE表中的表。
 				EXCLUSIVE	允许查询锁定的表格，但不能进行其他活动。
 
-####10、内置函数
+#### 10、内置函数
 
 	Ascii()函数
 		ASCII( single_character ) 
@@ -231,7 +234,7 @@
 		功能: 所有字母大写.
 		（不是字母的字符不变.如果string是CHAR数据类型的,那么结果也是CHAR类型的.如果string是VARCHAR2类型的,那么结果也是VARCHAR2类型的）.
 
-####11,用户（Oracle）：
+#### 11,用户（Oracle）：
 
 	sys：超级管理员用户，拥有数据库去啊不的最高权限
 		所有的oracle的数据字典的基表和视图都放在sys用户中,这些基表和视图对于oracle运行是至关重要的,这些都由数据库自己维护,
@@ -248,10 +251,6 @@
 		scott/tiger					NORMAL					普通用户
 		aqadm /aqadm				SYSDBA 或 NORMAL		高级队列管理员
 		Dbsnmp/dbsnmp				SYSDBA 或 NORMAL		复制管理员
-
-
-
-
 
 <p>
     <a href="#" onclick="refreshContent('database')">返回</a>

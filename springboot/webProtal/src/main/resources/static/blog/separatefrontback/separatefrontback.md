@@ -1,6 +1,7 @@
 # 前后端分离开发模式
 
-##对于后端Java工程师：
+## 对于后端Java工程师：
+
     把精力放在Java基础，设计模式，jvm原理，spring+springmvc原理及源码，linux，mysql事务隔离与锁机制，mongodb，http/tcp，多线程，
     分布式架构，弹性计算架构，微服务架构，Java性能优化，以及相关的项目管理等等。
     
@@ -8,8 +9,8 @@
     
         后端追求的是：三高（高并发，高可用，高性能），安全，存储，业务等等。
 
+## 对于前端工程师：
 
-##对于前端工程师：
     把精力放在html5，css3，jquery，angularjs，bootstrap，reactjs，vuejs，webpack，less/sass，gulp，nodejs，Google V8引擎，javascript多线程，
     模块化，面向切面编程，设计模式，浏览器兼容性，性能优化等等。
     
@@ -17,14 +18,13 @@
     
         前端追求的是：页面表现，速度流畅，兼容性，用户体验等等。
 
+## 新的方式的请求步骤：
 
-##新的方式的请求步骤：
     大量并发浏览器请求--->web服务器集群(nginx)--->应用服务器集群(tomcat)--->文件/数据库/缓存/消息队列服务器集群
     
         同时又可以玩分模块，还可以按业务拆成一个个的小集群，为后面的架构升级做准备
 
-
-##前后端分离的优势
+## 前后端分离的优势
 
     可以实现真正的前后端解耦，前端服务器使用nginx。
     前端/WEB服务器放的是css，js，图片等等一系列静态资源（甚至你还可以css，js，图片等资源放到特定的文件服务器，例如阿里云的oss，并使用cdn加速），
@@ -59,8 +59,7 @@
     
     前端大量的组件代码得以复用，组件化，提升开发效率，抽出来！
 
-
-##总结
+## 总结
 
     前后端分离并非仅仅只是一种开发模式，而是一种架构模式（前后端分离架构）。
     千万不要以为只有在撸代码的时候把前端和后端分开就是前后端分离了，需要区分前后端项目。
@@ -68,8 +67,7 @@
     前后端工程师需要约定交互接口，实现并行开发，开发结束后需要进行独立部署，前端通过ajax来调用http请求调用后端的restful api。
     前端只需要关注页面的样式与动态数据的解析&渲染，而后端专注于具体业务逻辑
 
-
-##为何有的前后分离的过程中使用nodejs
+## 为何有的前后分离的过程中使用nodejs
 
     为什么要增加一层NodeJS？
     现阶段我们主要以后端MVC的模式进行开发，这种模式严重阻碍了前端开发效率，也让后端不能专注于业务开发。
@@ -78,18 +76,15 @@
 
 链接：<a href="https://www.jianshu.com/p/2e3e50d90dfb" target="_blank">https://www.jianshu.com/p/2e3e50d90dfb </a>
 
-
-##springboot和vue整合的关键操作
-
+## springboot和vue整合的关键操作
 
 前后端分离的开发，前端开发好后将build构建好的dist下static中的文件拷贝到springboot的resource的static下， index.html则直接拷贝到springboot的resource的static下。
 
 最简单的合并方式，但是如果作为工程级的项目开发，并不推荐使用手工合并，也不推荐将前端代码构建后提交到springboot的resouce下， 好的方式应该是保持前后端完全独立开发代码，项目代码互不影响，
-借助jenkins这样的构建工具在构建springboot时触发前端构建并编写自动化脚本将前端webpack构建好的资源拷贝到springboot下再进行jar的打包，
-最后就得到了一个完全包含前后端的springboot项目了
+借助jenkins这样的构建工具在构建springboot时触发前端构建并编写自动化脚本将前端webpack构建好的资源拷贝到springboot下再进行jar的打包， 最后就得到了一个完全包含前后端的springboot项目了
 
 无法正常访问静态资源-----重新指定springboot的静态资源处理前缀，代码：
-    
+
     @Configuration
     public class SpringWebMvcConfig extends WebMvcConfigurerAdapter {
 
@@ -100,7 +95,8 @@
         }
     }
 
-###vue router路由的路径无法正常解析
+### vue router路由的路径无法正常解析
+
     解决问题的方式是对vue的路由的路径做rewrite，交给router来处理，而不是springboot自己处理，rewrite时可以考虑路由的路径统一增加后缀，
     然后在springboot中编写过滤拦截特定后缀来做请求转发交给vue的路由处理
     const router = new VueRouter({
@@ -120,8 +116,7 @@
 
 后端拦截到带有vhtml的都交给router来处理，这种方式在后端写过滤器拦截后打包是完全可行的，但是前端开发的直接访问带后缀的路径会有问题。
 
-另外一种方式是给前端的路由path统一加个前缀比如/ui，当然就可以把之前的后缀删除了，这时后端写过滤器匹配该前缀，也不会影响前端单独开发是的路由解析问题。
-过滤器参考如下：
+另外一种方式是给前端的路由path统一加个前缀比如/ui，当然就可以把之前的后缀删除了，这时后端写过滤器匹配该前缀，也不会影响前端单独开发是的路由解析问题。 过滤器参考如下：
 
     /**
     * be used to rewrite vue router
@@ -231,12 +226,12 @@
         }
     }   
 
+## springboot+vue + nginx 搭建前后端分离项目
 
-##springboot+vue + nginx 搭建前后端分离项目
+<a href="https://blog.csdn.net/weixin_42912237/article/details/88054539" target="_blank">https://blog.csdn.net/weixin_42912237/article/details/88054539 </a>
 
-<a href="https://blog.csdn.net/weixin_42912237/article/details/88054539" target="_blank">https://blog.csdn.net/weixin_42912237/article/details/88054539 </a> 
+### 1、首先得安装node.js
 
-###1、首先得安装node.js
     检查是不是安装了node  ：   node -v
     安装Node.js的时候就已经自带了npm，输入npm -v可得到npm的版本。
     
@@ -245,7 +240,9 @@
         同样的方法安装vue-resource、vuex、jquery、bootstrap
         npm install axios -S    安装axios
         npm install --save popper.js
-###2、配置nginx
+
+### 2、配置nginx
+
     解压后，打开nginx.conf进行配置
     配置demo：
     
@@ -367,7 +364,9 @@
                 #    }
                 #}
             }
-###3、创建springboot项目
+
+### 3、创建springboot项目
+
     配置application.yml
     server:
     port: 8088
@@ -419,11 +418,12 @@
             }
         }    
 
-###4、分别运行前后端项目
+### 4、分别运行前后端项目
+
     在浏览器输入访问地址（通过nginx访问的地址）
     172.168.10.243:80
 
-##部署前后端分离式nginx配置的完整步骤
+## 部署前后端分离式nginx配置的完整步骤
 
 <a href="https://www.zhangshengrong.com/p/YjNKn8jLaW/" target="_blank">https://www.zhangshengrong.com/p/YjNKn8jLaW/ </a>
 

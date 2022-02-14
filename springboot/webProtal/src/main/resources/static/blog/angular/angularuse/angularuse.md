@@ -1,6 +1,7 @@
 <a href="#" onclick="refreshContent('angular')">返回</a>
 
 # Angular 使用
+
 - <a href="https://www.xttblog.com/?p=848#" target="_blank">https://www.xttblog.com/?p=848 </a>
 - <a href="https://www.xttblog.com/?p=850#" target="_blank">https://www.xttblog.com/?p=850 </a>
 - <a href="https://www.xttblog.com/?p=852#" target="_blank">https://www.xttblog.com/?p=852 </a>
@@ -11,19 +12,18 @@
 ============================AngularJS begin============================
 
 AngularJS 是一个 JavaScript 框架。
-    
+
     它可通过 <script> 标签添加到 HTML 页面。
 
-AngularJS 是专门为应用程序设计的 HTML
-AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTML
+AngularJS 是专门为应用程序设计的 HTML AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTML
 
     引入js库
     <script src="http://apps.bdimg.com/libs/angular.js/1.3.9/angular.min.js"></script>
 
-我们建议把脚本放在 <body> 元素的底部。 
-    
+我们建议把脚本放在 <body> 元素的底部。
+
     这会提高网页加载速度，因为 HTML 加载不受制于脚本加载
- 
+
 AngularJS 通过 ng-directives 扩展了 HTML。
 
     ng-app 指令定义一个 AngularJS 应用程序。
@@ -42,7 +42,6 @@ AngularJS 通过 ng-directives 扩展了 HTML。
     AngularJS 模块（Module） 定义了 AngularJS 应用。
     AngularJS 控制器（Controller） 用于控制 AngularJS 应用。
     ng-app指令定义了应用, ng-controller 定义了控制器。
-
 
 AngularJS 实例
 
@@ -64,10 +63,6 @@ AngularJS 实例
     
     </script>
 
-
-
-
-
 <html> 元素包含了 AngularJS 应用 (ng-app=)。
 
 <div> 元素定义了 AngularJS 控制器的作用域 (ng-controller=)。
@@ -78,8 +73,6 @@ AngularJS 实例
 
 一个或多个控制器文件 (my...Ctrl.js) 定义了控制器代码
 
-
-
 ============================AngularJS end!!============================
 
 angularjs和vuejs的区别
@@ -89,8 +82,7 @@ angularjs和vuejs的区别
     以解决脏检查循环的问题。有时没有简单的办法来优化有大量 watcher 的作用域。
     
     Vue 则根本没有这个问题，因为它使用基于依赖追踪的观察系统并且异步队列更新，所有的数据变化都是独立触发，除非它们之间有明确的依赖关系
-    
-	
+
 AngularJS 初始化加载流程
 
     1、浏览器载入HTML，然后把它解析成DOM。
@@ -102,8 +94,8 @@ AngularJS 初始化加载流程
     7、编译服务($compile service)是用来编译DOM并把它链接到根作用域($rootScope)的。
     8、ng-init指令将“World”赋给作用域里的name这个变量。
     9、通过{{name}}的替换，整个表达式变成了“Hello World”。	
-	
-AngularJS 事件广播与接收　
+
+AngularJS 事件广播与接收
 
     发送消息： $scope.$emit(name, data) 或者 $scope.$broadcast(name, data);
     接收消息： $scope.on(name,function(event,data){ });

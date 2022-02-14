@@ -2,9 +2,9 @@
     <a href="#" onclick="refreshContent('springcloud')">返回目录</a>
 </p>
 
-#Spring Cloud -fegin 知识积累
+# Spring Cloud -fegin 知识积累
 
-##Q1：如何配置搭建使用Feign 
+## Q1：如何配置搭建使用Feign
 
 参考wiki：
 
@@ -14,8 +14,8 @@
 
 <a href="http://c.biancheng.net/view/5357.html#" target="_blank">http://c.biancheng.net/view/5357.html</a>
 
+## Q2 Feign 和 Ribbon 的区别
 
-##Q2 Feign 和 Ribbon 的区别
 Ribbon：
 
     是一个基于 HTTP 和 TCP 客户端 的负载均衡的工具。
@@ -40,12 +40,14 @@ Feign：
 
 <a href="https://www.cnblogs.com/linkworld/p/9191161.html#" target="_blank">https://www.cnblogs.com/linkworld/p/9191161.html</a>
 
-##如何优雅的开启 Feign 对 Hystrix 的支持
+## 如何优雅的开启 Feign 对 Hystrix 的支持
+
     OpenFeign 是 自带 Hystrix ，但是默认没有打开
     先添加了Hystrix 的pom依赖， 然后在属性文件中开启 Feign 对 Hystrix 的支持：
         feign.hystrix.enabled=true
 
-##如何优雅的关闭 Feign 对 Hystrix 的支持
+## 如何优雅的关闭 Feign 对 Hystrix 的支持
+
     禁用 Hystrix 还是 比较简单的，目前有两种方式可以禁用 ， 其中一种是在属性文件中进行全部禁用 。
     feign.hystrix.enabled=false 
     
@@ -59,9 +61,6 @@ Feign：
             }
         }
 
-
-
-    
 ==========================REST客户端 Feign=======================
 
 JAVA 项目中接口调用
@@ -80,9 +79,9 @@ JAVA 项目中接口调用
         RestTemplate 提供了多种便捷访问远程 Http 服务的方法，能够大大提高客户端的编
         写效率。
     比上面的更简单，方便，它就是 Feign 。
-    
-    
-###Spring	Cloud为Feign添加了Spring MVC的注解支持，并整合了Ribbon和Eureka来为使用Feign时提供负载均衡
+
+### Spring	Cloud为Feign添加了Spring MVC的注解支持，并整合了Ribbon和Eureka来为使用Feign时提供负载均衡
+
 	<dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-feign</artifactId>
@@ -101,7 +100,8 @@ JAVA 项目中接口调用
         }
     }
 
-##使用 Feign 调用接口
+## 使用 Feign 调用接口
+
     1、定义一个 Feign 的 客户端， 以 接口形式存在
     @FeignClient(value  =”fsh-house ”, path  = ” / house ”) 
     public  interface  HouseRemoteClient  { 
@@ -111,11 +111,9 @@ JAVA 项目中接口调用
     ＠FeignClient 注解。这个注解标识当前是一个 Feign 的客户端，value 属性是对应的服务名称，也就是你需要调用哪个服务中的接口，path 就是接口中URI 统一的前缀
     定义方法时直接复制接口的定义即可，当然还有一种做法，就是将接口单独抽出来定义，然后在 Controller 中实现接口。
     在调用的客户端中也实现了接口，从而达到接口共用的目的 ，若是在接口类中声明就不能共用了
-    
-    
-    
-    
-##Feign 整合 Hystrix 服务窑错    
+
+## Feign 整合 Hystrix 服务窑错
+
     在属性文件中开启 Feign 对 Hystrix 的支持：
     feign.hystrix.enabled=true 
     
@@ -152,8 +150,8 @@ JAVA 项目中接口调用
             }
         }
     }
-    
-##Feign 中禁用 Hystrix    
-  
+
+## Feign 中禁用 Hystrix
+
     禁用 Hystrix 还是 比较简单的，目前有两种方式可以禁用 ， 其中一种是在属性文件中进行全部禁用 。
     feign.hystrix.enabled=false    

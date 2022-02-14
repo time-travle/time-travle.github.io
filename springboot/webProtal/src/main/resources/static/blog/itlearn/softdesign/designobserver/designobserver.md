@@ -2,14 +2,15 @@
     <a href="#" onclick="showITLearnPage('softdesign')">返回设计模式目录</a>
 </p>
 
-#观察者模式  	
+# 观察者模式
+
 <a href="https://www.runoob.com/design-pattern/observer-pattern.html#" target="_blank">https://www.runoob.com/design-pattern/observer-pattern.html </a>
-	
+
 	当对象间存在一对多关系时，则使用观察者模式（Observer Pattern）。
 	比如，当一个对象被修改时，则会自动通知依赖它的对象。观察者模式属于行为型模式
 
 介绍
-	
+
 	意图：定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。
 
 	主要解决：一个对象状态改变给其他对象通知的问题，而且要考虑到易用和低耦合，保证高度的协作。
@@ -39,15 +40,14 @@
 	注意事项： 	1、JAVA 中已经有了对观察者模式的支持类。 
 				2、避免循环引用。 
 				3、如果顺序执行，某一观察者错误会导致系统卡壳，一般采用异步方式。
-				
 
-##demo code:
+## demo code:
+
 	实现
 		观察者模式使用三个类 Subject、Observer 和 Client。Subject 对象带有绑定观察者到 Client 对象和从 Client 对象解绑观察者的方法。
 		我们创建 Subject 类、Observer 抽象类和扩展了抽象类 Observer 的实体类。
-	
-步骤 1
-	创建 Subject 类。
+
+步骤 1 创建 Subject 类。
 
 	Subject.java
 		import java.util.ArrayList;
@@ -78,16 +78,16 @@
 			  }
 		   }  
 		}
-步骤 2
-	创建 Observer 类。
+
+步骤 2 创建 Observer 类。
 
 	Observer.java
 		public abstract class Observer {
 		   protected Subject subject;
 		   public abstract void update();
 		}
-步骤 3
-	创建实体观察者类。
+
+步骤 3 创建实体观察者类。
 
 	BinaryObserver.java
 		public class BinaryObserver extends Observer{
@@ -131,8 +131,8 @@
 			  + Integer.toHexString( subject.getState() ).toUpperCase() ); 
 		   }
 		}
-步骤 4
-	使用 Subject 和实体观察者对象。
+
+步骤 4 使用 Subject 和实体观察者对象。
 
 	ObserverPatternDemo.java
 		public class ObserverPatternDemo {

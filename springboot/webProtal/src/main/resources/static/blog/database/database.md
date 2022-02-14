@@ -1,4 +1,5 @@
 # 数据库相关 知识
+
 <p>
 <a href="#" onclick="refreshDatabaseContent('mysql')">Mysql 相关</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshDatabaseContent('oracle')">Oracle 相关</a>&emsp;&emsp;&emsp;
@@ -7,8 +8,8 @@
 
 ---
 
-###SQL 优化
-    
+### SQL 优化
+
     1、查询时 可以尽量是用大写的
     2、合理使用索引  不要过分使用索引  索引可以提高查找效率 当时增加了插入和更新的效率
     3、不全查字段 要尽量避免全表扫描
@@ -22,8 +23,9 @@
     7、减少使用聚合函数 去重函数和排序函数等增加查询时间的函数 
         .应尽量避免在where子句中对字段进行函数操作
     https://blog.csdn.net/qq_15901351/article/details/90741593
-    
-####优化方式：
+
+#### 优化方式：
+
     1、查询出的数据量过大（可以采用多次查询，其他的方法降低数据量），尽量采取分页查询数据
     2、锁或者死锁(这也是查询慢常见的问题，是程序设计的缺陷)
     3、返回了不必要的行和列

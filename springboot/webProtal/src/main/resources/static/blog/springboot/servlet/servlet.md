@@ -3,10 +3,13 @@
 </p>
 
 ---
-##如何在SpringBoot中使用servlet
-###方法一
+
+## 如何在SpringBoot中使用servlet
+
+### 方法一
+
 1、编写servlet类 继承HttpServlet类，按需复写父类的方法 对于这个servlet不做多余的注解
-    
+
     public class CustomServlet extends HttpServlet {
         @Override
         protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
@@ -17,6 +20,7 @@
             ...
         } 
     }
+
 2、在启动类中添加响应的配置
 
     @SpringBootApplication
@@ -33,9 +37,10 @@
     	}
     }
 
-###方法二
+### 方法二
+
 1、编写servlet类 继承HttpServlet类，按需复写父类的方法 对于这个servlet不做多余的注解
-    
+
     @WebServlet(urlPatterns="/customServle",name="CustomServlet")
     public class CustomServlet extends HttpServlet {
         @Override
@@ -47,6 +52,7 @@
             ...
         }
     }
+
 2、在启动类中添加响应的配置
 
     @SpringBootApplication

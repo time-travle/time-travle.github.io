@@ -2,9 +2,10 @@
     <a href="#" onclick="showITLearnPage('softdesign')">返回设计模式目录</a>
 </p>
 
-#单例模式  
+# 单例模式
+
 <a href="https://www.runoob.com/design-pattern/singleton-pattern.html#" target="_blank">https://www.runoob.com/design-pattern/singleton-pattern.html </a>
-    
+
     什么是单例：
         单例模式（Singleton Pattern）是 Java 中最简单的设计模式之一。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。
         这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。
@@ -41,8 +42,8 @@
     
     注意事项：getInstance() 方法中需要使用同步锁 synchronized (Singleton.class) 防止多线程同时进入造成 instance 被多次实例化	
 
+## 简单demo：
 
-##简单demo：
 	创建一个 Singleton 类。
 		SingleObject.java
 			public class SingleObject {
@@ -80,8 +81,7 @@
 			   }
 			}
 
-
-##其他的单例实现模式：
+## 其他的单例实现模式：
 
 1、懒汉式，线程不安全
 
@@ -107,7 +107,6 @@
 		}  
 	}
 
-
 2、懒汉式，线程安全
 
 	是否 Lazy 初始化：是
@@ -131,6 +130,7 @@
 		return instance;  
 		}  
 	}
+
 3、饿汉式
 
 	是否 Lazy 初始化：否
@@ -156,6 +156,7 @@
             return instance;  
 		}  
 	}
+
 4、双检锁/双重校验锁（DCL，即 double-checked locking）
 
 	JDK 版本：JDK1.5 起
@@ -184,6 +185,7 @@
             return singleton;  
 		}  
 	}
+
 5、登记式/静态内部类
 
 	是否 Lazy 初始化：是
@@ -212,6 +214,7 @@
             return SingletonHolder.INSTANCE;  
 		}  
 	}
+
 6、枚举
 
 	JDK 版本：JDK1.5 起
@@ -230,7 +233,6 @@
 		public void whateverMethod() {  
 		}  
 	}
-
 
 经验之谈：
 

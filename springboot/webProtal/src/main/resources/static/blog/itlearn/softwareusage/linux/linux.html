@@ -10,6 +10,7 @@
             $.get('../blog/itlearn/softwareusage/linux/linux.md', function (response, status, xhr) {
                 $("#softwareusage_linux_area").html(marked(response));
             });
+
             function refreshLinuxContent(choose) {
                 if (!choose) {
                     return;

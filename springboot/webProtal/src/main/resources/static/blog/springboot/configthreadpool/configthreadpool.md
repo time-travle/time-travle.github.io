@@ -6,11 +6,13 @@
 
 # Spring Boot 线程池配置
 
-##重新定义线程池的配置  （不自定义时 使用的是springboot默认的）
+## 重新定义线程池的配置 （不自定义时 使用的是springboot默认的）
+
     实现接口
     public  class  AsyncTaskExecutePool  implements  AsyncConfigurer
 
-##线程池配置的拒绝策略
+## 线程池配置的拒绝策略
+
     AbortPolicy ：直接抛出 java.util.concurrent.RejectedExecutionException 异常 。
     CallerRunsPolicy ：主线程直接执行该任务，执行完之后尝试添加下一个任务到线程
         池中，这样可以有效降低向线程池内添加任务的速度 。
@@ -18,7 +20,7 @@
         那么这个任务就会被丢弃。 如果是 CallerRunsPolicy 策略，则会用主线程去执行，就是同步
         执行，这样最起码任务不会被丢弃
 
-##demo：
+## demo：
 
     @Configuration
     @ConfigurationProperties(prefix  = ” spring.task.pool")

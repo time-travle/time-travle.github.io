@@ -66,10 +66,10 @@ server.port=${random.int[2000,8000]}
 
 最后在启动类中调用端口即可使用
 
-public class ServiceApplication { 
-    public static void main(String[]  args)  { 
-        ／／ 启动参数设置 ， 比如自动生成端口 
-        new StartCommand(args); 
-        SpringApplication.run(ServiceApplication.class, args); 
+    public class ServiceApplication { 
+        public static void main(String[]  args)  { 
+            ／／ 启动参数设置 ， 比如自动生成端口 
+            new StartCommand(args); 
+            SpringApplication.run(ServiceApplication.class, args); 
+        }
     }
-}

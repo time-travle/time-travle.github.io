@@ -3,27 +3,27 @@
 </p>
 
 ---
-##跨域请求解决方案
-一般如下几种方案：
-- <a href="https://zhuanlan.zhihu.com/p/50416743#" target="_blank">https://zhuanlan.zhihu.com/p/50416743</a>
 
+## 跨域请求解决方案
+
+一般如下几种方案：
+
+- <a href="https://zhuanlan.zhihu.com/p/50416743#" target="_blank">https://zhuanlan.zhihu.com/p/50416743</a>
 
     野路子出身却好用的方式：JSONP；
     官方推荐的跨域资源共享方案：CORS；
     使用HTML5 API：postMessage；
     抛弃HTTP，使用：Web Sockets
+
 ### 使用JSONP
 
-浏览器的“同源策略”只是阻止了通过AJAX技术跨域获取资源，而并没有禁止跨域获取资源这件事本身，正因如此，
-我们可以通过 link 标签， img 标签以及 script 标签中的href属性或src属性获取异域的CSS，JS资源和图片
+浏览器的“同源策略”只是阻止了通过AJAX技术跨域获取资源，而并没有禁止跨域获取资源这件事本身，正因如此， 我们可以通过 link 标签， img 标签以及 script 标签中的href属性或src属性获取异域的CSS，JS资源和图片
 （虽然我们其实并不能读取这些资源的内容）
 
- script标签通过src属性加载的JS资源，实际上只是将JS文件内容原封不动的放置在<scritp>的标签内
- 这意味着被加载的文件与HTML文件下的其他JS文件共享一个全局作用域。
- 也就是说，<scritp>标签加载到的资源是可以被全局作用域下的函数所使用的
+script标签通过src属性加载的JS资源，实际上只是将JS文件内容原封不动的放置在<scritp>的标签内 这意味着被加载的文件与HTML文件下的其他JS文件共享一个全局作用域。 也就是说，<scritp>
+标签加载到的资源是可以被全局作用域下的函数所使用的
 
-我们已经约定好了数据的格式为JSON，这是JavaScript可以处理的数据类型，并且JSON格式的数据可以承载大量信息，
-因为我们会通过向服务器传入一个函数的方式，将数据变为函数的参数
+我们已经约定好了数据的格式为JSON，这是JavaScript可以处理的数据类型，并且JSON格式的数据可以承载大量信息， 因为我们会通过向服务器传入一个函数的方式，将数据变为函数的参数
 
 demo：
 
@@ -54,17 +54,16 @@ JSONP技术存在一下三点缺陷：
 
 虽然存在一些缺陷，但JSONP的浏览器兼容性却是非常好的，可以说是一种非常小巧高效的跨域资源获取技术
 
+### 使用 官方推荐的跨域资源共享方案：CORS 的几种方案
 
-###使用 官方推荐的跨域资源共享方案：CORS 的几种方案
 方案一：使用@CrossOrigin注解
 
     在Controller上使用@CrossOrigin注解
     @CrossOrigin //所有域名均可访问该类下所有接口
     @CrossOrigin("https://blog.csdn.net") // 只有指定域名https://blog.csdn.net可以访问该类下所有接口
- 
-方案二：CORS全局配置-实现WebMvcConfigurer
-跨域配置类：CorsConfig.java demo:
-    
+
+方案二：CORS全局配置-实现WebMvcConfigurer 跨域配置类：CorsConfig.java demo:
+
     /**
      * 跨域配置
      */
@@ -88,9 +87,7 @@ JSONP技术存在一下三点缺陷：
         }
     }
 
-方案三：拦截器实现
-实现Fiter接口在请求中添加一些Header来解决跨域的问题
-demo：
+方案三：拦截器实现 实现Fiter接口在请求中添加一些Header来解决跨域的问题 demo：
 
     @Component
     public class CorsFilter implements Filter {
@@ -117,12 +114,12 @@ demo：
         }
     }
 
+### Web Sockets 服务端与客户端的双向通信
 
-###Web Sockets 服务端与客户端的双向通信
 当客户端与服务端创建WebSocket连接后，本身就可以天然的实现跨域资源共享，WebSocket协议本身就不受浏览器“同源策略”的限制
 
 和使用XHRHttpRequest对象一样，我们首先要实例化一个WebSocket对象：
-    
+
     var ws = new WebSocket("wss://echo.websocket.org")
     传入的参数为响应WebSocket请求的地址
 
@@ -144,6 +141,7 @@ demo：
 通过.send()方法，我们拥有了向服务器发送数据的能力（WebSocket还允许我们发送二进制数据）：
 
     ws.send('Hi, server!')
+
 如何知道何时我们的数据发送完毕呢？
 
     我们需要使用WebSocket对象的bufferedAmount属性，
@@ -160,7 +158,8 @@ demo：
     }
 
 ### post Message
-HTML5提供的新API -- postMessage 
+
+HTML5提供的新API -- postMessage
 
 postMessage技术实现跨域的原理：
 
@@ -168,9 +167,7 @@ postMessage技术实现跨域的原理：
     另一方面我们在异域的页面脚本中始终监听message事件，
     当获取主窗口数据时处理数据或者以同样的方式返回数据从而实现跨窗口的异域通讯
 
-demo：
-页面现在有两个窗口，窗口1命名为“window_1”， 窗口2命名为“window_2”，
-当然，窗口1与窗口2的“域”是不同的，我们的需求是由窗口1向窗口2发送数据，而当窗口2接收到数据时，将数据再返回给窗口1
+demo： 页面现在有两个窗口，窗口1命名为“window_1”， 窗口2命名为“window_2”， 当然，窗口1与窗口2的“域”是不同的，我们的需求是由窗口1向窗口2发送数据，而当窗口2接收到数据时，将数据再返回给窗口1
 
 窗口1script标签内的代码：
 
@@ -195,15 +192,14 @@ demo：
         }
         window.postMessage("I\'m ok", "http://window1.com:8080")
     }
-我们在window上绑定了一个事件监听函数，监听message事件。
-一旦我们接收到其他域通过postMessage发送的信息，就会触发我们的receiveMessage回调函数。
+
+我们在window上绑定了一个事件监听函数，监听message事件。 一旦我们接收到其他域通过postMessage发送的信息，就会触发我们的receiveMessage回调函数。
 该函数会首先检查发送信息的域是否是我们想要的（之后我们会对此详细说明），如果验证成功则会像窗口1发送一条消息。
 
 看起来很好懂不是吗，一方发送信息，一方捕捉信息。但是，我需要格外提醒你的是所有“跨域”技术都需要关注的“安全问题”。
 让我们想想postMessage技术之所以能实现跨域资源共享，本质上是要依赖于客户端脚本设置了相应的message监听事件。
 因此只要有消息通过postMessage发送过来，我们的脚本都会接收并进行处理。由于任何域都可以通过postMessage发送跨域信息，
 因此对于设置了事件监听器的页面来说，判断到达页面的信息是否是安全的是非常重要的事，因为我们并不想要执行有危险的数据。
-
 
 如何鉴别发送至页面的信息呢？
 

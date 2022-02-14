@@ -3,18 +3,19 @@
 </p>
 
 ---
-#Spring Cloud -ribbon知识积累
 
-##如何搭建使用Ribbon
+# Spring Cloud -ribbon知识积累
+
+## 如何搭建使用Ribbon
 
     Ribbon 是在客户端实现负载均衡的
     
     经过网络查看多个不同的用例，发现在springboot中使用这个组件的大部分是和结合RestTemplate 的直接单独的使用的情况使用较少。
     这里就不表述单独的使用方法了
     下面直接说如何和这个 RestTemplate 进行结合
-        
-###首先引入POM
-   
+
+### 首先引入POM
+
        <dependency>
            <groupId>org.springframework.cloud</groupId>
            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
@@ -24,19 +25,19 @@
            <groupId>org.springframework.cloud</groupId>
            <artifactId>spring-cloud-starter-ribbon</artifactId> 
        </dependency>
-       
-###修改一下 RestTemplate 的实体获取方法 
-   使用注释LoadBalanced开始负载均衡 如是不用这个我们调用服务是写的对应的服务名或只是一个IP 
-   是起不到负载均衡的目的
-   
+
+### 修改一下 RestTemplate 的实体获取方法
+
+使用注释LoadBalanced开始负载均衡 如是不用这个我们调用服务是写的对应的服务名或只是一个IP 是起不到负载均衡的目的
+
        @Bean
        @LoadBalanced
        public RestTemplate getRestTemplate() {
            return new RestTemplate();
        }
-           
-   RestTemplate 常用的方法大致如下：
-     
+
+RestTemplate 常用的方法大致如下：
+
      public  <T>  T  getForObject(String  url,  Class<T>  responseType, Object ...  uriVariables); 
      public  <T>  T  getForObject(String  url,  Class<T>  responseType, Map<String,  ?>  uriVariables); 
      public  <T>  T  getForObject(URI  url,  Class<T>  responseType);
@@ -44,9 +45,6 @@
      public  <T>  T  postForObject(String  url,  Object  request, Class<T>  responseType,  Object ...  uriVariables); 
      public  <T>  T  postForObject(String  url,  Object  request, Class<T>  responseType,  Map<String,  ?>  uriVariables); 
      public  <T>  T  postForObject(URI  url,  Object  request,  Class<T>  responseType);
-    
-
-
 
 ========================客户端负载均衡========================
 
@@ -65,8 +63,8 @@
         此时当客户端的请求到达负载均衡服务器时，负载均衡服务器按照某种配置好的规则从可用服务端清单中选出一台服务器去处理客户端的请求。
         这就是服务端负载均衡
 
+## Ribbon 模块如下
 
-##Ribbon 模块如下
     ?  ribbon-loadbalancer 负载均衡模块，可独立使用，也可以和别的模块一起使用 。Ribbon 内置的负载均衡算法都实现在其中 。
     ?  ribbon-eureka ：基于 Eureka 封装的模块，能够快速方便地集成 Eureka 。
     ?  ribbon-transport ： 基于 Netty 实现多协议的支持，比如 H坤 、 Tep 、 Udp 等。
@@ -74,8 +72,8 @@
     ?  ribbon-example:  Ribbon 使用代码示例，通过这些示例能够让你的学习事半功倍。
     ?  ribbon-core ：一些比较核心且具有通用性的代码，客户端 API 的一些配置和其他 API的定义 
 
+## Ribbon工作时分为两步：
 
-##Ribbon工作时分为两步：
     第一步先选择	Eureka	Server,	它优先选择在同一个Zone且负载较少的Server；
     第二步再根据用户指定的策略，在从Server取到的服务注册列表中选择一个地址。
     其中Ribbon提供了三种策略：轮询、断路器和根据响应时间加权。
@@ -139,8 +137,8 @@
             instance:
                     preferIpAddress:	true
 
+## ribbon 常用配置:
 
-##ribbon 常用配置:
     1 禁用 Eureka
     当 我们在 RestTemplate 上添加 ＠LoadBalanced 注解后，就可 以用服务名 称来调用接口
     了 ， 当有多个服务 的时候，还能做负载均衡。 这是因为 Eur eka 中的服务信息 已 经被拉取到
@@ -164,9 +162,9 @@
     ribbon.connectTimeout=2000
     ＃ 请求处理的超时时间
     ribbon.readTimeout=5OOO
-    
-    
-##一个疑问：
+
+## 一个疑问：
+
 为什么在 RestTemplate 上加了一个＠LoadBalanced 之后，RestTemplate 就能够跟 Eureka 结合了，可以使用服务名称去调用接口，还可以负载均衡？
 
     这功劳应归于 Spring Cloud 给我们做了大量的底层工作，因为它将这些都封装好了，我们用起来才会那么简单。

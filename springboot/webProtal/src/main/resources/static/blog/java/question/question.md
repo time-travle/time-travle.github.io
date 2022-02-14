@@ -2,26 +2,27 @@
     <a href="#" onclick="refreshContent('java')">返回目录 </a>
 </p>
 
-#java  question 日常积累 
+# java  question 日常积累
 
 ---
 
 ## Q：这21个刁钻的HashMap面试题，我把阿里面试官吊打了
 
 - <a href="https://cloud.tencent.com/developer/article/1629452#" target="_blank">https://cloud.tencent.com/developer/article/1629452 </a>
+
 ## Q：java面试题:HashMap面试题
+
 - <a href="https://songzixian.com/javabook/265.html" target="_blank">https://songzixian.com/javabook/265.html </a>
 - <a href="https://blog.csdn.net/ChrisLu777/article/details/106617512#" target="_blank">https://blog.csdn.net/ChrisLu777/article/details/106617512 </a>
 - <a href="https://www.cnblogs.com/zengcongcong/p/11295349.html#" target="_blank">https://www.cnblogs.com/zengcongcong/p/11295349.html </a>
 
 ## Q：HashMap为什么用到它
-  
+
     HashMap 底层是 数组和链表
     HashMap可以接受null键值和值，而HashTable则不能
     HashMap是非synchronized
     HashMap很快
     以及HashMap储存的是键值对
-
 
 ## Q：HashMap 的工作原理？
 
@@ -44,7 +45,6 @@
 
     hashCode 是定位的，存储位置；equals是定性的，比较两者是否相等
 
-    
 ## Q：当两个对象的 hashCode 相同会发生什么？
 
     A：因为 hashCode 相同，不一定就是相等的（equals方法比较），所以两个对象所在数组的下标相同，"碰撞"就此发生。
@@ -62,6 +62,7 @@
     底层数组+链表实现，无论key还是value都不能为null，线程安全，实现线程安全的方式是在修改数据时锁住整个HashTable，效率低，ConcurrentHashMap做了相关优化
     初始size为11，扩容：newsize = olesize*2+1
     计算index的方法：index = (hash & 0x7FFFFFFF) % tab.length
+
 ## Q：HashMap
 
     底层数组+链表实现，可以存储null键和null值，线程不安全
@@ -70,6 +71,7 @@
     插入元素后才判断该不该扩容，有可能无效扩容（插入后如果扩容，如果没有再次插入，就会产生无效扩容）
     当Map中元素总数超过Entry数组的75%，触发扩容操作，为了减少链表长度，元素分配更均匀
     计算index方法：index = hash & (tab.length – 1)
+
 ## Q：ConcurrentHashMap
 
     底层采用分段的数组+链表实现，线程安全
@@ -88,12 +90,10 @@
 
 - <a href="https://www.jianshu.com/p/75adf47958a7#" target="_blank">https://www.jianshu.com/p/75adf47958a7 </a>
 
-
 ## Q：如果两个键的hashcode相同，你如何获取值对象？
 
     HashMap会使用键对象的hashcode找到bucket位置，找到bucket位置之后，会调用keys.equals()方法去找到LinkedList中正确的节点，最终找到要找的值对象。
     从HashMap中get元素时，首先计算key的hashCode，找到数组中对应位置的某一元素，然后通过key的equals方法在对应位置的链表中找到需要的元素
-
 
 ## Q：HashTable和HashMap的区别有哪些？
 
@@ -127,8 +127,6 @@
     10、初始容量大小和每次扩充容量大小的不同 
         Hashtable默认的初始大小为11，之后每次扩充，容量变为原来的2n+1。HashMap默认的初始化大小为16。之后每次扩充，容量变为原来的2倍
 
-
-
 ## Q：为什么HashMap是线程不安全的，实际会如何体现？
 
     第一，如果多个线程同时使用put方法添加元素
@@ -140,8 +138,7 @@
 
     这样会发生多个线程同时对hash数组进行扩容，都在重新计算元素位置以及复制数据，但是最终只有一个线程扩容后的数组会赋给table，
     也就是说其他线程的都会丢失，并且各自线程put的数据也丢失。且会引起死循环的错误。        
-    
-    
+
 ## Q：能否让HashMap实现线程安全，如何做？
 
     1、直接使用Hashtable，但是当一个线程访问HashTable的同步方法时，其他线程如果也要访问同步方法，会被阻塞住。
@@ -150,7 +147,7 @@
     2、HashMap可以通过下面的语句进行同步：
 
     Collections.synchronizeMap(hashMap);
-    
+
 ## Q：HashMap 中 put 方法过程？
 
     1.对key的hashCode做hash操作，然后再计算在bucket中的index（1.5 HashMap的哈希函数）；
@@ -158,7 +155,6 @@
     3.如果碰撞了，以链表的形式存在buckets后；
     4.如果节点已经存在就替换old value(保证key的唯一性)
     5.如果bucket满了(超过阈值，阈值=loadfactor*current capacity，load factor默认0.75)，就要resize
-
 
 ## Q：hashMap中put是如何实现的？
 
@@ -171,15 +167,15 @@
         4.3：链表结构，循环遍历直到链表中某个节点为空，尾插法进行插入，插入之后判断链表个数是否到达变成红黑树的阙值8；
             也可以遍历到有节点与插入元素的哈希值和内容相同，进行覆盖。
     5.如果桶满了大于阀值，则resize进行扩容
+
 - <a href="https://www.cnblogs.com/zengcongcong/p/11295349.html#" target="_blank">https://www.cnblogs.com/zengcongcong/p/11295349.html </a>
 
-  
 ## Q：分布式有哪些理论？
 
     CAP、BASE。
     分布式CAP理论，任何一个分布式系统都无法同时满足Consistency(一致性)、Availability(可用性)、Partition tolerance(分区容错性) 这三个基本需求。最多只能满足其中两项。
     而Partition tolerance(分区容错性) 是必须的，因此一般是CP，或者AP。    
-    
+
 ## Q：你怎么理解分布式一致性？
 
     数据一致性通常指关联数据之间的逻辑关系是否正确和完整。
@@ -187,13 +183,11 @@
     一致性还分为强一致性，弱一致性，还有最终一致性。
     强一致性就是马上就保持一致。
     最终一致性是指经过一段时间后，可以保持一致    
-    
-    
-## Q：java面试题：分布式    
+
+## Q：java面试题：分布式
 
 <a href="https://www.cnblogs.com/expiator/p/10201004.html#" target="_blank">https://www.cnblogs.com/expiator/p/10201004.html  </a>
-    
-    
+
 ## Q：JAVA中集合类型都有哪些？各有什么特点？
 
     Collection两大体系：链表List、集合Set
@@ -209,8 +203,7 @@
 
     Map特点：键值对；键不可以重复；值可以重复；
     Map集合中存储的是键值对，键不能重复，值可以重复。根据键得到值，对map集合遍历时先得到键的set集合，对set集合进行遍历，得到相应的值。     
-    
-    
+
 ## Q：集合结构
 
     Map
@@ -248,16 +241,14 @@
             Deque
                 LinkedList
             PriorityQueue
-            
-
 
 - <a href="https://www.jb51.net/article/92231.htm#" target="_blank">https://www.jb51.net/article/92231.htm </a>
 
-
 在JAVA中，闭包是通过“接口+内部类”实现，JAVA的内部类也可以有匿名内部类。
-闭包的价值在于可以作为函数对象或者匿名函数，持有上下文数据，作为第一级对象进行传递和保存。
-闭包广泛用于回调函数、函数式编程中
 
+闭包的价值在于可以作为函数对象或者匿名函数，持有上下文数据，作为第一级对象进行传递和保存。
+
+闭包广泛用于回调函数、函数式编程中
 
 闭包简单实例：
 
@@ -292,7 +283,6 @@
         }
     }  
 
-
 ## Q：内部类。
 
     在JAVA中，内部类可以访问到外围类的变量、方法或者其它内部类等所有成员，即使它被定义成private了，但是外部类不能访问内部类中的变量。
@@ -300,10 +290,10 @@
 
 ## Q：局部内部类。
 
-　　局部内部类是指在方法的作用域内定义的的内部类。
+    局部内部类是指在方法的作用域内定义的的内部类。
 
 ## Q：匿名内部类。
-    
+
     顾名思义，匿名内部类就是匿名、没有名字的内部类，通过匿名内部类可以更加简洁的创建一个内部类。
 
 ## Q：final关键字。
@@ -319,8 +309,6 @@
 
     final关键字   
 
-
-
 ## Q：如果hashCode 不冲突，那查找效率很高，但是如果hashCode一旦冲突，叫调用equals一个字节一个自己的去比较
 
     所以你把key设计的尽量短，一旦冲突也会少用点时间
@@ -334,9 +322,9 @@
 		//字符串转list<String>
         String str = "asdfghjkl";
         List<String> lis = Arrays.asList(str.split(""));
-		
+
 ## Q：Integer转String
- 
+
 	//方法一:Integer类的静态方法toString()
 	Integer a = 2;
 	String str = Integer.toString(a)
@@ -352,9 +340,9 @@
 ## Q：String转Integer
 
 	Integer.valueOf(str);
-	
+
 ## Q：判断一个字符是不是数字
-	
+
 	工具包 判断一个字符串是不是全是数字组成
 	org.apache.commons.lang.StringUtils.isNumeric()
 	 
@@ -388,8 +376,7 @@
         if(chr<48 || chr>57)
             return false;
     }
- 
- 
+
 ## Q：indexOf 和 lastIndexOf的区别
 
     indexOf 和  lastIndexOf 是什么？
@@ -421,24 +408,22 @@
     定义：lastIndexOf() 方法可返回一个指定的元素在数组中最后出现的位置，从该字符串的后面向前查找。
 
     * lastIndexOf()方法虽然是从后往前搜索，但返回的位置是从前开始数的
-    
+
 ## Q：什么是 CopyOnWriteArraySet 怎么使用
 
 - <a href="https://www.cnblogs.com/xiaolovewei/p/9142046.html#" target="_blank">https://www.cnblogs.com/xiaolovewei/p/9142046.html </a>
- 
 
-    它是线程安全的无序的集合，可以将它理解成线程安全的HashSet
-    CopyOnWriteArraySet和HashSet虽然都继承于共同的父类AbstractSet；
-    但是，HashSet是通过“散列表(HashMap)”实现的，
+
+    它是线程安全的无序的集合，可以将它理解成线程安全的HashSet CopyOnWriteArraySet和HashSet虽然都继承于共同的父类AbstractSet； 但是，HashSet是通过“散列表(HashMap)”实现的，
     而CopyOnWriteArraySet则是通过“动态数组(CopyOnWriteArrayList)”实现的，并不是散列表
- 
+    
     CopyOnWriteArraySet具有以下特性：
- 
-     1. 它最适合于具有以下特征的应用程序：Set 大小通常保持很小，只读操作远多于可变操作，需要在遍历期间防止线程间的冲突。
-     2. 它是线程安全的。
-     3. 因为通常需要复制整个基础数组，所以可变操作（add()、set() 和 remove() 等等）的开销很大。
-     4. 迭代器支持hasNext(), next()等不可变操作，但不支持可变 remove()等 操作。
-     5. 使用迭代器进行遍历的速度很快，并且不会与其他线程发生冲突。在构造迭代器时，迭代器依赖于不变的数组快照。
+    
+      1. 它最适合于具有以下特征的应用程序：Set 大小通常保持很小，只读操作远多于可变操作，需要在遍历期间防止线程间的冲突。
+      2. 它是线程安全的。
+      3. 因为通常需要复制整个基础数组，所以可变操作（add()、set() 和 remove() 等等）的开销很大。
+      4. 迭代器支持hasNext(), next()等不可变操作，但不支持可变 remove()等 操作。
+      5. 使用迭代器进行遍历的速度很快，并且不会与其他线程发生冲突。在构造迭代器时，迭代器依赖于不变的数组快照。
 
 
 

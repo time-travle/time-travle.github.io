@@ -1,17 +1,15 @@
+# CORS 跨域
 
-#CORS 跨域
 <p>
     <a href="#" onclick="refreshContent('crossorigin')">返回</a>
-    
+
 </p>
 
 ---
 
 SpringBoot下实现CORS的四种方式
 
-介绍四种实现CORS的方法，两种是全局配置，两种是局部接口生效的配置。
-一般来说，SpringBoot项目采用其中一种方式实现CORS即可。
-
+介绍四种实现CORS的方法，两种是全局配置，两种是局部接口生效的配置。 一般来说，SpringBoot项目采用其中一种方式实现CORS即可。
 
 1.使用CorsFilter进行全局跨域配置
 
@@ -39,7 +37,7 @@ SpringBoot下实现CORS的四种方式
             return new CorsFilter(configSource);
         }
     }
-    
+
 2.重写WebMvcConfigurer的addCorsMappings方法（全局跨域配置）
 
     @Configuration
@@ -59,7 +57,7 @@ SpringBoot下实现CORS的四种方式
             };
         }
     }
-    
+
 3.使用CrossOrigin注解（局部跨域配置）
 
     将CrossOrigin注解加在Controller层的方法上，该方法定义的RequestMapping端点将支持跨域访问
@@ -70,6 +68,7 @@ SpringBoot下实现CORS的四种方式
         public String cors( ){
             return "cors";
         }
+
 4 使用HttpServletResponse设置响应头(局部跨域配置)
 
     这种方式略显麻烦，不建议在SpringBoot项目中使用。

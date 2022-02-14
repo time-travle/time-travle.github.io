@@ -1,4 +1,5 @@
 # MessageMQ
+
 <p>
 <a href="#" onclick="refreshMQContent('activemq')">MessageMQ（activemq）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshMQContent('rabbitmq')">MessageMQ（rabbitmq）</a>&emsp;&emsp;&emsp;
@@ -28,7 +29,6 @@
     6 Message（消息体）
         消息体，就是承载消息的主体；其中包含了所需要传递的消息内容。
 
-
 ActiveMQ
 
     开发语言：java
@@ -44,8 +44,7 @@ ActiveMQ
     缺点:
         官方社区现在对ActiveMQ 5.x维护越来越少，较少在大规模吞吐的场景中使用。
 
-
-RabbitMQ 
+RabbitMQ
 
     开发语言：Erlang
     消息存储:内存、磁盘。支持少量堆积
@@ -100,8 +99,6 @@ kafka：
         消费失败不支持重试；
         支持消息顺序，但是一台代理宕机后，就会产生消息乱序；
         社区更新较慢；
-
-
 
 RPC 框架（RPC是指远程过程调用 Remote Procedure Call）的重要组成：
 

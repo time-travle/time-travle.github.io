@@ -1,4 +1,4 @@
-#redis 
+# redis
 
 ---
 <p>
@@ -12,7 +12,8 @@
 
 ---
 
-##简介
+## 简介
+
 Redis 是完全开源免费的，遵守BSD协议，是一个高性能的key-value数据库。
 
 Redis 与其他 key - value 缓存产品有以下三个特点：
@@ -30,28 +31,33 @@ Redis 优势
 
 Redis与其他key-value存储有什么不同？
 
-- Redis有着更为复杂的数据结构并且提供对他们的原子性操作，这是一个不同于其他数据库的进化路径。Redis的数据类型都是基于基本数据结构的同时对程序员透明，无需进行额外的抽象。
+- Redis有着更为复杂的数据结构并且提供对他们的原子性操作，这是一个不同于其他数据库的进化路径。
 
-- Redis运行在内存中但是可以持久化到磁盘，所以在对不同数据集进行高速读写时需要权衡内存，因为数据量不能大于硬件内存。在内存数据库方面的另一个优点是，相比在磁盘上相同的复杂的数据结构，在内存中操作起来非常简单，这样Redis可以做很多内部复杂性很强的事情。同时，在磁盘格式方面他们是紧凑的以追加的方式产生的，因为他们并不需要进行随机访问。
+  Redis的数据类型都是基于基本数据结构的同时对程序员透明，无需进行额外的抽象。
 
+- Redis运行在内存中但是可以持久化到磁盘，所以在对不同数据集进行高速读写时需要权衡内存，因为数据量不能大于硬件内存。
 
-##安装
+  在内存数据库方面的另一个优点是，相比在磁盘上相同的复杂的数据结构，在内存中操作起来非常简单，这样Redis可以做很多内部复杂性很强的事情。 同时，在磁盘格式方面他们是紧凑的以追加的方式产生的，因为他们并不需要进行随机访问。
+
+## 安装
+
 runoob： <a href="https://www.runoob.com/redis/redis-install.html#" target="_blank">https://www.runoob.com/redis/redis-install.html </a>
 
-##启动
+## 启动
+
 在安装目录执行：
- 
+
 redis-server.exe redis.windows.conf
 
+## redis集群搭建
 
-##redis集群搭建
-
-redis集群搭建 
+redis集群搭建
 
 - <a href="https://blog.csdn.net/qq_42815754/article/details/82912130#" target="_blank">https://blog.csdn.net/qq_42815754/article/details/82912130</a>
 - <a href="https://www.cnblogs.com/silent2012/p/10697896.html#" target="_blank">https://www.cnblogs.com/silent2012/p/10697896.html</a>
 
 ### redis cluster 介绍
+
     自动将数据进行分片，每个 master 上放一部分数据
     提供内置的高可用支持，部分 master 不可用时，还是可以继续工作的
     在 redis cluster 架构下，每个 redis 要放开两个端口号，比如一个是 6379，另外一个就是 加1w 的端口号，比如 16379。
@@ -60,13 +66,15 @@ redis集群搭建
     cluster bus 用了另外一种二进制的协议，gossip 协议，用于节点间进行高效的数据交换，占用更少的网络带宽和处理时间
 
     redis cluster 节点间采用 gossip 协议进行通信。
-##参考链接
+
+## 参考链接
+
 - <a href="https://blog.csdn.net/summerZBH123/article/-details/81406856#" target="_blank">https://blog.csdn.net/summerZBH123/article/-details/81406856 </a>
 - <a href="https://blog.csdn.net/u011320646/article/details/85491103#" target="_blank">https://blog.csdn.net/u011320646/article/details/85491103 </a>
-- <a href="https://www.cnblogs.com/lezon1995/p/11175380.html#%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98#" target="_blank">https://www.cnblogs.com/lezon1995/p/11175380.html#%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98 </a>
+- <a href="https://www.cnblogs.com/lezon1995/p/11175380.html" target="_blank">https://www.cnblogs.com/lezon1995/p/11175380.html </a>
 - <a href="https://www.cnblogs.com/1013wang/p/12192610.html#" target="_blank">https://www.cnblogs.com/1013wang/p/12192610.html </a>
 - <a href="https://www.cnblogs.com/jasontec/p/9699242.html#" target="_blank">https://www.cnblogs.com/jasontec/p/9699242.html </a>
 - <a href="https://blog.csdn.net/Butterfly_resting/article/details/89668661#" target="_blank">https://blog.csdn.net/Butterfly_resting/article/details/89668661 </a>
 
-- springboot整合redis    <a href="https://zhuanlan.zhihu.com/p/64176772#" target="_blank">https://zhuanlan.zhihu.com/p/64176772 </a>
+- <a href="https://zhuanlan.zhihu.com/p/64176772#" target="_blank">springboot整合redis </a>
 

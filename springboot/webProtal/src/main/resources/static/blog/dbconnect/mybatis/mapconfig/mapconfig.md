@@ -3,20 +3,20 @@
 </p>
 
 ---
+
 ### Mapper 配置文件的说明
 
-MyBatis中#{}和${}的区别    
-			
+MyBatis中#{}和${}的区别
+
 	#{}：占位符号，好处防止sql注入 （替换结果会增加单引号‘’）
     ${}：sql拼接符号 不会转义字符串（替换结果不会增加单引号‘’，like和order by后使用，存在sql注入问题，需手动代码中过滤）
-	示例1： 
-	执行SQL：Select * from emp where name = #{employeeName} 
-	参数：employeeName=>Smith 
-	解析后执行的SQL：Select * from emp where name = ？ 
-	执行SQL：Select * from emp where name = ${employeeName} 
-	参数：employeeName传入值为：Smith 
+	示例1：
+	执行SQL：Select * from emp where name = #{employeeName}
+	参数：employeeName=>Smith
+	解析后执行的SQL：Select * from emp where name = ？
+	执行SQL：Select * from emp where name = ${employeeName}
+	参数：employeeName传入值为：Smith
 	解析后执行的SQL：Select * from emp where name =Smith
-
 
 foreach元素的属性主要有 item，index，collection，open，separator，close。
 
@@ -26,7 +26,6 @@ foreach元素的属性主要有 item，index，collection，open，separator，c
     open表示该语句以什么开始，
     separator表示在每次进行迭代之间以什么符号作为分隔 符，
     close表示以什么结束。
-	
 
 模糊查询的写法
 
@@ -36,10 +35,8 @@ foreach元素的属性主要有 item，index，collection，open，separator，c
 	<if test="">// 使用contat进行拼接
 		like contat("%",value)  ---> like '%value'
 	</if>
-	
-	
-	
-一对一（association） http://www.mybatis.cn/archives/40.html
+
+一对一（association） <a href="http://www.mybatis.cn/archives/40.html" target="_blank">http://www.mybatis.cn/archives/40.html </a>
 
 	这时我们的返回对象一般不是直接进行返回的，而是通过类似级联的形式进行关联的
 	demo:人和身份证是一对一的关系	
@@ -83,7 +80,7 @@ foreach元素的属性主要有 item，index，collection，open，separator，c
 			</resultMap>
 		</mapper>
 
-一对多（collection） http://www.mybatis.cn/archives/42.html
+一对多（collection） <a href="http://www.mybatis.cn/archives/42.html" target="_blank">http://www.mybatis.cn/archives/42.html </a>
 
 	在一对一的基础上改动关键字 association 到 collection 
 	demo:学生和班级是多对一的关系
@@ -169,9 +166,9 @@ foreach元素的属性主要有 item，index，collection，open，separator，c
 		lazyLoadingEnabled属性表示延迟加载的全局开关。当开启时，所有关联对象都会延迟加载。默认为false。
 		agressiveLazyLoading属性启用时，会使带有延迟加载属性的对象立即加载; 反之，每种属性将会按需加载。
 			默认为true,所以这里需要设置成false
-	
-多对多 http://www.mybatis.cn/archives/43.html
-	两个一对多 彼此包容彼此
+
+多对多 <a href="http://www.mybatis.cn/archives/43.html" target="_blank">http://www.mybatis.cn/archives/43.html </a>
+两个一对多 彼此包容彼此
 	
 	
 	

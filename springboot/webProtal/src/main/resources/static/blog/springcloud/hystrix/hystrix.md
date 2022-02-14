@@ -3,9 +3,11 @@
 </p>
 
 ---
-#Spring Cloud -hystrix知识积累
 
-##  Hystrix 后的远程调用流程
+# Spring Cloud -hystrix知识积累
+
+## Hystrix 后的远程调用流程
+
     简单的流程如下 ：
     1 ）构建 HystrixCommand 或者 Hys trixObservableCom mand 对象 。
     2 ）执行命令。
@@ -18,10 +20,11 @@
     9 ）返回成功的 Observable 。
 
 ## 如何开启 Hystrix
+
 在启动类上添加＠EnableHystrix 或者＠EnableCircuitBreaker 。 注意，＠EnableHystrix中包含了＠EnableCircuitBreaker 。
 
 ## Feign 整合 Hystrix 服务容错 处理的方式
- 
+
     Fallback 方式
         在Feign 的客户端类 上的 ＠FeignClient 注解 中指 定 fallback 进行回退
         不过是实现的类中要继承这个FeignClient类同时实现里面的方法，方法内容就是当对应的服务是挂的时候的处理逻辑，
@@ -35,15 +38,15 @@
         使用就是在＠FeignClient 中用 fallbackFactory 指定回退处理类 
         这个工厂类FallbackFactory实现 FallbackFactory
 
-##Hystrix 监控 如何使用 （单节点监控）
+## Hystrix 监控 如何使用 （单节点监控）
 
     在微服务架构中， Hystrix 除了实现容错外，还提供了 实 时监控功能。 
     在服务调用时，Hystrix 会实时累积关于 HystrixCommand 的执行信息，比如每秒的请求数、 成功数等
 
 看官方文档地址：<a href="https://github.com/Netflix/Hystrix/wiki/Metrics-and-Monitoring#" target="_blank">https://github.com/Netflix/Hystrix/wiki/Metrics-and-Monitoring</a>
 
+### pom必备条件：
 
-###pom必备条件：
      <!--健康检查-->
      <dependency>
          <groupId>org.springframework.boot</groupId>
@@ -54,12 +57,14 @@
          <groupId>org.springframework.cloud</groupId>
          <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
      </dependency>
- 
- ##demo：
- 这样调用一下callHello 接口 http://localhost:8082/substitution/callHello ,
- 访问之后就可以看到 http://localhost:8082/hystrix.stream 这个页面中输出的数据了
- 
- ## 不满足使用 hystrix.stream 俩查看监控数据时  喜欢使用图形话就可以使用监控面板了  （单节点监控）
+
+## demo：
+
+这样调用一下callHello 接口 http://localhost:8082/substitution/callHello , 访问之后就可以看到 http://localhost:8082/hystrix.stream
+这个页面中输出的数据了
+
+## 不满足使用 hystrix.stream 俩查看监控数据时 喜欢使用图形话就可以使用监控面板了 （单节点监控）
+
      添加对应的依赖
      <!--整合 Dashboard 查看监控数据-->
      <dependency>
@@ -74,21 +79,23 @@
     第一行是监控的 stream 地址，也就是将之前文字监控信息的地址（http://localhost:8082/hystrix.stream）输入到第一个文本框中 。
     第二行的 Delay 是时间，表示用多少毫秒同步一次监控信息， 
     第三个地方 Title 是标题，这个可以随便填写，
- 
+
 ## 聚合监控工具Turbine （简单描述）
+
      Turbine 是聚合服务器发送事件流数据的一个工具。 Hystrix 只能监控单个节点，然后通
      过 dashboard 进行展示 。 实际生产中都为集群，这个时候我们可以通过 Turb ine 来监控集群
      下 Hystrix 的 metrics 情况，通过 Eureka 来发现 Hystrix 服务
- 
- ###POM
+
+### POM
+
      <dependency> 
         <groupId>org.springframework.cloud</groupId>
         <artifactid>spring-cloud-starter-turbine</artifactid>
      </dependency> 
      启动类上增加＠Enable Turbine 和＠EnableDiscoveryClient
-     
- ###属性文件中配置如下内容：
-     
+
+### 属性文件中配置如下内容：
+
      eureka.client.serviceUrl.defaultZone=http://yinjihuan:123456@master:B761/eureka/ 
      turbine.appConfig=fsh-substitution,fsh-house 
      turbine.aggregator.clusterConfig=default 
@@ -102,7 +109,8 @@
     Turbine 会通过在 Eureka 中查找服务的 homePageUrl 加上 hystrix.stream 来获取其他服务的
     监控数据，并将其汇总显示  
 
-###context-path 导致监控失败
+### context-path 导致监控失败
+
     如果被监控的服务中设置了 context-path ，则会导致 Turbine 无法获 取监控数据
     
     这个时候需要在 Turbine 中指定 turbine.instanceUr!Suffix 来解决这个问题：
@@ -112,14 +120,12 @@
     这个时候有一些就会出问题，那么就需要对每个服务做一个集群，然后配置集群对应的
     context-path: 
     turbine.instanceUrlSuffix. 集群名称＝／sub/hystrix.stream
-    
-
 
 ==========================================Hystrix熔断器=========================================
 
 Hystrix：
 
-##在 Spring Cloud 中使用 Hystrix
+## 在 Spring Cloud 中使用 Hystrix
 
     <!--	整合hystrix	-->
     <dependency>
@@ -131,8 +137,8 @@ Hystrix：
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
     </dependency>
-    
-##使用@EnableCircuitBreaker注解开启断路器功能
+
+## 使用@EnableCircuitBreaker注解开启断路器功能
 
     /**
         *	使用@EnableCircuitBreaker注解开启断路器功能  
@@ -157,8 +163,9 @@ Hystrix：
             SpringApplication.run(MovieRibbonHystrixApplication.class,	args);
         }
     }
-    
-##使用@HystrixCommand 注解指定当该方法发生异常时调用的方法    
+
+## 使用@HystrixCommand 注解指定当该方法发生异常时调用的方法
+
     @Service
     public	class	RibbonHystrixService	{
         @Autowired
@@ -188,9 +195,9 @@ Hystrix：
                 return	user;
         }
     }
-    
-    
-##配置描述：
+
+## 配置描述：
+
         HystrixCommand 中除了 fallbackMethod 还有很多的配置，下面我们来看看这些配置：
         ?  hystrix.command.default.execution.isolation.strategy ：
             该配置用来指定隔离策略，具体策略有下面 2 种 。
@@ -276,8 +283,8 @@ Hystrix：
 
         官方的配置信息文档请参考 ： https://github.com/Netflix/Hystrix/wiki/Configuration 。
 
+## Hystrix 监控
 
-##Hystrix 监控
     Hystrix 监控需要两个必备条件
     maven pom.xml
         <!-- 必须有 Actuator 的依赖 -->

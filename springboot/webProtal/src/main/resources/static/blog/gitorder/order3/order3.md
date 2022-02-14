@@ -1,4 +1,5 @@
-#Git 中阶 Order 日常积累 
+# Git 中阶 Order 日常积累
+
 <p>
     <a href="#" onclick="refreshContent('gitorder')">返回目录</a>
 </p>
@@ -12,7 +13,8 @@
 
 ---
 
-####忽略文件文件夹(不纳入git管理)
+#### 忽略文件文件夹(不纳入git管理)
+
 	使用gitignore文件来解决这个问题，步骤是：
 	1） touch .gitignore #创建gitignore隐藏文件
 	2） vim .gitignore #编辑文件，加入指定文件

@@ -1,4 +1,5 @@
-#Spring 知识积累
+# Spring 知识积累
+
 <p>
 <a href="#" onclick="refreshSpringContent('aop')">Spring（aop）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshSpringContent('ioc')">Spring（ioc）</a>&emsp;&emsp;&emsp;
@@ -19,7 +20,6 @@
     @Service : 对应服务层，主要涉及一些复杂的逻辑，需要用到 Dao层。
     @Controller : 对应 Spring MVC 控制层，主要用户接受用户请求并调用 Service 层返回数据给前端页面
 
-
 spring 的优点？
 
     1.降低了组件之间的耦合性 ，实现了软件各层之间的解耦 
@@ -33,10 +33,10 @@ spring 的优点？
     9.spring的DI机制降低了业务对象替换的复杂性 
     10.Spring的高度开放性，并不强制应用完全依赖于Spring，开发者可以自由选择spring的部分或全部 
 
+Spring如何解决循环依赖问题：
 
-Spring如何解决循环依赖问题： 
-   - <a href="https://www.cnblogs.com/xiaoxing/p/10762686.html" target="_blank">https://www.cnblogs.com/xiaoxing/p/10762686.html </a>
-   - <a href="https://www.zhihu.com/question/438247718" target="_blank">https://www.zhihu.com/question/438247718 </a>
+- <a href="https://www.cnblogs.com/xiaoxing/p/10762686.html" target="_blank">https://www.cnblogs.com/xiaoxing/p/10762686.html </a>
+- <a href="https://www.zhihu.com/question/438247718" target="_blank">https://www.zhihu.com/question/438247718 </a>
 
     生成代理对象产生的循环依赖
         这类循环依赖问题解决方法很多，主要有：
@@ -62,7 +62,7 @@ Spring如何解决循环依赖问题：
             3.A依赖的B加载完了，继续加载A完成。将A从(二级缓存)上升到(一级缓存)。
 
 DispatcherServlet 的工作流程
-        
+
             向服务器发送 HTTP 请求，请求被前端控制器 DispatcherServlet 捕获。
         
             DispatcherServlet 根据 -servlet.xml 中的配置对请求的 URL 进行解析，得到请求资源标识符（URI）。
@@ -84,7 +84,6 @@ DispatcherServlet 的工作流程
         
             视图负责将渲染结果返回给客户端。
 
-
 Spring框架支持以下五种bean的作用域：
 
         singleton : bean在每个Spring ioc 容器中只有一个实例。
@@ -95,10 +94,11 @@ Spring框架支持以下五种bean的作用域：
         缺省的Spring bean 的作用域是Singleton.
 
 Spring常见面试题
+
 - <a href="https://www.w3cschool.cn/fisug/" target="_blank">https://www.w3cschool.cn/fisug/ </a>
-    
 
 69道Spring面试题和答案
+
 - <a href="http://ifeve.com/spring-interview-questions-and-answers/" target="_blank">http://ifeve.com/spring-interview-questions-and-answers/ </a>
     
                        

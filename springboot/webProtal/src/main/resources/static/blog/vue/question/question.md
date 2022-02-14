@@ -4,13 +4,14 @@
 
 ## Vue 常见的问题
 
-
 1、npm和cnpm的区别：
 
 	npm节点包管理器，用与nodejs中节点插件管理，其中包括插件的安装和卸载以及管理依赖的功能呢
 	但是有npm这个命令会比较慢 这个默认服务器不是在我们国内，而使用 cnpm这个就会快些 这个是在国内的一个镜像
 
-2、computed VS methods  <a href="https://www.cnblogs.com/goloving/p/8964602.html#" target="_blank">https://www.cnblogs.com/goloving/p/8964602.html</a>
+2、computed VS methods  
+- <a href="https://www.cnblogs.com/goloving/p/8964602.html#" target="_blank">https://www.cnblogs.com/goloving/p/8964602.html </a>
+
 
 	我们可以通过在表达式中调用方法来达到同样的效果，我们可以将同一函数定义为一个方法而不是一个计算属性。
 	两种方式的最终结果确实是完全相同的。然而，不同的是计算属性是基于它们的依赖进行缓存的。
@@ -32,7 +33,7 @@
     我们为什么需要缓存？假设我们有一个性能开销比较大的的计算属性 A，它需要遍历一个巨大的数组并做大量的计算。
 	然后我们可能有其他的计算属性依赖于 A 。如果没有缓存，我们将不可避免的多次执行 A 的 getter！
 	如果你不希望有缓存，请用方法来替代。
-	
+
 3、computed VS watch
 
     Vue 提供了一种更通用的方式来观察和响应 Vue 实例上的数据变动：侦听属性。当你有一些数据需要随着其它数据变动而变动时，
@@ -77,17 +78,18 @@
 		vdom和preVdom比较
 		渲染到dom中
 
-
 6、var 和let的区别
 
     let命令只在其所在的代码块中有效，用let 声明的变量只在它所在的代码块有效。
         let 命令不允许在相同作用域内重复声明同一个变量。
         let 限制了变量的作用域， 保证变量不会去影响全局变量，所以尽量将var 改为用let
     var可以做的变量提升 ，即变量可以在声明之前使用，值为undefined
+
 7、const 命令
 
     const 声明一个只读的常量。一旦声明，常量的值就不能改变。
     const 命令的使用场景： const 一般在需要一个模块的时候用或者定义一些全局常量时用。
+
 8、map遍历方法
 
     Map 结构原生提供3 个遍历器生成函数和l 个遍历方法。具体使用方法查看示例31 。

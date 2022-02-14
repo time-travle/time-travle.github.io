@@ -5,6 +5,7 @@
 ---
 
 # eslint 用法说明
+
 <a href="https://cloud.tencent.com/developer/doc/1078#" target="_blank">https://cloud.tencent.com/developer/doc/1078</a>
 
 数组的解构赋值
@@ -12,7 +13,7 @@
     在ES6 的语法中允许这样
     let [a, b, c] = [1, 2, 3];
     代码表示可以从数组中提取值，按照对应位置对变量赋值
-    
+
 箭头函数定义
 
      语法：
@@ -38,8 +39,6 @@ EsLint提供以下几种校验：
     5、漏掉的结束符，如}；
     6、确保样式的统一规则，如sass或者less；
     7、检查变量的命名；
-
-
 
 关闭 eslint 检查
 
@@ -570,7 +569,6 @@ demo and remark:
         }
     }
 
- 
 参考wiki：
 
 <a href="https://blog.csdn.net/zhang53141/article/details/85055154#" target="_blank">https://blog.csdn.net/zhang53141/article/details/85055154</a>   

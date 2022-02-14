@@ -1,4 +1,4 @@
-#zookeeper  知识点
+# zookeeper 知识点
 
 1、如何添加Watch
 
@@ -10,9 +10,9 @@
 	二、客户端通过getData、exists、getChildren 接口来向服务器注册Watcher
 		getData(String path, Watcher watcher, Stat stat)
 
+2、ZooKeeper 如何进行序列化？
+- <a href="https://kaiwu.lagou.com/course/courseInfo.htm?courseId=158#/detail/pc?id=3134" target="_blank">https://kaiwu.lagou.com/course/courseInfo.htm?courseId=158#/detail/pc?id=3134 </a>
 
-2、ZooKeeper 如何进行序列化？ 
-<a href="https://kaiwu.lagou.com/course/courseInfo.htm?courseId=158#/detail/pc?id=3134" target="_blank">https://kaiwu.lagou.com/course/courseInfo.htm?courseId=158#/detail/pc?id=3134 </a>
 
 	序列化是指将我们定义好的 Java 类型转化成数据流的形式，
 	之所以这么做是因为在网络传输过程中，TCP 协议采用“流通信”的方式，提供了可以读写的字节流。
@@ -22,15 +22,13 @@
 	ObjectOutputStream 负责将对象进行序列化并存储到本地。而 ObjectInputStream 从本地存储中读取对象信息反序列化对象。
 	
 	在 ZooKeeper 中并没有采用和 Java 一样的序列化方式，而是采用了一个 Jute 的序列解决方案作为 ZooKeeper 框架自身的序列化方式
-	
-	
+
 3、如何使用 Jute 在 ZooKeeper 中实现序列化。
 
 	如果我们要想将某个定义的类进行序列化，首先需要该类实现 Record 接口的 serilize 和 deserialize 方法，
 	这两个方法分别是序列化和反序列化方法。	
-	
-	
-4、ZooKeeper 协议	
+
+4、ZooKeeper 协议
 
 	ZooKeeper 是在 TCP/IP 协议的基础上实现了自己特有的通信协议格式
 
@@ -64,21 +62,20 @@
     基本特性同临时节点，增加了顺序属性，节点名后边会追加一个由父节点维护的自增整型数字。
 
 8、节点查看：
-   
+
     创建节点
     create /nodeName
     删除节点
     delete /nodeName
     查看节点的状态
     stat /nodeName
-    
 
 9、部署模式：
 
     单机模式、伪集群模式、集群模式
     集群需要一半以上的机器可用，所以，3台挂掉1台还能工作，2台不能
 
-10、ACL 权限控制	
+10、ACL 权限控制
 
 	//创建节点
 	create /digest_node1
@@ -109,8 +106,6 @@
 			复制-Dzookeeper.authProvider.x=CustomAuthenticationProvider
 			另一种是在配置文件 zoo.cfg 中进行配置：
 			复制authProvider.x=CustomAuthenticationProvider
-
-
 
 ZooKeeper面试题
 

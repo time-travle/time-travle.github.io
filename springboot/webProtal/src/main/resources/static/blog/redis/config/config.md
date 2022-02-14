@@ -3,7 +3,8 @@
 </p>
 
 ---
-#redis 配置：
+
+# redis 配置：
 
 redis.conf 配置项说明如下：
 
@@ -142,7 +143,7 @@ redis.conf 配置项说明如下：
         #是否开启保护模式，默认开启。要是配置里没有指定bind和密码。开启该参数后，redis只会
         本地进行访问，拒绝外部访问。要是开启了密码 和bind，可以开启。否 则最好关闭，设置为no。	
 
-#配置文件解释
+# 配置文件解释
 
     # Redis 配置文件
     
@@ -524,4 +525,5 @@ redis.conf 配置项说明如下：
     # include /path/to/other.conf
 
 参考：
+
 - <a href="https://www.cnblogs.com/struggle-1216/p/12117211.html#" target="_blank">https://www.cnblogs.com/struggle-1216/p/12117211.html </a>

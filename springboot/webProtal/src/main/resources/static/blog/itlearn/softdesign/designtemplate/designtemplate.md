@@ -2,13 +2,14 @@
     <a href="#" onclick="showITLearnPage('softdesign')">返回设计模式目录</a>
 </p>
 
+# Template 模板模式
 
-#Template 模板模式
 定义:
 定义一个操作中算法的骨架,将一些步骤的执行延迟到其子类中.
+
 使用 Java 的抽象类时，就经常会使用到 Template 模式,因此 Template 模式使用很普遍.而且很容易理解和使用
 
-##demoCode：
+## demoCode：
 
     public abstract class Benchmark
     {
@@ -51,9 +52,8 @@
 
     我们称 repeat 方法为模板方法， 它其中的 benchmark()实现被延迟到子类MethodBenchmark 中实现了
 
+## 如何使用:
 
-##如何使用:
-    
     Benchmark operation = new MethodBenchmark();
     long duration = operation.repeat(Integer.parseInt(args[0].trim()));
     System.out.println("The operation took " + duration + "milliseconds");

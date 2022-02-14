@@ -1,6 +1,5 @@
 # Deployment 分布式
 
-
 集群是个物理形态，分布式是个工作方式。
 
             1.分布式：一个业务分拆多个子业务，部署在不同的服务器上， 
@@ -11,7 +10,6 @@
                 集群则是通过提高单位时间内执行的任务数来提升效率。
                 
             分布式中的每一个节点，都可以做集群。而集群并不一定就是分布式的
-        
 
 集群拥有以下两个特点：
 
@@ -29,11 +27,10 @@
                 如果集群中的某一台服务器由于故障或者维护需要无法使用，资源和应用程序将转移到可用的集群节点上。
                 这种由于某个节点的资源不能工作，另一个可用节点中的资源能够透明的接管并继续完成任务的过程，叫做错误恢复
 
-
 负载平衡最重要的一个应用是利用多台服务器提供单一服务
 
-
 分布式架构概述及设计
+
 - <a href="https://blog.csdn.net/l6108003/article/details/94835586#" target="_blank">https://blog.csdn.net/l6108003/article/details/94835586 </a>
 
 ===================================分布事物===========================
@@ -41,7 +38,6 @@
 什么是事务
 
             事务可以看做是一次大的活动，它由不同的小活动组成，这些活动要么全部成功，要么全部失败。
-
 
 数据库事务的四大特性：ACID
 
@@ -53,16 +49,15 @@
         
             D（Durability）：持久性，事务完成之后，该事务对数据的更改会持久到数据库，且不会被回滚
 
-
 理解CAP
 
              CAP 是 Consistency、Availability、Partition tolerance 三个单词的缩写，分别表示一致性、可用性、分区容忍性
 
 - <a href="https://www.cnblogs.com/dyzcs/p/13780668.html#" target="_blank">https://www.cnblogs.com/dyzcs/p/13780668.html </a>
-- <a href="https://www.cnblogs.com/mayundalao/p/11798502.html#" target="_blank">https://www.cnblogs.com/mayundalao/p/11798502.html </a>  4种结局方案
+- <a href="https://www.cnblogs.com/mayundalao/p/11798502.html#" target="_blank">https://www.cnblogs.com/mayundalao/p/11798502.html </a>
+  4种结局方案
 
 ===================================分布式锁=====================
-
 
 分布式锁的几种实现方式
 
@@ -139,7 +134,6 @@
             有效的解决单点问题，不可重入问题，非阻塞问题以及锁无法释放的问题。实现起来较为简单。
             使用Zookeeper实现分布式锁的缺点
             性能上不如使用缓存实现分布式锁。 需要对ZK的原理有所了解。
-
 
 三种方案的比较
 

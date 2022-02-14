@@ -4,7 +4,7 @@
 
 ---
 
-MyBatis中#{}和${}的区别    			
+MyBatis中#{}和${}的区别
 
 	#{}：占位符号，好处防止sql注入 （替换结果会增加单引号‘’）
     ${}：sql拼接符号 不会转义字符串（替换结果不会增加单引号‘’，like和order by后使用，存在sql注入问题，需手动代码中过滤）
@@ -16,10 +16,9 @@ MyBatis中#{}和${}的区别
 	参数：employeeName传入值为：Smith 
 	解析后执行的SQL：Select * from emp where name =Smith
 
-
 学习期间遇到的疑问
 
-1、为什么要使用缓存，什么是一级缓存 二级缓存 如何开户并使用 
+1、为什么要使用缓存，什么是一级缓存 二级缓存 如何开户并使用
 
 	使用缓存是为了减少程序和数据库之间的频繁交互，导致压垮数据库，同时也可以提高程序的执行效率。
 	作用域(一级缓存 Session/二级缓存Namespaces)
@@ -81,7 +80,6 @@ MyBatis中#{}和${}的区别
 		在查询操作远远多于增删改操作的情况下可以使用二级缓存。因为任何增删改操作都将刷新二级缓存，
 		对二级缓存的频繁刷新将降低系统性能。
 
-
 2、一级缓存的生命周期
 
 	a、MyBatis在开启一个数据库会话时，会 创建一个新的SqlSession对象，SqlSession对象中会有一个新的Executor对象。
@@ -90,22 +88,17 @@ MyBatis中#{}和${}的区别
     c、如果SqlSession调用了clearCache()，会清空PerpetualCache对象中的数据，但是该对象仍可使用。
     d、SqlSession中执行了任何一个update操作(update()、delete()、insert()) ，都会清空PerpetualCache对象的数据，但是该对象可以继续使用
 
-
-
 3、什么样数据适合用缓存，什么数据适合用一级缓存，什么数据适合使用二级缓存
-	
+
 	经常查询同时不经常改变的，最好数据的正确性对最终结果影响不大
 	对于经常进行改变的数据是不适宜用缓存的
-
-
 
 4、执行查询的流程
 
 	SqlSessionFactoryBuilder->parse->Configuation->build->SqlSessionFactory
 	->openSession->SqlSession->query->Executor->newStatementHandler->
 	StatementHandler->handlerResultSets->ResultSetHandler
-	
-	
+
 5、如何开启事务 并使用
 
 	首先，找到你的service实现类，加上@Transactional 注解，
@@ -115,8 +108,7 @@ MyBatis中#{}和${}的区别
 	当然我们一般都是加在方法上。因为只有增、删、改才会需要事务
 	
 	配置完后，spring boot启动类必须要开启事务，而开启事务用的注解就是@EnableTransactionManagement
-	
-	
+
 6、@Transactional事务几点注意
 
 	A. 一个功能是否要事务，必须纳入设计、编码考虑。不能仅仅完成了基本功能就ok。
@@ -139,13 +131,11 @@ MyBatis中#{}和${}的区别
 	F.在service中加上@Transactional，如果是action直接调该方法，会回滚，如果是间接调，不会回滚。（即上文3提到的）
 	G.在service中的private加上@Transactional，事务不会回滚	
 
-
 7、表中的字段和现有的实体类属性名对不上的处理方法
 
 	第1种解决方案：通过在查询的sql语句中定义字段名的别名，让字段名的别名和实体类的属性名一致
 	第2种解决方案：通过<resultMap>来映射字段名和实体类属性名的一一对应的关系
-	
-	
+
 8、模糊查询的写法
 
 	<if test="">// 使用|| 进行拼接
@@ -154,7 +144,6 @@ MyBatis中#{}和${}的区别
 	<if test="">// 使用contat进行拼接
 		like contat("%",value)  ---> like '%value'
 	</if>	
-
 
 9、Dao接口如何工作 里面的方法可以重载吗（不可以重载）
 
@@ -168,7 +157,6 @@ MyBatis中#{}和${}的区别
 	
 	Mapper 接口的工作原理是JDK动态代理，Mybatis运行时会使用JDK动态代理为Mapper接口生成代理对象proxy，代理对象会拦截接口方法，
 	转而执行MapperStatement所代表的sql，然后将sql执行结果返回
-
 
 10、接口的绑定方式
 

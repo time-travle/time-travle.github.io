@@ -13,12 +13,14 @@ function showPersonPage(choose) {
     $("#content").load(location.web.staticpath + target);
     $("#header").load(location.web.staticpath + '/blog/menupage/upmenu.html');
 }
-function load(target){
+
+function load(target) {
     $("#content").load(location.web.staticpath + target);
     $("#left_side").load(location.web.staticpath + "/public/html/blank.html");
     $("#right_side").load(location.web.staticpath + "/public/html/blank.html");
     $("#header").load(location.web.staticpath + '/blog/menupage/upmenu.html');
 }
+
 function showPicturePage(choose) {
     if (!choose) {
         return;

@@ -10,6 +10,7 @@
             $.get('../blog/itlearn/examination/examination.md', function (response, status, xhr) {
                 $("#examination_area").html(marked(response));
             });
+
             function refreshExaminationContent(choose) {
                 if (!choose) {
                     return;

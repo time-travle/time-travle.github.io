@@ -52,8 +52,6 @@ angularJs的四大特性
 		<script src="../js/angular.min.js"></script>
 		</html>
 
-
-
 Angular与react和vue的简单对比
 
 	与react对比：
@@ -74,8 +72,6 @@ Angular与react和vue的简单对比
 			只关注web：angular可以开发web和客户端应用
 			服务器端渲染：vue只能由第三方插件实现，angular由官方提供的服务段渲染提供支持，可以解决前端框架无法解决的一些痛点。
 
-
-
 angularjs缺点：
 
 	1。本身的脏值检查机制，当页面数据发生变化时，就会触发检查机制，当页面绑定的数据越来越多时，
@@ -84,8 +80,6 @@ angularjs缺点：
 	3.作用域$scope作用域的限制，使得很多原生的事件不能使用。比如click事件，必须使用指令来实现
 	4.表单校验的时候必须写一个指令来提示错误信息，很麻烦		
 
-
-			
 Angular和AngularJS之间的区别是什么？
 
 	1、AngularJS是用JavaScript编写的；而Angular用Microsoft的TypeScript语言编写，是ECMAScript 6（ES6）的超集。
@@ -95,8 +89,6 @@ Angular和AngularJS之间的区别是什么？
 	4、AngularJS不使用依赖注入；而Angular使用具有单向基于树的变化检测的分层依赖注入系统。
 	5、AngularJS的核心概念是$scope，但是angular中没有$scope。			
 
-
-	
 angularjs和vuejs的区别
 
 	1.vue仅仅是mvvm中的view层，只是一个如jquery般的工具库，而不是框架，而angular是mvvm框架。
@@ -109,8 +101,6 @@ angularjs和vuejs的区别
 		这让 vue 能适用于各种项目。
 	6.angular用的指令是ng-前缀的，而vue是v-，风格其实一样的，数据绑定的方式也是一样的两个{}
 
-
-
 AngularJS
 
 	1、MVVM（Model）(View)(View-model)；
@@ -119,15 +109,11 @@ AngularJS
 	4、指令(ng-click ng-model ng-href ng-src ng-if...)；
 	5、服务Service($compile $filter $interval $timeout $http...)。
 
-
-
-ng-show/ng-hide 与 ng-if的区别？
+ng-show/ng-hide 与 ng-if的区别？
 
 	我们都知道ng-show/ng-hide实际上是通过display来进行隐藏和显示的。而ng-if实际上控制dom节点的增删除来实现的。
 	因此如果我们是根据不同的条件来进行dom节点的加载的话，那么ng-if的性能好过ng-show.
 
-
-	
 $rootScrope以及和$scope的区别？
 
 	$rootScrope 页面所有$scope的父节点
@@ -135,9 +121,7 @@ $rootScrope以及和$scope的区别？
 	step2:angular回继续解析，找到{{}}表达式，并解析成变量。
 	step3:接着会解析带有ng-controller的div然后指向到某个controller函数。这个时候在这个controller函数变成一个$scope对象实例
 
-
-
-如何取消 $timeout, 以及停止一个$watch()?
+如何取消 $timeout, 以及停止一个$watch()?
 
 	停止 $timeout我们可以用cancel：
 		var customTimeout = $timeout(function () {  
@@ -156,10 +140,8 @@ $rootScrope以及和$scope的区别？
 		  }
 		});
 
-
-
 自定义指令
-	
+
 	angular.module('docsIsolationExample', []).controller('Controller', ['$scope', function($scope) {
 	  $scope.alertName = function() {
 		  alert('directive scope &');
@@ -201,8 +183,6 @@ $rootScrope以及和$scope的区别？
 	= 双向绑定，绑定scope上的一些属性；
 	& 用于执行父级scope上的一些表达式，常见我们设置一些需要执行的函数
 
-
-
 ng-repeat迭代数组的时候，如果数组中有相同值，会有什么问题，如何解决？
 
 	会提示 Duplicates in a repeater are not allowed. 
@@ -210,8 +190,6 @@ ng-repeat迭代数组的时候，如果数组中有相同值，会有什么问�
 	加 track by $index 可解决。当然，也可以 trace by 任何一个普通的值，
 	只要能唯一性标识数组中的每一项即可（建立 dom 和数据之间的关联）。
 
-
-	
 ng-click 中写的表达式，能使用 JS 原生对象上的方法吗？
 
 	不止是 ng-click 中的表达式，只要是在页面中，都不能直接调用原生的 JS 方法，因为这些并不存在于与页面对应的 Controller 的 $scope 中。
@@ -225,9 +203,7 @@ ng-click 中写的表达式，能使用 JS 原生对象上的方法吗？
 	}
 	这样自然是没什么问题了。
 
-
-	
-angul 中的过滤器  filter
+angul 中的过滤器 filter
 
 	自定义 filter
 		// 形式
@@ -258,8 +234,6 @@ angul 中的过滤器  filter
 		filter（处理一个数组，过滤出含有某个子串的元素）
 		json（格式化 json 对象）
 
-
-
 angular 的数据绑定采用什么机制？详述原理
 
 	脏检查机制。
@@ -269,11 +243,9 @@ angular 的数据绑定采用什么机制？详述原理
 		原理就是，Angular 在 scope 模型上设置了一个 监听队列，用来监听数据变化并更新 view 。
 		每次绑定一个东西到 view 上时 AngularJS 就会往 $watch 队列里插入一条 $watch ，用来检测它监视的 model 里是否有变化的东西。
 		当浏览器接收到可以被 angular context 处理的事件时， $digest 循环就会触发，遍历所有的 $watch ，最后更新 dom	
-		
-		
-		
-前端主流框架angularJS、vueJS、react的区别	
-	
+
+前端主流框架angularJS、vueJS、react的区别
+
 	一、Vue.js：
 		其实Vue.js不是一个框架，因为它只聚焦视图层，是一个构建数据驱动的Web界面的库。
 		Vue.js通过简单的API（应用程序编程接口）提供高效的数据绑定和灵活的组件系统。
@@ -333,8 +305,6 @@ angular 的数据绑定采用什么机制？详述原理
 				基本都需要加上ReactRouter和Flux才能写大型应用。
 
 	链接：https://www.jianshu.com/p/e400c3339711
-	
-
 
 什么是MVC、MVVM？
 
@@ -350,9 +320,7 @@ angular 的数据绑定采用什么机制？详述原理
 		ViewModel是MVVM架构中最重要的部分，ViewModel中包含属性，命令，方法，事件，属性验证等逻辑，用于逻辑实现，负责View与Model之间的通信
 
 	链接：https://www.jianshu.com/p/af9f5de988be
-	
-	
-	
+
 什么是ng-app, ng-init和ng-model?
 
 	ng-app:初始化应用程序。
@@ -364,16 +332,12 @@ angular 的数据绑定采用什么机制？详述原理
 	ng-hide:用于隐藏HTML元素。
 	ng-class:用于分配CSS类。
 	ng-src:用于传递URL图像等。	
-	
-	
-	
+
 AngularJS可以在一个页面中有多个ng-app指令吗?
 
 	不。每个HTML文档只能自动引导一个AngularJS应用程序。在文档中找到的第一个ngApp将被用来定义根元素来作为一个应用程序自动引导。
 	如果另一个ng-app指令已经被放置，它将不会被AngularJS处理，我们将需要手动引导第二个应用程序，而不是使用第二个ng-app指令	
-	
-	
-	
+
 $apply()和 $digest()的区别
 
 	安全性：$apply()可以接收一个参数作为function()，这个 function 会被包装到一个 try … catch 块中，所以一旦有异常发生，
@@ -381,8 +345,6 @@ $apply()和 $digest()的区别
 
 	$apply会使ng进入 $digest cycle , 并从$rootScope开始遍历(深度优先)检查数据变更。
 	$digest仅会检查该scope和它的子scope，当你确定当前操作仅影响它们时，用$digest可以稍微提升性能。
-
-
 
 angular的数据绑定采用什么机制？
 
@@ -400,8 +362,6 @@ angular的数据绑定采用什么机制？
 	因此，$digest循环会持续运行直到model不再发生变化，或者$digest循环的次数达到了10次。因此，尽可能地不要在listener函数中修改model。 
 
 	Note: $digest循环最少也会运行两次，即使在listener函数中并没有改变任何model。正如上面讨论的那样，它会多运行一次来确保models没有变化。
-
-
 
 AngularJS中的$watch方法
 

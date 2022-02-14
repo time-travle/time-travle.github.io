@@ -4,8 +4,7 @@
 
 ---
 
-##SpringBoot 常见问题
-
+## SpringBoot 常见问题
 
 Java finally语句到底是在return之前还是之后执行？
 
@@ -22,9 +21,9 @@ Java finally语句到底是在return之前还是之后执行？
         当发生异常后，catch中的return执行情况与未发生异常时try中return的执行情况完全一样。
 
 两个SpringBoot项目之间调用
+
 - <a href="https://www.jianshu.com/p/a903557a6c64#" target="_blank">https://www.jianshu.com/p/a903557a6c64</a>
 
-	
 接口服务重复调用的触发原因：
 
         1、客户端接口和服务端接口没有一一对齐
@@ -41,7 +40,7 @@ springmvc+fastjson返回页面出现乱码问题
 
         在controller里面的接口上面加,produces="text/html;charset=UTF-8"即可
         @RequestMapping(value = "/addLjlUsrServiceManInfoOne" ,produces="text/html;charset=UTF-8")	
-	
+
 SpringBoot Controller接收参数的几种常用方式
 
         第一类：请求路径参数
@@ -57,8 +56,7 @@ SpringBoot Controller接收参数的几种常用方式
         第三类：请求头参数以及Cookie    
             1、@RequestHeader
             2、@CookieValue	
-	
-	
+
 配置文件的读取
 
             Spring Boot 中的配置通常放在 application.properties 中，读取配

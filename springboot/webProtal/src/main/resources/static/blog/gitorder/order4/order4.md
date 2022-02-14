@@ -1,5 +1,5 @@
+# Git 高阶 Order 日常积累
 
-#Git 高阶 Order 日常积累 
 <p>
     <a href="#" onclick="refreshContent('gitorder')">返回目录</a>
 </p>
@@ -47,7 +47,6 @@ git bush中如何退出vim编辑器
 	: wq (存盘并退出vi)
 	: q! (不存盘强制退出vi)
 	: q (不存盘退出vi)
-
 
 如何清除git仓库的所有提交记录，成为一个新的干净仓库
 

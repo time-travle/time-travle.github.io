@@ -3,6 +3,7 @@
 </p>
 
 ---
+
 # Angular 使用到的指令
 
 指令：
@@ -35,7 +36,6 @@
     <h3 ng-hide             如果 edit = true 隐藏 <h3> 元素 
     <input ng-model         为应用程序绑定 <input> 元素 
     <button ng-disabled     如果发生错误或者 ncomplete = true 禁用 <button>  
-    
 
 ===========================================================
 
@@ -44,7 +44,6 @@
     AngularJS 表达式写在双大括号内：{{ expression }}。
     
     AngularJS 表达式把数据绑定到 HTML，这与 ng-bind 指令有异曲同工之妙
-
 
 ===========================================================
 
@@ -81,6 +80,7 @@
     ng-selected；
     ng-class；
     ng-style
+
 ===========================================================
 
 表单：
@@ -118,7 +118,6 @@ demo:
         });
     </script>
 
-
 实例解析
 
     ng-app 指令定义了 AngularJS 应用。
@@ -134,7 +133,6 @@ demo:
     ng-click 指令调用了 reset() 方法，且在点击按钮时调用。
 
     novalidate 属性在应用中不是必须的，但是你需要在 AngularJS 表单中使用，用于重写标准的 HTML5 验证
-
 
 过滤器：
 
@@ -153,8 +151,6 @@ demo:
                 {{ today | date:'shortDate' }} <!-- 8/9/13 -->
                 {{ today | date:'mediumTime' }}<!-- 12:09:02 PM -->
                 {{ today | date:'shortTime' }} <!-- 12:09 PM -->
-    
-
 
 方法：
 
@@ -163,7 +159,7 @@ demo:
 
 $watch方法监视Model的变化
 
-$apply方法传播Model的变化  
+$apply方法传播Model的变化
 
     scope.apply()似乎就是一个使得bindings得到更新的普普通通的方法
     什么时候用$apply()
@@ -171,6 +167,7 @@ $apply方法传播Model的变化
          像ng−click，controller的初始化，http的回调函数等。在这些情况下，我们不需要自己调用，实际上我们也不能自己调用，
          否则在apply()方法里面再调用apply()方法会抛出错误。如果我们需要在一个新的执行序列中运行代码时才真正需要用到它，
          而且当且仅当这个新的执行序列不是被angular JS的库的方法创建的，这个时候我们需要将代码用scope.apply()包起来
+
 $digest 脏数据检查
 
     $digest循环不会只运行一次。在当前的一次循环结束后，它会再执行一次循环用来检查是否有models发生了变化。
@@ -179,10 +176,10 @@ $digest 脏数据检查
     因此，尽可能地不要在listener函数中修改model。
     
         Note: $digest循环最少也会运行两次，即使在listener函数中并没有改变任何model。正如上面讨论的那样，它会多运行一次来确保models没有变化
+
 ===========================================================
 
 输入验证：
-
 
 属性 描述
 
@@ -212,7 +209,6 @@ API
     angular.extends() 把一个或多个对象中的方法和属性扩展到一个目的对象中，使得这个对象拥有其他对象相同的方法和属性
                         非递归的，也就是说：如果扩展的属性中有对象，那么二者同时引用同一个对象
     angular.copy() 可以把一个空对象｛｝作为第一个对象传入
-
 
 AngularJS $http
 

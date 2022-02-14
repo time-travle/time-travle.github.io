@@ -2,7 +2,8 @@
     <a href="#" onclick="showITLearnPage('softdesign')">返回设计模式目录</a>
 </p>
 
-#抽象工厂模式 
+# 抽象工厂模式
+
 <a href="https://www.runoob.com/design-pattern/abstract-factory-pattern.html#" target="_blank">https://www.runoob.com/design-pattern/abstract-factory-pattern.html </a>
 
 	抽象工厂模式（Abstract Factory Pattern）是围绕一个超级工厂创建其他工厂。该超级工厂又称为其他工厂的工厂
@@ -35,9 +36,8 @@
 
 	注意事项：产品族难扩展，产品等级易扩展。
 
+## demo code :
 
-
-##demo code : 
     实现
     我们将创建 Shape 和 Color 接口和实现这些接口的实体类。下一步是创建抽象工厂类 AbstractFactory。
     接着定义工厂类 ShapeFactory 和 ColorFactory，这两个工厂类都是扩展了 AbstractFactory。

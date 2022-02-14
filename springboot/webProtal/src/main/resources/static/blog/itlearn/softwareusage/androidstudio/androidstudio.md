@@ -82,9 +82,9 @@ android:gravity="center"    android:textAlignment="center"
 
 - <a href="https://blog.csdn.net/Dreaming_terry/article/details/51184508" target="_blank">android界面不显示标题栏 </a>
 
-    这个首先要区分当前Activity 是继承了 Activity 类 ，还是 AppCompatActivity 类
+  这个首先要区分当前Activity 是继承了 Activity 类 ，还是 AppCompatActivity 类
 
-    情况一:创建的activity默认继承了AppCompatActivity
+  情况一:创建的activity默认继承了AppCompatActivity
 
         方法一)全局设置
 
@@ -96,7 +96,7 @@ android:gravity="center"    android:textAlignment="center"
             getSupportActionBar().hide();
             //去掉标题栏注意这句一定要写在setContentView()方法的后面
 
-    情况二:创建的activity默认继承了Activity
+  情况二:创建的activity默认继承了Activity
 
         方法一)全局设置
 

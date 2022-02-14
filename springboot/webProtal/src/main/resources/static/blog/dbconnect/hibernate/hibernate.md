@@ -1,16 +1,14 @@
 # Hibernate 相关
+
 <p>
     <a href="#" onclick="refreshContent('dbconnect')">返回目录</a>
 </p>
 
 ---
 
-Hibernate的配置，我们可以使用一个简单的hibernate.properties文件，
-或者一个稍微复杂的hibernate.cfg.xml
-
+Hibernate的配置，我们可以使用一个简单的hibernate.properties文件， 或者一个稍微复杂的hibernate.cfg.xml
 
 hibernate.properties样例文件
-
 
     hibernate.connection.driver_class = org.postgresql.Driver
     hibernate.connection.url = jdbc:postgresql://localhost/mydatabase
@@ -22,8 +20,7 @@ hibernate.properties样例文件
     hibernate.c3p0.max_statements=50
     hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
 
-
-Hibernate JDBC属性 
+Hibernate JDBC属性
 
     属性名                               用途  
     hibernate.connection.driver_class   jdbc驱动类 
@@ -32,7 +29,7 @@ Hibernate JDBC属性
     hibernate.connection.password       数据库用户密码 
     hibernate.connection.pool_size      连接池容量上限数目 
 
-Hibernate数据源属性 
+Hibernate数据源属性
 
     属性名                              用途  
     hibernate.connection.datasource     数据源JNDI名字 
@@ -41,7 +38,7 @@ Hibernate数据源属性
     hibernate.connection.username       数据库用户 (可选)  
     hibernate.connection.password       数据库用户密码 (可选)  
 
-Hibernate配置属性 
+Hibernate配置属性
 
     属性名                                   用途  
     hibernate.dialect                       一个Hibernate Dialect类名允许Hibernate针对特定的关系数据库生成优化的SQL. 
@@ -83,7 +80,7 @@ Hibernate配置属性
     hibernate.use_sql_comments              如果开启, Hibernate将在SQL中生成有助于调试的注释信息, 默认值为false. 
                                             取值 true | false 
 
-Hibernate缓存属性 
+Hibernate缓存属性
 
     属性名                                         用途  
     hibernate.cache.provider_class              自定义的CacheProvider的类名. 
@@ -106,8 +103,8 @@ Hibernate缓存属性
      
     hibernate.cache.use_structured_entries      强制Hibernate以更人性化的格式将数据存入二级缓存. 
                                                 取值 true|false 
- 
-Hibernate事务属性 
+
+Hibernate事务属性
 
     属性名                                         用途  
     hibernate.transaction.factory_class             一个TransactionFactory的类名, 用于Hibernate Transaction API (默认为JDBCTransactionFactory). 
@@ -124,8 +121,8 @@ Hibernate事务属性
      
     hibernate.transaction.auto_close_session        如果开启, session在事务完成后将被自动关闭。 现在更好的方法是使用自动session上下文管理。请参见第 2.5 节 “上下文相关的（Contextual）Session”。 
                                                     取值 true | false 
- 
-Hibernate日志类别 
+
+Hibernate日志类别
 
     类别                                          功能  
     org.hibernate.SQL                           在所有SQL DML语句被执行时为它们记录日志  
@@ -138,7 +135,6 @@ Hibernate日志类别
     org.hibernate.hql.AST                       在解析查询的时候,记录HQL和SQL的AST分析日志  
     org.hibernate.secure                        为JAAS认证请求做日志  
     org.hibernate                               为任何Hibernate相关信息做日志 (信息量较大, 但对查错非常有帮助)  
-
 
 hibernate-mapping
 
@@ -165,6 +161,7 @@ hibernate-mapping
     (6) auto-import (可选 - 默认为 true): 指定我们是否可以在查询语言中使用非全限定的类名（仅限于本映射文件中的类）。 
      
     (7) package (可选): 指定一个包前缀，如果在映射文档中没有指定全限定的类名， 就使用这个作为包名。 
+
      
 ---
 <p>

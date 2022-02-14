@@ -1,27 +1,29 @@
 # Gradle 使用
 
 ---
-##设置gradle 下载位置
+
+## 设置gradle 下载位置
+
 gradle会下载相关需要依赖的jar包，
-    
+
     默认的本地存放地址是：C:/Users/(用户名)/.gradle/caches/modules-2/files-2.1，很多人和我一样不愿意放在C盘，所以需要修改位置。
     添加变量GRADLE_USER_HOME，值为gradle依赖下载存放路径
 
 对于低版本的IDEA来说没有用（当然上面的环境变量还是要添加的），在IDEA中使用gradle需要修改下面的路径
-    
+
     打开idea的设置 Settings --> Build, Execution, Deployment ---> Build Tools --> Gradle ，
     页面中下方的Global Gradle Settings 选择Service directory path 选择自己的路径 一般使用.gradle来存。
     他会新建文件夹，也会去下载较新的gradle包
 
 参考：
+
 - <a href="https://www.cnblogs.com/Jimc/p/10082458.html" target="_blank">Gradle下载依赖jar包位置修改 </a>
-- <a href="https://blog.csdn.net/qq_39935047/article/details/90346320" target="_blank">修改修改idea默认的gradle存储的仓库路径，已经下载的镜像地址 </a>
+- <a href="https://blog.csdn.net/qq_39935047/article/details/90346320" target="_blank">
+  修改修改idea默认的gradle存储的仓库路径，已经下载的镜像地址 </a>
 
+## gradle安装：
 
-
-##gradle安装： 
 - <a href="https://www.cnblogs.com/zeussbook/p/10556025.html" target="_blank">Gradle（一）安装配置 </a>
-
 
     配置环境变量：GRADLE_HOME 变量值为Gradle文件解压的实际路径，
     例：E:\Gradle\gradle-5.2.1-all\gradle-5.2.1
@@ -43,15 +45,15 @@ gradle会下载相关需要依赖的jar包，
 
 参考： <a href="https://www.cnblogs.com/NyanKoSenSei/p/11458953.html" target="_blank">Gradle的安装与配置 </a>
 
-##gradle 下载镜像
+## gradle 下载镜像
+
 - <a href="https://yq.aliyun.com/articles/657575" target="_blank">为Gradle设置镜像，解决jcenter依赖无法下载或者下载过慢问题</a>
 - <a href="https://www.cnblogs.com/chansblogs/p/12943991.html" target="_blank">Maven、Gradle 配置国内镜像源 </a>
 - <a href="https://blog.csdn.net/u012184539/article/details/98962161" target="_blank">Gradle配置国内镜像 </a>
-  
-  
-##gradle 国内加速，修改镜像源为什么慢  
-- <a href="https://www.cnblogs.com/huiyi0521/p/10997152.html" target="_blank">gradle 国内加速，修改镜像源 </a>
 
+## gradle 国内加速，修改镜像源为什么慢
+
+- <a href="https://www.cnblogs.com/huiyi0521/p/10997152.html" target="_blank">gradle 国内加速，修改镜像源 </a>
 
     由于默认情况下执行 gradle 各种命令是去国外的 gradle 官方镜像源获取需要安装的具体软件信息，所以在不使用代理、不翻墙的情况下，从国内访问国外服务器的速度相对比较慢
 
@@ -94,9 +96,7 @@ gradle会下载相关需要依赖的jar包，
         $ gradle -q showRepos
         repository: maven ('http://maven.aliyun.com/nexus/content/groups/public')
 
-
-
-##本地Gradle配置方法，免去长时间的更新同步等待
+## 本地Gradle配置方法，免去长时间的更新同步等待
 
     通常gradle项目在gradle\wrapper\gradle-wrapper.properties中配置在线gradle：
 
@@ -108,15 +108,15 @@ gradle会下载相关需要依赖的jar包，
      
     把它更写成：
     distributionUrl=file:///E:/gradle421/gradle-4.2.1-all.zip        
-  
-参考：      
-- <a href="https://blog.csdn.net/Knightletter/article/details/101074466" target="_blank">Android Studio解决Gradle下载缓慢的问题 </a>
+
+参考：
+
+- <a href="https://blog.csdn.net/Knightletter/article/details/101074466" target="_blank">Android
+  Studio解决Gradle下载缓慢的问题 </a>
 - <a href="https://www.jianshu.com/p/fe0fa478e1cc" target="_blank">解决 Android Studio 创建项目时极其的慢的尴尬 </a>
 
+## Gradle 提速几种方式
 
-
-
-##Gradle 提速几种方式
 - <a href="https://www.jianshu.com/p/e45faaec1df0" target="_blank"> Gradle 提速几种方式 </a>
 
 - <a href="https://www.cnblogs.com/duwenlei/p/9853705.html" target="_blank">快速解决 GRADLE 项目下载 gradle-*-all.zip 慢的问题 </a>

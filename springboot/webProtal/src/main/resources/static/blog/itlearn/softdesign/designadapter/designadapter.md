@@ -2,7 +2,8 @@
     <a href="#" onclick="showITLearnPage('softdesign')">返回设计模式目录</a>
 </p>
 
-#适配器模式 
+# 适配器模式
+
 <a href="https://www.runoob.com/design-pattern/adapter-pattern.html#" target="_blank">https://www.runoob.com/design-pattern/adapter-pattern.html </a>
 
     适配器模式（Adapter Pattern）是作为两个不兼容的接口之间的桥梁。这种类型的设计模式属于结构型模式，它结合了两个独立接口的功能。
@@ -34,15 +35,10 @@
     使用场景：有动机地修改一个正常运行的系统的接口，这时应该考虑使用适配器模式。
     
     注意事项：适配器不是在详细设计时添加的，而是解决正在服役的项目的问题。
-    
 
+## demo Code
 
-
-##demo Code
-
-
-步骤 1
-为媒体播放器和更高级的媒体播放器创建接口。
+步骤 1 为媒体播放器和更高级的媒体播放器创建接口。
 
 	MediaPlayer.java
 		public interface MediaPlayer {
@@ -53,8 +49,8 @@
 		   public void playVlc(String fileName);
 		   public void playMp4(String fileName);
 		}
-步骤 2
-创建实现了 AdvancedMediaPlayer 接口的实体类。
+
+步骤 2 创建实现了 AdvancedMediaPlayer 接口的实体类。
 
 	VlcPlayer.java
 		public class VlcPlayer implements AdvancedMediaPlayer{
@@ -81,8 +77,8 @@
 			  System.out.println("Playing mp4 file. Name: "+ fileName);      
 		   }
 		}
-步骤 3
-创建实现了 MediaPlayer 接口的适配器类。
+
+步骤 3 创建实现了 MediaPlayer 接口的适配器类。
 
 	MediaAdapter.java
 		public class MediaAdapter implements MediaPlayer {
@@ -106,8 +102,8 @@
 			  }
 		   }
 		}
-步骤 4
-创建实现了 MediaPlayer 接口的实体类。
+
+步骤 4 创建实现了 MediaPlayer 接口的实体类。
 
 	AudioPlayer.java
 		public class AudioPlayer implements MediaPlayer {
@@ -132,8 +128,8 @@
 			  }
 		   }   
 		}
-步骤 5
-使用 AudioPlayer 来播放不同类型的音频格式。
+
+步骤 5 使用 AudioPlayer 来播放不同类型的音频格式。
 
 	AdapterPatternDemo.java
 		public class AdapterPatternDemo {

@@ -1,6 +1,5 @@
-
-
 # Mybatis plus框架
+
 <p>
     <a href="#" onclick="refreshContent('dbconnect')">返回目录</a>
 </p>
@@ -10,7 +9,6 @@
 SpringBoot使用Mybatis&Mybatis-plus文件映射配置
 
 <a href="https://www.cnblogs.com/taojietaoge/p/14555692.html#" target="_blank">https://www.cnblogs.com/taojietaoge/p/14555692.html </a>
-
 
 1、使用Mybatis
 
@@ -25,6 +23,7 @@ SpringBoot使用Mybatis&Mybatis-plus文件映射配置
       mapper-locations: classpath:mybatis/mapper/*.xml
       config-locations: classpath:mybatis/mybatis-config.xml
       type-aliases-package: com.ausclouds.bdbsec.entity
+
 2、使用Mybatis-Plus
 
      <dependency>

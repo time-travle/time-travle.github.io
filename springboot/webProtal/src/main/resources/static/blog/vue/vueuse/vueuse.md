@@ -38,7 +38,7 @@
 		}
 	)};
 	</script>
-	
+
 2、watch方法 监控一个属性的变化 并获得变化前后的值
 
 	<script type = "text/javascript">
@@ -83,7 +83,7 @@
 	setTimeout(function(){
 		3秒之后的时
 	},3000);
-	
+
 5、指令
 
 	v-once ：	仅加载一次 能执行一次性地插值，当数据改变时，插值处的内容不会更新
@@ -152,7 +152,7 @@
 		
 	v-on:	监听事件 缩写为 @
 	v-model:  实现双向绑定
-	
+
 6、修饰符
 
 	事件修饰符
@@ -194,7 +194,7 @@
 		.number 如果想自动将用户的输入值转为 Number 类型（如果原值的转换结果为 NaN 则返回原值）， 
 				可以添加一个修饰符 number 给 v-model 来处理输入值
 		.trim	如果要自动过滤用户输入的首尾空格，可以添加 trim 修饰符到 v-model 上过滤输入
-	
+
 7、事件
 
 	点击事件 click
@@ -213,14 +213,14 @@
 	表单事件
 	加载和错误事件
 
-8、过滤器filters 
+8、过滤器filters
 
 	格式类似
 	<!-- 在两个大括号中 -->
 	{{ message | capitalize }}
 	<!-- 在 v-bind 指令中 -->
 	<div v-bind:id="rawId | formatId"></div>
-	
+
 9、组件 component
 
 	组件是可以服用的vue实例 和正常的实例不同的的不能接受el属性
@@ -294,7 +294,7 @@
 	<template></template>--模板部分
 	<script></script>--脚本部分
 	<style></style>--样式部分
-	
+
 10、vue目录结构 说明
 
 	build/---项目构建(webpack)相关代码
@@ -310,7 +310,6 @@
 	package.json---项目配置文件。
 	package-lock.json
 	index.html	---首页入口文件
-
 
 -----
 
@@ -335,12 +334,12 @@
 5、计算属性 是不是进行变化 是基于缓存的数据是不是发生了变化
 
 	实例化对象时 使用计算属性关键字 computed (默认值只有get的方法，若是set需要则可以定义)
-	
+
 6、监听属性
 
 	watch
-	
-7、样式绑定  支持对象 数组  三目运算
+
+7、样式绑定 支持对象 数组 三目运算
 
 	v-bind:class=""
 	直挂样式
@@ -359,12 +358,14 @@
 	keyup 键盘事件
 	
 	通过修饰符 响应事件
-	
+
 9、表单
 
 	通过 v-model 实现数据的双向绑定
-	
-10、组件   <a href="https://cn.vuejs.org/v2/guide/components-dynamic-async.html#" target="_blank">https://cn.vuejs.org/v2/guide/components-dynamic-async.html </a>
+
+10、组件   
+- <a href="https://cn.vuejs.org/v2/guide/components-dynamic-async.html#" target="_blank">https://cn.vuejs.org/v2/guide/components-dynamic-async.html </a>
+
 
 	组件命名 两种格式  kebab-case    PascalCase
 	
@@ -404,7 +405,6 @@
 		若不是方法 则 多个应用时 会出现重复的情况
 		若是方法 则不管多个引用时 现象都是不各自独立的
 
-		
 11、自定义指令 directive
 
 	全局指令注册
@@ -437,7 +437,7 @@
 			}
 		  }
 		})
-	
+
 12、路由
 
 	<router-link> 是一个组件，该组件用于设置一个导航链接，切换不同 HTML 内容。 to 属性为目标地址， 即要显示的内容
@@ -508,8 +508,8 @@
 		// 现在，应用已经启动了！
 		</script>
 		</body>
-		
-13、过渡  transition 
+
+13、过渡 transition
 
 	过渡其实就是一个淡入淡出的效果。Vue在元素显示与隐藏的过渡中，提供了 6 个 class 来切换：
 		v-enter：
@@ -539,7 +539,9 @@
 
 15、混入
 
-16、Ajax(axios)   <a href="https://www.runoob.com/vue2/vuejs-ajax-axios.html#" target="_blank">https://www.runoob.com/vue2/vuejs-ajax-axios.html </a>
+16、Ajax(axios)   
+- <a href="https://www.runoob.com/vue2/vuejs-ajax-axios.html#" target="_blank">https://www.runoob.com/vue2/vuejs-ajax-axios.html </a>
+
 
 	Axios 是一个基于 Promise 的 HTTP 库
 	 
@@ -596,7 +598,9 @@
 			// 两个请求现在都执行完成
 		  }));	  
 
-17、Ajax(vue-resource)  <a href="https://www.runoob.com/vue2/vuejs-ajax.html#" target="_blank">https://www.runoob.com/vue2/vuejs-ajax.html </a>
+17、Ajax(vue-resource)  
+- <a href="https://www.runoob.com/vue2/vuejs-ajax.html#" target="_blank">https://www.runoob.com/vue2/vuejs-ajax.html </a>
+
 
 	//发送get请求
 		this.$http.get('/try/ajax/ajax_info.txt').then(function(res){
@@ -634,10 +638,11 @@
 		this.$http.get('/someUrl', [options]).then(successCallback, errorCallback);
 		this.$http.post('/someUrl', [body], [options]).then(successCallback, errorCallback)
 
-
 19、过滤器
 
-20、插槽 slot   <a href="https://cn.vuejs.org/v2/guide/components-slots.html#" target="_blank">https://cn.vuejs.org/v2/guide/components-slots.html </a>
+20、插槽 slot
+
+- <a href="https://cn.vuejs.org/v2/guide/components-slots.html#" target="_blank">https://cn.vuejs.org/v2/guide/components-slots.html </a>
 
 	demo:
 	Vue.component('alert-box', {
@@ -647,7 +652,7 @@
 		  <slot></slot>
 		</div>"
 	})
-	
+
 21、插件
 
 

@@ -1,12 +1,10 @@
-#Log4j 的使用
+# Log4j 的使用
 
 ---
 
-用来打印日志再服务器运行程序期间不用再进行多次的重启，才可以定位到问题，
-工具的使用是方便的，主要的配置文件格式，需要进行配置，
+用来打印日志再服务器运行程序期间不用再进行多次的重启，才可以定位到问题， 工具的使用是方便的，主要的配置文件格式，需要进行配置，
 
-
-##0、tomcat日志 tomcat日志配置
+## 0、tomcat日志 tomcat日志配置
 
 	在server.xml里的<host>标签下加上
 	<Valve className="org.apache.catalina.valves.AccessLogValve"
@@ -49,9 +47,7 @@
 	%D	 官方解释：Time taken to process the request, in millis，处理请求的时间，以毫秒为单位
 	%T	 官方解释：Time taken to process the request, in seconds，处理请求的时间，以秒为单位
 
-
-
-##1、日志中的几个日志级别
+## 1、日志中的几个日志级别
 
 	共有8个级别，按照从低到高为：ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL < OFF。
 	All:最低等级的，用于打开所有日志记录.
@@ -62,10 +58,9 @@
 	Error:输出错误信息日志.
 	Fatal:输出每个严重的错误事件将会导致应用程序的退出的日志.
 	OFF:最高等级的，用于关闭所有日志记录.
-	
 
-##demo：---properties
-    
+## demo：---properties
+
     log4j.logger.com.aa.ClassName=INFO,f
     
     log4j.appender.f = org.apache.log4j.RollingFileAppender
@@ -111,50 +106,57 @@
                 MaxFileSize=100KB: 后缀可以是KB, MB 或者是 GB. 在日志文件到达该大小时，将会自动滚动，即将原来的内容移到mylog.log.1文件。
                 MaxBackupIndex=2:指定可以产生的滚动文件的最大数。
                 log4j.appender.A1.layout.ConversionPattern=%-4r %-5p %d{yyyy-MM-dd HH:mm:ssS} %c %m%n
+
 ---
-##log4j.properties  
+
+## log4j.properties
 
 <a href="https://www.cnblogs.com/pigtail/archive/2013/02/16/2913195.html#" target="_blank">https://www.cnblogs.com/pigtail/archive/2013/02/16/2913195.html </a>
 
-### set log levels ###   log4j.rootLogger=[level],appenderName,appenderName,......
+### set log levels ### log4j.rootLogger=[level],appenderName,appenderName,......
+
     log4j.rootLogger = INFO , console , debug , error ,stdout
- 
+
 ### console ### 
+
     log4j.appender.console = org.apache.log4j.ConsoleAppender 
     log4j.appender.console.Target = System.out 
     log4j.appender.console.layout = org.apache.log4j.PatternLayout 
     log4j.appender.console.layout.ConversionPattern = %-d{yyyy-MM-dd HH\:mm\:ss} [%p]-[%c] %m%n 
- 
+
 ### log file ### 
+
     log4j.appender.debug = org.apache.log4j.DailyRollingFileAppender 
     log4j.appender.debug.File = ../logs/springmvc-demo.log 
     log4j.appender.debug.Append = true 
     log4j.appender.debug.Threshold = INFO 
     log4j.appender.debug.layout = org.apache.log4j.PatternLayout 
     log4j.appender.debug.layout.ConversionPattern = %-d{yyyy-MM-dd HH\:mm\:ss} [%p]-[%c] %m%n 
- 
+
 ### exception ### 
+
     log4j.appender.error = org.apache.log4j.DailyRollingFileAppender 
     log4j.appender.error.File = ../logs/springmvc-demo_error.log 
     log4j.appender.error.Append = true 
     log4j.appender.error.Threshold = ERROR 
     log4j.appender.error.layout = org.apache.log4j.PatternLayout 
     log4j.appender.error.layout.ConversionPattern = %-d{yyyy-MM-dd HH\:mm\:ss} [%p]-[%c] %m%n 
- 
- 
-###需要声明，然后下方才可以使druid sql输出，否则会抛出log4j.error.key not found 
+
+### 需要声明，然后下方才可以使druid sql输出，否则会抛出log4j.error.key not found
+
     log4j.appender.stdout=org.apache.log4j.ConsoleAppender 
     log4j.appender.stdout.Target=System.out 
     log4j.appender.stdout.layout=org.apache.log4j.PatternLayout 
     log4j.appender.stdout.layout.ConversionPattern=%d{ISO8601} %l %c%n%p: %m%n 
- 
+
 ### druid sql ### 
+
     log4j.logger.druid.sql=warn,stdout 
     log4j.logger.druid.sql.DataSource=warn,stdout 
     log4j.logger.druid.sql.Connection=warn,stdout 
     log4j.logger.druid.sql.Statement=warn,stdout 
     log4j.logger.druid.sql.ResultSet=warn,stdout 	
-	
+
 ---	
 demo:  ---xml
 
@@ -351,11 +353,8 @@ log4j2.xml
             <logger name="org.thymeleaf" level="warn"/>
         </loggers>
     </configuration>
-    
 
-
-
-log4j xml  
+log4j xml
 
 <a href="https://www.cnblogs.com/cyq9527/p/11671648.html#" target="_blank">https://www.cnblogs.com/cyq9527/p/11671648.html </a>
 

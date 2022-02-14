@@ -3,13 +3,15 @@
 </p>
 
 ---
+
 # MessageMQ -rabbitmq
 
 - <a href="https://blog.csdn.net/qq_41936805/article/details/88896623#" target="_blank">https://blog.csdn.net/qq_41936805/article/details/88896623 </a>
 
 - <a href="https://blog.csdn.net/wangbing25307/article/details/80845641#" target="_blank">https://blog.csdn.net/wangbing25307/article/details/80845641 </a>
 
-##核心概念
+## 核心概念
+
     Message ：消息，消息是不具名的，它由消息头和消息体组成。消息体是不透明的，而消息头则由一系列的可选属性组成，这些属性包括routing-key（路由键）、 
         priority（相对于其他消息的优先权）、 delivery-mode（指出该消息可能需要持久性存储）等。
 
@@ -30,8 +32,8 @@
     Virtual Host：虚拟主机，表示一批交换器、消息队列和相关对象。虚拟主机是共享相同的身份认证和加密环境的独立服务器域。
         每个 vhost 本质上就是一个 mini 版的 RabbitMQ 服务器，拥有自己的队列、交换器、绑定和权限机制。 vhost 是 AMQP 概念的基础，必须在连接时指定，RabbitMQ 默认的 vhost 是/。
 
+## RabbitMQ特点
 
-##RabbitMQ特点
     高可靠：RabbitMQ 提供了多种多样的特性让你在可靠性和性能之间做出权衡，包括持久化、发送应答、发布确认以及高可用性。
 
     高可用队列：支持跨机器集群，支持队列安全镜像备份，消息的生产者与消费者不论哪一方出现问题，均不会影响消息的正常发出与接收。
@@ -47,10 +49,9 @@
     权限管理：灵活的用户角色权限管理，Virtual Host是权限控制的最小粒度。
 
     插件系统：支持各种丰富的插件扩展，同时也支持自定义插件，其中最常用的插件是web管理工具rabbitmq_management
-    
-    
-    
-##6种基本用法：
+
+## 6种基本用法：
+
     单对单、
     单对多、
     发布订阅模式、
@@ -58,8 +59,8 @@
     主题、
     RPC（即远程存储调用）
 
+## demo:
 
-##demo:
     基本消息模型
         public class ConnectionUtil {
             /**
@@ -142,9 +143,8 @@
 
         5、生产者发送的消息，经过交换机到达队列，实现一个消息被多个消费者获取的目的
 
+## RabbitMQ如何防止消息丢失
 
-
-##RabbitMQ如何防止消息丢失
     1. 消息确认机制（ACK）
         RabbitMQ有一个ACK机制，消费者在接收到消息后会向mq服务发送回执ACK，告知消息已被接收。这种ACK分为两种情况：
 

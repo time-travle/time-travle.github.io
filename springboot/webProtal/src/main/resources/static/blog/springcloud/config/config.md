@@ -2,7 +2,7 @@
     <a href="#" onclick="refreshContent('springcloud')">返回目录</a>
 </p>
 
-#Spring Cloud -config知识积累
+# Spring Cloud -config知识积累
 
 在配置中心的基础应用案例中，将会包括两个部分 ： 配置服务器和配置客户端。
 
@@ -10,7 +10,6 @@
         为配置客户端提供其对应的配置信息 ， 配置信息的来源为配置仓库，启动时需要拉取配置仓库的信息， 缓存到本地仓库中； 
     Config Client 即 配置客户端，
         只会在本地配置必要的信息，如指定获取配置的 Config Server地址，启动时从配置服务器获取配置信息，并支持动态刷新配置仓库中的属性值。
-
 
 配置仓库
 
@@ -28,15 +27,12 @@
     {profile}对应不同的 profile 值 spring.cloud.config.profile,  
     {label}对应配 置 仓库的分支 spring.cloud.config.label，默认为 master 
 
-
-
 配置客户端
 
     <dependency>
         <groupid>org.springframework.cloud</groupid> 
         <artifactid>spring-cloud-starter-config</artifactid>
     </dependency>
-
 
 配置服务端
 

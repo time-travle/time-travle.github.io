@@ -2,19 +2,21 @@
     <a href="#" onclick="refreshContent('spring')">返回目录</a>
 </p>
 
-#Spring ioc 知识积累
-##Spring通过DI（依赖注入）实现IOC（控制反转），
+# Spring ioc 知识积累
+
+## Spring通过DI（依赖注入）实现IOC（控制反转），
 
     常用的注入方式主要有三种：
         构造方法注入，
         setter注入，
         基于注解的注入。
-##Spring IOC的四种注入方式
+
+## Spring IOC的四种注入方式
+
 - <a href="https://segmentfault.com/a/1190000023309818#" target="_blank">https://segmentfault.com/a/1190000023309818 </a>
-- <a href="https://www.pianshen.com/article/9944276092/#" target="_blank">https://www.pianshen.com/article/9944276092/ </a>       
+- <a href="https://www.pianshen.com/article/9944276092/#" target="_blank">https://www.pianshen.com/article/9944276092/ </a>
 
-
-###基于注解的注入
+### 基于注解的注入
 
     在介绍注解注入的方式前，先简单了解bean的一个属性autowire，autowire主要有三个属性值：constructor，byName，byType。
 
@@ -50,8 +52,7 @@
     一般实现类也只有一种（jdbc or hibernate or mybatis），除非项目有大的变动，所以@Qualifier标签用的也较少；
     但是在使用其他组件的API的时候用的是通过xml配置文件来注册类，描述依赖，因为你不能去改人家源码嘛
 
-
-###setter注入
+### setter注入
 
     配置文件如下：
 
@@ -84,9 +85,7 @@
     还有一点需要注意：如果通过set方法注入属性，那么spring会通过默认的空参构造方法来实例化对象，所以如果在类中写了一个带有参数的构造方法，
     一定要把空参数的构造方法写上，否则spring没有办法实例化对象，导致报错
 
-
-
-###构造方法注入
+### 构造方法注入
 
     demo;
         entity：存储实体，里面只有一个User类
@@ -179,9 +178,7 @@
     }
     结果：哪个构造方法在前就注入哪一个，这种情况下就与构造方法顺序有关。    
 
-
-
-###静态工厂的方法注入
+### 静态工厂的方法注入
 
     静态工厂顾名思义，就是通过调用静态工厂的方法来获取自己需要的对象，为了让spring管理所有对象，我们不能直接通过"工程类.静态方法()"来获取对象，
     而是依然通过spring注入的形式获取：
@@ -223,10 +220,7 @@
      <!--(3)此处获取对象的方式是从工厂类中获取静态方法-->
     <bean name="staticFactoryDao" class="com.guage.springdemo.factory.DaoFactory" factory-method="getStaticFactoryDaoImpl"></bean>
 
-        
-        
-        
-##IOC 控制反转（Inversion of Control） 也可以称为依赖倒置
+## IOC 控制反转（Inversion of Control） 也可以称为依赖倒置
 
     依赖注入（Dependecy Injection）和控制反转（Inversion of Control）是同一个概念，
     具体的讲：当某个角色需要另外一个角色协助的时候，在传统的程序设计过程中，通常由调用者来创建被调用者的实例。
@@ -265,8 +259,7 @@
       
       IOC的主要设计模式是工厂模式。
 
-
-###注入的两种方式，设置注入和构造注入。 
+### 注入的两种方式，设置注入和构造注入。
 
     设置注入的优点：直观，自然 
     构造注入的优点：可以在构造器中决定依赖关系的顺序

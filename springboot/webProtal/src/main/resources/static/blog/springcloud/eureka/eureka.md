@@ -2,14 +2,15 @@
     <a href="#" onclick="refreshContent('springcloud')">返回目录</a>
 </p>
 
-#Spring Cloud -eureka知识积累
+# Spring Cloud -eureka知识积累
 
-===========================================注册  中心============================================
+===========================================注册 中心============================================
 
-springCloud 支持最好的是Eureka 其次是 Consul 最后是Zookpeeper
-    想将一个微服务注册到Eureka Server（或其他服务发现组件，例如Zookeeper、Consul等），Eureka 2.0闭源之后，Consul慢慢会成为主流。
+springCloud 支持最好的是Eureka 其次是 Consul 最后是Zookpeeper 想将一个微服务注册到Eureka Server（或其他服务发现组件，例如Zookeeper、Consul等），Eureka
+2.0闭源之后，Consul慢慢会成为主流。
 
-##pom依赖        
+## pom依赖
+
         添加Eureka Client（或其他服务发现组件的Client）依赖：
         <dependency>
           <groupId>org.springframework.cloud</groupId>
@@ -27,7 +28,9 @@ springCloud 支持最好的是Eureka 其次是 Consul 最后是Zookpeeper
                 </dependency> 
             </dependencies> 
         </dependencyManagement> 
-##启动类        
+
+## 启动类
+
     从Spring Cloud Edgware开始，@EnableDiscoveryClient 或@EnableEurekaClient (可省略)。
     只需加上相关依赖，并进行相应配置，即可将微服务注册到服务发现组件上。
         写注解：在启动类上添加注解@EnableDiscoveryClient 或@EnableEurekaClient
@@ -41,8 +44,9 @@ springCloud 支持最好的是Eureka 其次是 Consul 最后是Zookpeeper
         
     @EnableDiscoveryClient 和@EnableEurekaClient 共同点就是：都是能够让注册中心能够发现，扫描到改服务。
     不同点：@EnableEurekaClient 只适用于Eureka作为注册中心，@EnableDiscoveryClient 可以是其他注册中心
-            
-##配置文件            
+
+## 配置文件
+
         写配置：
         spring:
           application:
@@ -59,10 +63,9 @@ springCloud 支持最好的是Eureka 其次是 Consul 最后是Zookpeeper
             register-with-eureka: false  由于该应用为注册中心，所以设置为 false ， 代表不向汪册中心注册自己 ，不然启动时会把自己当作客户端向自己注册，会报错
             serviceUrl:
               defaultZone: http://localhost:8761/eureka/   在url中看到注册中心的地址
-              
- 
 
-##多中心配置  Eureka 高可用搭建
+## 多中心配置 Eureka 高可用搭建
+
     假设我们有 master 和 slaveone 两台机器，
         需要做的就是 ：
             ·将 master 注册到 slaveone 上面。
@@ -117,8 +120,8 @@ springCloud 支持最好的是Eureka 其次是 Consul 最后是Zookpeeper
 
     我们将8080这个服务注册到1111这个服务注册中心上去了，将8081这个服务注册到1112这个服务注册中心上去了
 
+## 开启 Eureka 认证
 
-##开启 Eureka 认证
     添加pom依赖
         <dependency> 
             <groupId>org.springframework.boot</groupId>
@@ -134,16 +137,19 @@ springCloud 支持最好的是Eureka 其次是 Consul 最后是Zookpeeper
         在 Eureka 开启认证后，客户端注册的配置也要加上认证的用户名和密码信息：
         eureka.client.serviceUrl.defaultZone= http://yinjihuan:123456@localhost:8761/eureka/ 
 
-##Q1:
+## Q1:
+
 ![avatar](../blog/springcloud/imag/Whitelabel_Error_Page.png)![avatar](../imag/Whitelabel_Error_Page.png)
 
 <a href="https://blog.csdn.net/li_ainy/article/details/87277695#" target="_blank">https://blog.csdn.net/li_ainy/article/details/87277695</a>
 
-##Q2:如何快速找到指定端口被哪个程序占用并释放该端口
+## Q2:如何快速找到指定端口被哪个程序占用并释放该端口
+
 <a href="https://blog.csdn.net/HumorChen99/article/details/81030330#" target="_blank">https://blog.csdn.net/HumorChen99/article/details/81030330</a>
 
-##Q3：如何配置多注册中心
-单击模拟时需要修改对用的hosts 才可在一台电脑模拟集群 
+## Q3：如何配置多注册中心
+
+单击模拟时需要修改对用的hosts 才可在一台电脑模拟集群
 
 <a href="https://zhuanlan.zhihu.com/p/76582106#" target="_blank">https://zhuanlan.zhihu.com/p/76582106 </a>
 
@@ -151,15 +157,17 @@ springCloud 支持最好的是Eureka 其次是 Consul 最后是Zookpeeper
 
 <a href="https://www.jianshu.com/p/5613212e91bb#" target="_blank">https://www.jianshu.com/p/5613212e91bb</a>
 
-##Q4: 开启认证以后服务提供者频繁注册不到注册中心
+## Q4: 开启认证以后服务提供者频繁注册不到注册中心
+
 <a href="https://www.cnblogs.com/JamieLove/p/11087564.html#" target="_blank">https://www.cnblogs.com/JamieLove/p/11087564.html</a>
 
 <a href="https://www.cnblogs.com/idoljames/p/11622343.html#" target="_blank">https://www.cnblogs.com/idoljames/p/11622343.html</a>
 
 <a href="http://c.biancheng.net/view/5325.html#" target="_blank">http://c.biancheng.net/view/5325.html</a>
 
-##Q5:单机如何搭建高可用 multi-eureka 
-需要修改对用的hosts 才可在一台电脑模拟集群 
+## Q5:单机如何搭建高可用 multi-eureka
+
+需要修改对用的hosts 才可在一台电脑模拟集群
 
 <a href="https://zhuanlan.zhihu.com/p/76582106#" target="_blank">https://zhuanlan.zhihu.com/p/76582106 </a>
 
@@ -175,7 +183,8 @@ springCloud 支持最好的是Eureka 其次是 Consul 最后是Zookpeeper
     127.0.0.1 center-third
     # for multi-eureka end
 
-##Q6:Eureka高可用，节点均出现在unavailable-replicas下
+## Q6:Eureka高可用，节点均出现在unavailable-replicas下
+
     1.eureka.client.serviceUrl.defaultZone配置项的地址，不能使用localhost，要使用域名，DNS解析请自行配置。
     
     2.spring.application.name要一致（这个个人测试默认不配也可以）
@@ -192,8 +201,8 @@ springCloud 支持最好的是Eureka 其次是 Consul 最后是Zookpeeper
         hostname:host1
     作者：A雪_辰A链接：https://www.jianshu.com/p/59c54ccc6ba6
 
+### 自定义 Eureka 的 Instance ID
 
-###自定义 Eureka 的 Instance ID
     客户端在注册时，服务的 Instance ID 的默认值的格式如下：
     ${spring.cloud.client.hostname ｝：$｛ spring.application.name ｝：$｛ spring.application.instance  id:${server.port}} 
     翻译过来就是“主机名：服务名称：服务端口” 。 
@@ -203,8 +212,8 @@ springCloud 支持最好的是Eureka 其次是 Consul 最后是Zookpeeper
     可以改成下面的样子，用“服务名称：服务所在 IP ：服务端口”的格式来定义：
     eureka.instance.instance-id=${spring.application.name}:${spring.cloud.client.ipAddress ｝：$｛ spring.application.instance  id ：$｛ server.port}}
 
+## 服务上下线监控
 
-##服务上下线监控
     在某些特定的需求下，我们需要对服务 的上下线进行监控，上线或下线都进行邮件通知， Eureka 中提供了事件监听的方式来扩展 。
     目前支持的事件如下：
     ?  EurekainstanceCanceledEvent 服务下线事件。
@@ -240,13 +249,14 @@ springCloud 支持最好的是Eureka 其次是 Consul 最后是Zookpeeper
         }
     }
 
-
 ============================================服务提供者==========================================
 
-##demo：
+## demo：
+
 现将一个服务提供者service 注册到 Eureka 中
 
-###maven 
+### maven
+
     <dependencies> 
         <!-- eureka  --> 
         <dependency> 
@@ -256,7 +266,8 @@ springCloud 支持最好的是Eureka 其次是 Consul 最后是Zookpeeper
     </dependencies> 
     依赖管理部分同上。。。
 
-###启动类
+### 启动类
+
         @EnableDiscoveryClient 这个表示当前服务是一个 Eureka 的客户端。
         @SpringBootApplication
         public class Application {
@@ -264,8 +275,9 @@ springCloud 支持最好的是Eureka 其次是 Consul 最后是Zookpeeper
             SpringApplication.run(Application.class, args);
           }
         }
-    
-###配置：
+
+### 配置：
+
     在 src/main/resources 下面创建一个 application.properties 属性文件，增加下面的
     配置：
         spring.appl 工cation.name=fsh-house
@@ -278,8 +290,8 @@ springCloud 支持最好的是Eureka 其次是 Consul 最后是Zookpeeper
 
     eureka.client.serviceUrl.defaultZone 的地址就是我们之前启动的 Eureka 服务的地址，在启动的时候需要将自身的信息注册到 Eureka 中去 
 
+### 提供一个服务demo：
 
-###提供一个服务demo：
     @RestController 
     @RequestMapping (”/house ”) 
     public  class  HouseController  { 
@@ -290,23 +302,26 @@ springCloud 支持最好的是Eureka 其次是 Consul 最后是Zookpeeper
     }
     
     http://localhost : 8081 / house/hello     就是 OK的 
-    
+
 ==========================================服务消费者==========================================
 
-   来一个来消费者工程  消费我们刚刚写的 house/ hello 接口
-    
+来一个来消费者工程 消费我们刚刚写的 house/ hello 接口
+
     RestTemplate 是 Spring 提供的用于访问 Rest 服务的 客户端， RestTemplate 提供了
     多种便捷访 问远程 Http 服 务的方法，能够大大提高客户端的编写效率
 
-##maven：
+## maven：
+
     正常的maven配置
-    
-##配置文件：
+
+## 配置文件：
+
     app lic ation.properties 文件中的配置信息 ：
     spring.application.name=fsh-substitution 
     server.port=8082 
 
-##正常的使用接口直接调用
+## 正常的使用接口直接调用
+
     消费服务类：
         @RestController 
         @RequestMapping (” / substitution”) 
@@ -330,8 +345,8 @@ springCloud 支持最好的是Eureka 其次是 Consul 最后是Zookpeeper
 
         http://localhost: 8082/substitution/ callHello 若是这个 连接能直接调通  说明直接通过接口调用是ok的
 
+### 通过 Eureka 来消费接口
 
-###通过 Eureka 来消费接口
     消费服务类： 
     改造调用代码，我们不再直接写固定地址， 而是写成服务的名称，这个名称也就是我们注册到 Eureka 中的名称 ， 是属性文件中的 spr ing.application.name
         @RestController 

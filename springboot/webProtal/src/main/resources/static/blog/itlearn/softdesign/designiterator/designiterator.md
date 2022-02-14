@@ -4,7 +4,6 @@
 
 # 迭代器模式
 
-
 demo:老师点名
 
 来看老师这个点名过程是如何实现吧
@@ -14,6 +13,7 @@ demo:老师点名
     public interface Teacher {
         public Iterator createIterator(); //点名
     }
+
 2、具体的老师（ConcreteTeacher）类是对老师（Teacher）接口的实现：
 
     public class ConcreteTeacher implements Teacher{
@@ -33,6 +33,7 @@ demo:老师点名
             return present.length; //得到同学出勤集合的大小,也就是说要知道班上有多少人
         }
     }
+
 3、定义点名（Iterator）接口类：
 
     public interface Iterator {
@@ -41,6 +42,7 @@ demo:老师点名
         boolean isDone(); //是否点名完毕
         Object currentItem(); //当前同学的出勤情况
     }
+
 4、具体的点名（ConcreteIterator）类是对点名（Iterator）接口的实现：
 
     public class ConcreteIterator implements Iterator{
@@ -70,6 +72,7 @@ demo:老师点名
             return teacher.getElement(index);
         }
     }
+
 5、编写测试类：
 
     public class Test {
@@ -87,6 +90,7 @@ demo:老师点名
             test.operation();
         }
     }
+
 6、说明：
 
     A：定义：Iterator 模式可以顺序的访问一个聚集中的元素而不必暴露聚集的内部情况。

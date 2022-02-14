@@ -2,7 +2,8 @@
     <a href="#" onclick="showITLearnPage('softdesign')">返回设计模式目录</a>
 </p>
 
-#工厂模式 
+# 工厂模式
+
 <a href="https://www.runoob.com/design-pattern/factory-pattern.html#" target="_blank">https://www.runoob.com/design-pattern/factory-pattern.html </a>
 
 	工厂模式中，我们在创建对象时不会对客户端暴露创建逻辑，并且是通过使用一个共同的接口来指向新创建的对象。
@@ -37,18 +38,11 @@
 				而简单对象，特别是只需要通过 new 就可以完成创建的对象，无需使用工厂模式。
 				如果使用工厂模式，就需要引入一个工厂类，会增加系统的复杂度。
 
+## demo code:
 
+实现 我们将创建一个 Shape 接口和实现 Shape 接口的实体类。下一步是定义工厂类 ShapeFactory。 FactoryPatternDemo，我们的演示类使用 ShapeFactory 来获取 Shape 对象。 它将向
+ShapeFactory 传递信息（CIRCLE / RECTANGLE / SQUARE），以便获取它所需对象的类型。
 
-
-##demo code:
-	
-实现
-	我们将创建一个 Shape 接口和实现 Shape 接口的实体类。下一步是定义工厂类 ShapeFactory。
-	FactoryPatternDemo，我们的演示类使用 ShapeFactory 来获取 Shape 对象。
-	它将向 ShapeFactory 传递信息（CIRCLE / RECTANGLE / SQUARE），以便获取它所需对象的类型。
-	
-	
-	
 	步骤 1
 	创建一个接口:
 

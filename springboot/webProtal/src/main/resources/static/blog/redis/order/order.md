@@ -4,32 +4,38 @@
 
 ---
 
-#redis order命令：
+# redis order命令：
 
-###命令：
+### 命令：
+
 	CLIENT LIST		返回连接到 redis 服务的客户端列表
 	CLIENT SETNAME	设置当前连接的名称
 	CLIENT GETNAME	获取通过 CLIENT SETNAME 命令设置的服务名称
 	CLIENT PAUSE	挂起客户端连接，指定挂起的时间以毫秒计
 	CLIENT KILL		关闭客户端连接
-####启动客户端：
+
+#### 启动客户端：
+
 	$ redis-cli
-####在远程服务上执行命令    
+
+#### 在远程服务上执行命令
+
 	$ redis-cli -h host -p port -a password
 		演示如何连接到主机为 127.0.0.1，端口为 6379 ，密码为 mypass 的 redis 服务上。
 			$redis-cli -h 127.0.0.1 -p 6379 -a "mypass"
 
+#### Redis 命令
 
-####Redis 命令
 - <a href="https://www.w3cschool.cn/redis/redis-commands.html" target="_blank">https://www.w3cschool.cn/redis/redis-commands.html </a>
 - <a href="https://www.runoob.com/redis/redis-commands.html" target="_blank">https://www.runoob.com/redis/redis-commands.html </a>
 
+#### Redis 键(key)
 
-
-####Redis 键(key)
     语法：Redis 键命令的基本语法如下：
         redis 127.0.0.1:6379> COMMAND KEY_NAME
-####命令：   
+
+#### 命令：
+
     序号	
     命令及描述
     1	DEL key
@@ -67,8 +73,8 @@
     17	TYPE key
         返回 key 所储存的值的类型。
 
+#### Redis 字符串命令
 
-####Redis 字符串命令
     列出了常用的 redis 字符串命令：
 
         序号	命令及描述
@@ -113,8 +119,8 @@
         20	APPEND key value
         如果 key 已经存在并且是一个字符串， APPEND 命令将指定的 value 追加到该 key 原来值（value）的末尾。
 
+#### Redis hash 命令
 
-####Redis hash 命令
     下表列出了 redis hash 基本的相关命令：
 
         序号	命令及描述
@@ -147,7 +153,8 @@
         14	HSCAN key cursor [MATCH pattern] [COUNT count]
         迭代哈希表中的键值对。
 
-####Redis 列表命令
+#### Redis 列表命令
+
     下表列出了列表相关的基本命令：
 
         序号	命令及描述
@@ -186,7 +193,8 @@
         17	RPUSHX key value
         为已存在的列表添加值
 
-####Redis 集合命令
+#### Redis 集合命令
+
     下表列出了 Redis 集合基本命令：
 
         序号	命令及描述
@@ -221,8 +229,8 @@
         15	SSCAN key cursor [MATCH pattern] [COUNT count]
         迭代集合中的元素
 
+#### Redis 发布订阅命令
 
-####Redis 发布订阅命令
     下表列出了 redis 发布订阅常用命令：
 
         序号	命令及描述
@@ -239,7 +247,8 @@
         6	UNSUBSCRIBE [channel [channel ...]]
         指退订给定的频道。
 
-####Redis 事务命令
+#### Redis 事务命令
+
     下表列出了 redis 事务的相关命令：
 
         序号	命令及描述
@@ -254,7 +263,8 @@
         5	WATCH key [key ...]
         监视一个(或多个) key ，如果在事务执行之前这个(或这些) key 被其他命令所改动，那么事务将被打断。
 
-####Redis 连接命令
+#### Redis 连接命令
+
     下表列出了 redis 连接的基本命令：
 
         序号	命令及描述
@@ -269,8 +279,8 @@
         5	SELECT index
         切换到指定的数据库
 
+#### Redis 服务器命令
 
-####Redis 服务器命令
     下表列出了 redis 服务器的相关命令:
 
         序号	命令及描述
@@ -337,9 +347,8 @@
         31	SYNC
         用于复制功能(replication)的内部命令
 
+#### 常用命令：
 
-####常用命令：
-    
     $ wget   下载
     $ tar    压缩解压
     $ make   创建

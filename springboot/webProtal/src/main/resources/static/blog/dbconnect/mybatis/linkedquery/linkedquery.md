@@ -1,7 +1,9 @@
 <ul><a href="#" onclick="refreshDBConnectContent('mybatis')">返回</a></ul>
 
 ---
-##一对一（association） 
+
+## 一对一（association）
+
 <a href="http://www.mybatis.cn/archives/40.html#" target="_blank">http://www.mybatis.cn/archives/40.html </a>
 
 	这时我们的返回对象一般不是直接进行返回的，而是通过类似级联的形式进行关联的
@@ -46,7 +48,8 @@
 			</resultMap>
 		</mapper>
 
-##一对多（collection） 
+## 一对多（collection）
+
 <a href="http://www.mybatis.cn/archives/42.html#" target="_blank">http://www.mybatis.cn/archives/42.html </a>
 
 	在一对一的基础上改动关键字 association 到 collection 
@@ -133,8 +136,9 @@
 		lazyLoadingEnabled属性表示延迟加载的全局开关。当开启时，所有关联对象都会延迟加载。默认为false。
 		agressiveLazyLoading属性启用时，会使带有延迟加载属性的对象立即加载; 反之，每种属性将会按需加载。
 			默认为true,所以这里需要设置成false
-	
-##多对多 
+
+## 多对多
+
 <a href="http://www.mybatis.cn/archives/43.html#" target="_blank">http://www.mybatis.cn/archives/43.html </a>
 
 	两个一对多 彼此包容彼此

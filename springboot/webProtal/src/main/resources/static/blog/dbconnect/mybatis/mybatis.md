@@ -1,6 +1,5 @@
-
-
 # Mybatis 框架
+
 <p>
     <a href="#" onclick="refreshContent('dbconnect')">返回目录</a>
 </p>
@@ -14,16 +13,19 @@
 
 ---
 
-####模糊查询的写法
+#### 模糊查询的写法
+
 	<if test="">// 使用|| 进行拼接
 		like '%'|| value || '%' ---> like '%value%' 
 	</if>
 	<if test="">// 使用contat进行拼接
 		like contat("%",value)  ---> like '%value'
 	</if>
-		
-##映射配置	
-###select
+
+## 映射配置
+
+### select
+
     查询是我们在日常的数据处理中使用的频率最高的一个语法，也是相对其他的语法来说是出现的频率最高的一个
     基础的格式：
         <select id="该条语句在本文件中的唯一身份编码" parameter="入参的类型" resultType="出参类型">
@@ -51,8 +53,9 @@
     statementType～～STATEMENT，PREPARED 或 CALLABLE 的一个。这会让 MyBatis 分别使用 Statement，PreparedStatement 或 CallableStatement，默认值：PREPARED。
     
     databaseId～～如果配置了 databaseIdProvider，MyBatis 会加载所有的不带 databaseId 或匹配当前 databaseId 的语句；如果带或者不带的语句都有，则不带的会被忽略。
-    
-###update/delete/insert
+
+### update/delete/insert
+
     但我们进行批量的操作时少不了需要使用到set的这个关键字<set></set>
     
     对应语句的对应的属性
@@ -81,9 +84,9 @@
     resultType～～结果的类型。MyBatis 通常可以推算出来，但是为了更加确定写上也不会有什么问题。MyBatis 允许任何简单类型用作主键的类型，包括字符串。如果希望作用于多个生成的列，则可以使用一个包含期望属性的 Object 或一个 Map。
     order～～这可以被设置为 BEFORE 或 AFTER。如果设置为 BEFORE，那么它会首先选择主键，设置 keyProperty 然后执行插入语句。如果设置为 AFTER，那么先执行插入语句，然后是 selectKey 元素 - 这和像 Oracle 的数据库相似，在插入语句内部可能有嵌入索引调用。
     statementType～～与前面相同，MyBatis 支持 STATEMENT，PREPARED 和 CALLABLE 语句的映射类型，分别代表 PreparedStatement 和 CallableStatement 类型。
-    
-    
-###sql块
+
+### sql块
+
     这个元素可以被用来定义可重用的 SQL 代码段，可以包含在其他语句中
     
     声明：
@@ -95,11 +98,14 @@
         <include refid="文件内唯一编码的sql">
             可以给sql进传参数 ，若是没有写就默认不进行传，直接使用sql指定的内容
         </include>
-###resultMap
+
+### resultMap
+
     resultMap 元素是 MyBatis 中最重要最强大的元素
     ResultMap 的设计就是简单语句不需要明确的结果映射,而很多复杂语句确实需要描述它们 的关系。
-    
-###cache 缓存 
+
+### cache 缓存
+
     开启二级缓存的方法 在SQl映射文件中添加就会震动当前的文件中的sql自动开启二级缓存
     <cache/>
     
@@ -125,9 +131,9 @@
     FIFO – 先进先出:按对象进入缓存的顺序来移除它们。
     SOFT – 软引用:移除基于垃圾回收器状态和软引用规则的对象。
     WEAK – 弱引用:更积极地移除基于垃圾收集器状态和弱引用规则的对象。
-	
 
-##视图
+## 视图
+
     把视图当普通的表，用select  字段  from 视图 where 的形式。
     如：
     <select id="getListByName" parameterType="java.util.Map" resultMap="Country">
@@ -140,7 +146,8 @@
     </select>
     备注： mapper.xml中where后面的参数条件一定是在视图中返回的，不然会报错。
 
-##存储过程
+## 存储过程
+
     demo1:
      <!-- 调用存储过程查询 -->
      <select id="testProcedure" parameterType="java.util.Map" statementType="CALLABLE" resultType="java.util.HashMap">  
@@ -172,13 +179,16 @@
          　　)
          }
          </select>
-##序列
+
+## 序列
+
     oracle的写法：
         <selectKey keyProperty="id" resultType="long" order="BEFORE">
           SELECT user_id_sequence.nextval from dual
         </selectKey>
 
-##insert all
+## insert all
+
     demo1：
      <insert id="batchInsertArriveInfo" parameterType="java.util.List" useGeneratedKeys="false">
         insert all

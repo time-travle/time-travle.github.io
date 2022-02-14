@@ -1,11 +1,10 @@
-
 <p>
     <a href="#" onclick="refreshContent('redis')">返回目录</a>
 </p>
 
 ---
 
-#redis 问题收集
+# redis 问题收集
 
 1、Redis 与其他 key - value 缓存产品有以下三个特点：
 
@@ -56,11 +55,11 @@
             2.EXEC用来执行一个事务；
             3.DISCARD用来取消一个事务；
             4.WATCH用来监视一些key，一旦这些key在事务执行之前被改变，则取消事务的执行。
-    
+
 8、Redis key的过期时间和永久有效分别怎么设置？
 
             EXPIRE 和 PERSIST 命令
-    
+
 9、Redis特点：
 
             Redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。
@@ -79,9 +78,9 @@
             换句话说：大量的key设置了相同的过期时间，导致在缓存在同一时刻全部失效，造成瞬时DB请求量大、压力骤增，引起雪崩。
         
             缓存雪崩如果发生了，很可能就把我们的数据库搞垮，导致整个服务瘫痪！
-   
+
 11、如何解决缓存雪崩？
-    
+
             解决方案：
             （1）在缓存的时候给过期时间加上一个随机值，这样就会大幅度的减少缓存在同一时间过期。
             （2）如果缓存数据库是分布式部署，将热点数据均匀分布在不同的缓存数据库中。
@@ -95,6 +94,7 @@
                 事发前：实现Redis的高可用(主从架构+Sentinel 或者Redis Cluster)，尽量避免Redis挂掉这种情况发生。
                 事发中：万一Redis真的挂了，我们可以设置本地缓存(ehcache)+限流(hystrix)，尽量避免我们的数据库被干掉(起码能保证我们的服务还是能正常工作的)
                 事发后：redis持久化，重启后自动从磁盘上加载数据，快速恢复缓存数据。
+
 12、缓存穿透（缓存中无，DB中也无）
 
             缓存穿透是指查询一个一定不存在的数据。由于缓存不命中，并且出于容错考虑，如果从数据库查不到数据则不写入缓存，
@@ -113,6 +113,7 @@
                 2、当我们从数据库找不到的时候，我们也将这个空对象设置到缓存里边去。下次再请求的时候，就可以从缓存里边获取了。这种情况我们一般会将空对象设置一个较短的过期时间。
                 3、利用互斥锁，缓存失效的时候，先去获得锁，得到锁了，再去请求数据库。没得到锁，则休眠一段时间重试
                 4、采用异步更新策略，无论key是否取到值，都直接返回。value值中维护一个缓存失效时间，缓存如果过期，异步起一个线程去读数据库，更新缓存。需要做缓存预热（项目启动前，先加载缓存）操作
+
 14、缓存预热：
 
             系统上线后，将相关的缓存数据直接加载到缓存系统。这样就可以避免在用户请求的时候，先查询数据库，然后再将数据缓存的问题！
@@ -123,7 +124,7 @@
             除了redis自带的6种策略(参考本文的第8条)，可以根据业务需求自定义清除缓存。
 
 16、缓存降级：
-    
+
             当访问量剧增、服务出现问题(如响应时间慢或不响应)或非核心服务影响到核心流程的性能时，仍然需要保证服务还是可用的，即使是有损服务。
             系统可以根据一些关键数据进行自动降级，也可以配置开关实现人工降级
 
@@ -135,7 +136,7 @@
             （2）加互斥锁。
 
 18、缓存与数据库双写一致
-        
+
             对于读操作，流程是这样的
             如果我们的数据在缓存里边有，那么就直接取缓存的。
         
@@ -171,7 +172,6 @@
             
                 一般是配合定期删除和惰性删除一起使用
 
-
 21、Redis常见的回收策略
 
             volatile-lru：从已设置过期时间的数据集(server.db[i].expires)中挑选最近最少使用的数据淘汰。
@@ -180,10 +180,11 @@
             allkeys-lru：从数据集(server.db[i].dict)中挑选最近最少使用的数据淘汰。
             allkeys-random：从数据集(server.db[i].dict)中任意选择数据淘汰。
             no-enviction(驱逐)：禁止驱逐数据
+
 <a href="https://zhuanlan.zhihu.com/p/93515595" target="_blank">吐血整理60个Redis面试题,全网最全</a>
 
 22、Reids三种不同删除策略
- 
+
             定时删除：
                 在设置键的过期时间的同时，创建一个定时任务，当键达到过期时间时，立即执行对键的删除操作
 
@@ -213,7 +214,7 @@
             volatile-ttl：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的key优先移除
 
 24、持久化机制
-    
+
             - a). RDB持久化
             
                 工作方式 ：根据时间的间隔将redis中数据快照（dump）到dump.rdb文件
@@ -244,9 +245,8 @@
             其实RDB和AOF两种方式也可以同时使用，在这种情况下，如果redis重启的话，则会优先采用AOF方式来进行数据恢复，这是因为AOF方式的数据恢复完整度更高。
             如果你没有数据持久化的需求，也完全可以关闭RDB和AOF方式，这样的话，redis将变成一个纯内存数据库，就像memcache一样。
 
-
 25、持久化策略选择
-    
+
             （1）如果Redis中的数据完全丢弃也没有关系（如Redis完全用作DB层数据的cache），那么无论是单机，还是主从架构，都可以不进行任何持久化。
             
             （2）在单机环境下（对于个人开发者，这种情况可能比较常见），如果可以接受十几分钟或更多的数据丢失，选择RDB对Redis的性能更加有利；
@@ -291,7 +291,7 @@
 32、Reids常用5种数据类型
 
             string，list，set，sorted set，hash
-    
+
 | 数据类型 | 概念| 常用命令| 其他|
 | --------|--------|--------|--------|
 |String(字符串) |key-value型 |get、set、incr、decr、mget||
@@ -299,7 +299,6 @@
 |List(列表)|  string类型的有序列表， 按照插入顺序排序|lpush、rpush、lpop、rpop lrange||
 |Set(集合)| string类型的无序集合| sadd,spop,smembers,sunion ||
 |zset(sorted set：有序集合)|string类型元素的集合,且不允许重复的成员。 每个元素关联一个 ;double值来进行排序， double值可以重复但元素不能重复。| zadd,zrange,zrem,zcard||
-
 
 33、使用过Redis分布式锁么，它是什么回事？（面试时）
 
@@ -388,6 +387,7 @@
 46、一个字符串类型的值能存储最大容量是多少？
 
             512M   
+
 47、Cluster 集群能支持的数据量有多大？
 
 <a href="https://segmentfault.com/a/1190000039995230" target="_blank">集群能支持的数据量有多大</a>
@@ -451,14 +451,15 @@
                           这两个方面在key个数上亿的时候消耗内存十分明显（Redis 3.2及以下版本均存在这个问题，4.0有优化）；
                     
                     所以减少key的个数可以减少内存消耗，可以参考的方案是转Hash结构存储，即原先是直接使用Redis String 的结构存储，现在将多个key存储在一个Hash结构中，
-参考：
-- <a href="https://cloud.tencent.com/developer/article/1454332" target="_blank">大key多key拆分方案</a>
 
+参考：
+
+- <a href="https://cloud.tencent.com/developer/article/1454332" target="_blank">大key多key拆分方案</a>
 
 50、Redis最大的单个value的最大限制是
 
             1GB 
-    
+
 51、为什么Redis是单线程的？
 
             Redis是基于内存的操作，CPU不是Redis的瓶颈，Redis的瓶颈最有可能是机器内存的大小或者网络带宽。
@@ -468,13 +469,13 @@
 
             Redisson是一个高级的分布式协调Redis客服端，能帮助用户在分布式环境中轻松实现一些Java的对象 
 
-53、MySQL里有2000w数据，redis中只存20w的数据，如何保证redis中的数据都是热点数据？ 
+53、MySQL里有2000w数据，redis中只存20w的数据，如何保证redis中的数据都是热点数据？
 
             redis内存数据集大小上升到一定大小的时候，就会施行数据淘汰策略。    
+
 其他的面试题：
+
 - <a href="https://zhuanlan.zhihu.com/p/93515595" target="_blank">https://zhuanlan.zhihu.com/p/93515595 </a>
-
-
 
 54、redis 是什么？都有哪些使用场景？
 
@@ -623,8 +624,8 @@
                 <version>1.1.1</version>
             </dependency>
 
-70、java程序中使用redis缓存数据，在redis客户端查不到     
-            
+70、java程序中使用redis缓存数据，在redis客户端查不到
+
             查询的命令不正确，也可能是数据存储的的格式不对，
 
 71、客户端连接时 报错 redis客户端连接(error) NOAUTH Authentication required
@@ -637,13 +638,15 @@
            再使用 auth password 鉴权
 
 72、linux下安装redis与启动,及后台启动redis
+
 - <a href="https://blog.csdn.net/q1035331653/article/details/79077260" target="_blank">https://blog.csdn.net/q1035331653/article/details/79077260 </a>
 
-73、启动redis 时若出现权限问题 就将整个文件的执行权限付给当前用户    
-  
+73、启动redis 时若出现权限问题 就将整个文件的执行权限付给当前用户
+
     [root@localhost redis]# ./bin/redis-server& ./redis.conf
     [1] 25312
     -bash: ./redis.conf: Permission denied
 
 redis 支持的数据类型 的用法
+
 - <a href="https://www.redis.com.cn/redis-data-types.html">https://www.redis.com.cn/redis-data-types.html</a>

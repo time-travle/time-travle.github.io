@@ -1,4 +1,4 @@
-#JVM 的理解
+# JVM 的理解
 
 ---
 JVM 模型
@@ -20,7 +20,6 @@ JVM 模型
         
     程序计数器
 
-
 JVM垃圾收集器
 
     串行收集器： 单核环境
@@ -28,9 +27,8 @@ JVM垃圾收集器
     CMS收集器： 
     G1收集器： 运行内存大的些的时候可以使用
 
-
-
-类的加载过程   参看 <a href="https://www.cnblogs.com/zhengbin/p/5631363.html#" target="_blank">https://www.cnblogs.com/zhengbin/p/5631363.html </a>
+类的加载过程
+参看 <a href="https://www.cnblogs.com/zhengbin/p/5631363.html#" target="_blank">https://www.cnblogs.com/zhengbin/p/5631363.html </a>
 
     一、加载
         　　“加载” 是“类加载”过程的一个阶段。在加载阶段，虚拟机需要完成以下3件事情：
@@ -91,8 +89,6 @@ JVM垃圾收集器
 
     六、使用
     七、卸载
-    
-    
 
 面试必学JVM面试题
 

@@ -2,14 +2,13 @@
     <a href="#" onclick="refreshContent('javascript')">返回目录</a>
 </p>
 
-#Javascript  ajax 日常 
+# Javascript  ajax 日常
 
 ---
 ajax
 
 	使用浏览器提供的一个js对象(XMLHttpRequest)来发送请求，它能够用来发送http请求，它的特殊之处在于，它的
     请求不会导致页面的跳转（仍保持在当前页面）
-
 
 XMLHttpRequest对象
 
@@ -22,18 +21,16 @@ XMLHttpRequest对象
                 对于符合W3C标准的浏览器是用上述方式创建对象，对于IE的低版本，使用
                     
                     var xhr = ActiveXObject("Microsoft.XMLHTTP");
-                    
+
 2,发送请求
-	
+
 1）xhr.open("请求方式"，uri,true|false)
-            
+
                 参数1：表示请求方式，可以是：get|post|delete|put|head
                 
                 参数2：请求的目标地址，只能是本域下的地址，跨域需要浏览器支持。
                 
                 参数3：false同步   true异步
-                
-
 
 2）xhr.send(请求体内容)
 
@@ -50,12 +47,10 @@ XMLHttpRequest对象
                      
                      
                 注意：xhr默认请求和响应所使用的编码都是UTF-8，为了处理简单一些，页面编码也使用utf-8
-                
 
 3）接收响应
 
     xhr.responseText
-
 
 4）什么是同步，什么是异步
 
@@ -69,7 +64,6 @@ XMLHttpRequest对象
                 
                 因为send方法发送完请求立刻结束，执行下面的xhr.responseText去获取响应文本，但是响应是5秒之后才返回，所以
                 这个时候无法获得内容。
-
 
 5）异步请求下接收响应。
 
@@ -105,7 +99,6 @@ XMLHttpRequest对象
                 
                 事件代码应定义在open方法之前
 
-
 6，发送post请求
 
     post请求与get请求的区别在于请求参数的位置处于请求体中而不是跟在请求行后，另外要设置content-type请求头
@@ -127,7 +120,7 @@ XMLHttpRequest对象
                 xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
                 xhr.send("comment="+c);
             }
-  
+
 7，json响应格式
 
                     如果返回纯文本响应格式，一个回车，一个换行都可能导致前台js判断的不确定性，并且纯文本的格式的响应，只能
@@ -166,7 +159,6 @@ XMLHttpRequest对象
             
             
             json字符串其实充当了数据的传输载体，或称为java对象到js对象的桥梁
-
 
 8，JSON格式转换
 
@@ -272,8 +264,7 @@ XMLHttpRequest对象
                 方法2：
                     var json = '{"name":"张三","age":18,"sex":true,"hobby":["抽烟","喝酒"]}';
                     var object = new Function("return" + json);
-                    
-	
+
 9，使用xhr和json实现注册用户名检查
 
                   <style type="text/css">
@@ -359,7 +350,6 @@ XMLHttpRequest对象
             A：and
             X：	xml  早期的ajax技术使用xml作为响应格式。xml响应生成和解析不便，逐渐为更轻便的json格式所替代。
 
-
 /////////////////////////////////////////////////////////////////////
 
 ajax 应用
@@ -411,9 +401,8 @@ ajax 应用
       </script>
     同理可以封装get方法
 
-
 2，jquery中的$.get和$.post
-                
+
                 jQuery.post(url, [data], [callback], [type]) 
                 
                 

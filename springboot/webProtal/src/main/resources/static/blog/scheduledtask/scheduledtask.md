@@ -1,14 +1,14 @@
 # 定时任务的
 
-##使用SpringBoot创建定时任务非常简单，目前主要有以下三种创建方式：
+## 使用SpringBoot创建定时任务非常简单，目前主要有以下三种创建方式：
 
     一、基于注解(@Scheduled)
     二、基于接口（SchedulingConfigurer） 前者相信大家都很熟悉，但是实际使用中我们往往想从数据库中读取指定时间来动态执行定时任务，
         这时候基于接口的定时任务就派上用场了。
     三、基于注解设定多线程定时任务
 
-##Java 系统中主要有三种方式来实现定时任务：
-    
+## Java 系统中主要有三种方式来实现定时任务：
+
     Timer和 TimerTask
     ScheduledExecutorService
     三方框架 Quartz
@@ -23,10 +23,10 @@
         月（0~11）
         周几（ 可填1-7 或 SUN/MON/TUE/WED/THU/FRI/SAT）
 
+## 四种方式：Timer、ScheduledExecutorService、SpringTask、Quartz。
 
-##四种方式：Timer、ScheduledExecutorService、SpringTask、Quartz。
+#### 使用java的 Timer
 
-####使用java的 Timer
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
         try {
             Date date = dateFormat.parse("2018-07-11 12:00:00.000");
@@ -42,7 +42,9 @@
         
         解释：date是开始时间，2000ms是定时任务周期，每2s执行一次
         timer有2中方法 schedule 和 scheduleAtFixedRate，前者会等任务结束在开始计算时间间隔，后
-####使用ScheduledExecutorService
+
+#### 使用ScheduledExecutorService
+
         scheduledExecutorService.schedule(new Runnable() {
                     @Override
                     public void run() {
@@ -69,7 +71,8 @@
                 }, 1, 1, TimeUnit.SECONDS);
         解释：延迟1s启动，在前一个任务执行完成之后，延迟1s在执行  
 
-####使用 SpringTask
+#### 使用 SpringTask
+
         写任务类
             import org.slf4j.Logger;
             import org.slf4j.LoggerFactory;
@@ -116,12 +119,11 @@
                     e.printStackTrace();
                 }
             }
-        
-        
-##框架 Quartz       
+
+## 框架 Quartz
+
 - <a href="https://www.cnblogs.com/zhangbin1989/p/9294114.html#" target="_blank">https://www.cnblogs.com/zhangbin1989/p/9294114.html </a>
 
-        
     加依赖
         <!-- quartz -->
         <dependency>
