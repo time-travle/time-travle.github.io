@@ -28,6 +28,19 @@
 |CPC|每吸引用户点击一次花费的成本||
 |AU| 活跃用户||
 |PU|付费用户||
-|ROI| 投资回报率||
+|ROI|投资回报率||
 
 
+ <style>
+  table{
+    border-left:1px solid #000000;border-top:1px solid #000000;
+    width: 100%;
+    word-wrap:break-word; word-break:break-all;
+  }
+  table th{
+  text-align:center;
+  }
+  table th,td{
+    border-right:1px solid #000000;border-bottom:1px solid #000000;
+  }
+</style>

@@ -12,6 +12,15 @@
     隔离性（Isolation）：可能有许多事务会同时处理相同的数据，因此每个事务都应该与其他事务隔离开来，防止数据损坏。
     持久性（Durability）：一旦事务完成，无论发生什么系统错误，它的结果都不应该受到影响，这样就能从任何系统崩溃中恢复过来。
                             通常情况下，事务的结果被写到持久化存储器中。
+设置事务隔离级别（5种）
+    
+    DEFAULT这是一个PlatfromTransactionManager默认的隔离级别，使用数据库默认的事务隔离级别；
+    未提交读（read uncommited）：脏读，不可重复读，虚读都有可能发生
+    已提交读（read commited）：避免脏读。但是不可重复读和虚读都有可能发生；
+    可重复读（repeatable read）：避免脏读和不可重复读，但是虚读有可能发生；
+    串行化的（serializable）：避免以上所有读问题。
+    MySQL默认：可重复读
+    Oracle默认：已提交读
 
 如果我开启事务之后服务器突然宕机,或者硬盘损坏,断电断网了那么我执行的操作时执行成功了还是没成功呢？
 
@@ -85,8 +94,9 @@ Spring事务的注解配置
     一个事务按照一个where条件读取所有符合的数据行，第二个事务插入了一行数据且恰好也满足这个where条件，
     第一个事务再以这个where条件重新读取，将会获取额外多出来的这一行。
 
-事物Transactional 开启事物 支持 @EnableTransactionManagement // 启注解事务管理，等同于xml配置方式的 <tx:annotation-driven />
-
+事物Transactional 开启事物 支持
+    
+    @EnableTransactionManagement // 启注解事务管理，等同于xml配置方式的 <tx:annotation-driven />
     @Transactional(rollbackFor=Exception.class)  
     为方法开启事务同时 指定事务回滚方法
     @Transactional(noRollbackFor=Exception.class)
