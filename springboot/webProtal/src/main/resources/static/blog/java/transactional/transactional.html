@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>transactional</title>
+    </head>
+    <body>
+        <div id="transactional_area" class="md_content"></div>
+        <script>
+            $.get('../blog/java/transactional/transactional.md', function (response, status, xhr) {
+                $("#transactional_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

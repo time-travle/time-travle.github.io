@@ -6,6 +6,20 @@
 
 ---
 
+## Q： java 程序 是怎么运行的
+Java 程序运行流程如图
+
+![avatar](../blog/java/imgs/img.png)
+![avatar](../blog/java/imgs/img_1.png)
+![avatar](../blog/java/imgs/img_2.png)
+
+字节码文件是一种和任何具体机器环境及操作系统环境无关的中间代码。
+
+它是一种二进制文件，是 Java 源文件由 Java 编译器编译后生成的目标代码文件。
+
+编程人员和计算机都无法直接读懂字节码文件，它必须由专用的 Java 解释器来解释执行，因此 Java 是一种在编译基础上进行解释运行的语言
+
+
 ## Q：这21个刁钻的HashMap面试题，我把阿里面试官吊打了
 
 - <a href="https://cloud.tencent.com/developer/article/1629452#" target="_blank">https://cloud.tencent.com/developer/article/1629452 </a>

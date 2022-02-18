@@ -1,24 +1,11 @@
+<p>
+    <a href="#" onclick="refreshJVMContent('model')">JVM 模型 </a>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <a href="#" onclick="refreshJVMContent('better')">JVM 调优 </a>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+</p>
+
 # JVM 的理解
 
 ---
-JVM 模型
-
-    方法区
-        元空间
-    
-    堆
-        新代码
-        老代码
-        常量池
-        字符常量
-        运行时常量
-        
-    本地方法栈
-    
-    虚拟机栈
-        栈帧
-        
-    程序计数器
 
 JVM垃圾收集器
 

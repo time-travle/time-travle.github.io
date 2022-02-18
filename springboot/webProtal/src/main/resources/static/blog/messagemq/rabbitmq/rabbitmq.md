@@ -6,9 +6,9 @@
 
 # MessageMQ -rabbitmq
 
-- <a href="https://blog.csdn.net/qq_41936805/article/details/88896623#" target="_blank">https://blog.csdn.net/qq_41936805/article/details/88896623 </a>
+- <a href="https://blog.csdn.net/qq_41936805/article/details/88896623#" target="_blank">RabbitMQ的简单使用 </a>
 
-- <a href="https://blog.csdn.net/wangbing25307/article/details/80845641#" target="_blank">https://blog.csdn.net/wangbing25307/article/details/80845641 </a>
+- <a href="https://blog.csdn.net/wangbing25307/article/details/80845641#" target="_blank">RabbitMQ的简单使用 </a>
 
 ## 核心概念
 

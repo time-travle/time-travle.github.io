@@ -1,8 +1,9 @@
 # Spring 知识积累
 
 <p>
-<a href="#" onclick="refreshSpringContent('aop')">Spring（aop）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshSpringContent('ioc')">Spring（ioc）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshSpringContent('aop')">Spring（AOP 切面）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshSpringContent('ioc')">Spring（IOC 控制反转）</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshSpringContent('di')">Spring（DI 依赖注入）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshSpringContent('transactional')">Spring（事物）</a>&emsp;&emsp;&emsp;
 </p>
 

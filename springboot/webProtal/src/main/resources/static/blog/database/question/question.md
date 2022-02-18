@@ -252,6 +252,161 @@ linux下/etc/my.cnf下my.ini[mysqld]段加上log_bin_trust_function_creators=1
 		aqadm /aqadm				SYSDBA 或 NORMAL		高级队列管理员
 		Dbsnmp/dbsnmp				SYSDBA 或 NORMAL		复制管理员
 
+####12、MySql 存储引擎 有哪几种 什么区别
+
+
+|Engine|Support|Comment|Transactions|XA|Savepoints|
+|---|---|---|---|---|---|
+|MEMORY|YES|Hash based, stored in memory, useful for temporary tables(基于哈希，存储在内存中，对临时表有用)|NO|NO|NO|
+|MRG_MYISAM|YES|Collection of identical MyISAM tables(相同 MyISAM 表的集合)|NO|NO|NO|
+|CSV|YES|CSV storage engine(CSV 存储引擎)|NO|NO|NO|
+|FEDERATED|NO|Federated MySQL storage engine(联合 MySQL 存储引擎)||||
+|PERFORMANCE_SCHEMA|YES|Performance Schema(性能模式)|NO|NO|NO|
+|MyISAM|YES|MyISAM storage engine(MyISAM 存储引擎)|NO|NO|NO|
+|InnoDB|DEFAULT|Supports transactions, row-level locking, and foreign keys(支持事务、行级锁定和外键)|YES|YES|YES|
+|BLACKHOLE|YES|/dev/null storage engine (anything you write to it disappears)|NO|NO|NO|
+|ARCHIVE|YES|Archive storage engine(存档存储引擎)|NO|NO|NO|
+
+
+在MySQL中，不需要在整个服务器中使用同一种存储引擎，针对具体的要求，可以对每一个表使用不同的存储引擎。
+其中几种常用的引擎。
+
+#####一 、Innodb
+    
+    支持事务，是事务安全的，提供行级锁与外键约束，有缓冲池，用于缓冲数据和索引。
+    
+    适用场景：用于事务处理，具有ACID事物支持，应用于执行大量的insert和update操作的表。
+    
+    InnoDB是mysql5.5.x开始默认的事务型引擎，也是使用最广泛的存储引擎。被设计用来处理大量短期事务的。
+    
+    InnoDB所有的表都保存在同一个数据文件中（也可能是多个文件，或者是独立的表空间文件），表的大小只受限于操作系统文件的大小。
+    表的结构定义存在 .frm后缀文件中，数据和索引集中存放在 .idb后缀文件中。因为表数据和索引是在同一个文件，InnoDB的索引是聚簇索引。
+    
+    InnoDB采用MVCC支持高并发，并且实现了四种标准的隔离级别(读未提交，读已提交，可重复读，可串行化)，其默认级别是REPEATABLE-READ(可重复读)，并且通过间隙锁(next-key locking)策略防止幻读的出现。间隙锁不仅仅锁定查询涉及的行，还会对索引中的间隙行进行锁定，以防止幻影行的插入。
+    InnoDB表是基于聚簇索引建立的，聚簇索引对主键的查询有很高的性能。
+    但是InnoDB的非主键索引中必须包含主键列，所以如果主键列很大的话，非主键索引也会很大。
+    如果一张表的索引较多，主键应该尽可能的小。 关于索引，后面会详细讲解。
+    
+    InnoDB的内部优化，包括磁盘预读(从磁盘读取数据时采用可预测性读取)，自适应哈希(自动在内存中创建hash索引以加速读操作)以及能够加速插入操作的插入缓冲区。
+
+#####二 、MyISAM
+
+    不支持事务，不支持外键约束，不支持行级锁，操作时需要锁定整张表，不过会保存表的行数，所以当执行select count(*) from tablename时执行特别快。
+    
+    适用场景：用于管理非事务表，提供高速检索及全文检索能力，适用于有大量的select操作的表，如 日志表
+    
+    MyISAM的数据表存储在磁盘上是3个文件，表结构定义存在 .frm后缀文件中，表数据存储在 .MYD后缀文件中，表索引存储在 .MYI后缀文件中。
+    表数据和表索引在不同的文件中，所以MyISAM索引是非聚簇索引。而且MyISAM可以存储表数据的总行数。
+    
+    MyISAM表支持数据压缩，对于表创建后并导入数据以后，不需要修改操作，可以采用MyISAM压缩表。
+    压缩命令：myisampack，压缩表可以极大的减少磁盘空间占用，因此也可以减少磁盘I/O，提高查询性能。
+    而且压缩表中的数据是单行压缩，所以单行读取是不需要解压整个表。
+
+
+
+#####三 、MEMORY
+
+    使用存在于内存中的内容创建表，每一个memory只实际对应一个磁盘文件。因为是存在内存中的，所以memory访问速度非常快，
+    而且该引擎使用hash索引，可以一次定位，不需要像B树一样从根节点查找到支节点，所以精确查询时访问速度特别快，但是非精确查找时，
+    比如like，这种范围查找，hash就起不到作用了。另外一旦服务关闭，表中的数据就会丢失，因为没有存到磁盘中。
+    
+    适用场景：主要用于内容变化不频繁的表，或者作为中间的查找表。对表的更新要谨慎因为数据没有被写入到磁盘中，服务关闭前要考虑好数据的存储
+    
+    
+    Memory存储引擎的数据是存放在内存中的，所以如果服务器重启会导致数据丢失，但是表结构还是存在的表结构是以 .frm 后缀的文件中。
+    
+    Memory默认hash索引，因此查询非常快。Memory表是表级锁，因此并发写入的性能较低。不支持BLOB或TEXT类型的列，并且每行的长度都是固定的，
+    所以即使指定了varchar列实际存储也会转换成char，会导致内存浪费。
+    
+    如果mysql查询过程中需要使用临时表来保存中间结果，内部使用的临时表就是Memory表，如果中间结果太大超出Memory表的限制或者含有BLOB或TEXT字段，那么临时表会转换成MyISAM表。
+
+<a href="https://www.runoob.com/w3cnote/mysql-different-nnodb-myisam.html" target="_blank">MySQL存储引擎InnoDB与Myisam的六大区别 </a>
+
+上面介绍了种，你如何选择存储引擎呢：
+
+    事务 ：目前只有Innodb能完美的支持事务。
+    备份 ：只有Innodb有免费的在线热备方案，mysqldump不算在线热备的方案，它需要对数据加锁。
+    崩溃恢复：myisam表由于系统崩溃导致数据损坏的概率比Innodb高跟很多，而且恢复速度也没有innodb快。
+    特有的特性：如需要聚簇索引，那就需要选择innodb存储引擎，有的需要使用地理空间搜索，那就选择myisam 。
+
+#####四、 MERGE
+
+    MERGE存储引擎把一组MyISAM数据表当做一个逻辑单元来对待，让我们可以同时对他们进行查询。构成一个MERGE数据表结构的各成员MyISAM数据表必须具有完全一样的结构。每一个成员数据表的数据列必须按照同样的顺序定义同样的名字和类型，索引也必须按照同样的顺序和同样的方式定义。
+    
+    除了便于同时引用多个数据表而无需发出多条查询，MERGE数据表还提供了以下一些便利。
+    
+    MERGE数据表可以用来创建一个尺寸超过各个MyISAM数据表所允许的最大长度逻辑单元
+    
+    你看一把经过压缩的数据表包括到MERGE数据表里。比如说，在某一年结束之后，你应该不会再往相应的日志文件里添加记录，所以你可以用myisampack工具压缩它以节省空间，而MERGE数据表仍可以像往常那样工作
+    
+    Merge引擎是MyISAM引擎的一个变种。Merge表是由多个MyISAM表合并而来的虚拟表。
+    如果将MySQL用于日志或者数据仓库类应用，该引擎可以发挥作用。但是引入分区功能后，该引擎已经被放弃
+
+#####五、CSV
+
+    CSV引擎可以将普通的CSV文件作为MySQL表来处理，但是这种表不支持索引，CSV可以在数据库运行时拷贝或者拷出文件，
+    可以将Excel等电子表格中的数据存储未CSV文件，然后复制到MySQL中，就能在MySQL中打开使用。
+    同样，如果将数据写入到一个CSV引擎表，其他外部程序也可以从表的数据文件中读取CSV的数据。因此CSV可以作为数据交换机制。非常好用
+
+####13、Mysql 8 和mysql 5.7 的区别
+    1.NoSql存储
+        Mysql从5.7 版本提供了NoSQL的存储功能,在8.0中这部分得到一些修改,不过这个在实际中用的极少
+    2.隐藏索引 隐藏索引的特性对于性能调试非常有用,在8.0 中,索引可以被隐藏和显示,当一个索引隐藏时,他不会被查询优化器所使用
+        也就是说可以隐藏一个索引,然后观察对数据库的影响.如果性能下降,就说明这个索引是有效的,于是将其”恢复显示”即可;如果数据库性能看不出变化,说明这个索引是多于的,可以删掉了
+        
+        隐藏一个索引的语法
+            ALTER TABLE t ALTER INDEX i INVISIBLE;
+        恢复显示该索引的语法是：
+            ALTER TABLE t ALTER INDEX i VISIBLE;
+        
+        当一个索引被隐藏时,我们可以从show index命令的输出汇总看出,该索引visible属性值为No
+        **注意:**当索引被隐藏时,他的内容仍然是和正常索引一样实时更新的,这个特性本身是专门为了优化调试而使用的,如果你长期隐藏一个索引,那还不如干掉,因为索引的存在会影响数据的插入\更新和删除功能
+    
+    3.设置持久化 
+        MySQL 的设置可以在运行时通过 SET GLOBAL 命令来更改，但是这种更改只会临时生效，到下次启动时数据库又会从配置文件中读取。 MySQL 8 新增了 SET PERSIST 命令，例如：
+            SET PERSIST max_connections = 500;
+        MySQL 会将该命令的配置保存到数据目录下的 mysqld-auto.cnf 文件中，下次启动时会读取该文件，用其中的配置来覆盖缺省的配置文件。
+    4.UTF-8 编码
+        从 MySQL 8 开始，数据库的缺省编码将改为 utf8mb4，这个编码包含了所有 emoji 字符。多少年来我们使用 MySQL 都要在编码方面小心翼翼，生怕忘了将缺省的 latin 改掉而出现乱码问题。从此以后就不用担心了。
+    5.通用表表达式（Common Table Expressions）
+        复杂的查询会使用嵌入式表，例如：
+            SELECT t1.*, t2.* FROM
+            (SELECT col1 FROM table1) t1,
+            (SELECT col2 FROM table2) t2;
+        而有了 CTE，我们可以这样写：
+            WITH
+                t1 AS (SELECT col1 FROM table1),
+                t2 AS (SELECT col2 FROM table2)
+            SELECT t1.*, t2.*
+            FROM t1, t2;
+        这样看上去层次和区域都更加分明，改起来也更清晰的知道要改哪一部分。 
+        这个特性在很多报表场景是很有用的，也是mysql优化的一个很重要特性。
+
+
+- <a href="https://juejin.cn/post/6978735719099400223" target="_blank">Mysql 8 和mysql 5.7 的区别 </a>
+
+
+
+
+
+
+
+
+
 <p>
     <a href="#" onclick="refreshContent('database')">返回</a>
 </p>
+
+ <style>
+  table{
+    border-left:1px solid #000000;border-top:1px solid #000000;
+    width: 100%;
+    word-wrap:break-word; word-break:break-all;
+  }
+  table th{
+  text-align:center;
+  }
+  table th,td{
+    border-right:1px solid #000000;border-bottom:1px solid #000000;
+  }
+</style>
