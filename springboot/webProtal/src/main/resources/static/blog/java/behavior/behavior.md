@@ -54,12 +54,49 @@ Java有三大特性：封装，继承和多态。
     什么是封装？封装把对象的所有组成部分组合在一起，封装定义程序如何引用对象的数据，封装实际上使用方法将类的数据隐藏起来，
     控制用户对类的修改和访问数据的程度。 适当的封装可以让程式码更容易理解和维护，也加强了程式码的安全性。
 
+
+    1. 封装就是将类的信息隐藏在类内部，不允许外部程序直接访问，而是通过该类的方法实现对隐藏信息的操作和访问。
+    
+    2. 封装是怎么实现的呢？
+    
+       a. 需要修改属性的访问控制符（修改为private）；
+    
+       b. 创建getter/setter方法（用于属性的读写）；
+    
+       c. 在getter/setter方法中加入属性控制语句（用于判断属性值的合法性）;
+           public class Student{
+               private float score;
+               public void setScore(float score){ 
+                    this.score = score;
+               }
+               public float getScore(){
+                    return score;
+               }
+           }
+   
 ### 2.继承：
 
     继承是面向对象最显著的一个特性。
     继承是从已有的类中派生出新的类，新的类能吸收已有类的数据属性和行为，并能扩展新的能力。 
     Java继承是使用已存在的类的定义作为基础建立新类的技术，新类的定义可以增加新的数据或新的功能，也可以用父类的功能，但不能选择性地继承父类。
     这种技术使得复用以前的代码非常容易，能够大大缩短开发周期，降低开发费用
+
+    继承是类与类的一种关系，比较像集合中的从属于关系。
+    比如说，狗属于动物。就可以看成狗类继承了动物类，那么狗类就是动物类的子类（派生类），动物类就是狗类的父类（基类）。
+    在Java中是单继承的，也就是说一个子类只有一个父类
+
+    //父类：动物类
+    public class Animal{
+        public int age;
+        public String name;
+        public void eat(){
+            System.out.println("动物具有吃东西的本领！");
+        }
+    }
+    //子类：狗类
+    public class Dog extends Animal {
+    
+    }
 
 ### 3.多态：
 
@@ -69,6 +106,67 @@ Java有三大特性：封装，继承和多态。
     父对象就可以根据当前赋值给它的子对象的特性以不同的方式运作多态的话，我觉得是更好的利用了继承这一特性，然后为什么能实现多态，因为可以重写父类的方法。
     
     说重写可能不清楚，具体来说就是子类父类可以存在分别存在名字相同的属性或者方法，然后可视声明的类去调用相应的方法等。
+
+
+    多态指的是对象的多种形态。
+    多态有两种：引用多态和方法多态。继承是多态的实现基础。
+    1.引用多态
+    
+        父类的引用可以指向本类的对象；父类的引用可以指向子类的对象
+        //父类：动物类
+        public class Animal{
+            public int age;
+            public String name;
+            public void eat(){
+                System.out.println("动物具有吃东西的本领！");
+            }
+        }
+        //子类：狗类
+        public class Dog extends Animal {
+        
+        }
+        //测试类
+        public class Test{
+            public static void main(String[] args) {
+                //父类的引用可以指向本类的对象
+                Animal ani1 = new Animal();
+                //父类的引用可以指向子类的对象
+                Animal ani2 = new Dog();
+            }
+        }
+    2. 方法多态
+    
+    创建父类对象时，调用的方法为父类方法；
+    
+    创建子类对象时，调用的方法是子类重写的方法或继承自父类的方法
+        //父类：动物类
+        public class Animal{
+            public int age;
+            public String name;
+            public void eat(){
+                System.out.println("动物具有吃东西的本领！");
+            }
+        }
+        //子类：狗类
+        public class Dog extends Animal {
+            public void eat(){
+                System.out.println("狗是吃肉的。")；
+            }
+        }
+        //测试类
+        public class Test{
+            public static void main(String[] args) {
+                //父类的引用可以指向本类的对象
+                Animal ani1 = new Animal();
+                //父类的引用可以指向子类的对象
+                Animal ani2 = new Dog();
+                //输出动物具有吃的本领
+                ani1.eat();
+                //输出狗是吃肉的
+                ani2.eat();
+            }
+        }
+注意：不允许通过父类的引用调用子类独有的方法。
 
 ### 4.抽象：
 
