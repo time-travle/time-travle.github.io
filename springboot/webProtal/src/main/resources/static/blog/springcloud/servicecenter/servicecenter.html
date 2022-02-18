@@ -10,6 +10,13 @@
             $.get('../blog/springcloud/servicecenter/servicecenter.md', function (response, status, xhr) {
                 $("#servicecenter_area").html(marked(response));
             });
+            function refreshServiceCenter(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = '/blog/springcloud/servicecenter/' + choose + '/' + choose + '.html';
+                $("#content").load(location.web.staticpath + target);
+            }
         </script>
     </body>
 </html>

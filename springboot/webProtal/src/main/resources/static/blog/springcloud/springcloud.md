@@ -10,7 +10,7 @@
 <a href="#" onclick="refreshSpringCloudContent('zuul')">SpringCloud（zuul）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshSpringCloudContent('better')">SpringCloud（调优）</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshSpringCloudContent('other')">SpringCloud（其他）</a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshSpringCloudContent('servicecenter')">注册中心</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshSpringCloudContent('servicecenter')">其他的注册中心间对比 </a>&emsp;&emsp;&emsp;
 </p>
 
 ---

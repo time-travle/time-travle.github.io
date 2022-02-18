@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>servicecenter_consul</title>
+    </head>
+    <body>
+        <div id="servicecenter_consul_area" class="md_content"></div>
+        <script>
+            $.get('../blog/springcloud/servicecenter/consul/consul.md', function (response, status, xhr) {
+                $("#servicecenter_consul_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

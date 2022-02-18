@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>servicecenter_zk</title>
+    </head>
+    <body>
+        <div id="servicecenter_zk_area" class="md_content"></div>
+        <script>
+            $.get('../blog/springcloud/servicecenter/zk/zk.md', function (response, status, xhr) {
+                $("#servicecenter_zk_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>
