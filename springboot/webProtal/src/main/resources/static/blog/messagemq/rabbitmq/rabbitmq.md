@@ -6,9 +6,9 @@
 
 # MessageMQ -rabbitmq
 
-- <a href="https://blog.csdn.net/qq_41936805/article/details/88896623#" target="_blank">RabbitMQ的简单使用 </a>
-
+- <a href="https://blog.csdn.net/qq_41936805/article/details/88896623#" target="_blank">SpringBoot框架学习(九)——消息队列 </a>
 - <a href="https://blog.csdn.net/wangbing25307/article/details/80845641#" target="_blank">RabbitMQ的简单使用 </a>
+- <a href="https://blog.csdn.net/qq_41936805/article/details/88896623##" target="_blank">SpringBoot框架学习(九)——消息队列 </a>
 
 ## 核心概念
 
@@ -58,10 +58,33 @@
     按路由规则发送接收、
     主题、
     RPC（即远程存储调用）
+## RabbitMQ如何防止消息丢失
 
+    1. 消息确认机制（ACK）
+        RabbitMQ有一个ACK机制，消费者在接收到消息后会向mq服务发送回执ACK，告知消息已被接收。这种ACK分为两种情况：
+
+        自动ACK：消息一旦被接收，消费者会自动发送ACK
+        手动ACK：消息接收后，不会自动发送ACK，而是需要手动发送ACK
+        如果消费者没有发送ACK，则消息会一直保留在队列中，等待下次接收。但这里存在一个问题，就是一旦消费者发送了ACK，
+        如果消费者后面宕机，则消息会丢失。因此自动ACK不能保证消费者在接收到消息之后能够正常完成业务功能，因此需要在消息被充分利用之后，手动ACK确认
+
+        自动ACK，basicConsume方法中将autoAck参数设为true即可：
+
+        手动ack，在匿名内部类中，手动发送ACK：
+        当然，如果设置了手动ack，但又不手动发送ACK确认，消息会一直停留在队列中，可能造成消息的重复获取
+
+    2. 持久化
+        消息确认机制（ACK）能够保证消费者不丢失消息，但假如消费者在获取消息之前mq服务宕机，则消息也会丢失，
+        因此要保证消息在服务端不丢失，则需要将消息进行持久化。队列、交换机、消息都要持久化。
+    3. 生产者确认
+        生成者在发送消息过程中也可能出现错误或者网络延迟灯故障，导致消息未成功发送到交换机或者队列，或重复发送消息，
+        为了解决这个问题，rabbitmq中有多个解决办法：
+            事务：
+            Confirm模式：
+            异步confirm方法：
 ## demo:
 
-    基本消息模型
+###基本消息模型
         public class ConnectionUtil {
             /**
              * 建立与RabbitMQ的连接
@@ -83,7 +106,8 @@
                 return connection;
             }
         }
-        接下来是生产者发送消息，其过程包括：1.与mq服务建立连接，2.建立通道，3.声明队列（有相同队列则不创建，没有则创建），4.发送消息，代码如下：
+        接下来是生产者发送消息，其过程包括：
+        1.与mq服务建立连接，2.建立通道，3.声明队列（有相同队列则不创建，没有则创建），4.发送消息，代码如下：
 
         public class Send {
             private static final String QUEUE_NAME = "basic_queue";
@@ -125,11 +149,105 @@
             }
         }
 
-    Work Queues工作队列模型
+###Work Queues工作队列模型
         在基本消息模型中，一个生产者对应一个消费者，而实际生产过程中，往往消息生产会发送很多条消息，如果消费者只有一个的话效率就会很低，
         因此rabbitmq有另外一种消息模型， 这种模型下，一个生产发送消息到队列，允许有多个消费者接收消息，但是一条消息只会被一个消费者获取
-        
-    订阅模型
+    
+        //消息生产者
+        public static void main(String[] args) throws Exception {
+        //获取连接和通道
+        Connection connection = ConnectionUtil.getConnection();
+        Channel channel = connection.createChannel();
+        //声明队列
+        channel.queueDeclare(QUEUE_NAME,false,false,false,null);
+        String message = "";
+        for(int i = 0; i<100; i++){
+        message = "" + i;
+        channel.basicPublish("",QUEUE_NAME,null,message.getBytes());
+        System.out.println("发送消息："+message);
+        Thread.sleep(i);
+        }
+    
+            channel.close();
+            connection.close();
+        }
+    
+        //消费者1
+        public static void main(String[] args) throws Exception {
+            Connection connection = ConnectionUtil.getConnection();
+            Channel channel = connection.createChannel();
+            channel.queueDeclare(QUEUE_NAME,false,false,false,null);
+    
+            //同一时刻服务器只发送一条消息给消费端
+            channel.basicQos(1);
+    
+            QueueingConsumer consumer = new QueueingConsumer(channel);
+    
+            channel.basicConsume(QUEUE_NAME,false,consumer);
+    
+            while(true){
+                QueueingConsumer.Delivery delivery = consumer.nextDelivery();
+                String message = new String(delivery.getBody());
+                System.out.println("recive1:"+message);
+                Thread.sleep(100);
+                //消息消费完给服务器返回确认状态，表示该消息已被消费
+                channel.basicAck(delivery.getEnvelope().getDeliveryTag(),false);
+            }
+        }
+    
+        //生产者2
+        public static void main(String[] args) throws Exception {
+            Connection connection = ConnectionUtil.getConnection();
+            Channel channel = connection.createChannel();
+            channel.queueDeclare(QUEUE_NAME,false,false,false,null);
+    
+            channel.basicQos(1);
+    
+            QueueingConsumer consumer = new QueueingConsumer(channel);
+    
+            channel.basicConsume(QUEUE_NAME,true,consumer);
+    
+            while(true){
+                QueueingConsumer.Delivery delivery = consumer.nextDelivery();
+                String message = new String(delivery.getBody());
+                System.out.println("recive1:"+message);
+                Thread.sleep(10);
+                //channel.basicAck(delivery.getEnvelope().getDeliveryTag(),false);
+            }
+        }
+    
+    消息消费的两种模式
+    1、 自动模式
+    
+        消费者从消息队列获取消息后，服务端就认为该消息已经成功消费。
+    
+    2、 手动模式
+    
+        消费者从消息队列获取消息后，服务端并没有标记为成功消费
+        消费者成功消费后需要将状态返回到服务端
+    
+    自动模式：
+        channel.basicConsume(QUEUE_NAME,true,consumer);
+        while(true){
+            QueueingConsumer.Delivery delivery = consumer.nextDelivery();
+            String message = new String(delivery.getBody());
+            System.out.println("recive1:"+message);
+            Thread.sleep(10);
+            //无需反馈
+            //channel.basicAck(delivery.getEnvelope().getDeliveryTag(),false);
+        }
+    手动模式：
+        channel.basicConsume(QUEUE_NAME,false,consumer);
+        while(true){
+            QueueingConsumer.Delivery delivery = consumer.nextDelivery();
+            String message = new String(delivery.getBody());
+            System.out.println("recive1:"+message);
+            Thread.sleep(100);
+            //消息消费完给服务器返回确认状态，表示该消息已被消费
+            channel.basicAck(delivery.getEnvelope().getDeliveryTag(),false);
+        }
+
+###订阅模型
         在之前的模型中，一条消息只能被一个消费者获取，而在订阅模式中，可以实现一条消息被多个消费者获取。在这种模型下，
         消息传递过程中比之前多了一个exchange交换机，生产者不是直接发送消息到队列，而是先发送给交换机，经由交换机分配到不同的队列，而每个消费者都有自己的队列
         
@@ -143,27 +261,116 @@
 
         5、生产者发送的消息，经过交换机到达队列，实现一个消息被多个消费者获取的目的
 
-## RabbitMQ如何防止消息丢失
+    public static final String EXCHANGE_NAME = "test_exchange_fanout";
+    //生产者，发送消息到交换机
+    public static void main(String[] args) throws Exception {
+        Connection connection = ConnectionUtil.getConnection();
+        Channel channel = connection.createChannel();
+        //声明交换机 fanout：交换机类型 主要有fanout,direct,topics三种
+        channel.exchangeDeclare(EXCHANGE_NAME,"fanout");
 
-    1. 消息确认机制（ACK）
-        RabbitMQ有一个ACK机制，消费者在接收到消息后会向mq服务发送回执ACK，告知消息已被接收。这种ACK分为两种情况：
+        String message = "Hello World!";
+        channel.basicPublish(EXCHANGE_NAME,"",null,message.getBytes());
+        System.out.println(message);
+        channel.close();
+        connection.close();
+    }
 
-        自动ACK：消息一旦被接收，消费者会自动发送ACK
-        手动ACK：消息接收后，不会自动发送ACK，而是需要手动发送ACK
-        如果消费者没有发送ACK，则消息会一直保留在队列中，等待下次接收。但这里存在一个问题，就是一旦消费者发送了ACK，
-        如果消费者后面宕机，则消息会丢失。因此自动ACK不能保证消费者在接收到消息之后能够正常完成业务功能，因此需要在消息被充分利用之后，手动ACK确认
+    //消费者1
+    public final static String QUEUE_NAME = "test_queue_exchange_1";
+    public static void main(String[] args) throws Exception {
+        Connection connection = ConnectionUtil.getConnection();
+        Channel channel = connection.createChannel();
+        channel.queueDeclare(QUEUE_NAME,false,false,false,null);
+        //绑定队列到交换机上
+        channel.queueBind(QUEUE_NAME,Send.EXCHANGE_NAME,"");
+        channel.basicQos(1);
+        QueueingConsumer consumer = new QueueingConsumer(channel);
+        channel.basicConsume(QUEUE_NAME,true,consumer);
+        while(true){
+            QueueingConsumer.Delivery delivery = consumer.nextDelivery();
+            String message = new String(delivery.getBody());
+            System.out.println(message);
+        }
+    }
 
-        自动ACK，basicConsume方法中将autoAck参数设为true即可：
+    //消费者2
+    public final static String QUEUE_NAME = "test_queue_exchange_2";
+    public static void main(String[] args) throws Exception {
+        Connection connection = ConnectionUtil.getConnection();
+        Channel channel = connection.createChannel();
+        channel.queueDeclare(QUEUE_NAME,false,false,false,null);
+        //绑定队列到交换机上
+        channel.queueBind(QUEUE_NAME,Send.EXCHANGE_NAME,"");
+        channel.basicQos(1);
+        QueueingConsumer consumer = new QueueingConsumer(channel);
+        channel.basicConsume(QUEUE_NAME,true,consumer);
 
-        手动ack，在匿名内部类中，手动发送ACK：
-        当然，如果设置了手动ack，但又不手动发送ACK确认，消息会一直停留在队列中，可能造成消息的重复获取
+        while(true){
+            QueueingConsumer.Delivery delivery = consumer.nextDelivery();
+            String message = new String(delivery.getBody());
+            System.out.println(message);
+        }
+    }
+### 路由模式
+    1、 发送消息到交换机并且要指定路由key
+    
+    2、 消费者将队列绑定到交换机时需要指定路由key
+    
+    是一种完全匹配，只有匹配到的消费者才能消费消息
+    
+    消息中的路由键（ routing key）如果和 Binding 中的 binding key 一致， 交换器就将消息发到对应的队列中。
+    路由键与队列名完全匹配，如果一个队列绑定到交换机要求路由键为“ dog”，则只转发 routing key 标记为“ dog”的消息，不会转发“ dog.puppy”，也不会转发“ dog.guard”等等。它是完全匹配、单播的模式。
 
-    2. 持久化
-        消息确认机制（ACK）能够保证消费者不丢失消息，但假如消费者在获取消息之前mq服务宕机，则消息也会丢失，
-        因此要保证消息在服务端不丢失，则需要将消息进行持久化。队列、交换机、消息都要持久化。
-    3. 生产者确认
-        生成者在发送消息过程中也可能出现错误或者网络延迟灯故障，导致消息未成功发送到交换机或者队列，或重复发送消息，
-        为了解决这个问题，rabbitmq中有多个解决办法：
-            事务：
-            Confirm模式：
-            异步confirm方法：
+    public static final String EXCHANGE_NAME = "test_exchange_direct";
+    //生产者
+    public static void main(String[] args) throws Exception {
+        Connection connection = ConnectionUtil.getConnection();
+        Channel channel = connection.createChannel();
+        //声明交换机 fanout：交换机类型 主要有fanout,direct,topics三种
+        channel.exchangeDeclare(EXCHANGE_NAME,"direct");
+
+        String message = "Hello World!";
+        channel.basicPublish(EXCHANGE_NAME,"dog",null,message.getBytes());
+        System.out.println(message);
+        channel.close();
+        connection.close();
+    }
+
+    //消费者1
+    public final static String QUEUE_NAME = "test_queue_direct_1";
+    public static void main(String[] args) throws Exception {
+        Connection connection = ConnectionUtil.getConnection();
+        Channel channel = connection.createChannel();
+        channel.queueDeclare(QUEUE_NAME,false,false,false,null);
+        //绑定队列到交换机上,并制定路由键为"dog"
+        channel.queueBind(QUEUE_NAME, com.bw.rabbitmq.routing.Send.EXCHANGE_NAME,"dog");
+        channel.basicQos(1);
+        QueueingConsumer consumer = new QueueingConsumer(channel);
+        channel.basicConsume(QUEUE_NAME,true,consumer);
+        while(true){
+            QueueingConsumer.Delivery delivery = consumer.nextDelivery();
+            String message = new String(delivery.getBody());
+            System.out.println(message);
+        }
+    }
+
+    //消费者2
+    public final static String QUEUE_NAME = "test_queue_direct_2";
+    public static void main(String[] args) throws Exception {
+        Connection connection = ConnectionUtil.getConnection();
+        Channel channel = connection.createChannel();
+        channel.queueDeclare(QUEUE_NAME,false,false,false,null);
+        //绑定队列到交换机上,并制定路由键为"cat"
+        channel.queueBind(QUEUE_NAME, com.bw.rabbitmq.routing.Send.EXCHANGE_NAME,"cat");
+        channel.basicQos(1);
+        QueueingConsumer consumer = new QueueingConsumer(channel);
+        channel.basicConsume(QUEUE_NAME,true,consumer);
+        while(true){
+            QueueingConsumer.Delivery delivery = consumer.nextDelivery();
+            String message = new String(delivery.getBody());
+            System.out.println(message);
+        }
+    }
+
+
