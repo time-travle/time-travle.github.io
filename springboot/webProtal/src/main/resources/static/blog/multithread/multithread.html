@@ -10,6 +10,14 @@
             $.get('../blog/multithread/multithread.md', function (response, status, xhr) {
                 $("#multithread").html(marked(response));
             });
+
+            function refreshMultithreadContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = '/blog/multithread/' + choose + '/' + choose + '.html';
+                $("#content").load(location.web.staticpath + target);
+            }
         </script>
     </body>
 </html>
