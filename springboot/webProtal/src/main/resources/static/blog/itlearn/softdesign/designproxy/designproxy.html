@@ -10,6 +10,14 @@
             $.get('../blog/itlearn/softdesign/designproxy/designproxy.md', function (response, status, xhr) {
                 $("#designproxy_area").html(marked(response));
             });
+
+            function refreshDesignProxyContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = '/blog/itlearn/softdesign/designproxy/' + choose + '/' + choose + '.html';
+                $("#content").load(location.web.staticpath + target);
+            }
         </script>
     </body>
     </body>

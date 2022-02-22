@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>designproxy-javaproxy</title>
+    </head>
+    <body>
+        <div id="designproxy_javaproxy_area" class="md_content"></div>
+        <script>
+            $.get('../blog/itlearn/softdesign/designproxy/javaproxy/javaproxy.md', function (response, status, xhr) {
+                $("#designproxy_javaproxy_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>
