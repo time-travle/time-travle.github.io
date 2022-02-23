@@ -7,7 +7,7 @@
     <body>
         <div id="cluster_area" class="md_content"></div>
         <script>
-            $.get('../blog/redis/cluster/cluster.md', function (response, status, xhr) {
+            $.get('../blog/cached/redis/cluster/cluster.md', function (response, status, xhr) {
                 $("#cluster_area").html(marked(response));
             });
         </script>

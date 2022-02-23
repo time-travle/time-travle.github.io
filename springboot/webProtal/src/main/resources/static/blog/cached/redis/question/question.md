@@ -1,5 +1,5 @@
 <p>
-    <a href="#" onclick="refreshContent('redis')">返回目录</a>
+    <a href="#" onclick="refreshCachedContent('redis')">返回目录</a>
 </p>
 
 ---
@@ -498,14 +498,10 @@
 
 ##55.redis 有哪些功能？
 
-            数据缓存功能
-        
-            分布式锁的功能
-        
-            支持数据持久化
-        
-            支持事务
-        
+            数据缓存功能        
+            分布式锁的功能        
+            支持数据持久化        
+            支持事务        
             支持消息队列
 
 ##56、redis 和 memecache 有什么区别？
@@ -664,6 +660,12 @@ redis 支持的数据类型 的用法
 
 
 ##74、如何保证redis缓存与数据一致性问题
+    
+            读数据加锁（分布式锁）防止高并发打垮数据库
+            延迟双删，防止缓存失效时（读写分离架构下，读从库延迟问题），存入旧数据，第二次删除可以异步执行等待删除
+            如果需要做重试机制可以依赖于消息队列的可靠消费
+    禁忌：过度设计，一般简单的延迟双删就可以实现需求，无需增加系统复杂度
+
 
     在Redis的key值未过期的情况下，用户修改了个人信息，我们此时既要操作数据库数据，也要操作Redis数据。
     现在我们面临了两种选择：
@@ -731,11 +733,11 @@ redis 支持的数据类型 的用法
     这种方式可能存在以下两种异常情况
         删除缓存失败，这时可以通过程序捕获异常，直接返回结果，不再继续更新数据库，所以不会出现数据不一致的问题
         删除缓存成功，更新数据库失败。在多线程下可能会出现数据不一致的问题
-![avatar](../blog/redis/question/imgs/img.png)
+![avatar](../blog/cached/redis/question/imgs/img.png)
 
         这时，Redis中存储的旧数据，数据库的值是新数据，导致数据不一致。这时我们可以采用延时双删的策略，即更新数据库数据之后，再删除一次缓存。
 
-![avatar](../blog/redis/question/imgs/img_1.png)
+![avatar](../blog/cached/redis/question/imgs/img_1.png)
 
 双删且延时 + 设置数据过期时间 <a href="https://blog.csdn.net/xukaiqiang123/article/details/113544712" target="_blank">redis数据一致性之延时双删详解 </a>
     

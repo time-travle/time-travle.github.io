@@ -1,5 +1,5 @@
 <p>
-    <a href="#" onclick="refreshContent('redis')">返回目录</a>
+    <a href="#" onclick="refreshCachedContent('redis')">返回目录</a>
 </p>
 
 ---

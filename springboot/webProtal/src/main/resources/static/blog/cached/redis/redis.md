@@ -1,3 +1,9 @@
+<p>
+    <a href="#" onclick="refreshContent('cached')">返回目录</a>
+</p>
+
+---
+
 # redis
 
 ---
@@ -15,6 +21,9 @@
 ## 简介
 
 Redis 是完全开源免费的，遵守BSD协议，是一个高性能的key-value数据库。
+
+Redis全称为：Remote Dictionary Server（远程数据服务），该软件使用C语言编写，Redis是一个key-value存储系统，它支持丰富的数据类型， 如：string、list、set、zset(sorted
+set)、hash
 
 Redis 与其他 key - value 缓存产品有以下三个特点：
 

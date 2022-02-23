@@ -1,5 +1,5 @@
 <p>
-    <a href="#" onclick="refreshContent('redis')">返回目录</a>
+    <a href="#" onclick="refreshCachedContent('redis')">返回目录</a>
 </p>
 
 ---
@@ -16,8 +16,8 @@
     关闭：无论数据大小都会及时同步到从节点，占带宽，适用于主从网络好的场景；
     开启：主节点每隔指定时间合并数据为TCP包节省带宽，默认为40毫秒同步一次，适用于网络环境复杂或带宽紧张，如跨机房；
 
-![avatar](../blog/redis/imag/redis1.png)或者
-![avatar](../blog/redis/imag/redis2.png)
+![avatar](../blog/cached/redis/imag/redis1.png)或者
+![avatar](../blog/cached/redis/imag/redis2.png)
 
     作用:
         数据冗余：主从复制实现了数据的热备份，是持久化之外的一种数据冗余方式。
@@ -51,19 +51,19 @@
 
     最基础的主从复制模型，主节点负责处理写请求，从节点负责处理读请求，主节点使用RDB持久化模式，从节点使用AOF持久化模式：
 
-![avatar](../blog/redis/imag/one2one.png)
+![avatar](../blog/cached/redis/imag/one2one.png)
 
 #### 一主多从
 
     一个主节点可以有多个从节点，但每个从节点只能有一个主节点。一主多从适用于写少读多的场景，多个从节点可以分担读请求负载，提升并发：
 
-![avatar](../blog/redis/imag/one2many.png)
+![avatar](../blog/cached/redis/imag/one2many.png)
 
 #### 树状主从
 
     上面的一主多从可以实现读请求的负载均衡，但当从节点数量多的时候，主节点的同步压力也是线性提升的，因此可以使用树状主从来分担主节点的同步压力：
 
-![avatar](../blog/redis/imag/treecluster.png)
+![avatar](../blog/cached/redis/imag/treecluster.png)
 
 #### 复制原理
 
@@ -92,7 +92,7 @@ Redis 的从服务器在向主服务器发起同步时，一般会使用 SYNC �
     从服务器载入 RDB 文件，将自己的数据库状态同步更新为主服务器执行 BGSAVE命令时的状态。
     主服务器将缓冲区的所有写命令发送给从服务器，从服务将执行这些写命令，数据库状态同步为主服务器最新状态。
 
-![avatar](../blog/redis/imag/redis3.png)
+![avatar](../blog/cached/redis/imag/redis3.png)
 SYNC 与 PSYNC 的区别
 
     当主从同步完成后，如果此时从服务器宕机了一段时间，重新上线后势必要重新同步一下主服务器，SYNC与 PSYNC命令的区别就在于断线后重复制阶段处理的方式不同。
@@ -123,7 +123,7 @@ PSYNC 如何实现部分重同步?
     
         当执行主从同步时，主服务器会将自己的服务器 ID (一般是自动生成的 UUID ) 发送给从服务器。从服务器在断线恢复后会判断该 ID 是否为当前连接的主服务器。如果是同一个 ID 则代表主服务器没变尝试部分重同步。如果不是同一个 ID 代表主服务有变动，则会与主服务器完全重同步。
 
-![avatar](../blog/redis/imag/redis4.png)
+![avatar](../blog/cached/redis/imag/redis4.png)
 
 #### 主从复制的优缺点
 
@@ -178,7 +178,7 @@ PSYNC 如何实现部分重同步?
             哨兵返回信息给哨兵A，当超过半数的哨兵认为主节点下线后，状态会变成odown；
             最先发现主节点下线的哨兵A会成为哨兵领导者负责这次的主从节点的切换工作；
 
-![avatar](../blog/redis/imag/sentinel.png)
+![avatar](../blog/cached/redis/imag/sentinel.png)
 
         哨兵的选举机制是以各哨兵节点接收到发送sentinel is-master-down-by-address-port指令的哨兵id 投票，票数最高的哨兵id会成为本次故障转移工作的哨兵Leader；
 
@@ -254,7 +254,7 @@ Redis集群可以看成多个主从架构组合起来的，每一个主从架构
         槽介于数据和节点之间，将节点划分为一定数量的槽，每个槽包含哈希值一定范围内的数据。由原来的hash-->node 变为 hash-->slot-->node。        
         当增删节点时，该节点所有拥有的槽会被重新分配给其他节点，可以避免在一致性哈希分区中由于某个节点的增删造成数据的严重分布不均。
 
-![avatar](../blog/redis/imag/cluster.png)
+![avatar](../blog/cached/redis/imag/cluster.png)
 
 哈希槽算法
 
