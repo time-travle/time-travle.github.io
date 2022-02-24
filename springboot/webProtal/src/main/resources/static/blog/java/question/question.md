@@ -181,6 +181,51 @@ Java 程序运行流程如图
         4.3：链表结构，循环遍历直到链表中某个节点为空，尾插法进行插入，插入之后判断链表个数是否到达变成红黑树的阙值8；
             也可以遍历到有节点与插入元素的哈希值和内容相同，进行覆盖。
     5.如果桶满了大于阀值，则resize进行扩容
+## Q: == 和 equals 的区别
+使用 == 比较
+
+        Java中的8种基本数据类型（byte,short,char,int,long,float,double,boolean）比较他们之间的值是否相等。
+        引用数据类型，比较的是他们在堆内存地址是否相等。每新new一个引用类型的对象，会重新分配堆内存空间，使用==比较返回false。
+使用 equals 比较
+
+        equals方法是Object类的一个方法，Java当中所有的类都是继承于Object这个超类。
+        JDK1.8 Object类equals方法源码如下，即返回结果取决于两个对象的使用==判断结果。
+
+                public boolean equals(Object obj) {
+                        return (this == obj);
+                }
+        在实际使用中，一般会重写定义的class的equals方法，如JDK1.8 java.lang.String类的equals源码如下。
+        即两个字符串使用 == 相等  或者  两个字符串的所有组成字符都相等返回true，其他情况返回false。
+                public boolean equals(Object anObject) {
+                    if (this == anObject) {
+                        return true;
+                    }
+                    if (anObject instanceof String) {
+                        String anotherString = (String) anObject;
+                        int n = value.length;
+                        if (n == anotherString.value.length) {
+                            char v1[] = value;
+                            char v2[] = anotherString.value;
+                            int i = 0;
+                            while (n-- != 0) {
+                                if (v1[i] != v2[i])
+                                        return false;
+                                i++;
+                            }
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+
+总结：
+
+        == 的作用：
+                基本类型：比较值是否相等
+                引用类型：比较内存地址值是否相等
+                
+        equals 的作用:
+                引用类型：默认情况下，比较内存地址值是否相等。可以按照需求逻辑，重写对象的equals方法
 
 - <a href="https://www.cnblogs.com/zengcongcong/p/11295349.html#" target="_blank">https://www.cnblogs.com/zengcongcong/p/11295349.html </a>
 
@@ -536,7 +581,8 @@ Paraller Scavenge收集器：
         与ParNew的另外一个区别是Paraller Scavenge的GC自适应调节策略。
 
     Parallel Scavenge收集器可设置-XX:+UseAdptiveSizePolicy参数。
-            当开关打开时不需要手动指定新生代的大小（-Xmn）、Eden与Survivor区的比例（-XX:SurvivorRation）、晋升老年　　　　                　　　　　　　　　　　代的对象年龄（-XX:PretenureSizeThreshold）等，虚拟机会根据系统的运行状况收集性能监控信息，动态设置这些参数以提供最优的停顿时间和最高的吞吐量，这种调节方式称为GC的自适应调节策略。
+            当开关打开时不需要手动指定新生代的大小（-Xmn）、Eden与Survivor区的比例（-XX:SurvivorRation）、晋升老年
+        代的对象年龄（-XX:PretenureSizeThreshold）等，虚拟机会根据系统的运行状况收集性能监控信息，动态设置这些参数以提供最优的停顿时间和最高的吞吐量，这种调节方式称为GC的自适应调节策略。
     
     Parallel Scavenge收集器使用两个参数控制吞吐量：
 

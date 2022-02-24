@@ -139,7 +139,14 @@
     缺省的Spring bean 的作用域是Singleton.
 
 
+## Spring Bean 的生命周期来说：
+    
+    实例化 Instantiation
+    属性赋值 Populate
+    初始化 Initialization
+    销毁 Destruction
 
+实例化 -> 属性赋值 -> 初始化 -> 销毁
 
 
 

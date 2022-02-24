@@ -1,4 +1,4 @@
-# 面试相关
+# 面试介绍相关
 
 ## self interview
 
@@ -16,7 +16,7 @@
     At the same time, I also studied daily English in my first year of graduation
     
     I worked as a senior Software Engineer in (iSoftStone information Technology),
-    and I have about 4.5 year work experience on Software development from November 2016 to now. 
+    and I have about 5 year work experience on Software development from November 2016 to now. 
     
     My major work was Java Web development based on spring boot,struts,hibernate and mybatis framework. 
     
