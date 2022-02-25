@@ -3,7 +3,7 @@
 <a href="#" onclick="refreshMultithreadContent('lock')">锁的说明和使用 </a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshMultithreadContent('complicating')">高并发解决方案 </a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshMultithreadContent('thread')">线程的使用 </a>&emsp;&emsp;&emsp;
-<a href="#" onclick="refreshMultithreadContent('pool')">线程池/连接池 </a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshMultithreadContent('pool')">线程池 </a>&emsp;&emsp;&emsp;
 </p>
 
 ----

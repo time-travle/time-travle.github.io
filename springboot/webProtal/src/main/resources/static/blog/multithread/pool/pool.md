@@ -7,6 +7,10 @@
 # 线程池 的使用
 
 ---
+线程池的类体系结构
+
+![avatar](../imgs/img_10.png)
+![avatar](../blog/multithread/imgs/img_10.png)
 
 ## 线程池的优点？
 
@@ -50,13 +54,35 @@
 ![avatar](../imgs/img_9.png)
 ![avatar](../blog/multithread/imgs/img_9.png)
 
+## submit 与 execute
 
+    submit是ExecutorService中的方法 用以提交一个任务,他的返回值是future对象  可以获取执行结果
+    execute是Executor接口的方法,他虽然也可以像submit那样让一个任务执行  但并不能有返回值
 
+## 用到的注解
 
+- @EnableAsync 开启异步线程
+- @Async || @Async("taskPoolExecutor")
+- @Autowired 自动注入
+- @Configuration 配置加载
+- @Bean("taskExecutor")
 
+#### 自定义线程池时的 池对象：
+
+    ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
+
+## 线程池参考：
+
+- <a href="https://juejin.cn/post/6844903875875618830" target="_blank">springboot2中配置线程池 </a>
+- <a href="https://cloud.tencent.com/developer/article/1639857" target="_blank">
+  springboot之线程池ThreadPoolTaskExecutor以及@Async异步注解 </a>
+- <a href="https://zhuanlan.zhihu.com/p/123259107" target="_blank">SpringBoot线程池的创建、@Async配置步骤及注意事项 </a>
+- <a href="https://blog.51cto.com/u_9177933/2988598" target="_blank">SpringBoot 线程池配置 </a>
+- <a href="https://www.cnblogs.com/dudou/p/15136180.html" target="_blank">SpringBoot 线程池 配置使用 </a>
+- <a href="https://www.jianshu.com/p/763ea6ce1da9" target="_blank">SpringBoot 整合线程池及各参数详解 </a>
+- <a href="https://blog.csdn.net/qq_43813937/article/details/104532261" target="_blank">Spring Boot 配置线程池详解 </a>
 
 ---
 
-# 连接池 的使用
 
 

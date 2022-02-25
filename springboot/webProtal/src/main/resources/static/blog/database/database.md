@@ -4,6 +4,7 @@
 <a href="#" onclick="refreshDatabaseContent('mysql')">Mysql 相关</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshDatabaseContent('oracle')">Oracle 相关</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshDatabaseContent('question')">问题相关</a>&emsp;&emsp;&emsp;
+<a href="#" onclick="refreshDatabaseContent('pool')">连接池相关</a>&emsp;&emsp;&emsp;
 </p>
 
 ---
