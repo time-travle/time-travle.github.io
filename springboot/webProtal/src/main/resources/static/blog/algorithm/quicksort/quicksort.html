@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>algorithm_quicksort</title>
+    </head>
+    <body>
+        <div id="algorithm_quicksort_area" class="md_content"></div>
+        <script>
+            $.get('../blog/algorithm/quicksort/quicksort.md', function (response, status, xhr) {
+                $("#algorithm_quicksort_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>
