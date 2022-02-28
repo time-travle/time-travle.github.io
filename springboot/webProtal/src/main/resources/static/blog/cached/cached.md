@@ -1,4 +1,3 @@
----
 <p>
 <a href="#" onclick="refreshCachedContent('redis')">Redis的使用</a>&emsp;&emsp;&emsp;
 <a href="#" onclick="refreshCachedContent('springcache')">Spring Cache的使用</a>&emsp;&emsp;&emsp;
@@ -68,8 +67,7 @@ g.消息中间件是企业的重要基础设施，在面向 SOA 架构中，ESB 
 
 7.分布式数据库的主从复制、主主复制可以提高系统的性能、可用性，可专机专用（用于特定场景）。
 
-
-##总结：
+## 总结：
 
     部署调用：Redis、Memcache单独部署 ； Ehcache直接在jvm虚拟机中；
     持久化：Redis、Ehcache支持； Memcache不支持；
