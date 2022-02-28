@@ -10,6 +10,13 @@
             $.get('../blog/algorithm/algorithm.md', function (response, status, xhr) {
                 $("#algorithm_area").html(marked(response));
             });
+            function refreshAlgorithmContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = '/blog/algorithm/' + choose + '/' + choose + '.html';
+                $("#content").load(location.web.staticpath + target);
+            }
         </script>
     </body>
 </html>
