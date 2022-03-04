@@ -7,6 +7,7 @@
 ---
 
 ## Q： java 程序 是怎么运行的
+
 Java 程序运行流程如图
 
 ![avatar](../blog/java/imgs/img.png)
@@ -18,7 +19,6 @@ Java 程序运行流程如图
 它是一种二进制文件，是 Java 源文件由 Java 编译器编译后生成的目标代码文件。
 
 编程人员和计算机都无法直接读懂字节码文件，它必须由专用的 Java 解释器来解释执行，因此 Java 是一种在编译基础上进行解释运行的语言
-
 
 ## Q：这21个刁钻的HashMap面试题，我把阿里面试官吊打了
 
@@ -181,11 +181,14 @@ Java 程序运行流程如图
         4.3：链表结构，循环遍历直到链表中某个节点为空，尾插法进行插入，插入之后判断链表个数是否到达变成红黑树的阙值8；
             也可以遍历到有节点与插入元素的哈希值和内容相同，进行覆盖。
     5.如果桶满了大于阀值，则resize进行扩容
+
 ## Q: == 和 equals 的区别
+
 使用 == 比较
 
         Java中的8种基本数据类型（byte,short,char,int,long,float,double,boolean）比较他们之间的值是否相等。
         引用数据类型，比较的是他们在堆内存地址是否相等。每新new一个引用类型的对象，会重新分配堆内存空间，使用==比较返回false。
+
 使用 equals 比较
 
         equals方法是Object类的一个方法，Java当中所有的类都是继承于Object这个超类。
@@ -472,12 +475,11 @@ Java 程序运行流程如图
 
 - <a href="https://www.cnblogs.com/xiaolovewei/p/9142046.html#" target="_blank">https://www.cnblogs.com/xiaolovewei/p/9142046.html </a>
 
+  它是线程安全的无序的集合，可以将它理解成线程安全的HashSet CopyOnWriteArraySet和HashSet虽然都继承于共同的父类AbstractSet； 但是，HashSet是通过“散列表(HashMap)”实现的，
+  而CopyOnWriteArraySet则是通过“动态数组(CopyOnWriteArrayList)”实现的，并不是散列表
 
-    它是线程安全的无序的集合，可以将它理解成线程安全的HashSet CopyOnWriteArraySet和HashSet虽然都继承于共同的父类AbstractSet； 但是，HashSet是通过“散列表(HashMap)”实现的，
-    而CopyOnWriteArraySet则是通过“动态数组(CopyOnWriteArrayList)”实现的，并不是散列表
-    
-    CopyOnWriteArraySet具有以下特性：
-    
+  CopyOnWriteArraySet具有以下特性：
+
       1. 它最适合于具有以下特征的应用程序：Set 大小通常保持很小，只读操作远多于可变操作，需要在遍历期间防止线程间的冲突。
       2. 它是线程安全的。
       3. 因为通常需要复制整个基础数组，所以可变操作（add()、set() 和 remove() 等等）的开销很大。
@@ -485,18 +487,19 @@ Java 程序运行流程如图
       5. 使用迭代器进行遍历的速度很快，并且不会与其他线程发生冲突。在构造迭代器时，迭代器依赖于不变的数组快照。
 
 ## Q : 垃圾回收机制
+
 - <a href="https://www.cnblogs.com/dolphin0520/p/3783345.html" target="_blank">https://www.cnblogs.com/dolphin0520/p/3783345.html </a>
 - <a href="https://www.cnblogs.com/xiaoxi/p/6486852.html" target="_blank">https://www.cnblogs.com/xiaoxi/p/6486852.html </a>
 - <a href="https://blog.csdn.net/CrankZ/article/details/86009279" target="_blank">Java——七种垃圾收集器+JDK11最新ZGC </a>
-
-
+- <a href="https://blog.csdn.net/YD_162031/article/details/100154731" target="_blank">垃圾回收（GC）流程 </a>
+- <a href="https://zhuanlan.zhihu.com/p/159200599" target="_blank">JVM的垃圾回收机制——垃圾回收算法 </a>
+- <a href="https://blog.csdn.net/qq_28959087/article/details/86665793" target="_blank">深入理解java虚拟机之垃圾回收算法？CMS垃圾回收的基本流程？对象引用类型？ </a>
 
 在java中，程序员是不需要显示的去释放一个对象的内存的，而是由虚拟机自行执行。
 
 在JVM中，有一个垃圾回收线程，它是低优先级的，在正常情况下是不会执行的，只有在虚拟机空闲或者当前堆内存不足时，才会触发执行，
 
 扫描那些没有被任何引用的对象，并将它们添加到要回收的集合中，进行回收。
-
 
 GC 垃圾收集（Gabage Collection），内存处理是编程人员容易出现问题的地方，忘记或者错误的内存。
 
@@ -515,7 +518,6 @@ GC 垃圾收集（Gabage Collection），内存处理是编程人员容易出现
     弱引用：有用但不是必须的对象，在下一次GC时会被回收。
     虚引用（幽灵引用/幻影引用）：无法通过虚引用获得对象，用 PhantomReference 实现虚引用，虚引用的用途是在 gc 时返回一个通知
 
-
 垃圾收集器在做垃圾回收的时候，首先需要判定的就是哪些内存是需要被回收的，哪些对象是存活的，是不可以被回收的；哪些对象已经死亡了，需要被回收。
 
 一般有两种方法来判断：
@@ -524,50 +526,51 @@ GC 垃圾收集（Gabage Collection），内存处理是编程人员容易出现
                 但是他有一个缺点是不能解决循环引用的问题。
     
     可达性分析算法：从 GC Roots 开始向下搜索，搜索所走过的路径称为引用链。当一个对象到 GC Roots 没有任何引用链相连时，则证明此对象是可以被回收的。
-    
+
 当对象对当前使用这个对象的应用程序变得不可触及的时候，这个对象就可以被回收了。
 
-垃圾回收不会发生在永久代，如果永久代满了或者是超过了临界值，会触发完全垃圾回收(Full GC)。
-        查看垃圾收集器的输出信息，就会发现永久代也是被回收的。这就是为什么正确的永久代大小对避免Full GC是非常重要的原因。
+垃圾回收不会发生在永久代，如果永久代满了或者是超过了临界值，会触发完全垃圾回收(Full GC)。 查看垃圾收集器的输出信息，就会发现永久代也是被回收的。这就是为什么正确的永久代大小对避免Full GC是非常重要的原因。
 
-##Q: JVM 的垃圾回收算法
+## Q: JVM 的垃圾回收算法 标记-清除、复制算法、标记-整理、分代算法
+
 标记-清除算法（Mark-Sweep）：
 
     标记无用对象，然后进行清除回收。缺点：效率不高，无法清除垃圾碎片。
 
     该算法分为两个阶段，标记和清除。标记阶段标记所有需要回收的对象，清除阶段回收被标记的对象所占用的空间。
     该算法最大的问题就是内存碎片严重化，后续可能发生对象不能找到利用空间的问题。
+
 复制算法（Copying）：
-    
+
     按照容量划分二个大小相等的内存区域，当一块用完的时候将活着的对象复制到另一块上，然后再把已使用的内存空间一次清理掉。缺点：内存使用率不高，只有原来的一半。
     
     按内存容量将内存划分为等大小的两块。每次只使用其中一块，当这一块内存满后将尚存活的对象复制到另一块上去，把已使用的内存清掉。
 
 标记-整理算法（Mark-Compact）：
-    
+
     标记无用对象，让所有存活的对象都向一端移动，然后直接清除掉端边界以外的内存。
     
     标记后不是清理对象，而是将存活对象移向内存的一端。然后清除端边界外的对象。
 
 分代算法（Generational Collection）：
-    
+
     根据对象存活周期的不同将内存划分为几块，一般是新生代和老年代，新生代基本采用复制算法，老年代采用标记整理算法。
 
     当前商业虚拟机都采用分代收集的垃圾收集算法。分代收集算法，顾名思义是根据对象的存活周期将内存划分为几块。
     一般包括年轻代、老年代 和 永久代。
 
-##Q: JVM 的垃圾收集器
+## Q: JVM 的垃圾收集器
+
 serial收集器、ParNew收集器、Parallel Scavenge收集器、serial old收集器、Parallel old收集器、CMS收集器、G1收集器
 
-
 serial收集器：
-    
+
     最基本的最悠久的收集器，单线程、简单高效、运用于新生代，采用的算法是复制算法，
     缺点：在回收器回收时，需要暂停其他的所有线程工作，直到回收完成，
     适用场景：单线程、单cpu的client模式的虚拟机
 
 ParNew收集器：
-    
+
     是基于serial收集器的多线程版本，采用复制算法，
     特点：ParNew默认开启的线程的数量和cpu数量相同，在cpu非常多的情况可以通过设置-XX:ParallelGCThreads参数来修改，
 
@@ -576,7 +579,7 @@ ParNew收集器：
     适用场景：它是运行在server模式下的首选新生代的回收器，因为它是除了serial收集器外，唯一能与cms收集器工作的新生代收集器。
 
 Paraller Scavenge收集器：
-    
+
     注重吞吐量的多线程收集器，目标是使得系统的吞吐量达到可控制的目的，采用的也是复制算法;
         与ParNew的另外一个区别是Paraller Scavenge的GC自适应调节策略。
 
@@ -590,19 +593,16 @@ Paraller Scavenge收集器：
         
         XX:GCRatio 直接设置吞吐量的大小。
 
-
 Serial old收集器：
-    
+
     是Serial的老年代版本的收集器。
     特点也是适合单线程服务，采用的是标记-整理算法
 
     主要应用场景：单线程的client模式，也可以在serve模式下运用（在JDK1.5以及以前的版本中与Parallel Scavenge收集器搭配使用。
     作为CMS收集器的后备方案，在并发收集Concurent Mode Failure时使用。
 
-
-
 Parallel Old收集器：
-    
+
     是Parallel Scavenge收集器的老年代版本。
 
     特点：多线程，采用标记-整理算法。
@@ -610,7 +610,7 @@ Parallel Old收集器：
     应用场景：注重高吞吐量以及CPU资源敏感的场合，都可以优先考虑Parallel Scavenge+Parallel Old 收集器。
 
 CMS收集器：
-    
+
     注重响应速度的基于标记-清除的收集器，应用在老年区，
 
     处理步骤：
@@ -633,10 +633,8 @@ CMS收集器：
         
         在并发标记产生的浮动垃圾需要等到下一次gc才能清理。
 
-
-
 G1收集器：
-    
+
     一款面向服务端应用的垃圾收集器。为了实现STW的时间可预测，首先要有一个思想上的改变。
     G1将堆内存“化整为零”，将堆内存划分成多个大小相等独立区域（Region），每一个Region都可以根据需要，扮演新生代的Eden空间、Survivor空间，或者老年代空间。
     收集器能够对扮演不同角色的Region采用不同的策略去处理，这样无论是新创建的对象还是已经存活了一段时间、熬过多次收集的旧对象都能获取很好的收集效果。
@@ -683,6 +681,7 @@ G1收集器：
 |CMS|并发|老年代|标记-清除|响应速度优先|集中在互联网站或B/S系统服务端上的Java应用|
 |G1|并发|both|标记-整理+复制算法|响应速度优先|面向服务端应用，将来替换CMS|
 
+![avatar](../blog/java/imgs/img_4.png)
 
  <style>
   table{
