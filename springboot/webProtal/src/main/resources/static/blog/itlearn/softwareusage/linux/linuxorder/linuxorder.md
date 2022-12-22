@@ -11,11 +11,13 @@
 
     shutdown -h now 或者 poweroff # 离开关机
     shutdown -h 2 #两分钟后关机
+    poweroff  立刻关机
 
 #### 立刻重启
 
     shutdown -r now 或者 reboot # 马上重启    
     shutdown -r 2 # 两分钟后重启
+    reboot     立刻重启
 
 #### 刷新资源文件
 
@@ -249,6 +251,11 @@
     cat _fileName cat主要有三大功能： 1.一次显示整个文件:cat filename 2.从键盘创建一个文件:cat > filename 只能创建新文件,不能编辑已有文件. 3.将几个文件合并为一个文件:cat
     file1 file2 > file
 
+#### 定位可执行文件
+
+    whereis ls    将和ls文件相关的文件都查找出来
+
 ## Linux常用命令学习
 
 - <a href="https://www.cnblogs.com/gaojun/p/3359355.html" target="_blank">Linux常用命令学习 </a>
+- <a href="https://blog.csdn.net/qq_23329167/article/details/83856430" target="_blank">Linux常用命令 </a>
