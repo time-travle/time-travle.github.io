@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>newversion</title>
+    </head>
+    <body>
+        <div id="newversion_area" class="md_content"></div>
+        <script>
+            $.get('../blog/java/newversion/newversion.md', function (response, status, xhr) {
+                $("#newversion_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

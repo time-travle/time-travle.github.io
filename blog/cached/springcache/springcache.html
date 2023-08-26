@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>springcache</title>
+    </head>
+    <body>
+        <div id="springcache_area" class="md_content"></div>
+        <script>
+            $.get('../blog/cached/springcache/springcache.md', function (response, status, xhr) {
+                $("#springcache_area").html(marked(response));
+            });
+
+            function refreshSpringCacheContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = 'blog/cached/springcache/' + choose + '/' + choose + '.html';
+                $("#content").load(location.pathname + target);
+            }
+        </script>
+    </body>
+</html>

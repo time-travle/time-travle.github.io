@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>javascript</title>
+    </head>
+    <body>
+        <div id="javascript_area" class="md_content"></div>
+        <script>
+            $.get('../blog/javascript/javascript.md', function (response, status, xhr) {
+                $("#javascript_area").html(marked(response));
+            });
+
+            function refreshJavascriptContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = 'blog/javascript/' + choose + '/' + choose + '.html';
+                $("#content").load(location.pathname + target);
+            }
+        </script>
+    </body>
+</html>

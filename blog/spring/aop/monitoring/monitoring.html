@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>aop-monitoring</title>
+    </head>
+    <body>
+        <div id="aopmonitoring_area" class="md_content"></div>
+        <script>
+            $.get('../blog/spring/aop/monitoring/monitoring.md', function (response, status, xhr) {
+                $("#aopmonitoring_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

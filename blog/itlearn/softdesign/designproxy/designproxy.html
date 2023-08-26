@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>designproxy</title>
+    </head>
+    <body>
+        <div id="designproxy_area" class="md_content"></div>
+        <script>
+            $.get('../blog/itlearn/softdesign/designproxy/designproxy.md', function (response, status, xhr) {
+                $("#designproxy_area").html(marked(response));
+            });
+
+            function refreshDesignProxyContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = 'blog/itlearn/softdesign/designproxy/' + choose + '/' + choose + '.html';
+                $("#content").load(location.pathname + target);
+            }
+        </script>
+    </body>
+    </body>
+</html>

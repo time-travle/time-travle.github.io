@@ -1,0 +1,45 @@
+table > tbody > tr > td {
+    border-style: groove;
+}
+
+img {
+    width: 100px;
+}
+
+table {
+    border-style: double;
+    width: 100%;
+    font-family: STKaiti;
+}
+
+.name {
+    border-style: none;
+    font-size: 40px;
+    font-family: STKaiti;
+}
+
+.childName {
+    border-style: none;
+    font-size: 25px;
+    font-family: STKaiti;
+}
+
+.fleft {
+    text-align: left;
+}
+
+.fright {
+    text-align: right;
+}
+
+.d-7 {
+    width: 115px
+}
+
+.d-1 {
+    width: 130px;
+}
+
+.weight {
+    font-weight: bold;
+}

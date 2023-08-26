@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>algorithm_bucketsort</title>
+    </head>
+    <body>
+        <div id="algorithm_bucketsort_area" class="md_content"></div>
+        <script>
+            $.get('../blog/algorithm/bucketsort/bucketsort.md', function (response, status, xhr) {
+                $("#algorithm_bucketsort_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>springboot</title>
+    </head>
+    <body>
+        <div id="springboot_area" class="md_content"></div>
+        <script>
+            $.get('../blog/springboot/springboot.md', function (response, status, xhr) {
+                $("#springboot_area").html(marked(response));
+            });
+
+            function refreshSpringBootContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = 'blog/springboot/' + choose + '/' + choose + '.html';
+                $("#content").load(location.pathname + target);
+            }
+        </script>
+    </body>
+</html>

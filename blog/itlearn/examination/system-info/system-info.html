@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>system-info</title>
+    </head>
+    <body>
+        <div id="system-info_area" class="md_content"></div>
+        <script>
+            $.get('../blog/itlearn/examination/system-info/system-info.md', function (response, status, xhr) {
+                $("#system-info_area").html(marked(response));
+            });
+        </script>
+    </body>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>ioc</title>
+    </head>
+    <body>
+        <div id="ioc_area" class="md_content"></div>
+        <script>
+            $.get('../blog/spring/ioc/ioc.md', function (response, status, xhr) {
+                $("#ioc_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

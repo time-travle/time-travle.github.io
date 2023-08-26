@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>database</title>
+    </head>
+    <body>
+        <div id="database_area" class="md_content"></div>
+        <script>
+            $.get('../blog/database/database.md', function (response, status, xhr) {
+                $("#database_area").html(marked(response));
+            });
+
+            function refreshDatabaseContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = 'blog/database/' + choose + '/' + choose + '.html';
+                $("#content").load(location.pathname + target);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>question</title>
+    </head>
+    <body>
+        <div id="question" class="md_content"></div>
+        <script>
+            $.get('../blog/database/question/question.md', function (response, status, xhr) {
+                $("#question").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

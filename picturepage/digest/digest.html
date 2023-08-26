@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>digest</title>
+    </head>
+    <body>
+        <div id="digest_area" class="md_content"></div>
+        <script>
+            $.get('../picturepage/digest/digest.md', function (response, status, xhr) {
+                $("#digest_area").html(marked(response));
+            });
+
+            function refreshDigestContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = 'picturepage/digest/' + choose + '/' + choose + '.html';
+                $("#content").load(location.pathname + target);
+            }
+        </script>
+    </body>
+</html>

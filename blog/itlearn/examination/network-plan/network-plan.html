@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>network-plan</title>
+    </head>
+    <body>
+        <div id="network-plan_area" class="md_content"></div>
+        <script>
+            $.get('../blog/itlearn/examination/network-plan/network-plan.md', function (response, status, xhr) {
+                $("#network-plan_area").html(marked(response));
+            });
+        </script>
+    </body>
+    </body>
+</html>

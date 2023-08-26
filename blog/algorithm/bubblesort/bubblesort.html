@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>algorithm_bubblesort</title>
+    </head>
+    <body>
+        <div id="algorithm_bubblesort_area" class="md_content"></div>
+        <script>
+            $.get('../blog/algorithm/bubblesort/bubblesort.md', function (response, status, xhr) {
+                $("#algorithm_bubblesort_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

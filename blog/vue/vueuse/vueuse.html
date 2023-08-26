@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>vue_vueuse</title>
+    </head>
+    <body>
+        <div id="vue_vueuse_area" class="md_content"></div>
+        <script>
+            $.get('../blog/vue/vueuse/vueuse.md', function (response, status, xhr) {
+                $("#vue_vueuse_area").html(marked(response));
+            });
+
+        </script>
+    </body>
+</html>

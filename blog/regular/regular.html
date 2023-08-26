@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>regular</title>
+    </head>
+    <body>
+        <div id="regular_area" class="md_content"></div>
+        <script>
+            $.get('../blog/regular/regular.md', function (response, status, xhr) {
+                $("#regular_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>cached</title>
+    </head>
+    <body>
+        <div id="cached_area" class="md_content"></div>
+        <script>
+            $.get('../blog/cached/cached.md', function (response, status, xhr) {
+                $("#cached_area").html(marked(response));
+            });
+
+            function refreshCachedContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = 'blog/cached/' + choose + '/' + choose + '.html';
+                $("#content").load(location.pathname + target);
+            }
+        </script>
+    </body>
+</html>

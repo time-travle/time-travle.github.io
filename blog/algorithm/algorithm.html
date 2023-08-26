@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>algorithm</title>
+    </head>
+    <body>
+        <div id="algorithm_area" class="md_content"></div>
+        <script>
+            $.get('../blog/algorithm/algorithm.md', function (response, status, xhr) {
+                $("#algorithm_area").html(marked(response));
+            });
+            function refreshAlgorithmContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = 'blog/algorithm/' + choose + '/' + choose + '.html';
+                $("#content").load(location.pathname + target);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>servicecenter_nacos</title>
+    </head>
+    <body>
+        <div id="servicecenter_nacos_area" class="md_content"></div>
+        <script>
+            $.get('../blog/springcloud/servicecenter/nacos/nacos.md', function (response, status, xhr) {
+                $("#servicecenter_nacos_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

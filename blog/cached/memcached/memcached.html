@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>memcached</title>
+    </head>
+    <body>
+        <div id="memcached_area" class="md_content"></div>
+        <script>
+            $.get('../blog/cached/memcached/memcached.md', function (response, status, xhr) {
+                $("#memcached_area").html(marked(response));
+            });
+
+            function refreshMemcachedContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = 'blog/cached/memcached/' + choose + '/' + choose + '.html';
+                $("#content").load(location.pathname + target);
+            }
+
+        </script>
+    </body>
+</html>

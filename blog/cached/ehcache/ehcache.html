@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>ehcache</title>
+    </head>
+    <body>
+        <div id="ehcache_area" class="md_content"></div>
+        <script>
+            $.get('../blog/cached/ehcache/ehcache.md', function (response, status, xhr) {
+                $("#ehcache_area").html(marked(response));
+            });
+
+            function refreshEhcacheContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = 'blog/cached/ehcache/' + choose + '/' + choose + '.html';
+                $("#content").load(location.pathname + target);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>examination</title>
+    </head>
+    <body>
+        <div id="examination_area" class="md_content"></div>
+        <script>
+            $.get('../blog/itlearn/examination/examination.md', function (response, status, xhr) {
+                $("#examination_area").html(marked(response));
+            });
+
+            function refreshExaminationContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = 'blog/itlearn/examination/' + choose + '/' + choose + '.html';
+                $("#content").load(location.pathname + target);
+            }
+        </script>
+    </body>
+    </body>
+</html>

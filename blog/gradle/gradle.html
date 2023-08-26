@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>gradle</title>
+    </head>
+    <body>
+        <div id="gradle_area" class="md_content"></div>
+        <script>
+            $.get('../blog/gradle/gradle.md', function (response, status, xhr) {
+                $("#gradle_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

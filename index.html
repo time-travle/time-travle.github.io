@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="text/css" rel="stylesheet" href="/public/css/base.css"/>
+    <script type="text/javascript" src="/public/js/base.js"></script>
+    <script type="text/javascript" src="/public/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/public/js/marked.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="/public/css/md.css"/>
+    <link rel="shortcut icon" href="/public/imge/avatar.jpg">
+    <title>Joven's Blog</title>
+</head>
+
+<body>
+<div id="wrap">
+    <div id="header"></div>
+    <div id="container"></div>
+    <div id="foot"></div>
+</div>
+</body>
+<script type="text/javascript">
+    /*关闭右键*/
+    // $(document).bind("contextmenu", function () {
+    //     return false;
+    // });
+    $(document).keydown(function (e) {
+        /*关闭 ctrl + A/S*/
+        if (e.ctrlKey && (e.keyCode == 65 || e.keyCode == 83)) {
+            return false;
+        }
+    });
+</script>
+</html>

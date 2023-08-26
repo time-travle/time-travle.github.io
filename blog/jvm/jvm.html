@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>jvm</title>
+    </head>
+    <body>
+        <div id="jvm_area" class="md_content"></div>
+        <script>
+            $.get('../blog/jvm/jvm.md', function (response, status, xhr) {
+                $("#jvm_area").html(marked(response));
+            });
+            function refreshJVMContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = 'blog/jvm/' + choose + '/' + choose + '.html';
+                $("#content").load(location.pathname + target);
+            }
+        </script>
+    </body>
+</html>

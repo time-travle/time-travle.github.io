@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>redis</title>
+    </head>
+    <body>
+        <div id="redis_area" class="md_content"></div>
+        <script>
+            $.get('../blog/cached/redis/redis.md', function (response, status, xhr) {
+                $("#redis_area").html(marked(response));
+            });
+
+            function refreshRedisContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = 'blog/cached/redis/' + choose + '/' + choose + '.html';
+                $("#content").load(location.pathname + target);
+            }
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>designmvvm</title>
+    </head>
+    <body>
+        <div id="designmvvm_area" class="md_content"></div>
+        <script>
+            $.get('../blog/itlearn/softdesign/designmvvm/designmvvm.md', function (response, status, xhr) {
+                $("#designmvvm_area").html(marked(response));
+            });
+        </script>
+    </body>
+    </body>
+</html>

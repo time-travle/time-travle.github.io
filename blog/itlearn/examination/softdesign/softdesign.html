@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>softdesign</title>
+    </head>
+    <body>
+        <div id="softdesign_area" class="md_content"></div>
+        <script>
+            $.get('../blog/itlearn/examination/softdesign/softdesign.md', function (response, status, xhr) {
+                $("#softdesign_area").html(marked(response));
+            });
+        </script>
+    </body>
+    </body>
+</html>

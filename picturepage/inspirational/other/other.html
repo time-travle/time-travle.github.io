@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>其他</title>
+    </head>
+    <body>
+        <div id="inspirational_other_area" class="md_content"></div>
+        <script>
+            $.get('../picturepage/inspirational/other/other.md', function (response, status, xhr) {
+                $("#inspirational_other_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

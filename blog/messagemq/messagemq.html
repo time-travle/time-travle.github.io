@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>messagemq</title>
+    </head>
+    <body>
+        <div id="messagemq" class="md_content"></div>
+        <script>
+            $.get('../blog/messagemq/messagemq.md', function (response, status, xhr) {
+                $("#messagemq").html(marked(response));
+            });
+
+            function refreshMQContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = 'blog/messagemq/' + choose + '/' + choose + '.html';
+                $("#content").load(location.pathname + target);
+            }
+        </script>
+    </body>
+</html>

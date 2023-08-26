@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>system-info-senior</title>
+    </head>
+    <body>
+        <div id="system-info-senior_area" class="md_content"></div>
+        <script>
+            $.get('../blog/itlearn/examination/system-info-senior/system-info-senior.md', function (response, status, xhr) {
+                $("#system-info-senior_area").html(marked(response));
+            });
+        </script>
+    </body>
+    </body>
+</html>

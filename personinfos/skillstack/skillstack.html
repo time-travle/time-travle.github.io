@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>技能</title>
+    </head>
+    <body>
+        <div id="skillstack" class="md_content"></div>
+        <script>
+            $.get('../personinfos/skillstack/skillstack.md', function (response, status, xhr) {
+                $("#skillstack").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

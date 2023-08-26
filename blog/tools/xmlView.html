@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>xml格式化</title>
+        <style>
+            #xmlContent, #showXml {
+                text-align: initial;
+                margin: 5px;
+            }
+
+            #xmlContent {
+                resize: none;
+                width: 100%;
+                padding: 0px;
+                height: 100px;
+            }
+
+            #showXml {
+                height: 450px;
+                border: solid 1px darkgrey;
+                border-radius: 5px;
+                overflow: auto;
+                width: 99.6%;
+                resize: none;
+            }
+
+            .test_area {
+                width: 99%;
+            }
+        </style>
+        <script type="text/javascript">
+            var formatXML = function () {
+                text = $('#xmlContent').val();
+                //去掉多余的空格
+                text = '\n' + text.replace(/(<\w+)(\s.*?>)/g, function ($0, name, props) {
+                    return name + ' ' + props.replace(/\s+(\w+=)/g, " $1");
+                }).replace(/>\s*?</g, ">\n<");
+                //把注释编码
+                text = text.replace(/\n/g, '\r').replace('/<!--(.+?)-->/g', function ($0, text) {
+                    var ret = '<!--' + escape(text) + '-->';
+                    return ret;
+                }).replace(/\r/g, '\n');
+                //调整格式
+                var rgx = /\n(<(([^\?]).+?)(?:\s|\s*?>|\s*?(\/)>)(?:.*?(?:(?:(\/)>)|(?:<(\/)\2>)))?)/mg;
+                var nodeStack = [];
+                var output = text.replace(rgx, function ($0, all, name, isBegin, isCloseFull1, isCloseFull2, isFull1, isFull2) {
+                    var isClosed = (isCloseFull1 == '/') || (isCloseFull2 == '/') || (isFull1 == '/') || (isFull2 == '/');
+                    var prefix = '';
+                    if (isBegin == '!') {
+                        prefix = getPrefix(nodeStack.length);
+                    } else {
+                        if (isBegin != '/') {
+                            prefix = getPrefix(nodeStack.length);
+                            if (!isClosed) {
+                                nodeStack.push(name);
+                            }
+                        } else {
+                            nodeStack.pop();
+                            prefix = getPrefix(nodeStack.length);
+                        }
+                    }
+                    var ret = '\n' + prefix + all;
+                    return ret;
+                });
+                var prefixSpace = -1;
+                var outputText = output.substring(1);
+                //把注释还原并解码，调格式
+                outputText = outputText.replace(/\n/g, '\r').replace('/(\s*)<!--(.+?)-->/g',
+                    function ($0, prefix, text) {
+                        if (prefix.charAt(0) == '\r')
+                            prefix = prefix.substring(1);
+                        text = unescape(text).replace(/\r/g, '\n');
+                        var ret = '\n' + prefix + '<!--' + text.replace(/^\s*/mg, prefix) + '-->';
+                        return ret;
+                    }
+                );
+                outputText = outputText.replace(/\s+$/g, '').replace(/\r/g, '\r\n');
+                $('#showXml').val(outputText);
+
+                function getPrefix(prefixIndex) {
+                    var span = '    ';
+                    var output = [];
+                    for (var i = 0; i < prefixIndex; ++i) {
+                        output.push(span);
+                    }
+                    return output.join('');
+                }
+            };
+            $("#xmlContent").on("keyup blur", function () {
+                document.getElementById("showXml").innerHTML = '<pre>' + "格式不对，请检查格式" + '<pre/>';
+                var resultJson = formatXML($("#xmlContent").val());
+                //将格式化好后的json写入页面中
+                document.getElementById("showXml").innerHTML = '<pre>' + resultJson + '<pre/>';
+            })
+        </script>
+    </head>
+    <body>
+        <h3>XML 格式化</h3>
+        <div class="test_area">
+            <textarea id="xmlContent" class="" placeholder="输入 xmlString"></textarea>
+            <!--格式化后的json写入的位置-->
+            <textarea id="showXml"></textarea>
+        </div>
+    </body>
+</html>

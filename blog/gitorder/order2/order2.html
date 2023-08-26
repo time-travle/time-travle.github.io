@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>order_order2</title>
+    </head>
+    <body>
+        <div id="order_order2_area" class="md_content"></div>
+        <script>
+            $.get('../blog/gitorder/order2/order2.md', function (response, status, xhr) {
+                $("#order_order2_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

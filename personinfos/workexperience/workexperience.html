@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>工作经历</title>
+    </head>
+    <body>
+        <!--参考 wiki：https://www.jianshu.com/p/312dfa0479c0 -->
+        <div id="work_area" class="md_content"></div>
+        <script>
+            $.get('../personinfos/workexperience/workexperience.md', function (response, status, xhr) {
+                $("#work_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

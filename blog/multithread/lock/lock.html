@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>lock</title>
+    </head>
+    <body>
+        <div id="lock_area" class="md_content"></div>
+        <script>
+            $.get('../blog/multithread/lock/lock.md', function (response, status, xhr) {
+                $("#lock_area").html(marked(response));
+            });
+        </script>
+    </body>
+</html>

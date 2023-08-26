@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>springcloud</title>
+    </head>
+    <body>
+        <div id="springcloud_area" class="md_content"></div>
+        <script>
+            $.get('../blog/springcloud/springcloud.md', function (response, status, xhr) {
+                $("#springcloud_area").html(marked(response));
+            });
+
+            function refreshSpringCloudContent(choose) {
+                if (!choose) {
+                    return;
+                }
+                var target = 'blog/springcloud/' + choose + '/' + choose + '.html';
+                $("#content").load(location.pathname + target);
+            }
+        </script>
+    </body>
+</html>

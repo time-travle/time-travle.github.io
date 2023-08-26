@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>teacher</title>
+    </head>
+    <body>
+        <div id="teacher_area" class="md_content"></div>
+        <script>
+            $.get('../blog/itlearn/examination/teacher/teacher.md', function (response, status, xhr) {
+                $("#teacher_area").html(marked(response));
+            });
+        </script>
+    </body>
+    </body>
+</html>

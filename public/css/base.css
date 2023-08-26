@@ -1,0 +1,79 @@
+html, body {
+    height: 99%;
+}
+
+/**
+禁止左键复制
+ */
+.hide_copy {
+    -moz-user-select: none; /* Firefox私有属性 */
+    -webkit-user-select: none; /* WebKit内核私有属性 */
+    -ms-user-select: none; /* IE私有属性(IE10及以后) */
+    -khtml-user-select: none; /* KHTML内核私有属性 */
+    -o-user-select: none; /* Opera私有属性 */
+    user-select: none; /* CSS3属性 */
+}
+
+#wrap {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    height: 100%;
+}
+
+#header {
+    margin: 15px 20px;
+    height: 6%;
+    border: solid 0px #0000FF;
+    z-index: 99;
+}
+
+#container {
+    position: relative;
+    margin: 0px 20px;
+    height: 84%;
+    z-index: 1;
+}
+
+#foot {
+    position: absolute;
+    width: 99%;
+    clear: both;
+    height: 5rem;
+}
+
+#left_side {
+    position: absolute;
+    overflow-y: auto;
+    top: 0px;
+    left: 0px;
+    border: solid 0px #0000FF;
+    width: 10%;
+    height: 100%;
+    background-color: blanchedalmond;
+}
+
+#content {
+    margin: 0px 20% 0px 10%;
+    border: solid 0px #0000FF;
+    height: 100%;
+    width: 80%;
+    overflow-y: auto;
+    /*background-image: url("../imge/bgp_1.jpg");*/
+    background-size: cover;
+    z-index: -1;
+}
+
+#right_side {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border: solid 0px #0000FF;
+    width: 10%;
+    height: 100%;
+    background-color: blanchedalmond;
+}
+
+ul {
+    padding-inline-start: unset;
+}

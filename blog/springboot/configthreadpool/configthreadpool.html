@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>springboot_configthreadpool</title>
+    </head>
+    <body>
+        <div id="springboot_configthreadpool_area" class="md_content"></div>
+        <script>
+            $.get('../blog/springboot/configthreadpool/configthreadpool.md', function (response, status, xhr) {
+                $("#springboot_configthreadpool_area").html(marked(response));
+            });
+
+        </script>
+    </body>
+</html>
