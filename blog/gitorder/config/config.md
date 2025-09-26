@@ -47,7 +47,7 @@
     filter.lfs.required=true
     credential.helper=manager
     user.name=joven10230112
-    user.email=18763137197@163.com
+    user.email=eszhanga@163.com
     credential.helper=manager
 
     5、创建心意的本地版本库
