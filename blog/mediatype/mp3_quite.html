@@ -1,10 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>mp3-quite</title>
-    </head>
-    <body>
-        mp3-quite
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>mp3-quite</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 5px;
+        }
+
+        h2 {
+            text-align: start;
+        }
+
+        /* 替代iframe废弃的frameBorder，无警告 */
+        iframe {
+            border: none;
+            width: 298px;
+            height: 52px;
+        }
+    </style>
+</head>
+<body>
+<h1>安静</h1>
+<h2>网易云音乐</h2>
+<table id="musicTable">
+    <!-- JS自动生成4列表格内容 -->
+</table>
+
+<script>
+    // 核心方案：封装成独立函数 + 防止函数重复定义 + 全程无全局变量冲突
+    // 只有函数未定义时才创建，避免重复声明
+    if (!window.renderMusicTable) {
+        window.renderMusicTable = function() {
+            // 1. 局部变量：仅在函数内生效，重复执行也不会冲突
+            const musicTable = document.querySelector('#musicTable');
+            musicTable.innerHTML = ''; // 清空旧内容
+
+            const music163List = [
+                {src: "//music.163.com/outchain/player?type=2&id=3351242272&auto=0&height=32"},
+                {src: "//music.163.com/outchain/player?type=2&id=3351242272&auto=0&height=32"},
+                {src: "//music.163.com/outchain/player?type=2&id=3349945534&auto=0&height=32"},
+                {src: "//music.163.com/outchain/player?type=2&id=1911856994&auto=0&height=32"},
+            ];
+
+            const COLUMNS = 4;
+            let currentRow;
+
+            // 2. 渲染表格：局部变量操作，无全局冲突
+            music163List.forEach((item, index) => {
+                if (index % COLUMNS === 0) {
+                    currentRow = document.createElement('tr');
+                    musicTable.appendChild(currentRow);
+                }
+
+                const td = document.createElement('td');
+                const iframe = document.createElement('iframe');
+                iframe.src = item.src;
+
+                td.appendChild(iframe);
+                currentRow.appendChild(td);
+            });
+        };
+    }
+
+    // 执行渲染函数（重复执行仅调用函数，不重新声明变量/函数）
+    window.renderMusicTable();
+</script>
+</body>
 </html>
